@@ -2,10 +2,17 @@ import { Badge } from "@/components/ui/badge";
 import { Globe2 } from "lucide-react";
 
 const markets = [
+  { country: "Armenia", flag: "🇦🇲" },
   { country: "Azerbaijan", flag: "🇦🇿" },
   { country: "Cyprus", flag: "🇨🇾" },
+  { country: "Estonia", flag: "🇪🇪" },
+  { country: "Ethiopia", flag: "🇪🇹" },
+  { country: "Georgia", flag: "🇬🇪" },
   { country: "Greece", flag: "🇬🇷" },
+  { country: "India", flag: "🇮🇳" },
   { country: "Kazakhstan", flag: "🇰🇿" },
+  { country: "Latvia", flag: "🇱🇻" },
+  { country: "Lithuania", flag: "🇱🇹" },
   { country: "Poland", flag: "🇵🇱" },
   { country: "Serbia", flag: "🇷🇸" },
   { country: "Ukraine", flag: "🇺🇦" },
