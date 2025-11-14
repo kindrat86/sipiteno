@@ -44,7 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Sipiteno Contact Form <onboarding@resend.dev>",
+      from: "Sipiteno Contact Form <sales@sipiteno.com>",
       to: ["sales@sipiteno.com"],
       subject: `New Contact Form Submission from ${formData.fullName}`,
       html: emailHtml,
