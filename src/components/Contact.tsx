@@ -20,7 +20,8 @@ const Contact = () => {
     phone: "",
     country: "",
     service: "",
-    message: ""
+    message: "",
+    honeypot: "" // Hidden field to catch bots
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -79,7 +80,8 @@ const Contact = () => {
         phone: "",
         country: "",
         service: "",
-        message: ""
+        message: "",
+        honeypot: ""
       });
       setErrors({});
     } catch (error: any) {
@@ -212,6 +214,17 @@ const Contact = () => {
                 <Textarea id="message" rows={4} value={formData.message} onChange={e => handleChange("message", e.target.value)} className={errors.message ? "border-destructive" : ""} />
                 {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
               </div>
+
+              {/* Honeypot field - hidden from users but visible to bots */}
+              <input 
+                type="text" 
+                name="honeypot" 
+                value={formData.honeypot}
+                onChange={e => handleChange("honeypot", e.target.value)}
+                style={{ display: 'none' }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
 
               <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Send Message"}
