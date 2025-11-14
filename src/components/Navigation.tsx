@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/sipiteno-logo.png";
+
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollToSection = (id: string) => {
@@ -30,8 +32,8 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-primary">
-            Sipiteno
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Sipiteno" className="h-8" />
           </Link>
 
           {/* Desktop Navigation */}
