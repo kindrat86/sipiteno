@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Brain, Rocket, Users, Smartphone, Shield } from "lucide-react";
+import { TrendingUp, Brain, Rocket, Users, Smartphone, Shield, Monitor, Globe } from "lucide-react";
 
 const services = [
   {
@@ -37,6 +37,18 @@ const services = [
     title: "Cyber Security Services",
     description: "Comprehensive security audits, vulnerability assessments, and security strategy implementation. Protect your business and customer data from evolving threats.",
     features: ["Security Audits", "Vulnerability Testing", "Compliance Management", "Security Training"]
+  },
+  {
+    icon: Monitor,
+    title: "Mobile Marketing",
+    description: "Mobile-first marketing strategies, app store optimization, and mobile advertising campaigns. Reach and engage your audience on mobile devices effectively.",
+    features: ["App Store Optimization", "Mobile Ad Campaigns", "In-App Marketing", "Mobile Analytics"]
+  },
+  {
+    icon: Globe,
+    title: "Digital Marketing Services",
+    description: "Comprehensive digital marketing solutions including SEO, content marketing, and social media management. Drive traffic and convert visitors into customers.",
+    features: ["SEO & SEM", "Content Marketing", "Social Media Management", "Email Marketing"]
   }
 ];
 
