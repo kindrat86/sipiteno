@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, Globe, Users, Monitor, Rocket } from "lucide-react";
+import { Brain, Globe, Users, Monitor, Rocket, ClipboardList, TrendingUp } from "lucide-react";
 
 const services = [
   {
@@ -27,10 +27,22 @@ const services = [
     features: ["Digital Transformation", "Technology Stack Assessment", "Infrastructure Optimization", "Implementation Support"]
   },
   {
+    icon: TrendingUp,
+    title: "Marketing Sales Funnel Setup",
+    description: "Design and implement high-converting sales funnels that guide prospects from awareness to conversion. Optimize every stage of your customer journey.",
+    features: ["Funnel Strategy", "Landing Page Design", "Conversion Optimization", "Analytics & Tracking"]
+  },
+  {
     icon: Rocket,
     title: "MVP Micro SaaS Development",
     description: "Rapid prototyping, market validation, and technical architecture for MicroSaaS solutions. From concept to launch in weeks, not months.",
     features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"]
+  },
+  {
+    icon: ClipboardList,
+    title: "Project Management",
+    description: "End-to-end project management services using agile methodologies. Ensure on-time delivery, budget control, and stakeholder alignment throughout your project lifecycle.",
+    features: ["Agile & Scrum", "Resource Planning", "Risk Management", "Stakeholder Communication"]
   }
 ];
 
