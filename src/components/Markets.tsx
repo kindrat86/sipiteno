@@ -44,7 +44,7 @@ const Markets = () => {
             Markets We Serve
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Deep expertise across Eastern European tech ecosystems. We understand the unique challenges and opportunities in each market.
+            Deep expertise across Europe, Caucasus, Central Asia, and emerging tech markets. We understand the unique challenges and opportunities in each region.
           </p>
         </div>
         

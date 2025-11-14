@@ -88,7 +88,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to expand your business in Eastern Europe? Let's discuss your goals.
+            Ready to expand your business in emerging tech markets? Let's discuss your goals.
           </p>
         </div>
 
