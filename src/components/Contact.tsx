@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, FileText } from "lucide-react";
 const countries = ["Azerbaijan", "Cyprus", "Greece", "Kazakhstan", "Poland", "Serbia", "Ukraine", "Uzbekistan", "Other"];
-const services = ["Business Development", "AI/IT Consulting", "MicroSaaS MVP"];
+const services = ["Business Development", "AI/IT Consulting", "MicroSaaS MVP", "HR / Recruitment", "Mobile App Development", "Cyber Security"];
 const Contact = () => {
   const {
     toast
