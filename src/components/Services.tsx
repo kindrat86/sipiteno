@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Brain, Rocket } from "lucide-react";
+import { TrendingUp, Brain, Rocket, Users, Smartphone, Shield } from "lucide-react";
 
 const services = [
   {
@@ -19,6 +19,24 @@ const services = [
     title: "MicroSaaS MVP Development",
     description: "Rapid prototyping, market validation, and technical architecture for MicroSaaS solutions. From concept to launch in weeks, not months.",
     features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"]
+  },
+  {
+    icon: Users,
+    title: "HR / Recruitment Services",
+    description: "Talent acquisition, team building, and HR consulting for tech companies expanding in Eastern Europe. Access top talent and build high-performing teams.",
+    features: ["Talent Sourcing", "Technical Recruiting", "Team Building", "HR Compliance"]
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Application Development",
+    description: "Native and cross-platform mobile app development for iOS and Android. Create engaging mobile experiences that drive user growth and retention.",
+    features: ["iOS Development", "Android Development", "Cross-Platform Solutions", "UI/UX Design"]
+  },
+  {
+    icon: Shield,
+    title: "Cyber Security Services",
+    description: "Comprehensive security audits, vulnerability assessments, and security strategy implementation. Protect your business and customer data from evolving threats.",
+    features: ["Security Audits", "Vulnerability Testing", "Compliance Management", "Security Training"]
   }
 ];
 
