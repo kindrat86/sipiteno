@@ -1,54 +1,36 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Brain, Rocket, Users, Smartphone, Shield, Monitor, Globe } from "lucide-react";
+import { Brain, Globe, Users, Monitor, Rocket } from "lucide-react";
 
 const services = [
   {
-    icon: TrendingUp,
-    title: "Business Development Services",
-    description: "Market entry strategy, partnership facilitation, and regulatory navigation for Eastern European markets. We help you establish and grow your presence in the region.",
-    features: ["Market Analysis", "Partnership Development", "Regulatory Compliance", "Go-to-Market Strategy"]
-  },
-  {
     icon: Brain,
-    title: "AI & IT Technology Consulting",
-    description: "AI implementation, digital transformation, and technology assessment. Leverage cutting-edge technologies to drive innovation and competitive advantage.",
-    features: ["AI Strategy", "Digital Transformation", "Technology Stack Assessment", "Implementation Support"]
+    title: "AI Consulting",
+    description: "AI implementation, strategy development, and intelligent automation solutions. Leverage cutting-edge artificial intelligence to drive innovation and competitive advantage.",
+    features: ["AI Strategy", "Machine Learning", "Intelligent Automation", "AI Implementation"]
   },
   {
-    icon: Rocket,
-    title: "MicroSaaS MVP Development",
-    description: "Rapid prototyping, market validation, and technical architecture for MicroSaaS solutions. From concept to launch in weeks, not months.",
-    features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"]
+    icon: Globe,
+    title: "Digital Marketing",
+    description: "Comprehensive digital marketing solutions including SEO, content marketing, and social media management. Drive traffic and convert visitors into customers.",
+    features: ["SEO & SEM", "Content Marketing", "Social Media Management", "Email Marketing"]
   },
   {
     icon: Users,
-    title: "HR / Recruitment Services",
+    title: "HR / Recruitment",
     description: "Talent acquisition, team building, and HR consulting for tech companies expanding in Eastern Europe. Access top talent and build high-performing teams.",
     features: ["Talent Sourcing", "Technical Recruiting", "Team Building", "HR Compliance"]
   },
   {
-    icon: Smartphone,
-    title: "Mobile Application Development",
-    description: "Native and cross-platform mobile app development for iOS and Android. Create engaging mobile experiences that drive user growth and retention.",
-    features: ["iOS Development", "Android Development", "Cross-Platform Solutions", "UI/UX Design"]
-  },
-  {
-    icon: Shield,
-    title: "Cyber Security Services",
-    description: "Comprehensive security audits, vulnerability assessments, and security strategy implementation. Protect your business and customer data from evolving threats.",
-    features: ["Security Audits", "Vulnerability Testing", "Compliance Management", "Security Training"]
-  },
-  {
     icon: Monitor,
-    title: "Mobile Marketing",
-    description: "Mobile-first marketing strategies, app store optimization, and mobile advertising campaigns. Reach and engage your audience on mobile devices effectively.",
-    features: ["App Store Optimization", "Mobile Ad Campaigns", "In-App Marketing", "Mobile Analytics"]
+    title: "IT Consulting",
+    description: "Technology assessment, digital transformation, and IT infrastructure optimization. Expert guidance to modernize your technology stack and operations.",
+    features: ["Digital Transformation", "Technology Stack Assessment", "Infrastructure Optimization", "Implementation Support"]
   },
   {
-    icon: Globe,
-    title: "Digital Marketing Services",
-    description: "Comprehensive digital marketing solutions including SEO, content marketing, and social media management. Drive traffic and convert visitors into customers.",
-    features: ["SEO & SEM", "Content Marketing", "Social Media Management", "Email Marketing"]
+    icon: Rocket,
+    title: "MVP Micro SaaS Development",
+    description: "Rapid prototyping, market validation, and technical architecture for MicroSaaS solutions. From concept to launch in weeks, not months.",
+    features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"]
   }
 ];
 
