@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, FileText } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 const countries = ["Albania", "Armenia", "Azerbaijan", "Bosnia", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Estonia", "Ethiopia", "Georgia", "Greece", "Hungary", "India", "Kazakhstan", "Kyrgyzstan", "Latvia", "Lithuania", "Moldova", "Montenegro", "North Macedonia", "Poland", "Romania", "Serbia", "Slovakia", "Slovenia", "Ukraine", "Uzbekistan", "Other"];
 const services = ["AI Consulting", "Business Development B2B", "Digital Marketing", "HR / Recruitment", "IT Consulting", "Marketing Sales Funnel Setup", "MVP Micro SaaS Development", "Project Management"];
 const Contact = () => {
@@ -34,7 +35,7 @@ const Contact = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) {
       toast({
@@ -45,29 +46,37 @@ const Contact = () => {
       return;
     }
 
-    // Store in localStorage for demo
-    const submissions = JSON.parse(localStorage.getItem("contactSubmissions") || "[]");
-    submissions.push({
-      ...formData,
-      timestamp: new Date().toISOString()
-    });
-    localStorage.setItem("contactSubmissions", JSON.stringify(submissions));
-    toast({
-      title: "Message Sent Successfully!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours."
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
 
-    // Reset form
-    setFormData({
-      fullName: "",
-      companyName: "",
-      email: "",
-      phone: "",
-      country: "",
-      service: "",
-      message: ""
-    });
-    setErrors({});
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for contacting us. We'll get back to you within 24 hours."
+      });
+
+      // Reset form
+      setFormData({
+        fullName: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        country: "",
+        service: "",
+        message: ""
+      });
+      setErrors({});
+    } catch (error: any) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    }
   };
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({
