@@ -23,6 +23,7 @@ const Contact = () => {
     message: ""
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
@@ -37,6 +38,9 @@ const Contact = () => {
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    console.log("Form submission started");
+    
     if (!validateForm()) {
       toast({
         title: "Validation Error",
@@ -46,12 +50,21 @@ const Contact = () => {
       return;
     }
 
+    setIsSubmitting(true);
+    
     try {
+      console.log("Calling edge function with data:", formData);
+      
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
 
-      if (error) throw error;
+      console.log("Edge function response:", { data, error });
+
+      if (error) {
+        console.error("Edge function error:", error);
+        throw error;
+      }
 
       toast({
         title: "Message Sent Successfully!",
@@ -73,9 +86,11 @@ const Contact = () => {
       console.error("Error sending email:", error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or contact us directly.",
+        description: error?.message || "Failed to send message. Please try again or contact us directly.",
         variant: "destructive"
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
   const handleChange = (field: string, value: string) => {
@@ -198,8 +213,8 @@ const Contact = () => {
                 {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
               </div>
 
-              <Button type="submit" size="lg" className="w-full">
-                Send Message
+              <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </div>
