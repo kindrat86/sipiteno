@@ -23,9 +23,6 @@ const Navigation = () => {
     label: "Markets",
     action: () => scrollToSection("markets")
   }, {
-    label: "Projects",
-    action: () => scrollToSection("projects")
-  }, {
     label: "Contact",
     action: () => scrollToSection("contact")
   }];
