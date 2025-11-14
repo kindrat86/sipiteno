@@ -6,12 +6,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, FileText } from "lucide-react";
-
 const countries = ["Ukraine", "Kazakhstan", "Azerbaijan", "Uzbekistan", "Serbia", "Poland", "Other"];
 const services = ["Business Development", "AI/IT Consulting", "MicroSaaS MVP"];
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     fullName: "",
     companyName: "",
@@ -22,10 +22,8 @@ const Contact = () => {
     message: ""
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
-
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-    
     if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -33,14 +31,11 @@ const Contact = () => {
       newErrors.email = "Invalid email format";
     }
     if (!formData.message.trim()) newErrors.message = "Message is required";
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!validateForm()) {
       toast({
         title: "Validation Error",
@@ -52,12 +47,14 @@ const Contact = () => {
 
     // Store in localStorage for demo
     const submissions = JSON.parse(localStorage.getItem("contactSubmissions") || "[]");
-    submissions.push({ ...formData, timestamp: new Date().toISOString() });
+    submissions.push({
+      ...formData,
+      timestamp: new Date().toISOString()
+    });
     localStorage.setItem("contactSubmissions", JSON.stringify(submissions));
-
     toast({
       title: "Message Sent Successfully!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+      description: "Thank you for contacting us. We'll get back to you within 24 hours."
     });
 
     // Reset form
@@ -72,16 +69,19 @@ const Contact = () => {
     });
     setErrors({});
   };
-
   const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: "" }));
+      setErrors(prev => ({
+        ...prev,
+        [field]: ""
+      }));
     }
   };
-
-  return (
-    <section id="contact" className="py-24 bg-muted/30">
+  return <section id="contact" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -123,15 +123,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-card rounded-lg border border-border">
-                  <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">Email</p>
-                    <a href="mailto:info@sipiteno.com" className="text-primary hover:underline">
-                      info@sipiteno.com
-                    </a>
-                  </div>
-                </div>
+                
               </div>
             </div>
 
@@ -147,83 +139,53 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="fullName">Full Name *</Label>
-                <Input
-                  id="fullName"
-                  value={formData.fullName}
-                  onChange={(e) => handleChange("fullName", e.target.value)}
-                  className={errors.fullName ? "border-destructive" : ""}
-                />
+                <Input id="fullName" value={formData.fullName} onChange={e => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} />
                 {errors.fullName && <p className="text-destructive text-sm mt-1">{errors.fullName}</p>}
               </div>
 
               <div>
                 <Label htmlFor="companyName">Company Name</Label>
-                <Input
-                  id="companyName"
-                  value={formData.companyName}
-                  onChange={(e) => handleChange("companyName", e.target.value)}
-                />
+                <Input id="companyName" value={formData.companyName} onChange={e => handleChange("companyName", e.target.value)} />
               </div>
 
               <div>
                 <Label htmlFor="email">Email *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                  className={errors.email ? "border-destructive" : ""}
-                />
+                <Input id="email" type="email" value={formData.email} onChange={e => handleChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} />
                 {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
               </div>
 
               <div>
                 <Label htmlFor="phone">Phone</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleChange("phone", e.target.value)}
-                />
+                <Input id="phone" type="tel" value={formData.phone} onChange={e => handleChange("phone", e.target.value)} />
               </div>
 
               <div>
                 <Label htmlFor="country">Country/Market of Interest</Label>
-                <Select value={formData.country} onValueChange={(value) => handleChange("country", value)}>
+                <Select value={formData.country} onValueChange={value => handleChange("country", value)}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a country" />
                   </SelectTrigger>
                   <SelectContent>
-                    {countries.map(country => (
-                      <SelectItem key={country} value={country}>{country}</SelectItem>
-                    ))}
+                    {countries.map(country => <SelectItem key={country} value={country}>{country}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
 
               <div>
                 <Label htmlFor="service">Service Interest</Label>
-                <Select value={formData.service} onValueChange={(value) => handleChange("service", value)}>
+                <Select value={formData.service} onValueChange={value => handleChange("service", value)}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent>
-                    {services.map(service => (
-                      <SelectItem key={service} value={service}>{service}</SelectItem>
-                    ))}
+                    {services.map(service => <SelectItem key={service} value={service}>{service}</SelectItem>)}
                   </SelectContent>
                 </Select>
               </div>
 
               <div>
                 <Label htmlFor="message">Message *</Label>
-                <Textarea
-                  id="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => handleChange("message", e.target.value)}
-                  className={errors.message ? "border-destructive" : ""}
-                />
+                <Textarea id="message" rows={4} value={formData.message} onChange={e => handleChange("message", e.target.value)} className={errors.message ? "border-destructive" : ""} />
                 {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
               </div>
 
@@ -234,8 +196,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;

@@ -5,21 +5,17 @@ import Markets from "@/components/Markets";
 import ProjectsTable from "@/components/ProjectsTable";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navigation />
       <main className="pt-16">
         <Hero />
         <Services />
         <Markets />
-        <ProjectsTable />
+        
         <Contact />
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
