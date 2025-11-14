@@ -23,7 +23,7 @@ const services = [
   {
     icon: Users,
     title: "HR / Recruitment",
-    description: "Talent acquisition, team building, and HR consulting for tech companies expanding in Eastern Europe. Access top talent and build high-performing teams.",
+    description: "Talent acquisition, team building, and HR consulting for tech companies expanding across Europe, Caucasus, and Central Asia. Access top talent and build high-performing teams.",
     features: ["Talent Sourcing", "Technical Recruiting", "Team Building", "HR Compliance"]
   },
   {
@@ -61,7 +61,7 @@ const Services = () => {
             Our Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive solutions to accelerate your business growth in Eastern European tech markets
+            Comprehensive solutions to accelerate your business growth in emerging tech markets
           </p>
         </div>
         

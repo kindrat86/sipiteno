@@ -19,11 +19,11 @@ const Hero = () => {
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Strategic Business Development in{" "}
-            <span className="text-secondary">Eastern European</span> Tech Markets
+            <span className="text-secondary">Emerging Tech Markets</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
-            Specializing in AI & IT technologies across Greece, Cyprus, Ukraine, Kazakhstan, Azerbaijan, Uzbekistan, Serbia, Poland, and beyond. We transform vision into market success.
+            Specializing in AI & IT technologies across Europe, Caucasus, Central Asia, and beyond. We transform vision into market success.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

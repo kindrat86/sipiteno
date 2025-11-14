@@ -29,7 +29,7 @@ const Terms = () => {
               <h2 className="text-2xl font-semibold mb-4">2. Services Description</h2>
               <p className="text-muted-foreground mb-3">Sipiteno provides the following professional services:</p>
               <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-                <li>Business development consulting for Eastern European markets</li>
+                <li>Business development consulting for emerging tech markets across Europe, Caucasus, and Central Asia</li>
                 <li>AI and IT technology implementation and strategy consulting</li>
                 <li>MicroSaaS MVP development and technical advisory</li>
                 <li>Market entry strategy and partnership facilitation</li>
