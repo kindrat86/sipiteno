@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, Globe, Users, Monitor, Rocket, ClipboardList, TrendingUp } from "lucide-react";
+import { Brain, Globe, Users, Monitor, Rocket, ClipboardList, TrendingUp, Briefcase } from "lucide-react";
 
 const services = [
   {
@@ -7,6 +7,12 @@ const services = [
     title: "AI Consulting",
     description: "AI implementation, strategy development, and intelligent automation solutions. Leverage cutting-edge artificial intelligence to drive innovation and competitive advantage.",
     features: ["AI Strategy", "Machine Learning", "Intelligent Automation", "AI Implementation"]
+  },
+  {
+    icon: Briefcase,
+    title: "Business Development B2B",
+    description: "Strategic B2B partnerships, lead generation, and business growth strategies. Expand your enterprise client base and build lasting business relationships.",
+    features: ["Partnership Development", "Lead Generation", "Market Entry Strategy", "Deal Structuring"]
   },
   {
     icon: Globe,
