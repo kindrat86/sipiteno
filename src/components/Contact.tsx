@@ -40,8 +40,6 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    console.log("Form submission started");
-    
     if (!validateForm()) {
       toast({
         title: "Validation Error",
@@ -54,16 +52,11 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      console.log("Calling edge function with data:", formData);
-      
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
 
-      console.log("Edge function response:", { data, error });
-
       if (error) {
-        console.error("Edge function error:", error);
         throw error;
       }
 
@@ -85,10 +78,9 @@ const Contact = () => {
       });
       setErrors({});
     } catch (error: any) {
-      console.error("Error sending email:", error);
       toast({
         title: "Error",
-        description: error?.message || "Failed to send message. Please try again or contact us directly.",
+        description: "Failed to send message. Please try again or contact us directly.",
         variant: "destructive"
       });
     } finally {
