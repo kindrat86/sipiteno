@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, FileText } from "lucide-react";
-const countries = ["Armenia", "Azerbaijan", "Cyprus", "Estonia", "Ethiopia", "Georgia", "Greece", "India", "Kazakhstan", "Latvia", "Lithuania", "Poland", "Serbia", "Ukraine", "Uzbekistan", "Other"];
+const countries = ["Albania", "Armenia", "Azerbaijan", "Bosnia", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Estonia", "Ethiopia", "Georgia", "Greece", "Hungary", "India", "Kazakhstan", "Latvia", "Lithuania", "Moldova", "Montenegro", "North Macedonia", "Poland", "Romania", "Serbia", "Slovenia", "Ukraine", "Uzbekistan", "Other"];
 const services = ["AI Consulting", "Digital Marketing", "HR / Recruitment", "IT Consulting", "MVP Micro SaaS Development"];
 const Contact = () => {
   const {
