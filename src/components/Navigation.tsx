@@ -39,7 +39,15 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map(item => {})}
+            {navItems.map(item => (
+              <button
+                key={item.label}
+                onClick={item.action}
+                className="text-foreground hover:text-primary transition-colors font-medium"
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}

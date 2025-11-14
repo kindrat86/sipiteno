@@ -8,6 +8,8 @@ const markets = [
   { country: "Uzbekistan", flag: "🇺🇿" },
   { country: "Serbia", flag: "🇷🇸" },
   { country: "Poland", flag: "🇵🇱" },
+  { country: "Cyprus", flag: "🇨🇾" },
+  { country: "Greece", flag: "🇬🇷" },
 ];
 
 const Markets = () => {
