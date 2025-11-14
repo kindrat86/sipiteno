@@ -2,14 +2,14 @@ import { Badge } from "@/components/ui/badge";
 import { Globe2 } from "lucide-react";
 
 const markets = [
-  { country: "Ukraine", flag: "🇺🇦" },
-  { country: "Kazakhstan", flag: "🇰🇿" },
   { country: "Azerbaijan", flag: "🇦🇿" },
-  { country: "Uzbekistan", flag: "🇺🇿" },
-  { country: "Serbia", flag: "🇷🇸" },
-  { country: "Poland", flag: "🇵🇱" },
   { country: "Cyprus", flag: "🇨🇾" },
   { country: "Greece", flag: "🇬🇷" },
+  { country: "Kazakhstan", flag: "🇰🇿" },
+  { country: "Poland", flag: "🇵🇱" },
+  { country: "Serbia", flag: "🇷🇸" },
+  { country: "Ukraine", flag: "🇺🇦" },
+  { country: "Uzbekistan", flag: "🇺🇿" },
 ];
 
 const Markets = () => {
@@ -29,7 +29,7 @@ const Markets = () => {
         </div>
         
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             {markets.map((market, index) => (
               <div 
                 key={index}
