@@ -23,6 +23,11 @@ const Navigation = () => {
       description: "View our business development and consulting services"
     },
     {
+      label: "Why Us",
+      action: () => scrollToSection("why-choose-us"),
+      description: "Learn why companies choose Sipiteno"
+    },
+    {
       label: "MVPs",
       action: () => scrollToSection("mvp-showcase"),
       description: "Explore our MicroSaaS MVP projects"

@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import Markets from "@/components/Markets";
 import MvpShowcase from "@/components/MvpShowcase";
 import FAQ from "@/components/FAQ";
@@ -14,6 +15,7 @@ const Index = () => {
       <main className="pt-16">
         <Hero />
         <Services />
+        <WhyChooseUs />
         <MvpShowcase />
         <Markets />
         <FAQ />
