@@ -33,7 +33,13 @@ const Contact = () => {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    } else if (formData.message.trim().length > 2000) {
+      newErrors.message = "Message must be less than 2000 characters";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
