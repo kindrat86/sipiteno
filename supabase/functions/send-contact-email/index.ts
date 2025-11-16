@@ -198,7 +198,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Sipiteno Contact Form <sales@sipiteno.com>",
+      from: "Sipiteno Contact Form <contact@updates.sipiteno.com>",
       to: ["sales@sipiteno.com"],
       subject: `New Contact Form Submission from ${safeName}`,
       html: emailHtml,
