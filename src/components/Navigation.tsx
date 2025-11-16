@@ -33,7 +33,8 @@ const Navigation = () => {
       action: () => scrollToSection("contact")
     }
   ];
-  return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -47,7 +48,7 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={item.action}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-foreground hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 {item.label}
               </button>
@@ -61,14 +62,24 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && <div className="md:hidden py-4 border-t border-border">
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
-              {navItems.map(item => <button key={item.label} onClick={item.action} className="text-foreground hover:text-primary transition-colors font-medium text-left">
+              {navItems.map(item => (
+                <button 
+                  key={item.label} 
+                  onClick={item.action} 
+                  className="text-foreground hover:text-primary transition-colors font-medium text-left cursor-pointer"
+                >
                   {item.label}
-                </button>)}
+                </button>
+              ))}
             </div>
-          </div>}
+          </div>
+        )}
       </div>
-    </nav>;
+    </nav>
+  );
 };
+
 export default Navigation;
