@@ -2,18 +2,24 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Markets from "@/components/Markets";
+import MvpShowcase from "@/components/MvpShowcase";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+
 const Index = () => {
-  return <div className="min-h-screen">
+  return (
+    <div className="min-h-screen">
       <Navigation />
       <main className="pt-16">
         <Hero />
         <Services />
+        <MvpShowcase />
         <Markets />
         <Contact />
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

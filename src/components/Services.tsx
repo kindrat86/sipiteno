@@ -6,12 +6,6 @@ type Service = {
   title: string;
   description: string;
   features: string[];
-  showcase?: {
-    title: string;
-    name: string;
-    description: string;
-    link: string;
-  };
 };
 
 const services: Service[] = [
@@ -55,13 +49,7 @@ const services: Service[] = [
     icon: Rocket,
     title: "MVP Micro SaaS Development",
     description: "Rapid prototyping, market validation, and technical architecture for MicroSaaS solutions. From concept to launch in weeks, not months.",
-    features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"],
-    showcase: {
-      title: "Our MicroSaaS MVP",
-      name: "FunnelFixer",
-      description: "AI-powered funnel analyzer that audits sales funnels against Russell Brunson's proven frameworks in 60 seconds. Built to help funnel builders identify and fix conversion-killing issues.",
-      link: "https://funnelfixer.site/"
-    }
+    features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"]
   },
   {
     icon: ClipboardList,
@@ -73,55 +61,52 @@ const services: Service[] = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 bg-background">
+    <section id="services" className="py-32 bg-background relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <div className="inline-block mb-6 px-6 py-3 rounded-full bg-primary/10 border border-primary/20">
+            <span className="text-primary font-semibold text-sm tracking-wide uppercase">
+              What We Offer
+            </span>
+          </div>
+          
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
             Our Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Comprehensive solutions to accelerate your business growth in emerging tech markets
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 hover:-translate-y-2"
+              className="group hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/30 hover:-translate-y-1 bg-card/50 backdrop-blur-sm"
             >
-              <CardHeader>
-                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-8 h-8 text-primary" />
+              <CardHeader className="pb-4">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300 group-hover:scale-110">
+                  <service.icon className="w-7 h-7 text-primary" />
                 </div>
-                <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
-                <CardDescription className="text-base">
+                <CardTitle className="text-xl mb-3 leading-tight group-hover:text-primary transition-colors">
+                  {service.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <CardDescription className="text-sm mb-6 leading-relaxed">
                   {service.description}
                 </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-secondary mr-3"></div>
-                      {feature}
+                    <li key={idx} className="flex items-start text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 mr-3 flex-shrink-0"></div>
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-                {service.showcase && (
-                  <div className="mt-6 pt-6 border-t border-border">
-                    <h4 className="text-sm font-semibold text-primary mb-2">{service.showcase.title}</h4>
-                    <a 
-                      href={service.showcase.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block p-4 bg-primary/5 rounded-lg hover:bg-primary/10 transition-colors"
-                    >
-                      <p className="font-semibold text-foreground mb-1">{service.showcase.name}</p>
-                      <p className="text-sm text-muted-foreground">{service.showcase.description}</p>
-                    </a>
-                  </div>
-                )}
               </CardContent>
             </Card>
           ))}
