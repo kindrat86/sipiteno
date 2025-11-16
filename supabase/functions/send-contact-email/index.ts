@@ -63,9 +63,9 @@ const checkRateLimit = async (supabaseAdmin: any, ipAddress: string): Promise<{ 
     .from("contact_rate_limit")
     .select("*")
     .eq("ip_address", ipAddress)
-    .single();
+    .maybeSingle();
 
-  if (fetchError && fetchError.code !== "PGRST116") { // PGRST116 is "not found"
+  if (fetchError) {
     console.error("Error fetching rate limit:", fetchError);
     return { allowed: true }; // Allow on error to not block legitimate users
   }
