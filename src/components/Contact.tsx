@@ -112,45 +112,6 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 bg-card rounded-lg border border-border">
-                  <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">Address</p>
-                    <p className="text-muted-foreground">48 INOMENON ETHNON<br />6042 LARNACA, CYPRUS</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-4 bg-card rounded-lg border border-border">
-                  <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">Phone</p>
-                    <p className="text-muted-foreground">+357 24 628 166</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-4 bg-card rounded-lg border border-border">
-                  <FileText className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-foreground">Fax</p>
-                    <p className="text-muted-foreground">+357 24 628 167</p>
-                  </div>
-                </div>
-
-                
-              </div>
-            </div>
-
-            <div className="bg-primary/5 p-6 rounded-lg border-2 border-primary/20">
-              <h4 className="font-semibold text-foreground mb-2">Business Hours</h4>
-              <p className="text-muted-foreground">Monday - Friday: 9:00 AM - 6:00 PM (Cyprus Time)</p>
-              <p className="text-muted-foreground mt-1">We respond to all inquiries within 24 hours</p>
-            </div>
-          </div>
 
           {/* Contact Form */}
           <div className="bg-card p-8 rounded-2xl border-2 border-border shadow-lg">
