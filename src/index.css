@@ -45,19 +45,12 @@ All colors MUST be HSL.
     --success: 142 71% 45%;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 217 91% 25%;
-
     --sidebar-primary: 217 91% 45%;
-
     --sidebar-primary-foreground: 45 100% 50%;
-
     --sidebar-accent: 45 100% 95%;
-
     --sidebar-accent-foreground: 217 91% 45%;
-
     --sidebar-border: 217 30% 85%;
-
     --sidebar-ring: 217 91% 45%;
   }
 
@@ -104,6 +97,14 @@ All colors MUST be HSL.
     --sidebar-border: 217 50% 25%;
     --sidebar-ring: 217 91% 55%;
   }
+}
+
+/* Utility classes for background patterns */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 @layer base {

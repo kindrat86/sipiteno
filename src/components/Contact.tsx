@@ -99,13 +99,25 @@ const Contact = () => {
       }));
     }
   };
-  return <section id="contact" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Get In Touch
+  return (
+    <section id="contact" className="py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <div className="inline-block mb-6 px-6 py-3 rounded-full bg-primary/10 border border-primary/20">
+            <span className="text-primary font-semibold text-sm tracking-wide uppercase">
+              Get In Touch
+            </span>
+          </div>
+          
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+            Let's Talk Business
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ready to expand your business in emerging tech markets? Let's discuss your goals.
           </p>
         </div>
@@ -186,6 +198,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;

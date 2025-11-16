@@ -11,22 +11,28 @@ const Navigation = () => {
       behavior: "smooth"
     });
   };
-  const navItems = [{
-    label: "Home",
-    action: () => window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
-  }, {
-    label: "Services",
-    action: () => scrollToSection("services")
-  }, {
-    label: "Markets",
-    action: () => scrollToSection("markets")
-  }, {
-    label: "Contact",
-    action: () => scrollToSection("contact")
-  }];
+  const navItems = [
+    {
+      label: "Home",
+      action: () => window.scrollTo({ top: 0, behavior: "smooth" })
+    },
+    {
+      label: "Services",
+      action: () => scrollToSection("services")
+    },
+    {
+      label: "MVPs",
+      action: () => scrollToSection("mvp-showcase")
+    },
+    {
+      label: "Markets",
+      action: () => scrollToSection("markets")
+    },
+    {
+      label: "Contact",
+      action: () => scrollToSection("contact")
+    }
+  ];
   return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
