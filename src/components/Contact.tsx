@@ -207,7 +207,18 @@ const Contact = () => {
                   onChange={e => handleChange("message", e.target.value)} 
                   className={errors.message ? "border-destructive" : ""}
                 />
-                {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
+                <div className="flex items-center justify-between mt-1">
+                  {errors.message && <p className="text-destructive text-sm">{errors.message}</p>}
+                  <p className={`text-sm ml-auto ${
+                    formData.message.length < 10 
+                      ? "text-muted-foreground" 
+                      : formData.message.length > 2000 
+                      ? "text-destructive" 
+                      : "text-green-600"
+                  }`}>
+                    {formData.message.length} / 2000 {formData.message.length < 10 && "(min. 10)"}
+                  </p>
+                </div>
               </div>
 
               {/* Honeypot field - hidden from users but visible to bots */}
