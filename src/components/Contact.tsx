@@ -243,34 +243,6 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* MVP CTA Button */}
-          <div className="mt-12 text-center">
-            <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
-              <p className="text-foreground font-medium mb-2 text-lg">
-                Interested in Our MVP Development?
-              </p>
-              <p className="text-muted-foreground mb-6">
-                Check out our latest MicroSaaS project
-              </p>
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-bold text-lg px-8 h-14 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <a 
-                  href="https://funnelfixer.site/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  <span>Visit FunnelFixer</span>
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
