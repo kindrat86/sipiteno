@@ -1,7 +1,20 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Brain, Globe, Users, Monitor, Rocket, ClipboardList, TrendingUp, Briefcase } from "lucide-react";
 
-const services = [
+type Service = {
+  icon: typeof Brain;
+  title: string;
+  description: string;
+  features: string[];
+  showcase?: {
+    title: string;
+    name: string;
+    description: string;
+    link: string;
+  };
+};
+
+const services: Service[] = [
   {
     icon: Brain,
     title: "AI Consulting",
@@ -42,7 +55,13 @@ const services = [
     icon: Rocket,
     title: "MVP Micro SaaS Development",
     description: "Rapid prototyping, market validation, and technical architecture for MicroSaaS solutions. From concept to launch in weeks, not months.",
-    features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"]
+    features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"],
+    showcase: {
+      title: "Our MicroSaaS MVP",
+      name: "FunnelFixer",
+      description: "AI-powered funnel analyzer that audits sales funnels against Russell Brunson's proven frameworks in 60 seconds. Built to help funnel builders identify and fix conversion-killing issues.",
+      link: "https://funnelfixer.site/"
+    }
   },
   {
     icon: ClipboardList,
@@ -89,6 +108,20 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+                {service.showcase && (
+                  <div className="mt-6 pt-6 border-t border-border">
+                    <h4 className="text-sm font-semibold text-primary mb-2">{service.showcase.title}</h4>
+                    <a 
+                      href={service.showcase.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-4 bg-primary/5 rounded-lg hover:bg-primary/10 transition-colors"
+                    >
+                      <p className="font-semibold text-foreground mb-1">{service.showcase.name}</p>
+                      <p className="text-sm text-muted-foreground">{service.showcase.description}</p>
+                    </a>
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}
