@@ -122,32 +122,50 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
-
-          {/* Contact Form */}
-          <div className="bg-card p-8 rounded-2xl border-2 border-border shadow-lg">
+        {/* Contact Form - Centered */}
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm p-10 rounded-3xl border-2 border-border shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="fullName">Full Name *</Label>
-                <Input id="fullName" value={formData.fullName} onChange={e => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} />
+                <Input 
+                  id="fullName" 
+                  value={formData.fullName} 
+                  onChange={e => handleChange("fullName", e.target.value)} 
+                  className={errors.fullName ? "border-destructive" : ""}
+                />
                 {errors.fullName && <p className="text-destructive text-sm mt-1">{errors.fullName}</p>}
               </div>
 
               <div>
                 <Label htmlFor="companyName">Company Name</Label>
-                <Input id="companyName" value={formData.companyName} onChange={e => handleChange("companyName", e.target.value)} />
+                <Input 
+                  id="companyName" 
+                  value={formData.companyName} 
+                  onChange={e => handleChange("companyName", e.target.value)} 
+                />
               </div>
 
               <div>
                 <Label htmlFor="email">Email *</Label>
-                <Input id="email" type="email" value={formData.email} onChange={e => handleChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} />
+                <Input 
+                  id="email" 
+                  type="email" 
+                  value={formData.email} 
+                  onChange={e => handleChange("email", e.target.value)} 
+                  className={errors.email ? "border-destructive" : ""}
+                />
                 {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
               </div>
 
               <div>
                 <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" type="tel" value={formData.phone} onChange={e => handleChange("phone", e.target.value)} />
+                <Input 
+                  id="phone" 
+                  type="tel" 
+                  value={formData.phone} 
+                  onChange={e => handleChange("phone", e.target.value)} 
+                />
               </div>
 
               <div>
@@ -176,7 +194,13 @@ const Contact = () => {
 
               <div>
                 <Label htmlFor="message">Message *</Label>
-                <Textarea id="message" rows={4} value={formData.message} onChange={e => handleChange("message", e.target.value)} className={errors.message ? "border-destructive" : ""} />
+                <Textarea 
+                  id="message" 
+                  rows={4} 
+                  value={formData.message} 
+                  onChange={e => handleChange("message", e.target.value)} 
+                  className={errors.message ? "border-destructive" : ""}
+                />
                 {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
               </div>
 
@@ -191,10 +215,44 @@ const Contact = () => {
                 autoComplete="off"
               />
 
-              <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+              <Button 
+                type="submit" 
+                size="lg" 
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg h-14 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5" 
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
+          </div>
+
+          {/* MVP CTA Button */}
+          <div className="mt-12 text-center">
+            <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary/20">
+              <p className="text-foreground font-medium mb-2 text-lg">
+                Interested in Our MVP Development?
+              </p>
+              <p className="text-muted-foreground mb-6">
+                Check out our latest MicroSaaS project
+              </p>
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-bold text-lg px-8 h-14 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <a 
+                  href="https://funnelfixer.site/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <span>Visit FunnelFixer</span>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
