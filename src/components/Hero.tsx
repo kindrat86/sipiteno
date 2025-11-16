@@ -6,23 +6,23 @@ const Hero = () => {
       behavior: "smooth"
     });
   };
-  return <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary to-[hsl(var(--hero-gradient-to))]">
+  return <section itemScope itemType="https://schema.org/Organization" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary to-[hsl(var(--hero-gradient-to))]">
       {/* Decorative background elements */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PC9nPjwvc3ZnPg==')] opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PC9nPjwvc3ZnPg==')] opacity-10" role="presentation" aria-hidden="true"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <header className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <Sparkles className="w-6 h-6 text-secondary animate-pulse" />
+            <Sparkles className="w-6 h-6 text-secondary animate-pulse" aria-hidden="true" />
             <span className="text-secondary font-semibold tracking-wide uppercase text-sm">Business Development Excellence</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 itemProp="name" className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Strategic Business Development in{" "}
             <span className="text-secondary">Emerging Tech Markets</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
+          <p itemProp="description" className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto">
             Specializing in AI & IT technologies across Europe, Caucasus, Central Asia, and beyond. We transform vision into market success.
           </p>
           
@@ -34,20 +34,20 @@ const Hero = () => {
           </div>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">28</div>
+            <div className="text-center" itemProp="areaServed" itemScope itemType="https://schema.org/Place">
+              <div className="text-4xl font-bold text-white mb-2" itemProp="name">28</div>
               <div className="text-white/80">Countries Served</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-white/80">Successful Projects</div>
+              <div className="text-white/80">Successful Projects Delivered</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-white mb-2">15+</div>
-              <div className="text-white/80">Years Experience</div>
+              <div className="text-white/80">Years of Industry Experience</div>
             </div>
           </div>
-        </div>
+        </header>
       </div>
       
       {/* Bottom wave decoration */}
