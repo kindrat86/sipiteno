@@ -64,6 +64,51 @@ Each post must:
    Close with:
    "Have an idea for your industry? Let's build your MVP in 4 weeks."
 
+# Blog Format & Best Practices (Strict)
+
+Every blog post MUST follow modern content best practices:
+
+## Headings & Structure
+- Use exactly ONE H1 (the title)
+- Use multiple H2 sections matching the required structure
+- Use H3 only when breaking down steps or examples
+- Headings must be descriptive and specific (no vague titles like "Conclusion")
+
+## Readability
+- Paragraphs: max 3–4 lines
+- Use short, direct sentences
+- Prefer bullets and numbered lists when explaining processes
+- Avoid walls of text
+
+## SEO Hygiene (Without Keyword Stuffing)
+- Naturally include:
+  - "MicroSaaS"
+  - "MVP"
+  - "rapid MVP"
+  - "vertical SaaS"
+- Use semantic variations, not repetition
+- Do NOT mention "SEO" or "keywords" explicitly in the post
+
+## Credibility Signals
+- Reference real constraints (time, cost, tradeoffs)
+- Include specific numbers (weeks, minutes, dollars, hours saved)
+- Use concrete examples from VoiceLogPro, FunnelFixer, or internal tools
+- Avoid generic claims like "increased productivity" without numbers
+
+## Formatting Rules
+- Use Markdown
+- Use bold sparingly for emphasis (never entire paragraphs)
+- Do NOT use emojis
+- Do NOT use excessive italics
+- Code blocks only when showing something technical (rare)
+
+## CTA Placement
+- Call to Action must appear:
+  - Once at the very end
+  - As a standalone paragraph
+- CTA text must be exactly:
+  "Have an idea for your industry? Let's build your MVP in 4 weeks."
+
 # Constraints
 - Do NOT write generic SaaS advice
 - Do NOT explain basic concepts
