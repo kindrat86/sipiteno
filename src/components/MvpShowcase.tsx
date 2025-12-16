@@ -17,6 +17,13 @@ const mvpProjects: MvpProject[] = [
     description: "AI-powered funnel analyzer that audits sales funnels against Russell Brunson's proven frameworks in 60 seconds. Built to help funnel builders identify and fix conversion-killing issues.",
     link: "https://funnelfixer.site/",
     tags: ["AI", "Sales", "Analytics", "SaaS"]
+  },
+  {
+    name: "VoiceLogPro",
+    tagline: "Voice-to-PDF Daily Reports for Trades",
+    description: "Turn voice notes into job-ready PDFs in 30 seconds. Built for construction crews who need to document work fast — with timestamps, weather, and safety notes included automatically.",
+    link: "https://voicelogpro.com/",
+    tags: ["AI", "Construction", "Productivity", "Voice"]
   }
 ];
 
