@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 
 // Service pages for LLM entity depth
 const AIConsulting = lazy(() => import("./pages/services/AIConsulting"));
@@ -32,6 +34,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             {/* Service pages for LLM optimization */}
             <Route path="/services/ai-consulting" element={<AIConsulting />} />
             <Route path="/services/microsaas-mvp" element={<MicroSaaSMVP />} />
