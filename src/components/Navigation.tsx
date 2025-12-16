@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth"
     });
   };
+  
   const navItems = [
     {
       label: "Home",
@@ -36,6 +39,11 @@ const Navigation = () => {
       label: "Markets",
       action: () => scrollToSection("markets"),
       description: "See the 28 countries we serve"
+    },
+    {
+      label: "Blog",
+      action: () => { setIsMenuOpen(false); navigate("/blog"); },
+      description: "MicroSaaS MVP insights and guides"
     },
     {
       label: "FAQ",
