@@ -20,6 +20,8 @@ const BusinessDevelopment = lazy(() => import("./pages/services/BusinessDevelopm
 
 // Admin pages
 const BlogGenerator = lazy(() => import("./pages/admin/BlogGenerator"));
+const ContactSubmissions = lazy(() => import("./pages/admin/ContactSubmissions"));
+const Auth = lazy(() => import("./pages/Auth"));
 
 const queryClient = new QueryClient();
 
@@ -41,7 +43,9 @@ const App = () => (
             <Route path="/services/microsaas-mvp" element={<MicroSaaSMVP />} />
             <Route path="/services/business-development" element={<BusinessDevelopment />} />
             {/* Admin pages */}
+            <Route path="/auth" element={<Auth />} />
             <Route path="/admin/blog-generator" element={<BlogGenerator />} />
+            <Route path="/admin/contact-submissions" element={<ContactSubmissions />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
