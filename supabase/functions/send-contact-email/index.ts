@@ -5,9 +5,22 @@ import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+// Allowed origins for CORS - restrict to production domain and local development
+const ALLOWED_ORIGINS = [
+  'https://sipiteno.com',
+  'https://www.sipiteno.com',
+  'https://sipiteno.lovable.app',
+  ...(Deno.env.get('ENVIRONMENT') === 'development' ? ['http://localhost:8080'] : [])
+];
+
+const getCorsHeaders = (origin: string | null) => {
+  // Check if the origin is allowed
+  const allowedOrigin = origin && ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Max-Age": "86400", // Cache preflight for 24 hours
+  };
 };
 
 // Zod schema for validation
@@ -123,6 +136,9 @@ const checkRateLimit = async (supabaseAdmin: any, ipAddress: string): Promise<{ 
 };
 
 const handler = async (req: Request): Promise<Response> => {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -220,13 +236,13 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
     
-    // Handle validation errors specifically
+    // Handle validation errors - log details server-side only, return generic message
     if (error.name === "ZodError") {
+      console.error("Validation errors:", error.errors);
       return new Response(
         JSON.stringify({ 
           success: false, 
-          error: "Invalid input data",
-          details: error.errors 
+          error: "Please check your input and try again."
         }),
         {
           status: 400,
