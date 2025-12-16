@@ -177,7 +177,7 @@ const Contact = () => {
               <div>
                 <Label htmlFor="country">Country/Market of Interest</Label>
                 <Select value={formData.country} onValueChange={value => handleChange("country", value)}>
-                  <SelectTrigger>
+                  <SelectTrigger aria-label="Select a country">
                     <SelectValue placeholder="Select a country" />
                   </SelectTrigger>
                   <SelectContent>
@@ -189,7 +189,7 @@ const Contact = () => {
               <div>
                 <Label htmlFor="service">Service Interest</Label>
                 <Select value={formData.service} onValueChange={value => handleChange("service", value)}>
-                  <SelectTrigger>
+                  <SelectTrigger aria-label="Select a service">
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent>
