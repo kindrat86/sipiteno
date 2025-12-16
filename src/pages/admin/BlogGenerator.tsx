@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowLeft, Sparkles, Calendar, FileText, Copy, Check, Loader2, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -7,7 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { BLOG_TOPICS, getCurrentDayInCycle, type BlogTopic } from "@/data/blogTopics";
-import { useAuth } from "@/hooks/useAuth";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -24,7 +23,6 @@ interface GeneratedPost {
 
 const BlogGenerator = () => {
   const { toast } = useToast();
-  const { user, isAdmin, isLoading: authLoading } = useAuth();
   const [selectedDay, setSelectedDay] = useState<number>(getCurrentDayInCycle());
   const [customTopic, setCustomTopic] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
@@ -85,45 +83,6 @@ const BlogGenerator = () => {
     theme: BLOG_TOPICS.find(t => t.week === week)?.weekTheme || "",
     topics: BLOG_TOPICS.filter(t => t.week === week)
   }));
-
-  // Loading state
-  if (authLoading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  // Not authenticated
-  if (!user) {
-    return <Navigate to="/auth" replace />;
-  }
-
-  // Not admin
-  if (!isAdmin) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Navigation />
-        <main className="pt-24 pb-16">
-          <div className="container mx-auto px-6">
-            <Card className="max-w-md mx-auto">
-              <CardHeader className="text-center">
-                <CardTitle className="text-destructive">Access Denied</CardTitle>
-                <CardDescription>Admin access required to use the blog generator.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/">
-                  <Button variant="outline" className="w-full">Return Home</Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background">
