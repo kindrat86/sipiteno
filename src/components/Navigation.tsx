@@ -65,7 +65,6 @@ const Navigation = () => {
                 onClick={item.action}
                 className="text-foreground hover:text-primary transition-colors font-medium cursor-pointer"
                 role="menuitem"
-                aria-label={item.description}
               >
                 {item.label}
               </button>
@@ -95,7 +94,6 @@ const Navigation = () => {
                   onClick={item.action} 
                   className="text-foreground hover:text-primary transition-colors font-medium text-left cursor-pointer"
                   role="menuitem"
-                  aria-label={item.description}
                 >
                   {item.label}
                 </button>
