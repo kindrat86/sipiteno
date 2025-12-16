@@ -192,7 +192,27 @@ const handler = async (req: Request): Promise<Response> => {
     
     console.log("Received valid contact form submission from IP:", clientIp);
 
-    // Escape all user inputs to prevent XSS
+    // 1) SAVE TO DATABASE FIRST (durable backup - ensures submission is never lost)
+    const { error: dbError } = await supabaseAdmin.from("contact_submissions").insert({
+      full_name: validatedData.fullName,
+      company_name: validatedData.companyName || null,
+      email: validatedData.email,
+      phone: validatedData.phone || null,
+      country: validatedData.country || null,
+      service: validatedData.service || null,
+      message: validatedData.message,
+      ip_address: clientIp,
+    });
+
+    if (dbError) {
+      console.error("Failed to save submission to database:", dbError);
+      // Continue to attempt email - don't fail the request
+    } else {
+      console.log("Successfully saved submission to database");
+    }
+
+    // 2) SEND EMAIL NOTIFICATION
+    // Escape all user inputs to prevent XSS in email
     const safeName = escapeHtml(validatedData.fullName);
     const safeCompany = validatedData.companyName ? escapeHtml(validatedData.companyName) : "Not provided";
     const safeEmail = escapeHtml(validatedData.email);
@@ -221,7 +241,7 @@ const handler = async (req: Request): Promise<Response> => {
       reply_to: validatedData.email,
     });
 
-    console.log("Email sent successfully");
+    console.log("Email sent successfully to sales@sipiteno.com");
 
     return new Response(
       JSON.stringify({ success: true }),
