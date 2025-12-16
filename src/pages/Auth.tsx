@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ const Auth = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { user, isLoading, signIn } = useAuth();
+  const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,31 +52,35 @@ const Auth = () => {
 
     setIsSubmitting(true);
     try {
-      const { error } = await signIn(email, password);
-      if (error) {
-        if (error.message.includes("Invalid login credentials")) {
+      if (isSignUp) {
+        const { error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: { emailRedirectTo: `${window.location.origin}/` }
+        });
+        if (error) {
+          toast({ title: "Sign Up Failed", description: error.message, variant: "destructive" });
+        } else {
+          toast({ title: "Account created!", description: "You can now sign in." });
+          setIsSignUp(false);
+        }
+      } else {
+        const { error } = await signIn(email, password);
+        if (error) {
           toast({
             title: "Login Failed",
-            description: "Invalid email or password",
+            description: error.message.includes("Invalid login credentials") 
+              ? "Invalid email or password" 
+              : error.message,
             variant: "destructive",
           });
         } else {
-          toast({
-            title: "Error",
-            description: error.message,
-            variant: "destructive",
-          });
+          toast({ title: "Welcome back!" });
+          navigate("/");
         }
-      } else {
-        toast({ title: "Welcome back!" });
-        navigate("/");
       }
     } catch (err) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: "An unexpected error occurred", variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -104,8 +110,8 @@ const Auth = () => {
 
           <Card className="max-w-md mx-auto">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl">Admin Sign In</CardTitle>
-              <CardDescription>Sign in to access admin features</CardDescription>
+              <CardTitle className="text-2xl">{isSignUp ? "Create Account" : "Admin Sign In"}</CardTitle>
+              <CardDescription>{isSignUp ? "Sign up to get started" : "Sign in to access admin features"}</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -145,12 +151,23 @@ const Auth = () => {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Signing in...
+                      {isSignUp ? "Creating account..." : "Signing in..."}
                     </>
                   ) : (
-                    "Sign In"
+                    isSignUp ? "Sign Up" : "Sign In"
                   )}
                 </Button>
+
+                <div className="text-center">
+                  <Button
+                    type="button"
+                    variant="link"
+                    onClick={() => setIsSignUp(!isSignUp)}
+                    className="text-sm"
+                  >
+                    {isSignUp ? "Already have an account? Sign in" : "Need an account? Sign up"}
+                  </Button>
+                </div>
               </form>
             </CardContent>
           </Card>
