@@ -16,6 +16,9 @@ const AIConsulting = lazy(() => import("./pages/services/AIConsulting"));
 const MicroSaaSMVP = lazy(() => import("./pages/services/MicroSaaSMVP"));
 const BusinessDevelopment = lazy(() => import("./pages/services/BusinessDevelopment"));
 
+// Admin pages
+const BlogGenerator = lazy(() => import("./pages/admin/BlogGenerator"));
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -33,6 +36,8 @@ const App = () => (
             <Route path="/services/ai-consulting" element={<AIConsulting />} />
             <Route path="/services/microsaas-mvp" element={<MicroSaaSMVP />} />
             <Route path="/services/business-development" element={<BusinessDevelopment />} />
+            {/* Admin pages */}
+            <Route path="/admin/blog-generator" element={<BlogGenerator />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

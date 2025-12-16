@@ -14,6 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_posts: {
+        Row: {
+          content: string
+          created_at: string | null
+          id: string
+          internal_links: Json | null
+          linkedin_summary: string | null
+          meta_description: string | null
+          published_at: string | null
+          slug: string
+          status: string | null
+          title: string
+          topic_day: number | null
+          updated_at: string | null
+          week_number: number | null
+          word_count: number | null
+        }
+        Insert: {
+          content: string
+          created_at?: string | null
+          id?: string
+          internal_links?: Json | null
+          linkedin_summary?: string | null
+          meta_description?: string | null
+          published_at?: string | null
+          slug: string
+          status?: string | null
+          title: string
+          topic_day?: number | null
+          updated_at?: string | null
+          week_number?: number | null
+          word_count?: number | null
+        }
+        Update: {
+          content?: string
+          created_at?: string | null
+          id?: string
+          internal_links?: Json | null
+          linkedin_summary?: string | null
+          meta_description?: string | null
+          published_at?: string | null
+          slug?: string
+          status?: string | null
+          title?: string
+          topic_day?: number | null
+          updated_at?: string | null
+          week_number?: number | null
+          word_count?: number | null
+        }
+        Relationships: []
+      }
       contact_rate_limit: {
         Row: {
           created_at: string
