@@ -96,7 +96,8 @@ const MvpShowcase = () => {
                       <Button
                         asChild
                         size="lg"
-                        className="group/btn bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                        variant="secondary"
+                        className="group/btn font-semibold"
                       >
                         <a 
                           href={project.link}
@@ -134,8 +135,9 @@ const MvpShowcase = () => {
             </p>
             <Button 
               size="lg"
+              variant="secondary"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+              className="font-semibold"
             >
               Start Your Project
             </Button>
