@@ -30,37 +30,51 @@
     <meta name="twitter:description" content="Expert business development, AI & IT consulting across 28 countries in Europe, Caucasus, and Central Asia." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <!-- Structured Data - Organization Schema -->
+    <!-- Structured Data - Organization Schema with Entity Resolution -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://sipiteno.com/#organization",
       "name": "Sipiteno",
-      "alternateName": "Sipiteno Business Development",
+      "legalName": "Sipiteno Business Development",
+      "alternateName": ["Sipiteno Consulting", "Sipiteno BD"],
       "url": "https://sipiteno.com",
-      "logo": "https://sipiteno.com/favicon.png",
-      "description": "Strategic business development and technology consulting firm specializing in AI implementation, IT solutions, and MicroSaaS MVP development across Europe, Caucasus, and Central Asia. We help technology companies expand into emerging markets with 15+ years of regional expertise.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sipiteno.com/favicon.png",
+        "width": "512",
+        "height": "512"
+      },
+      "image": "https://sipiteno.com/favicon.png",
+      "description": "Sipiteno is a strategic business development and technology consulting firm founded in 2009, specializing in AI implementation, IT solutions, and MicroSaaS MVP development across 28 countries in Europe, Caucasus, and Central Asia. The company combines 15+ years of regional expertise with hands-on technical capabilities to help technology companies expand into emerging markets.",
       "foundingDate": "2009",
       "slogan": "Transforming vision into market success across emerging tech markets",
       "numberOfEmployees": {
         "@type": "QuantitativeValue",
-        "value": "25"
+        "minValue": 20,
+        "maxValue": 30
       },
-      "contactPoint": {
+      "sameAs": [
+        "https://www.linkedin.com/company/sipiteno",
+        "https://twitter.com/sipiteno",
+        "https://github.com/sipiteno"
+      ],
+      "contactPoint": [{
         "@type": "ContactPoint",
         "contactType": "Sales",
         "email": "sales@sipiteno.com",
-        "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian"]
-      },
+        "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
+      }],
       "areaServed": [
-        {"@type": "Country", "name": "Ukraine", "description": "Business development and IT consulting services in Ukraine's growing tech sector"},
-        {"@type": "Country", "name": "Kazakhstan", "description": "Strategic expansion and digital transformation services in Kazakhstan"},
-        {"@type": "Country", "name": "Azerbaijan", "description": "AI consulting and business development in Azerbaijan's emerging tech market"},
-        {"@type": "Country", "name": "Uzbekistan", "description": "Technology consulting and market entry services in Uzbekistan"},
-        {"@type": "Country", "name": "Serbia", "description": "IT consulting and business development in Serbia's tech hub"},
-        {"@type": "Country", "name": "Poland", "description": "Enterprise technology solutions and business development in Poland"},
-        {"@type": "Country", "name": "Georgia", "description": "Digital transformation and startup development services in Georgia"},
-        {"@type": "Country", "name": "Armenia", "description": "Technology consulting and business development in Armenia's startup ecosystem"},
+        {"@type": "Country", "name": "Ukraine"},
+        {"@type": "Country", "name": "Kazakhstan"},
+        {"@type": "Country", "name": "Azerbaijan"},
+        {"@type": "Country", "name": "Uzbekistan"},
+        {"@type": "Country", "name": "Serbia"},
+        {"@type": "Country", "name": "Poland"},
+        {"@type": "Country", "name": "Georgia"},
+        {"@type": "Country", "name": "Armenia"},
         {"@type": "Country", "name": "Estonia"},
         {"@type": "Country", "name": "Latvia"},
         {"@type": "Country", "name": "Lithuania"},
@@ -83,41 +97,34 @@
         {"@type": "Country", "name": "Ethiopia"}
       ],
       "knowsAbout": [
-        "Artificial Intelligence Consulting and Implementation",
-        "Machine Learning Strategy Development",
-        "Business Development B2B",
-        "Strategic Partnership Development",
-        "Digital Transformation Consulting",
-        "IT Infrastructure Optimization",
-        "MicroSaaS Product Development",
-        "MVP Rapid Prototyping",
-        "Market Validation and Research",
-        "Digital Marketing and SEO",
-        "Sales Funnel Design and Optimization",
-        "Technical Recruitment and HR Consulting",
+        "Artificial Intelligence Implementation",
+        "Machine Learning Strategy",
+        "B2B Business Development",
+        "MicroSaaS MVP Development",
+        "Digital Transformation",
+        "IT Consulting",
+        "Technical Recruitment",
+        "Sales Funnel Optimization",
         "Agile Project Management",
-        "Cross-border Business Expansion",
-        "Eastern European Tech Markets",
-        "Caucasus Region Business Strategy",
-        "Central Asian Market Entry"
+        "Market Entry Strategy for Emerging Markets"
       ],
-      "keywords": "business development Eastern Europe, AI consulting services, IT consulting Caucasus, MicroSaaS development agency, MVP development company, digital transformation consultant, B2B lead generation, tech startup consulting, market entry strategy, cross-border expansion, emerging markets technology",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "bestRating": "5",
         "worstRating": "1",
-        "reviewCount": "50"
+        "reviewCount": "50",
+        "ratingCount": "50"
       },
       "hasCredential": [
         {
           "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Expertise",
-          "name": "15+ years experience in Eastern European tech markets"
+          "credentialCategory": "Experience",
+          "name": "15+ years in emerging tech markets"
         },
         {
           "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Achievement",
+          "credentialCategory": "Portfolio",
           "name": "50+ successful projects delivered"
         },
         {
@@ -213,14 +220,77 @@
         {
           "@type": "ListItem",
           "position": 3,
+          "name": "Case Studies",
+          "item": "https://sipiteno.com/#case-studies"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
           "name": "Markets",
           "item": "https://sipiteno.com/#markets"
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 5,
+          "name": "FAQ",
+          "item": "https://sipiteno.com/#faq"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
           "name": "Contact",
-          "item": "https://sipiteo.com/#contact"
+          "item": "https://sipiteno.com/#contact"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://sipiteno.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What regions does Sipiteno serve for business development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sipiteno operates across 28 countries with primary focus on Eastern Europe (Ukraine, Poland, Serbia, Czech Republic, Romania, Bulgaria), Caucasus (Georgia, Armenia, Azerbaijan), and Central Asia (Kazakhstan, Uzbekistan, Kyrgyzstan). The company has 15+ years of regional experience and maintains established networks with government agencies, technology associations, and venture capital firms in these markets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does MicroSaaS MVP development take with Sipiteno?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sipiteno delivers market-ready MicroSaaS MVPs in 4-8 weeks. The fixed-price engagement ($15,000-$50,000) includes discovery workshops, rapid prototyping, agile development sprints with weekly reviews, user testing, production deployment, and post-launch monitoring."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Sipiteno's approach to AI consulting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sipiteno's AI consulting follows a 6-phase methodology: business challenge assessment, strategy development, ML model development, system integration, team training, and continuous optimization. Projects range $25,000-$100,000 with 8-16 week timelines covering GPT models, computer vision, NLP, and predictive analytics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What differentiates Sipiteno from other consultancies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Five differentiators define Sipiteno: (1) 15+ years regional expertise across 28 countries, (2) combined strategic and technical implementation capabilities, (3) 50+ successful project track record with 4.9/5 client satisfaction, (4) 4-8 week delivery timelines, and (5) flexible engagement models from $15,000 fixed-price to $10,000/month retainers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to work with Sipiteno?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sipiteno pricing: MicroSaaS MVP Development $15,000-$50,000 (4-8 weeks), Business Development Retainers $3,000-$10,000/month, AI Consulting Projects $25,000-$100,000+, Hourly Consulting $150-$300/hour. Payment is typically 30-50% upfront with milestone-based releases."
+          }
         }
       ]
     }
