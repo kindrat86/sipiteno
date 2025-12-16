@@ -41,6 +41,45 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_submissions: {
+        Row: {
+          company_name: string | null
+          country: string | null
+          created_at: string | null
+          email: string
+          full_name: string
+          id: string
+          ip_address: string | null
+          message: string
+          phone: string | null
+          service: string | null
+        }
+        Insert: {
+          company_name?: string | null
+          country?: string | null
+          created_at?: string | null
+          email: string
+          full_name: string
+          id?: string
+          ip_address?: string | null
+          message: string
+          phone?: string | null
+          service?: string | null
+        }
+        Update: {
+          company_name?: string | null
+          country?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          ip_address?: string | null
+          message?: string
+          phone?: string | null
+          service?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
