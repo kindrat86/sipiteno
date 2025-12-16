@@ -62,8 +62,6 @@ const FAQ = () => {
     <section 
       id="faq" 
       className="py-32 bg-gradient-to-br from-muted/30 via-background to-muted/20 relative overflow-hidden"
-      itemScope 
-      itemType="https://schema.org/FAQPage"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-5" role="presentation" aria-hidden="true"></div>
       
@@ -94,20 +92,12 @@ const FAQ = () => {
                 key={index} 
                 value={`item-${index}`}
                 className="bg-card/50 backdrop-blur-sm rounded-2xl border-2 border-border px-6 py-2 hover:border-primary/30 transition-all"
-                itemScope 
-                itemProp="mainEntity" 
-                itemType="https://schema.org/Question"
               >
                 <AccordionTrigger className="text-left hover:no-underline text-lg font-semibold text-foreground">
-                  <span itemProp="name">{faq.question}</span>
+                  {faq.question}
                 </AccordionTrigger>
-                <AccordionContent 
-                  className="text-muted-foreground leading-relaxed text-base"
-                  itemScope 
-                  itemProp="acceptedAnswer" 
-                  itemType="https://schema.org/Answer"
-                >
-                  <div itemProp="text">{faq.answer}</div>
+                <AccordionContent className="text-muted-foreground leading-relaxed text-base">
+                  {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
