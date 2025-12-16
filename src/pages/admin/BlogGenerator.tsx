@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { ArrowLeft, Sparkles, Calendar, FileText, Copy, Check, Loader2, RefreshCw } from "lucide-react";
+import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { ArrowLeft, Sparkles, Calendar, FileText, Copy, Check, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { BLOG_TOPICS, getCurrentDayInCycle, type BlogTopic } from "@/data/blogTopics";
+import { BLOG_TOPICS, getCurrentDayInCycle } from "@/data/blogTopics";
+import { useAuth } from "@/hooks/useAuth";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -23,6 +24,7 @@ interface GeneratedPost {
 
 const BlogGenerator = () => {
   const { toast } = useToast();
+  const { user, isAdmin, isLoading: authLoading } = useAuth();
   const [selectedDay, setSelectedDay] = useState<number>(getCurrentDayInCycle());
   const [customTopic, setCustomTopic] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
@@ -36,7 +38,22 @@ const BlogGenerator = () => {
     setGeneratedPost(null);
 
     try {
+      // Get current session for auth header
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (!session?.access_token) {
+        toast({
+          title: "Authentication Required",
+          description: "Please log in to generate blog posts",
+          variant: "destructive"
+        });
+        return;
+      }
+
       const { data, error } = await supabase.functions.invoke('generate-blog-post', {
+        headers: {
+          Authorization: `Bearer ${session.access_token}`
+        },
         body: useCustom && customTopic 
           ? { customTopic, generateMeta: true }
           : { topicDay: selectedDay, generateMeta: true }
@@ -71,6 +88,45 @@ const BlogGenerator = () => {
       setIsGenerating(false);
     }
   };
+
+  // Loading state
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  // Not authenticated - redirect to login
+  if (!user) {
+    return <Navigate to="/auth" replace />;
+  }
+
+  // Not admin - show access denied
+  if (!isAdmin) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <main className="pt-24 pb-16">
+          <div className="container mx-auto px-6">
+            <Card className="max-w-md mx-auto">
+              <CardHeader className="text-center">
+                <CardTitle className="text-destructive">Access Denied</CardTitle>
+                <CardDescription>Admin access required to use the blog generator.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Link to="/">
+                  <Button variant="outline" className="w-full">Return Home</Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   const copyToClipboard = async (text: string, field: string) => {
     await navigator.clipboard.writeText(text);
