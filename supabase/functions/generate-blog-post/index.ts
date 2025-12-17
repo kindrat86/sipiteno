@@ -175,6 +175,22 @@ function countWords(text: string): number {
   return text.split(/\s+/).filter(word => word.length > 0).length;
 }
 
+// Calculate current day in the 15-day cycle (server-side, mirrors frontend logic)
+function getCurrentDayInCycle(): number {
+  const startDate = new Date('2025-01-01');
+  const today = new Date();
+  const diffTime = today.getTime() - startDate.getTime();
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  return (diffDays % 15) + 1; // 1-indexed, 15-day cycle
+}
+
+// Check if a request is using service role authentication
+function isServiceRoleAuth(authHeader: string | null): boolean {
+  if (!authHeader) return false;
+  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  return authHeader === `Bearer ${serviceRoleKey}`;
+}
+
 serve(async (req) => {
   const origin = req.headers.get("origin");
   const corsHeaders = getCorsHeaders(origin);
@@ -184,52 +200,71 @@ serve(async (req) => {
   }
 
   try {
-    // Authentication check - verify user is logged in and has admin role
     const authHeader = req.headers.get('Authorization');
-    if (!authHeader) {
-      console.error("Missing authorization header");
-      return new Response(
-        JSON.stringify({ error: "Unauthorized: Missing authorization header" }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    
+    // Check for service role authentication (used by cron jobs)
+    const isCronRequest = isServiceRoleAuth(authHeader);
+    
+    if (isCronRequest) {
+      console.log("Authenticated via service role key (cron job)");
+    } else {
+      // Standard user authentication flow
+      if (!authHeader) {
+        console.error("Missing authorization header");
+        return new Response(
+          JSON.stringify({ error: "Unauthorized: Missing authorization header" }),
+          { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      // Create authenticated Supabase client
+      const supabaseAuth = createClient(
+        Deno.env.get("SUPABASE_URL") ?? "",
+        Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+        { global: { headers: { Authorization: authHeader } } }
       );
+
+      // Verify user is authenticated
+      const { data: { user }, error: userError } = await supabaseAuth.auth.getUser();
+      if (userError || !user) {
+        console.error("Authentication failed:", userError?.message);
+        return new Response(
+          JSON.stringify({ error: "Unauthorized: Invalid or expired token" }),
+          { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      // Verify user has admin role
+      const { data: roleData, error: roleError } = await supabaseAuth
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', user.id)
+        .eq('role', 'admin')
+        .maybeSingle();
+
+      if (roleError || !roleData) {
+        console.error("Admin check failed:", roleError?.message || "User is not an admin");
+        return new Response(
+          JSON.stringify({ error: "Forbidden: Admin access required" }),
+          { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      console.log(`Authenticated admin user: ${user.email}`);
     }
 
-    // Create authenticated Supabase client
-    const supabaseAuth = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
-      { global: { headers: { Authorization: authHeader } } }
-    );
-
-    // Verify user is authenticated
-    const { data: { user }, error: userError } = await supabaseAuth.auth.getUser();
-    if (userError || !user) {
-      console.error("Authentication failed:", userError?.message);
-      return new Response(
-        JSON.stringify({ error: "Unauthorized: Invalid or expired token" }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+    // Parse request body (handle empty body for cron requests)
+    let requestBody: { topicDay?: number | null; customTopic?: string; generateMeta?: boolean } = {};
+    try {
+      const bodyText = await req.text();
+      if (bodyText) {
+        requestBody = JSON.parse(bodyText);
+      }
+    } catch {
+      // Empty body is fine for cron requests
     }
 
-    // Verify user has admin role
-    const { data: roleData, error: roleError } = await supabaseAuth
-      .from('user_roles')
-      .select('role')
-      .eq('user_id', user.id)
-      .eq('role', 'admin')
-      .maybeSingle();
-
-    if (roleError || !roleData) {
-      console.error("Admin check failed:", roleError?.message || "User is not an admin");
-      return new Response(
-        JSON.stringify({ error: "Forbidden: Admin access required" }),
-        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
-    console.log(`Authenticated admin user: ${user.email}`);
-
-    const { topicDay, customTopic, generateMeta = true } = await req.json();
+    const { topicDay, customTopic, generateMeta = true } = requestBody;
     
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
@@ -249,11 +284,13 @@ serve(async (req) => {
       dayNumber = scheduled.day;
       weekNumber = scheduled.week;
     } else {
-      // Default to day 6 (VoiceLogPro case study) for demo
-      const scheduled = TOPIC_SCHEDULE[5];
+      // Auto-calculate current day in 15-day cycle (for cron or when topicDay not provided)
+      const currentDay = getCurrentDayInCycle();
+      const scheduled = TOPIC_SCHEDULE[currentDay - 1];
       topic = scheduled.topic;
       dayNumber = scheduled.day;
       weekNumber = scheduled.week;
+      console.log(`Auto-calculated day in cycle: ${currentDay}`);
     }
 
     console.log(`Generating blog post for topic: ${topic}`);
