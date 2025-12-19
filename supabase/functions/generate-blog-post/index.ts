@@ -396,6 +396,10 @@ serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
     );
 
+    // Auto-publish for cron jobs, draft for manual generation
+    const postStatus = isCronRequest ? "published" : "draft";
+    const publishedAt = isCronRequest ? new Date().toISOString() : null;
+
     const { data: savedPost, error: dbError } = await supabaseAdmin
       .from("blog_posts")
       .insert({
@@ -408,7 +412,8 @@ serve(async (req) => {
         topic_day: dayNumber,
         week_number: weekNumber,
         word_count: wordCount,
-        status: "draft"
+        status: postStatus,
+        published_at: publishedAt
       })
       .select()
       .single();
