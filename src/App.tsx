@@ -16,7 +16,6 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 
 // Service pages for LLM entity depth
 const AIConsulting = lazy(() => import("./pages/services/AIConsulting"));
-const MicroSaaSMVP = lazy(() => import("./pages/services/MicroSaaSMVP"));
 const BusinessDevelopment = lazy(() => import("./pages/services/BusinessDevelopment"));
 
 // Admin pages
@@ -42,7 +41,6 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogPost />} />
             {/* Service pages for LLM optimization */}
             <Route path="/services/ai-consulting" element={<AIConsulting />} />
-            <Route path="/services/microsaas-mvp" element={<MicroSaaSMVP />} />
             <Route path="/services/business-development" element={<BusinessDevelopment />} />
             {/* Admin pages */}
             <Route path="/auth" element={<Auth />} />

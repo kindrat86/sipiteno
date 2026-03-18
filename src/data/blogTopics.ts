@@ -15,20 +15,20 @@ export const BLOG_TOPICS: BlogTopic[] = [
     week: 1,
     weekTheme: "Speed to Market",
     topic: "From Napkin Sketch to First Paying Customer in 4 Weeks: The MicroSaaS Blueprint",
-    description: "The complete playbook for validating and shipping an MVP in record time"
+    description: "The complete playbook for validating and shipping a product in record time"
   },
   {
     day: 2,
     week: 1,
     weekTheme: "Speed to Market",
-    topic: "Why 60 Days Is the Absolute Limit for Your MVP Build",
+    topic: "Why 60 Days Is the Absolute Limit for Your First Product Build",
     description: "The economics and psychology of rapid validation"
   },
   {
     day: 3,
     week: 1,
     weekTheme: "Speed to Market",
-    topic: "Stop Hiring Full-Time Devs for Your MVP: The Case for Agency Execution",
+    topic: "Stop Hiring Full-Time Devs for Your First Product: The Case for Agency Execution",
     description: "When and why agency partnerships outperform in-house builds"
   },
   {
@@ -42,7 +42,7 @@ export const BLOG_TOPICS: BlogTopic[] = [
     day: 5,
     week: 1,
     weekTheme: "Speed to Market",
-    topic: "The Hidden Cost of \"One More Feature\" in MVPs",
+    topic: "The Hidden Cost of \"One More Feature\" in Early-Stage Products",
     description: "How feature creep kills speed and burns capital"
   },
   
@@ -109,14 +109,14 @@ export const BLOG_TOPICS: BlogTopic[] = [
     day: 14,
     week: 3,
     weekTheme: "AI Wrappers & Technical Strategy",
-    topic: "The React + Supabase Stack: Built for MVPs, Not Science Projects",
+    topic: "The React + Supabase Stack: Built for Rapid Shipping, Not Science Projects",
     description: "Why this stack wins for rapid development"
   },
   {
     day: 15,
     week: 3,
     weekTheme: "AI Wrappers & Technical Strategy",
-    topic: "When NOT to Use AI in Your MVP",
+    topic: "When NOT to Use AI in Your First Product",
     description: "Knowing when to skip the hype and ship simpler"
   }
 ];

@@ -16,7 +16,7 @@ export const organizationSchema = {
     "height": "512"
   },
   "image": "https://sipiteno.com/favicon.png",
-  "description": "Sipiteno is a strategic business development and technology consulting firm founded in 2009, specializing in AI implementation, IT solutions, and MicroSaaS MVP development across 28 countries in Europe, Caucasus, and Central Asia. The company combines deep regional expertise with hands-on technical capabilities to help technology companies expand into emerging markets.",
+  "description": "Sipiteno is a strategic business development and technology consulting firm founded in 2009, specializing in AI implementation and IT solutions across 28 countries in Europe, Caucasus, and Central Asia. The company combines deep regional expertise with hands-on technical capabilities to help technology companies expand into emerging markets.",
   "foundingDate": "2009",
   "slogan": "Transforming vision into market success across emerging tech markets",
   "numberOfEmployees": {
@@ -69,7 +69,6 @@ export const organizationSchema = {
     "Artificial Intelligence Implementation",
     "Machine Learning Strategy",
     "B2B Business Development",
-    "MicroSaaS MVP Development",
     "Digital Transformation",
     "IT Consulting",
     "Technical Recruitment",
@@ -145,16 +144,6 @@ export const servicesSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://sipiteno.com/services/microsaas-mvp",
-          "name": "MicroSaaS MVP Development",
-          "description": "Sipiteno delivers market-ready MicroSaaS MVPs in 4-8 weeks for $15,000-$50,000. The process includes discovery workshops, rapid prototyping, agile development, user testing, and deployment with post-launch support.",
-          "url": "https://sipiteno.com/services/microsaas-mvp"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
           "@id": "https://sipiteno.com/services/it-consulting",
           "name": "IT Consulting",
           "description": "Sipiteno provides IT consulting for digital transformation, technology assessment, and infrastructure optimization. Services include architecture review, cloud migration strategy, and implementation support.",
@@ -220,14 +209,6 @@ export const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "How long does MicroSaaS MVP development take with Sipiteno?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sipiteno delivers market-ready MicroSaaS MVPs in 4-8 weeks. The fixed-price engagement ($15,000-$50,000) includes discovery workshops, rapid prototyping, agile development sprints with weekly reviews, user testing, production deployment, and post-launch monitoring."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "What is Sipiteno's approach to AI consulting?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -255,7 +236,7 @@ export const faqSchema = {
       "name": "How much does it cost to work with Sipiteno?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sipiteno pricing: MicroSaaS MVP development $15,000-$50,000 (4-8 weeks), Business Development retainers $3,000-$10,000/month, AI Consulting projects $25,000-$100,000+, Hourly consulting $150-$300/hour. Payment structure is typically 30-50% upfront with milestone-based releases."
+        "text": "Sipiteno pricing: Business Development retainers $3,000-$10,000/month, AI Consulting projects $25,000-$100,000+, Hourly consulting $150-$300/hour. Payment structure is typically 30-50% upfront with milestone-based releases."
       }
     },
     {

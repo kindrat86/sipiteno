@@ -39,8 +39,8 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Blog | Sipiteno - MicroSaaS MVP Insights"
-        description="Practical insights on building MicroSaaS MVPs, rapid validation, and AI-powered tools. Learn from real builds like VoiceLogPro and FunnelFixer."
+        title="Blog | Sipiteno - MicroSaaS Insights"
+        description="Practical insights on building MicroSaaS products, rapid validation, and AI-powered tools. Learn from real builds like VoiceLogPro and FunnelFixer."
         canonicalUrl="https://sipiteno.com/blog"
       />
       <Navigation />
@@ -137,7 +137,7 @@ const Blog = () => {
                 Coming Soon
               </h2>
               <p className="text-muted-foreground text-lg max-w-md mx-auto">
-                We're working on fresh content. Check back soon for insights on building MicroSaaS MVPs.
+                We're working on fresh content. Check back soon for insights on building MicroSaaS products.
               </p>
             </div>
           )}
@@ -149,13 +149,13 @@ const Blog = () => {
                 Want to build your own MicroSaaS?
               </h3>
               <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                We ship MVPs in 4-8 weeks. Real products, real results, no fluff.
+                We ship products in 4-8 weeks. Real products, real results, no fluff.
               </p>
               <Link
                 to="/#contact"
                 className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
               >
-                Start Your MVP
+                Start Your Project
               </Link>
             </div>
           )}

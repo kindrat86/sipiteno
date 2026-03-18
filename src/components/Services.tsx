@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, Globe, Users, Monitor, Rocket, ClipboardList, TrendingUp, Briefcase } from "lucide-react";
+import { Brain, Globe, Users, Monitor, ClipboardList, TrendingUp, Briefcase } from "lucide-react";
 
 type Service = {
   icon: typeof Brain;
@@ -44,12 +44,6 @@ const services: Service[] = [
     title: "Marketing Sales Funnel Setup",
     description: "Design and implement high-converting sales funnels that guide prospects from awareness to conversion. Optimize every stage of your customer journey.",
     features: ["Funnel Strategy", "Landing Page Design", "Conversion Optimization", "Analytics & Tracking"]
-  },
-  {
-    icon: Rocket,
-    title: "MVP Micro SaaS Development",
-    description: "Rapid prototyping, market validation, and technical architecture for MicroSaaS solutions. From concept to launch in weeks, not months.",
-    features: ["Rapid Prototyping", "Market Validation", "Scalable Architecture", "Technical Advisory"]
   },
   {
     icon: ClipboardList,

@@ -28,7 +28,7 @@ const ProjectsTable = () => {
             MicroSaaS Projects Portfolio
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Successful MVP development projects across diverse industries
+            Successful development projects across diverse industries
           </p>
         </div>
 

@@ -29,21 +29,6 @@ const caseStudies: CaseStudy[] = [
     timeline: "8 months"
   },
   {
-    title: "AI-Powered Quality Control MVP",
-    industry: "Manufacturing Technology",
-    problem: "A manufacturing equipment supplier wanted to add computer vision quality inspection to their product line but lacked AI development capabilities and needed rapid market validation.",
-    constraints: "Budget limited to $45,000. Required working prototype for trade show in 10 weeks. Must integrate with existing industrial camera systems.",
-    solution: "Sipiteno developed a complete MVP including: computer vision model trained on client's defect dataset, real-time inference API, operator dashboard with defect visualization, and integration SDK for existing camera hardware. We conducted customer development interviews with 15 potential buyers during development.",
-    tools: ["Python/TensorFlow", "React dashboard", "Edge computing deployment", "REST API"],
-    results: [
-      "Working MVP delivered in 9 weeks",
-      "93.7% defect detection accuracy achieved",
-      "3 pilot customers signed at trade show",
-      "Series A funding secured 6 months post-launch"
-    ],
-    timeline: "9 weeks"
-  },
-  {
     title: "B2B Lead Generation: Eastern European Expansion",
     industry: "Enterprise Software",
     problem: "A US-based CRM software company wanted to establish presence in Eastern European markets but had no regional sales infrastructure, brand recognition, or local partnerships.",

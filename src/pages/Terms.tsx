@@ -31,7 +31,7 @@ const Terms = () => {
               <ul className="list-disc pl-6 text-muted-foreground space-y-2">
                 <li>Business development consulting for emerging tech markets across Europe, Caucasus, and Central Asia</li>
                 <li>AI and IT technology implementation and strategy consulting</li>
-                <li>MicroSaaS MVP development and technical advisory</li>
+                <li>Technical advisory and software development</li>
                 <li>Market entry strategy and partnership facilitation</li>
                 <li>Regulatory navigation and compliance guidance</li>
               </ul>

@@ -165,13 +165,13 @@ const BlogPost = () => {
                 Have an idea for your industry?
               </h3>
               <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                Let's build your MVP in 4 weeks. We turn ideas into shipped products with proven speed.
+                Let's build your product in 4 weeks. We turn ideas into shipped products with proven speed.
               </p>
               <Link
                 to="/#contact"
                 className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
               >
-                Start Your MVP
+                Start Your Project
               </Link>
             </div>
           </footer>

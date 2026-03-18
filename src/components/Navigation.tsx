@@ -31,11 +31,6 @@ const Navigation = () => {
       description: "Learn why companies choose Sipiteno"
     },
     {
-      label: "MVPs",
-      action: () => scrollToSection("mvp-showcase"),
-      description: "Explore our MicroSaaS MVP projects"
-    },
-    {
       label: "Markets",
       action: () => scrollToSection("markets"),
       description: "See the 28 countries we serve"
@@ -43,7 +38,7 @@ const Navigation = () => {
     {
       label: "Blog",
       action: () => { setIsMenuOpen(false); navigate("/blog"); },
-      description: "MicroSaaS MVP insights and guides"
+      description: "Insights and guides"
     },
     {
       label: "FAQ",

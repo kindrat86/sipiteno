@@ -10,7 +10,7 @@ const reasons = [
   {
     icon: Zap,
     title: "Rapid Execution & Delivery",
-    description: "We specialize in rapid prototyping and agile execution methodologies that deliver results in weeks, not months. Our MicroSaaS MVP development process can take your concept from ideation to market-ready product in 4-8 weeks. For business development initiatives, we leverage our existing regional networks to accelerate partnership formation, lead generation, and market entry strategies. Time-to-market is critical in competitive tech sectors, and our streamlined processes ensure you don't miss opportunities."
+    description: "We specialize in agile execution methodologies that deliver results in weeks, not months. For business development initiatives, we leverage our existing regional networks to accelerate partnership formation, lead generation, and market entry strategies. Time-to-market is critical in competitive tech sectors, and our streamlined processes ensure you don't miss opportunities."
   },
   {
     icon: Users2,
@@ -20,7 +20,7 @@ const reasons = [
   {
     icon: TrendingUp,
     title: "Data-Driven Decision Making",
-    description: "Every recommendation we make is backed by comprehensive market research, competitive analysis, and data-driven insights. We use advanced analytics, market intelligence platforms, and our proprietary regional databases to validate opportunities before committing resources. Our approach includes thorough market validation, customer development interviews, MVP testing, and iterative optimization based on real user feedback and performance metrics. This significantly reduces risk and maximizes ROI for your market expansion initiatives."
+    description: "Every recommendation we make is backed by comprehensive market research, competitive analysis, and data-driven insights. We use advanced analytics, market intelligence platforms, and our proprietary regional databases to validate opportunities before committing resources. Our approach includes thorough market validation, customer development interviews, and iterative optimization based on real user feedback and performance metrics. This significantly reduces risk and maximizes ROI for your market expansion initiatives."
   },
   {
     icon: Globe2,
@@ -30,7 +30,7 @@ const reasons = [
   {
     icon: CheckCircle2,
     title: "Flexible Engagement Models",
-    description: "We understand that different projects require different engagement approaches. Whether you need a fixed-price MVP development project, ongoing monthly retainer for business development, hourly consulting for strategic advisory, or a hybrid model combining multiple services—we adapt to your needs and budget. We can scale our involvement up or down as your requirements evolve, from initial market research through full-scale regional expansion. Our goal is long-term partnership, not just transactional project delivery."
+    description: "We understand that different projects require different engagement approaches. Whether you need a fixed-price development project, ongoing monthly retainer for business development, hourly consulting for strategic advisory, or a hybrid model combining multiple services—we adapt to your needs and budget. We can scale our involvement up or down as your requirements evolve, from initial market research through full-scale regional expansion. Our goal is long-term partnership, not just transactional project delivery."
   }
 ];
 

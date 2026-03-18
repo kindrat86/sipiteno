@@ -12,10 +12,6 @@ const faqs = [
     answer: "Sipiteno operates across 28 countries with primary expertise in Eastern Europe (Ukraine, Poland, Serbia, Czech Republic, Romania, Bulgaria), Caucasus (Georgia, Armenia, Azerbaijan), and Central Asia (Kazakhstan, Uzbekistan, Kyrgyzstan). Our 15+ years of regional experience provides unique market intelligence, cultural understanding, and established networks including government agencies, technology associations, venture capital firms, and industry leaders. We understand the regulatory environments, business practices, and local partnership ecosystems critical for success in these emerging tech markets."
   },
   {
-    question: "What is the typical timeline for MicroSaaS MVP development and what does the process include?",
-    answer: "Sipiteno delivers market-ready MVPs in 4-8 weeks for $15,000-$50,000 fixed price. The process includes: (1) Discovery and market validation workshops (Week 1), (2) UX design and interactive prototyping (Week 1-2), (3) Agile development sprints with weekly demos (Weeks 2-6), (4) Testing and quality assurance (Week 6-7), and (5) Production deployment with monitoring (Week 7-8). We use React, Node.js, PostgreSQL, and cloud-native architectures with continuous integration/deployment."
-  },
-  {
     question: "How does Sipiteno approach AI consulting and implementation projects?",
     answer: "Sipiteno's AI consulting follows a 6-phase methodology: (1) Business challenge assessment to identify ROI opportunities, (2) Strategy development and technology roadmap, (3) ML model development and training, (4) System integration and deployment, (5) Team training and knowledge transfer, and (6) Continuous optimization. Projects range $25,000-$100,000+ with 8-16 week timelines. We implement GPT models, computer vision, NLP, and predictive analytics focused on practical, measurable business outcomes."
   },
@@ -25,7 +21,7 @@ const faqs = [
   },
   {
     question: "What industries and types of companies does Sipiteno serve?",
-    answer: "Sipiteno primarily serves technology companies: SaaS platforms (B2B and B2C), AI/ML startups and scaleups, enterprise IT service providers, fintech and payment companies, e-commerce platforms, and cybersecurity firms. Client size ranges from early-stage startups seeking MVP development to Fortune 500 enterprises expanding internationally. We have particular expertise with companies in the 10-500 employee range scaling across emerging markets."
+    answer: "Sipiteno primarily serves technology companies: SaaS platforms (B2B and B2C), AI/ML startups and scaleups, enterprise IT service providers, fintech and payment companies, e-commerce platforms, and cybersecurity firms. Client size ranges from early-stage startups to Fortune 500 enterprises expanding internationally. We have particular expertise with companies in the 10-500 employee range scaling across emerging markets."
   },
   {
     question: "How do you handle project management, communication, and reporting?",
@@ -33,11 +29,11 @@ const faqs = [
   },
   {
     question: "Do you provide ongoing support after project completion and what does it include?",
-    answer: "Sipiteno offers comprehensive post-project support: (1) For MVP development: Technical maintenance, bug fixes, feature enhancements, and infrastructure monitoring, (2) For business development: Ongoing lead generation, partnership management, and market expansion support, (3) For AI implementations: Model retraining, performance optimization, and system monitoring. Engagement options include monthly retainers, hourly on-demand support ($150-$300/hour), or ongoing strategic advisory relationships."
+    answer: "Sipiteno offers comprehensive post-project support: (1) For business development: Ongoing lead generation, partnership management, and market expansion support, (2) For AI implementations: Model retraining, performance optimization, and system monitoring. Engagement options include monthly retainers, hourly on-demand support ($150-$300/hour), or ongoing strategic advisory relationships."
   },
   {
     question: "What is your pricing model and how much does it typically cost to work with Sipiteno?",
-    answer: "Sipiteno pricing by service: MicroSaaS MVP Development $15,000-$50,000 fixed price (4-8 weeks), Business Development Retainers $3,000-$10,000/month, AI Consulting Projects $25,000-$100,000+ depending on scope, Hourly Consulting $150-$300/hour. Payment structure is typically 30-50% upfront with milestone-based releases. We provide transparent proposals with clear deliverables, timelines, and payment schedules."
+    answer: "Sipiteno pricing by service: Business Development Retainers $3,000-$10,000/month, AI Consulting Projects $25,000-$100,000+ depending on scope, Hourly Consulting $150-$300/hour. Payment structure is typically 30-50% upfront with milestone-based releases. We provide transparent proposals with clear deliverables, timelines, and payment schedules."
   },
   {
     question: "Can Sipiteno help with regulatory compliance, legal requirements, and market entry barriers in different countries?",
