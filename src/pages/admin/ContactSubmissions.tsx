@@ -203,9 +203,13 @@ const ContactSubmissions = () => {
 
   // Copy to clipboard
   const copyToClipboard = async (text: string, field: string) => {
-    await navigator.clipboard.writeText(text);
-    setCopiedField(field);
-    setTimeout(() => setCopiedField(null), 2000);
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch {
+      toast({ title: "Failed to copy", description: "Clipboard access denied", variant: "destructive" });
+    }
   };
 
   // Mask email helper

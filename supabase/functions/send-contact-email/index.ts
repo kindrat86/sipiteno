@@ -9,7 +9,7 @@ const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 const ALLOWED_ORIGINS = [
   'https://sipiteno.com',
   'https://www.sipiteno.com',
-  'https://sipiteno.lovable.app',
+  'https://sipiteno.netlify.app',
   ...(Deno.env.get('ENVIRONMENT') === 'development' ? ['http://localhost:8080'] : [])
 ];
 

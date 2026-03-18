@@ -26,6 +26,9 @@ const Contact = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const validateForm = () => {
+    // Honeypot check — bots fill hidden fields, humans don't
+    if (formData.honeypot.trim() !== "") return false;
+
     const newErrors: Record<string, string> = {};
     if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
     if (!formData.email.trim()) {
@@ -83,7 +86,7 @@ const Contact = () => {
         honeypot: ""
       });
       setErrors({});
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Error",
         description: "Failed to send message. Please try again or contact us directly.",

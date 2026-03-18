@@ -27,11 +27,11 @@ export const useAuth = () => {
           user: session?.user ?? null,
         }));
 
-        // Defer role check to avoid deadlock
+        // Use queueMicrotask to avoid Supabase auth deadlock while staying in same tick
         if (session?.user) {
-          setTimeout(() => {
+          queueMicrotask(() => {
             checkAdminRole(session.user.id);
-          }, 0);
+          });
         } else {
           setAuthState(prev => ({ ...prev, isAdmin: false, isLoading: false }));
         }
