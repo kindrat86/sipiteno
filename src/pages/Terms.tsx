@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const Terms = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Terms & Conditions | Sipiteno"
+        description="Terms and conditions for Sipiteno's business development and consulting services."
+        canonicalUrl="https://sipiteno.com/terms"
+        noindex
+      />
       <div className="container mx-auto px-6 py-12">
         <Link to="/">
           <Button variant="ghost" className="mb-8">

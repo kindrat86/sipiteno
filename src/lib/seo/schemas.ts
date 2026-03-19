@@ -284,6 +284,43 @@ export const breadcrumbSchema = (items: Array<{ name: string; url: string }>) =>
   }))
 });
 
+export const articleSchema = (article: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished?: string;
+  dateModified?: string;
+  wordCount?: number;
+  authorName?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": article.title,
+  "description": article.description,
+  "url": article.url,
+  "author": {
+    "@type": "Organization",
+    "@id": "https://sipiteno.com/#organization",
+    "name": article.authorName || "Sipiteno"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://sipiteno.com/#organization",
+    "name": "Sipiteno",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sipiteno.com/favicon.png"
+    }
+  },
+  ...(article.datePublished && { "datePublished": article.datePublished }),
+  ...(article.dateModified && { "dateModified": article.dateModified }),
+  ...(article.wordCount && { "wordCount": article.wordCount }),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": article.url
+  }
+});
+
 export const servicePageSchema = (service: {
   name: string;
   description: string;

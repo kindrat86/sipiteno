@@ -11,6 +11,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 const loginSchema = z.object({
   email: z.string().trim().email("Invalid email address"),
@@ -96,6 +97,12 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Sign In | Sipiteno"
+        description="Sipiteno admin sign in."
+        canonicalUrl="https://sipiteno.com/auth"
+        noindex
+      />
       <Navigation />
 
       <main className="pt-24 pb-16">

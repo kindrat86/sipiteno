@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import SEOHead from "@/components/SEOHead";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {
   Table,
@@ -284,6 +285,12 @@ const ContactSubmissions = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Contact Submissions | Sipiteno Admin"
+        description="Sipiteno admin contact submissions."
+        canonicalUrl="https://sipiteno.com/admin/contact-submissions"
+        noindex
+      />
       <Navigation />
 
       <main className="pt-24 pb-16">

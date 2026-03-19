@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import SEOHead from "@/components/SEOHead";
+import { articleSchema } from "@/lib/seo/schemas";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Calendar, Clock, ArrowLeft, User } from "lucide-react";
@@ -89,6 +90,19 @@ const BlogPost = () => {
         title={`${post.title} | Sipiteno Blog`}
         description={post.meta_description || `Read ${post.title} on the Sipiteno blog.`}
         canonicalUrl={`https://sipiteno.com/blog/${post.slug}`}
+        ogType="article"
+        schemas={[articleSchema({
+          title: post.title,
+          description: post.meta_description || `Read ${post.title} on the Sipiteno blog.`,
+          url: `https://sipiteno.com/blog/${post.slug}`,
+          datePublished: post.published_at || undefined,
+          wordCount: post.word_count || undefined,
+        })]}
+        breadcrumbs={[
+          { name: "Home", url: "https://sipiteno.com/" },
+          { name: "Blog", url: "https://sipiteno.com/blog" },
+          { name: post.title, url: `https://sipiteno.com/blog/${post.slug}` }
+        ]}
       />
       <Navigation />
 
