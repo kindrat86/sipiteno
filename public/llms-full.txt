@@ -51,22 +51,33 @@
 - Process: Discovery workshops → Rapid prototyping → Agile sprints with weekly reviews → User testing → Deployment → Post-launch monitoring
 
 ### 4. IT Consulting
+- URL: https://sipiteno.com/services/it-consulting
+- Investment Range: $15,000 - $75,000+
+- Timeline: 4-12 weeks
 - Services: Digital transformation, technology assessment, infrastructure optimization
-- Includes: Architecture review, cloud migration strategy, implementation support
+- Includes: Architecture review, cloud migration strategy, implementation support, security & compliance
 
 ### 5. Digital Marketing
-- Services: SEO, SEM, content marketing, social media management
+- URL: https://sipiteno.com/services/digital-marketing
+- Services: SEO, SEM, content marketing, social media management, email marketing
 - Focus: B2B technology companies targeting European and Central Asian markets
+- Multilingual content in English, Russian, and 4+ regional languages
 
 ### 6. HR & Technical Recruitment
 - Services: Talent sourcing across Eastern Europe and Central Asia
 - Includes: Salary benchmarking, technical screening, cultural fit assessment, onboarding support
 
 ### 7. Project Management
-- Services: Agile/Scrum implementation, resource planning, stakeholder communication
+- URL: https://sipiteno.com/services/project-management
+- Investment Range: $5,000 - $20,000/month
+- Services: Agile/Scrum implementation, resource planning, risk management, stakeholder communication
+- Engagement: Dedicated PM or fractional PM arrangements
 
 ### 8. Sales Funnel Setup
-- Services: Landing pages, email sequences, conversion optimization for B2B
+- URL: https://sipiteno.com/services/sales-funnel
+- Investment Range: $10,000 - $40,000
+- Timeline: 4-8 weeks
+- Services: Funnel strategy, landing page design, conversion optimization, email automation, analytics
 
 ---
 

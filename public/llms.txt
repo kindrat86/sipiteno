@@ -17,10 +17,11 @@ Sipiteno helps technology companies expand internationally through business deve
 
 - [AI Consulting](https://sipiteno.com/services/ai-consulting): Strategy, ML implementation, intelligent automation. $25,000-$100,000+, 8-16 weeks.
 - [Business Development B2B](https://sipiteno.com/services/business-development): Partnerships, lead generation, market entry. $3,000-$10,000/month retainer.
-- IT Consulting: Digital transformation, infrastructure optimization, cloud migration.
-- Digital Marketing: SEO, SEM, content marketing for B2B tech companies.
+- [IT Consulting](https://sipiteno.com/services/it-consulting): Digital transformation, infrastructure optimization, cloud migration. $15,000-$75,000+.
+- [Digital Marketing](https://sipiteno.com/services/digital-marketing): SEO, SEM, content marketing for B2B tech companies.
 - MicroSaaS MVP Development: Rapid prototyping in 4-8 weeks. $15,000-$50,000 fixed price.
-- Project Management: Agile/Scrum implementation and resource planning.
+- [Sales Funnel Setup](https://sipiteno.com/services/sales-funnel): Landing pages, conversion optimization, analytics. $10,000-$40,000.
+- [Project Management](https://sipiteno.com/services/project-management): Agile/Scrum implementation and resource planning. $5,000-$20,000/month.
 - HR & Technical Recruitment: Talent sourcing across Eastern Europe and Central Asia.
 
 ## Geographic Coverage (28 Countries)
@@ -32,5 +33,6 @@ Other: Estonia, Latvia, Lithuania, Cyprus, Greece, India, Ethiopia
 
 ## Content
 
+- [Case Studies](https://sipiteno.com/case-studies): 12+ project case studies across FinTech, HealthTech, E-commerce, and more.
 - [Blog](https://sipiteno.com/blog): MicroSaaS insights, AI strategy, rapid validation guides.
 - [Full Content](https://sipiteno.com/llms-full.txt): Detailed company information for AI systems.

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -14,15 +15,25 @@ interface BlogPost {
   meta_description: string | null;
   published_at: string | null;
   word_count: number | null;
+  week_number: number | null;
 }
 
+const CATEGORIES: { label: string; week: number | null }[] = [
+  { label: "All", week: null },
+  { label: "Speed to Market", week: 1 },
+  { label: "Vertical & Niche SaaS", week: 2 },
+  { label: "AI & Technical Strategy", week: 3 },
+];
+
 const Blog = () => {
+  const [activeCategory, setActiveCategory] = useState<number | null>(null);
+
   const { data: posts, isLoading } = useQuery({
     queryKey: ["blog-posts"],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("blog_posts")
-        .select("id, title, slug, meta_description, published_at, word_count")
+        .select("id, title, slug, meta_description, published_at, word_count, week_number")
         .eq("status", "published")
         .order("published_at", { ascending: false });
 
@@ -30,6 +41,14 @@ const Blog = () => {
       return data as BlogPost[];
     },
   });
+
+  const filteredPosts = activeCategory
+    ? posts?.filter((p) => p.week_number === activeCategory)
+    : posts;
+
+  const getCategoryLabel = (week: number | null) => {
+    return CATEGORIES.find((c) => c.week === week)?.label ?? null;
+  };
 
   const readingTime = (wordCount: number | null) => {
     if (!wordCount) return "5 min read";
@@ -61,6 +80,25 @@ const Blog = () => {
             </p>
           </header>
 
+          {/* Category filters */}
+          {posts && posts.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-10 justify-center">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.label}
+                  onClick={() => setActiveCategory(cat.week)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeCategory === cat.week
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          )}
+
           {/* Posts list */}
           {isLoading ? (
             <div className="space-y-6">
@@ -76,32 +114,38 @@ const Blog = () => {
                 </div>
               ))}
             </div>
-          ) : posts && posts.length > 0 ? (
+          ) : filteredPosts && filteredPosts.length > 0 ? (
             <div className="space-y-6">
-              {posts.map((post, index) => (
+              {filteredPosts.map((post, index) => (
                 <article
                   key={post.id}
                   className={`group relative bg-card rounded-xl border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden ${
-                    index === 0 ? "p-8 md:p-10" : "p-6 md:p-8"
+                    index === 0 && !activeCategory ? "p-8 md:p-10" : "p-6 md:p-8"
                   }`}
                 >
                   {/* Featured badge for first post */}
-                  {index === 0 && (
+                  {index === 0 && !activeCategory && (
                     <div className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">
                       Latest
                     </div>
                   )}
                   
                   <Link to={`/blog/${post.slug}`} className="block">
+                    {getCategoryLabel(post.week_number) && (
+                      <span className="inline-block text-xs font-medium bg-primary/10 text-primary px-2.5 py-1 rounded-full mb-3">
+                        {getCategoryLabel(post.week_number)}
+                      </span>
+                    )}
+
                     <h2 className={`font-bold text-foreground group-hover:text-primary transition-colors mb-3 leading-tight ${
-                      index === 0 ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
+                      index === 0 && !activeCategory ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
                     }`}>
                       {post.title}
                     </h2>
                     
                     {post.meta_description && (
                       <p className={`text-muted-foreground mb-5 leading-relaxed ${
-                        index === 0 ? "text-base md:text-lg line-clamp-3" : "text-base line-clamp-2"
+                        index === 0 && !activeCategory ? "text-base md:text-lg line-clamp-3" : "text-base line-clamp-2"
                       }`}>
                         {post.meta_description}
                       </p>

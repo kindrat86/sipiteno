@@ -18,6 +18,14 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 // Service pages for LLM entity depth
 const AIConsulting = lazy(() => import("./pages/services/AIConsulting"));
 const BusinessDevelopment = lazy(() => import("./pages/services/BusinessDevelopment"));
+const DigitalMarketing = lazy(() => import("./pages/services/DigitalMarketing"));
+const ITConsulting = lazy(() => import("./pages/services/ITConsulting"));
+const ProjectManagement = lazy(() => import("./pages/services/ProjectManagement"));
+const SalesFunnel = lazy(() => import("./pages/services/SalesFunnel"));
+
+// Case study pages
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
+const CaseStudyDetail = lazy(() => import("./pages/CaseStudyDetail"));
 
 // Admin pages
 const BlogGenerator = lazy(() => import("./pages/admin/BlogGenerator"));
@@ -44,6 +52,13 @@ const App = () => (
             {/* Service pages for LLM optimization */}
             <Route path="/services/ai-consulting" element={<AIConsulting />} />
             <Route path="/services/business-development" element={<BusinessDevelopment />} />
+            <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
+            <Route path="/services/it-consulting" element={<ITConsulting />} />
+            <Route path="/services/project-management" element={<ProjectManagement />} />
+            <Route path="/services/sales-funnel" element={<SalesFunnel />} />
+            {/* Case study pages */}
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
             {/* Admin pages */}
             <Route path="/auth" element={<Auth />} />
             <Route path="/admin/blog-generator" element={<BlogGenerator />} />

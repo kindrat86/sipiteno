@@ -33,6 +33,46 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Digital Marketing Service -->
+  <url>
+    <loc>https://sipiteno.com/services/digital-marketing</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- IT Consulting Service -->
+  <url>
+    <loc>https://sipiteno.com/services/it-consulting</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Project Management Service -->
+  <url>
+    <loc>https://sipiteno.com/services/project-management</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Sales Funnel Service -->
+  <url>
+    <loc>https://sipiteno.com/services/sales-funnel</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Case Studies -->
+  <url>
+    <loc>https://sipiteno.com/case-studies</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Terms & Conditions -->
   <url>
     <loc>https://sipiteno.com/terms</loc>

@@ -28,18 +28,23 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/#services" className="hover:text-white transition-colors">
+                <Link to="/services/it-consulting" className="hover:text-white transition-colors">
                   IT Consulting
                 </Link>
               </li>
               <li>
-                <Link to="/#services" className="hover:text-white transition-colors">
-                  MicroSaaS MVP Development
+                <Link to="/services/digital-marketing" className="hover:text-white transition-colors">
+                  Digital Marketing
                 </Link>
               </li>
               <li>
-                <Link to="/#services" className="hover:text-white transition-colors">
-                  Digital Marketing
+                <Link to="/services/sales-funnel" className="hover:text-white transition-colors">
+                  Sales Funnel Setup
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/project-management" className="hover:text-white transition-colors">
+                  Project Management
                 </Link>
               </li>
             </ul>
@@ -57,6 +62,11 @@ const Footer = () => {
               <li>
                 <Link to="/#markets" className="hover:text-white transition-colors">
                   Markets
+                </Link>
+              </li>
+              <li>
+                <Link to="/case-studies" className="hover:text-white transition-colors">
+                  Case Studies
                 </Link>
               </li>
               <li>
