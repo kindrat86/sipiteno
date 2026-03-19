@@ -1,14 +1,25 @@
+import { useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import SEOHead from "@/components/SEOHead";
+import { articleSchema } from "@/lib/seo/schemas";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Calendar, Clock, ArrowLeft, User } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, ArrowRight, User } from "lucide-react";
 import { format } from "date-fns";
+import { trackEvent } from "@/lib/analytics";
+
+const CATEGORY_LABELS: Record<number, string> = {
+  1: "Speed to Market",
+  2: "Vertical & Niche SaaS",
+  3: "AI & Technical Strategy",
+};
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const trackedRef = useRef(false);
 
   const { data: post, isLoading, error } = useQuery({
     queryKey: ["blog-post", slug],
@@ -25,6 +36,47 @@ const BlogPost = () => {
     },
     enabled: !!slug,
   });
+
+  // Related posts — same week_number, exclude current
+  const { data: relatedPosts } = useQuery({
+    queryKey: ["related-posts", post?.week_number, post?.id],
+    queryFn: async () => {
+      const query = supabase
+        .from("blog_posts")
+        .select("id, title, slug, meta_description, published_at")
+        .eq("status", "published")
+        .neq("id", post!.id)
+        .order("published_at", { ascending: false })
+        .limit(3);
+
+      if (post!.week_number) {
+        query.eq("week_number", post!.week_number);
+      }
+
+      const { data, error } = await query;
+      if (error) throw error;
+      return data;
+    },
+    enabled: !!post,
+  });
+
+  // Scroll-based read tracking (75% scroll)
+  useEffect(() => {
+    if (!post || trackedRef.current) return;
+    const handleScroll = () => {
+      const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (scrollPercent >= 0.75 && !trackedRef.current) {
+        trackedRef.current = true;
+        trackEvent("blog_post_read", {
+          post_slug: post.slug,
+          category: post.week_number ? CATEGORY_LABELS[post.week_number] || "" : "",
+        });
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [post]);
 
   const readingTime = (wordCount: number | null) => {
     if (!wordCount) return "5 min read";
@@ -89,6 +141,19 @@ const BlogPost = () => {
         title={`${post.title} | Sipiteno Blog`}
         description={post.meta_description || `Read ${post.title} on the Sipiteno blog.`}
         canonicalUrl={`https://sipiteno.com/blog/${post.slug}`}
+        ogType="article"
+        schemas={[articleSchema({
+          title: post.title,
+          description: post.meta_description || `Read ${post.title} on the Sipiteno blog.`,
+          url: `https://sipiteno.com/blog/${post.slug}`,
+          datePublished: post.published_at || undefined,
+          wordCount: post.word_count || undefined,
+        })]}
+        breadcrumbs={[
+          { name: "Home", url: "https://sipiteno.com/" },
+          { name: "Blog", url: "https://sipiteno.com/blog" },
+          { name: post.title, url: `https://sipiteno.com/blog/${post.slug}` }
+        ]}
       />
       <Navigation />
 
@@ -111,6 +176,11 @@ const BlogPost = () => {
             
             {/* Meta info */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-6 border-b border-border">
+              {post.week_number && CATEGORY_LABELS[post.week_number] && (
+                <span className="inline-block text-xs font-medium bg-primary/10 text-primary px-2.5 py-1 rounded-full">
+                  {CATEGORY_LABELS[post.week_number]}
+                </span>
+              )}
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
                   <User className="w-4 h-4 text-primary" />
@@ -158,8 +228,64 @@ const BlogPost = () => {
             </ReactMarkdown>
           </div>
 
+          {/* Related Posts */}
+          {relatedPosts && relatedPosts.length > 0 && (
+            <nav className="mt-12 pt-8 border-t border-border" aria-label="Related posts">
+              <h3 className="text-lg font-semibold text-foreground mb-4">Related Articles</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {relatedPosts.map((rp) => (
+                  <Link
+                    key={rp.id}
+                    to={`/blog/${rp.slug}`}
+                    className="group p-4 rounded-lg border border-border hover:border-primary/30 transition-colors"
+                  >
+                    <h4 className="font-medium text-foreground text-sm group-hover:text-primary transition-colors mb-2 line-clamp-2">
+                      {rp.title}
+                    </h4>
+                    {rp.published_at && (
+                      <span className="text-xs text-muted-foreground">
+                        {format(new Date(rp.published_at), "MMM d, yyyy")}
+                      </span>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </nav>
+          )}
+
+          {/* Related Services */}
+          <nav className="mt-12 pt-8 border-t border-border" aria-label="Related services">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Explore Our Services</h3>
+            <div className="grid sm:grid-cols-2 gap-3">
+              <Link
+                to="/services/ai-consulting"
+                className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/30 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <ArrowLeft className="w-5 h-5 text-primary rotate-180" />
+                </div>
+                <div>
+                  <span className="font-medium text-foreground text-sm">AI Consulting</span>
+                  <p className="text-xs text-muted-foreground">Strategy, ML implementation, automation</p>
+                </div>
+              </Link>
+              <Link
+                to="/services/business-development"
+                className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/30 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <ArrowLeft className="w-5 h-5 text-primary rotate-180" />
+                </div>
+                <div>
+                  <span className="font-medium text-foreground text-sm">Business Development B2B</span>
+                  <p className="text-xs text-muted-foreground">Partnerships, lead gen, market entry</p>
+                </div>
+              </Link>
+            </div>
+          </nav>
+
           {/* Article footer CTA */}
-          <footer className="mt-16 pt-8 border-t border-border">
+          <footer className="mt-8 pt-8 border-t border-border">
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 md:p-10 text-center">
               <h3 className="text-2xl font-bold text-foreground mb-3">
                 Have an idea for your industry?

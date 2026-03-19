@@ -6,7 +6,6 @@ import { Resend } from "https://esm.sh/resend@2.0.0";
 const ALLOWED_ORIGINS = [
   "https://sipiteno.com",
   "https://www.sipiteno.com",
-  "https://sipiteno.lovable.app",
   ...(Deno.env.get("ENVIRONMENT") === "development"
     ? ["http://localhost:8080", "http://localhost:5173"]
     : []),

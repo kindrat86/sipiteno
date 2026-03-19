@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, FileText } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { trackEvent } from "@/lib/analytics";
 const countries = ["Albania", "Armenia", "Azerbaijan", "Bosnia", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Estonia", "Ethiopia", "Georgia", "Greece", "Hungary", "India", "Kazakhstan", "Kyrgyzstan", "Latvia", "Lithuania", "Moldova", "Montenegro", "North Macedonia", "Poland", "Romania", "Serbia", "Slovakia", "Slovenia", "Ukraine", "Uzbekistan", "Other"];
 const services = ["AI Consulting", "Business Development B2B", "Digital Marketing", "IT Consulting", "Marketing Sales Funnel Setup", "Project Management"];
 const Contact = () => {
@@ -68,6 +69,11 @@ const Contact = () => {
       if (error) {
         throw error;
       }
+
+      trackEvent("contact_form_submitted", {
+        service: formData.service || "not_specified",
+        country: formData.country || "not_specified",
+      });
 
       toast({
         title: "Message Sent Successfully!",

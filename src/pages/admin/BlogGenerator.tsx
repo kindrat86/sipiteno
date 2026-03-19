@@ -10,6 +10,7 @@ import { BLOG_TOPICS, getCurrentDayInCycle } from "@/data/blogTopics";
 import { useAuth } from "@/hooks/useAuth";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 
 interface GeneratedPost {
   id?: string;
@@ -142,6 +143,12 @@ const BlogGenerator = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Blog Generator | Sipiteno Admin"
+        description="Sipiteno admin blog generator."
+        canonicalUrl="https://sipiteno.com/admin/blog-generator"
+        noindex
+      />
       <Navigation />
       
       <main className="pt-24 pb-16">

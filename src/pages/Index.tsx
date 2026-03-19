@@ -8,6 +8,8 @@ import Markets from "@/components/Markets";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import { organizationSchema, servicesSchema, faqSchema } from "@/lib/seo/schemas";
 
 const Index = () => {
   const location = useLocation();
@@ -23,6 +25,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Sipiteno - Strategic Business Development & AI Consulting | Europe, Caucasus, Central Asia"
+        description="Sipiteno provides expert business development, AI consulting, IT solutions, and MicroSaaS MVP development across 28 countries. 15+ years experience, 50+ successful projects."
+        canonicalUrl="https://sipiteno.com/"
+        schemas={[organizationSchema, servicesSchema, faqSchema]}
+      />
       <Navigation />
       <main className="pt-16">
         <Hero />
