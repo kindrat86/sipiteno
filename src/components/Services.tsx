@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, Globe, Users, Monitor, ClipboardList, TrendingUp, Briefcase } from "lucide-react";
+import { Brain, Globe, Monitor, ClipboardList, TrendingUp, Briefcase } from "lucide-react";
 
 type Service = {
   icon: typeof Brain;
@@ -26,12 +26,6 @@ const services: Service[] = [
     title: "Digital Marketing",
     description: "Comprehensive digital marketing solutions including SEO, content marketing, and social media management. Drive traffic and convert visitors into customers.",
     features: ["SEO & SEM", "Content Marketing", "Social Media Management", "Email Marketing"]
-  },
-  {
-    icon: Users,
-    title: "HR / Recruitment",
-    description: "Talent acquisition, team building, and HR consulting for tech companies expanding across Europe, Caucasus, and Central Asia. Access top talent and build high-performing teams.",
-    features: ["Talent Sourcing", "Technical Recruiting", "Team Building", "HR Compliance"]
   },
   {
     icon: Monitor,

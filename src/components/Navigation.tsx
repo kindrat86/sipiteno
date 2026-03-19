@@ -9,15 +9,18 @@ const Navigation = () => {
   
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth"
-    });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/#" + id);
+    }
   };
   
   const navItems = [
     {
       label: "Home",
-      action: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+      action: () => { setIsMenuOpen(false); if (window.location.pathname !== "/") { navigate("/"); } else { window.scrollTo({ top: 0, behavior: "smooth" }); } },
       description: "Return to homepage"
     },
     {
