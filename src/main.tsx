@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
 import posthog from "posthog-js";
+import { initClarity } from "./lib/clarity";
 import App from "./App.tsx";
 import "./index.css";
 
@@ -8,5 +9,7 @@ posthog.init(import.meta.env.VITE_POSTHOG_KEY, {
   person_profiles: "identified_only",
   capture_pageview: false,
 });
+
+initClarity();
 
 createRoot(document.getElementById("root")!).render(<App />);
