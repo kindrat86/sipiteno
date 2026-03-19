@@ -172,8 +172,39 @@ const BlogPost = () => {
             </ReactMarkdown>
           </div>
 
+          {/* Related Services */}
+          <nav className="mt-12 pt-8 border-t border-border" aria-label="Related services">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Explore Our Services</h3>
+            <div className="grid sm:grid-cols-2 gap-3">
+              <Link
+                to="/services/ai-consulting"
+                className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/30 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <ArrowLeft className="w-5 h-5 text-primary rotate-180" />
+                </div>
+                <div>
+                  <span className="font-medium text-foreground text-sm">AI Consulting</span>
+                  <p className="text-xs text-muted-foreground">Strategy, ML implementation, automation</p>
+                </div>
+              </Link>
+              <Link
+                to="/services/business-development"
+                className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/30 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <ArrowLeft className="w-5 h-5 text-primary rotate-180" />
+                </div>
+                <div>
+                  <span className="font-medium text-foreground text-sm">Business Development B2B</span>
+                  <p className="text-xs text-muted-foreground">Partnerships, lead gen, market entry</p>
+                </div>
+              </Link>
+            </div>
+          </nav>
+
           {/* Article footer CTA */}
-          <footer className="mt-16 pt-8 border-t border-border">
+          <footer className="mt-8 pt-8 border-t border-border">
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 md:p-10 text-center">
               <h3 className="text-2xl font-bold text-foreground mb-3">
                 Have an idea for your industry?

@@ -144,50 +144,40 @@ export const servicesSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://sipiteno.com/services/it-consulting",
           "name": "IT Consulting",
-          "description": "Sipiteno provides IT consulting for digital transformation, technology assessment, and infrastructure optimization. Services include architecture review, cloud migration strategy, and implementation support.",
-          "url": "https://sipiteno.com/services/it-consulting"
+          "description": "Sipiteno provides IT consulting for digital transformation, technology assessment, and infrastructure optimization. Services include architecture review, cloud migration strategy, and implementation support."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://sipiteno.com/services/digital-marketing",
           "name": "Digital Marketing",
-          "description": "Sipiteno delivers B2B digital marketing including SEO, content marketing, and lead generation campaigns optimized for technology companies targeting European and Central Asian markets.",
-          "url": "https://sipiteno.com/services/digital-marketing"
+          "description": "Sipiteno delivers B2B digital marketing including SEO, content marketing, and lead generation campaigns optimized for technology companies targeting European and Central Asian markets."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://sipiteno.com/services/hr-recruitment",
           "name": "HR & Technical Recruitment",
-          "description": "Sipiteno recruits technical talent across Eastern Europe and Central Asia. Services include salary benchmarking, technical screening, cultural fit assessment, and onboarding support.",
-          "url": "https://sipiteno.com/services/hr-recruitment"
+          "description": "Sipiteno recruits technical talent across Eastern Europe and Central Asia. Services include salary benchmarking, technical screening, cultural fit assessment, and onboarding support."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://sipiteno.com/services/sales-funnel",
           "name": "Sales Funnel Setup",
-          "description": "Sipiteno designs and implements high-converting B2B sales funnels including landing pages, email sequences, and conversion optimization.",
-          "url": "https://sipiteno.com/services/sales-funnel"
+          "description": "Sipiteno designs and implements high-converting B2B sales funnels including landing pages, email sequences, and conversion optimization."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://sipiteno.com/services/project-management",
           "name": "Project Management",
-          "description": "Sipiteno provides agile project management services including Scrum implementation, resource planning, and stakeholder communication.",
-          "url": "https://sipiteno.com/services/project-management"
+          "description": "Sipiteno provides agile project management services including Scrum implementation, resource planning, and stakeholder communication."
         }
       }
     ]
