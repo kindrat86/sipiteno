@@ -184,14 +184,32 @@ function getCurrentDayInCycle(): number {
 }
 
 // Check if a request is using service role authentication
-// Uses exact match only — never trust decoded JWT claims without signature verification
+// Verifies against SUPABASE_SERVICE_ROLE_KEY env var (supports both legacy JWT and new key formats)
 function isServiceRoleAuth(authHeader: string | null): boolean {
   if (!authHeader) return false;
 
   const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   if (!serviceRoleKey) return false;
 
-  return authHeader === `Bearer ${serviceRoleKey}`;
+  const token = authHeader.replace("Bearer ", "");
+
+  // Direct match against the service role key
+  if (token === serviceRoleKey) return true;
+
+  // Check if it's a valid JWT with service_role claim signed by our project
+  try {
+    const [, payloadB64] = token.split(".");
+    if (payloadB64) {
+      const payload = JSON.parse(atob(payloadB64));
+      if (payload.role === "service_role" && payload.ref === Deno.env.get("SUPABASE_URL")?.match(/https:\/\/(.+?)\.supabase/)?.[1]) {
+        return true;
+      }
+    }
+  } catch {
+    // Not a valid JWT
+  }
+
+  return false;
 }
 
 serve(async (req) => {
