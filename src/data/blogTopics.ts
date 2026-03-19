@@ -131,7 +131,7 @@ export function getTopicsByWeek(week: number): BlogTopic[] {
 
 export function getCurrentDayInCycle(): number {
   // Calculate current day in 15-day cycle based on start date
-  const startDate = new Date('2024-01-01');
+  const startDate = new Date('2025-01-01');
   const today = new Date();
   const diffDays = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
   return (diffDays % 15) + 1;

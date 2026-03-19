@@ -269,9 +269,9 @@ serve(async (req) => {
 
     const { topicDay, customTopic, generateMeta = true } = requestBody;
     
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is not configured");
+    const GOOGLE_API_KEY = Deno.env.get("GOOGLE_API_KEY");
+    if (!GOOGLE_API_KEY) {
+      throw new Error("GOOGLE_API_KEY is not configured");
     }
 
     // Determine topic
@@ -299,14 +299,14 @@ serve(async (req) => {
     console.log(`Generating blog post for topic: ${topic}`);
 
     // Generate blog post
-    const blogResponse = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const blogResponse = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        Authorization: `Bearer ${GOOGLE_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
+        model: "gemini-2.5-flash",
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: `Topic: ${topic}\n\nWrite today's blog post following the system rules exactly.` }
@@ -359,14 +359,14 @@ serve(async (req) => {
     if (generateMeta) {
       console.log("Generating meta assets...");
       
-      const metaResponse = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+      const metaResponse = await fetch("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          Authorization: `Bearer ${GOOGLE_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "google/gemini-2.5-flash-lite",
+          model: "gemini-2.5-flash-lite",
           messages: [
             { role: "user", content: `${blogContent}\n\n---\n\n${META_PROMPT}` }
           ],
