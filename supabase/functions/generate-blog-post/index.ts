@@ -363,8 +363,12 @@ serve(async (req) => {
     // Extract title from the first H1 in markdown
     const titleMatch = blogContent.match(/^#\s+(.+)$/m);
     const title = titleMatch ? titleMatch[1] : topic;
-    const slug = slugify(title);
+    const baseSlug = slugify(title);
     const wordCount = countWords(blogContent);
+
+    // Append date to slug to prevent collisions from the repeating 15-day topic cycle
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+    const slug = `${baseSlug}-${today}`;
 
     let metaData = {
       meta_description: "",
