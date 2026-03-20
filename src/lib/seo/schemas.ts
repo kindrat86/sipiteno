@@ -27,11 +27,10 @@ export const organizationSchema = {
   "contactPoint": [{
     "@type": "ContactPoint",
     "contactType": "Sales",
-    "email": "sales@sipiteno.com",
     "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
   }],
   "sameAs": [
-    "https://www.linkedin.com/company/sipiteno",
+    "https://www.linkedin.com/company/34765968",
     "https://twitter.com/sipiteno",
     "https://github.com/sipiteno"
   ],
