@@ -689,32 +689,88 @@ async function checkSslTls(): Promise<AuditFinding[]> {
 
 // ========== EMAIL ALERTING ==========
 
-function buildAlertEmail(
+function buildDailySecurityEmail(
   findings: AuditFinding[],
-  runId: string
+  runId: string,
+  counts: { critical: number; high: number; medium: number; low: number; info: number }
 ): string {
-  const critical = findings.filter((f) => f.severity === "critical");
-  const high = findings.filter((f) => f.severity === "high");
+  const date = new Date().toISOString().slice(0, 10);
+  const total = counts.critical + counts.high + counts.medium + counts.low + counts.info;
+  const hasIssues = counts.critical > 0 || counts.high > 0 || counts.medium > 0;
+
+  const severityColor: Record<string, string> = {
+    critical: "#dc2626",
+    high: "#f59e0b",
+    medium: "#f97316",
+    low: "#3b82f6",
+    info: "#22c55e",
+  };
+
+  const severityBg: Record<string, string> = {
+    critical: "#fef2f2",
+    high: "#fffbeb",
+    medium: "#fff7ed",
+    low: "#eff6ff",
+    info: "#f0fdf4",
+  };
 
   let html = `
-    <h2>Sipiteno Security Alert</h2>
-    <p>The daily security audit found <strong>${critical.length} critical</strong> and <strong>${high.length} high</strong> severity issues.</p>
-    <p><small>Run ID: ${runId}</small></p>
-    <hr>
+    <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#2d3748">
+      <h1 style="font-size:20px;border-bottom:2px solid ${hasIssues ? '#dc2626' : '#22c55e'};padding-bottom:8px">
+        Sipiteno Security Report &mdash; ${date}
+      </h1>
+
+      <h2 style="font-size:16px;color:#4a5568;margin-top:24px">Summary</h2>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:16px">
+        <tr style="background:#f7f7f7">
+          <td style="padding:12px;text-align:center">
+            <div style="font-size:28px;font-weight:bold;color:${counts.critical > 0 ? '#dc2626' : '#22c55e'}">${counts.critical}</div>
+            <div style="font-size:12px;color:#718096">Critical</div>
+          </td>
+          <td style="padding:12px;text-align:center">
+            <div style="font-size:28px;font-weight:bold;color:${counts.high > 0 ? '#f59e0b' : '#22c55e'}">${counts.high}</div>
+            <div style="font-size:12px;color:#718096">High</div>
+          </td>
+          <td style="padding:12px;text-align:center">
+            <div style="font-size:28px;font-weight:bold;color:${counts.medium > 0 ? '#f97316' : '#22c55e'}">${counts.medium}</div>
+            <div style="font-size:12px;color:#718096">Medium</div>
+          </td>
+          <td style="padding:12px;text-align:center">
+            <div style="font-size:28px;font-weight:bold">${counts.low}</div>
+            <div style="font-size:12px;color:#718096">Low</div>
+          </td>
+          <td style="padding:12px;text-align:center">
+            <div style="font-size:28px;font-weight:bold;color:#22c55e">${counts.info}</div>
+            <div style="font-size:12px;color:#718096">Info</div>
+          </td>
+        </tr>
+      </table>
+
+      <h2 style="font-size:16px;color:#4a5568;margin-top:24px">All Findings (${total})</h2>
   `;
 
-  for (const finding of [...critical, ...high]) {
-    html += `
-      <div style="margin-bottom: 16px; padding: 12px; border-left: 4px solid ${finding.severity === "critical" ? "#dc2626" : "#f59e0b"}; background: ${finding.severity === "critical" ? "#fef2f2" : "#fffbeb"};">
-        <strong>[${finding.severity.toUpperCase()}]</strong> ${finding.title}
-        <p style="margin: 4px 0 0 0; color: #555;">${finding.description}</p>
-      </div>
-    `;
+  // Show all findings grouped by severity
+  const severityOrder: AuditFinding["severity"][] = ["critical", "high", "medium", "low", "info"];
+  for (const sev of severityOrder) {
+    const sevFindings = findings.filter(f => f.severity === sev);
+    if (sevFindings.length === 0) continue;
+
+    for (const finding of sevFindings) {
+      html += `
+        <div style="margin-bottom:8px;padding:10px 12px;border-left:4px solid ${severityColor[sev]};background:${severityBg[sev]};">
+          <strong style="font-size:11px;color:${severityColor[sev]}">[${sev.toUpperCase()}]</strong>
+          <strong style="font-size:13px"> ${finding.title}</strong>
+          <p style="margin:4px 0 0 0;color:#555;font-size:13px">${finding.description}</p>
+        </div>
+      `;
+    }
   }
 
   html += `
-    <hr>
-    <p style="color: #888; font-size: 12px;">This is an automated security audit from Sipiteno. Review findings and take action as needed.</p>
+      <p style="color:#a0aec0;font-size:12px;margin-top:24px;border-top:1px solid #eee;padding-top:12px">
+        Run ID: ${runId} &bull; Automated daily security audit from Sipiteno.
+      </p>
+    </div>
   `;
 
   return html;
@@ -887,25 +943,27 @@ serve(async (req) => {
       `Audit completed: ${allFindings.length} findings (${counts.critical} critical, ${counts.high} high, ${counts.medium} medium, ${counts.low} low, ${counts.info} info)`
     );
 
-    // Send email alert if critical or high findings exist
-    if (counts.critical > 0 || counts.high > 0) {
-      try {
-        const resendApiKey = Deno.env.get("RESEND_API_KEY");
-        if (resendApiKey) {
-          const resend = new Resend(resendApiKey);
-          await resend.emails.send({
-            from: "Sipiteno Security <security@updates.sipiteno.com>",
-            to: ["sales@sipiteno.com"],
-            subject: `Security Alert: ${counts.critical} critical, ${counts.high} high findings`,
-            html: buildAlertEmail(allFindings, runId),
-          });
-          console.log("Security alert email sent");
-        } else {
-          console.warn("RESEND_API_KEY not configured — skipping email alert");
-        }
-      } catch (emailError) {
-        console.error("Failed to send alert email:", emailError);
+    // Always send daily security report email
+    try {
+      const resendApiKey = Deno.env.get("RESEND_API_KEY");
+      if (resendApiKey) {
+        const resend = new Resend(resendApiKey);
+        const hasIssues = counts.critical > 0 || counts.high > 0;
+        const subject = hasIssues
+          ? `⚠️ Security Report: ${counts.critical} critical, ${counts.high} high findings`
+          : `✅ Security Report: All clear (${allFindings.length} checks passed)`;
+        await resend.emails.send({
+          from: "Sipiteno Security <security@updates.sipiteno.com>",
+          to: ["sales@sipiteno.com"],
+          subject,
+          html: buildDailySecurityEmail(allFindings, runId, counts),
+        });
+        console.log("Daily security report email sent");
+      } else {
+        console.warn("RESEND_API_KEY not configured — skipping email");
       }
+    } catch (emailError) {
+      console.error("Failed to send security report email:", emailError);
     }
 
     return new Response(
