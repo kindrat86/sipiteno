@@ -92,13 +92,8 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-white/70">
               <li>
-                <a href="mailto:sales@sipiteno.com" className="hover:text-white transition-colors">
-                  sales@sipiteno.com
-                </a>
-              </li>
-              <li>
                 <a
-                  href="https://www.linkedin.com/company/sipiteno"
+                  href="https://www.linkedin.com/company/34765968"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
