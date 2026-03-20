@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const Privacy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Privacy Policy | Sipiteno"
+        description="Sipiteno's privacy policy covering data collection, GDPR compliance, and user rights."
+        canonicalUrl="https://sipiteno.com/privacy"
+        noindex
+      />
       <div className="container mx-auto px-6 py-12">
         <Link to="/">
           <Button variant="ghost" className="mb-8">

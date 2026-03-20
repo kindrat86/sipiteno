@@ -39,6 +39,11 @@ const Navigation = () => {
       description: "See the 28 countries we serve"
     },
     {
+      label: "Case Studies",
+      action: () => { setIsMenuOpen(false); navigate("/case-studies"); },
+      description: "Our project portfolio"
+    },
+    {
       label: "Blog",
       action: () => { setIsMenuOpen(false); navigate("/blog"); },
       description: "Insights and guides"

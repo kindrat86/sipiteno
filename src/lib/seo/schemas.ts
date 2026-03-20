@@ -163,10 +163,8 @@ export const servicesSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "@id": "https://sipiteno.com/services/hr-recruitment",
           "name": "HR & Technical Recruitment",
-          "description": "Sipiteno recruits technical talent across Eastern Europe and Central Asia. Services include salary benchmarking, technical screening, cultural fit assessment, and onboarding support.",
-          "url": "https://sipiteno.com/services/hr-recruitment"
+          "description": "Sipiteno recruits technical talent across Eastern Europe and Central Asia. Services include salary benchmarking, technical screening, cultural fit assessment, and onboarding support."
         }
       },
       {
@@ -281,6 +279,43 @@ export const breadcrumbSchema = (items: Array<{ name: string; url: string }>) =>
     "name": item.name,
     "item": item.url
   }))
+});
+
+export const articleSchema = (article: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished?: string;
+  dateModified?: string;
+  wordCount?: number;
+  authorName?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": article.title,
+  "description": article.description,
+  "url": article.url,
+  "author": {
+    "@type": "Organization",
+    "@id": "https://sipiteno.com/#organization",
+    "name": article.authorName || "Sipiteno"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://sipiteno.com/#organization",
+    "name": "Sipiteno",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sipiteno.com/favicon.png"
+    }
+  },
+  ...(article.datePublished && { "datePublished": article.datePublished }),
+  ...(article.dateModified && { "dateModified": article.dateModified }),
+  ...(article.wordCount && { "wordCount": article.wordCount }),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": article.url
+  }
 });
 
 export const servicePageSchema = (service: {
