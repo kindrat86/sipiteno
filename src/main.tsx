@@ -4,10 +4,10 @@ import { initClarity } from "./lib/clarity";
 import App from "./App.tsx";
 import "./index.css";
 
-posthog.init(import.meta.env.VITE_POSTHOG_KEY, {
-  api_host: import.meta.env.VITE_POSTHOG_HOST || "https://us.i.posthog.com",
+posthog.init(import.meta.env.VITE_POSTHOG_KEY || "phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX", {
+  api_host: import.meta.env.VITE_POSTHOG_HOST || "https://eu.i.posthog.com",
   person_profiles: "identified_only",
-  capture_pageview: false,
+  defaults: "2025-05-24",
 });
 
 initClarity();
