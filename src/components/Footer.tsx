@@ -1,125 +1,129 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const year = new Date().getFullYear();
+
+  const serviceLinks = [
+    { label: t("services.s1Title"), to: "/services/ai-consulting" },
+    { label: t("services.s2Title"), to: "/services/business-development" },
+    { label: t("services.s4Title"), to: "/services/it-consulting" },
+    { label: t("services.s3Title"), to: "/services/digital-marketing" },
+    { label: t("services.s5Title"), to: "/services/sales-funnel" },
+    { label: t("services.s6Title"), to: "/services/project-management" },
+  ];
+
+  const companyLinks = [
+    { label: t("footer.whyChooseUs"), to: "/#why-choose-us" },
+    { label: t("footer.locations"), to: "/locations" },
+    { label: t("footer.industries"), to: "/industries" },
+    { label: t("footer.markets"), to: "/#markets" },
+    { label: t("footer.caseStudies"), to: "/case-studies" },
+    { label: t("footer.pricing"), to: "/pricing" },
+    { label: t("footer.methodology"), to: "/methodology" },
+    { label: t("footer.blog"), to: "/blog" },
+    { label: t("footer.faq"), to: "/#faq" },
+    { label: t("footer.contactLink"), to: "/#contact" },
+  ];
+
   return (
     <footer className="bg-primary text-white">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div className="container mx-auto px-4 md:px-6 py-10 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-8">
           {/* Company */}
-          <div>
-            <h3 className="font-bold text-lg mb-4">Sipiteno</h3>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Strategic business development and technology consulting across 28 countries in Europe, Caucasus, and Central Asia. Founded in 2009.
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h3 className="font-bold text-lg mb-3">{t("footer.company")}</h3>
+            <p className="text-white/70 text-sm leading-relaxed max-w-xs">
+              {t("footer.companyDesc")}
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>
-                <Link to="/services/ai-consulting" className="hover:text-white transition-colors">
-                  AI Consulting
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/business-development" className="hover:text-white transition-colors">
-                  Business Development B2B
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/it-consulting" className="hover:text-white transition-colors">
-                  IT Consulting
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/digital-marketing" className="hover:text-white transition-colors">
-                  Digital Marketing
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/sales-funnel" className="hover:text-white transition-colors">
-                  Sales Funnel Setup
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/project-management" className="hover:text-white transition-colors">
-                  Project Management
-                </Link>
-              </li>
+            <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-white/80">
+              {t("footer.services")}
+            </h4>
+            <ul className="space-y-2">
+              {serviceLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-white/60 hover:text-white text-sm transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>
-                <Link to="/#why-choose-us" className="hover:text-white transition-colors">
-                  Why Choose Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/#markets" className="hover:text-white transition-colors">
-                  Markets
-                </Link>
-              </li>
-              <li>
-                <Link to="/case-studies" className="hover:text-white transition-colors">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/#faq" className="hover:text-white transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link to="/#contact" className="hover:text-white transition-colors">
-                  Contact
-                </Link>
-              </li>
+            <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-white/80">
+              {t("footer.companyLinks")}
+            </h4>
+            <ul className="space-y-2">
+              {companyLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-white/60 hover:text-white text-sm transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact & Legal */}
           <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm text-white/70">
+            <h4 className="font-semibold mb-3 text-sm uppercase tracking-wider text-white/80">
+              {t("footer.contact")}
+            </h4>
+            <ul className="space-y-2">
               <li>
                 <a
                   href="https://www.linkedin.com/company/34765968"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
+                  className="text-white/60 hover:text-white text-sm transition-colors"
                 >
-                  LinkedIn
+                  {t("footer.linkedin")}
                 </a>
               </li>
             </ul>
-            <h4 className="font-semibold mt-6 mb-2">Legal</h4>
-            <ul className="space-y-2 text-sm text-white/70">
+            <div className="mt-4">
+              <LanguageSwitcher />
+            </div>
+            <h4 className="font-semibold mt-6 mb-3 text-sm uppercase tracking-wider text-white/80">
+              {t("footer.legal")}
+            </h4>
+            <ul className="space-y-2">
               <li>
-                <Link to="/terms" className="hover:text-white transition-colors">
-                  Terms & Conditions
+                <Link
+                  to="/terms"
+                  className="text-white/60 hover:text-white text-sm transition-colors"
+                >
+                  {t("footer.terms")}
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="hover:text-white transition-colors">
-                  Privacy Policy
+                <Link
+                  to="/privacy"
+                  className="text-white/60 hover:text-white text-sm transition-colors"
+                >
+                  {t("footer.privacy")}
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-6 text-center text-sm text-white/60">
-          <p>&copy; {new Date().getFullYear()} Sipiteno. All rights reserved.</p>
+        <div className="border-t border-white/15 pt-6 text-center text-sm text-white/50">
+          <p>&copy; {year} {t("footer.copyright")}</p>
         </div>
       </div>
     </footer>

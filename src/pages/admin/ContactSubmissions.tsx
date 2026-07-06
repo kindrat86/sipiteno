@@ -288,7 +288,7 @@ const ContactSubmissions = () => {
       <SEOHead
         title="Contact Submissions | Sipiteno Admin"
         description="Sipiteno admin contact submissions."
-        canonicalUrl="https://sipiteno.com/admin/contact-submissions"
+        url="https://sipiteno.com/admin/contact-submissions"
         noindex
       />
       <Navigation />

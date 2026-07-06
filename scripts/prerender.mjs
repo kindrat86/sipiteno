@@ -1,0 +1,544 @@
+#!/usr/bin/env node
+/**
+ * Build-time prerendering for sipiteno.com
+ * Generates static HTML files for all routes with correct meta tags + JSON-LD
+ * so crawlers (Googlebot, GPTBot, PerplexityBot, etc.) see route-specific content.
+ *
+ * Usage: node scripts/prerender.mjs
+ * Run AFTER `vite build` — reads dist/index.html as template, writes per-route HTML.
+ */
+
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
+
+const DIST = join(process.cwd(), 'dist');
+const templatePath = join(DIST, 'index.html');
+
+if (!existsSync(templatePath)) {
+  console.error('dist/index.html not found. Run `vite build` first.');
+  process.exit(1);
+}
+
+const rawTemplate = readFileSync(templatePath, 'utf-8');
+
+// Strip existing JSON-LD scripts and PostHog from the template head for per-page injection
+const cleanTemplate = rawTemplate
+  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/g, '')
+  .replace(/<!-- Structured Data[\s\S]*?(?=<script type="module")/g, '<!-- Structured Data -->\n    ');
+
+const COUNTRIES = [
+  { name: "Albania", slug: "albania", region: "Southeast Europe", capital: "Tirana", techHub: "Tirana Tech Park", languages: ["Albanian", "English", "Italian"], keyIndustries: ["Tourism", "Energy", "IT Outsourcing", "Agriculture"] },
+  { name: "Armenia", slug: "armenia", region: "Caucasus", capital: "Yerevan", techHub: "Yerevan IT Park", languages: ["Armenian", "Russian", "English"], keyIndustries: ["IT & Software", "Mining", "Agriculture"] },
+  { name: "Azerbaijan", slug: "azerbaijan", region: "Caucasus", capital: "Baku", techHub: "Baku IT Park", languages: ["Azerbaijani", "Russian", "English"], keyIndustries: ["Oil & Gas", "Transport", "ICT"] },
+  { name: "Bosnia and Herzegovina", slug: "bosnia-and-herzegovina", region: "Southeast Europe", capital: "Sarajevo", techHub: "Sarajevo Technology Park", languages: ["Bosnian", "Croatian", "Serbian", "English"], keyIndustries: ["Energy", "Manufacturing", "IT Services"] },
+  { name: "Bulgaria", slug: "bulgaria", region: "Southeast Europe", capital: "Sofia", techHub: "Sofia Tech Park", languages: ["Bulgarian", "English"], keyIndustries: ["IT Outsourcing", "Manufacturing", "Tourism"] },
+  { name: "Croatia", slug: "croatia", region: "Southeast Europe", capital: "Zagreb", techHub: "Zagreb Technology Park", languages: ["Croatian", "English", "German"], keyIndustries: ["Tourism", "IT Services", "Pharma"] },
+  { name: "Cyprus", slug: "cyprus", region: "Mediterranean", capital: "Nicosia", techHub: "Nicosia Innovation Center", languages: ["Greek", "English", "Turkish", "Russian"], keyIndustries: ["Financial Services", "Tourism", "ICT"] },
+  { name: "Czech Republic", slug: "czech-republic", region: "Central Europe", capital: "Prague", techHub: "Prague Innovation Center", languages: ["Czech", "English", "German"], keyIndustries: ["Automotive", "IT & Software", "Engineering"] },
+  { name: "Estonia", slug: "estonia", region: "Northern Europe", capital: "Tallinn", techHub: "Tallinn Tehnopol", languages: ["Estonian", "English", "Russian"], keyIndustries: ["Digital Government", "Cybersecurity", "Fintech"] },
+  { name: "Ethiopia", slug: "ethiopia", region: "East Africa", capital: "Addis Ababa", techHub: "Addis Ababa Innovation Hub", languages: ["Amharic", "English"], keyIndustries: ["Agriculture", "Manufacturing", "ICT"] },
+  { name: "Georgia", slug: "georgia", region: "Caucasus", capital: "Tbilisi", techHub: "Tbilisi Tech Park", languages: ["Georgian", "English", "Russian"], keyIndustries: ["Tourism", "Agriculture", "ICT"] },
+  { name: "Greece", slug: "greece", region: "Southeast Europe", capital: "Athens", techHub: "Athens Science & Technology Park", languages: ["Greek", "English"], keyIndustries: ["Tourism", "Shipping", "ICT"] },
+  { name: "Hungary", slug: "hungary", region: "Central Europe", capital: "Budapest", techHub: "Budapest Science Park", languages: ["Hungarian", "English", "German"], keyIndustries: ["Automotive", "Pharma", "ICT"] },
+  { name: "India", slug: "india", region: "South Asia", capital: "New Delhi", techHub: "Bengaluru - India's Silicon Valley", languages: ["Hindi", "English", "Tamil", "Telugu"], keyIndustries: ["IT Services", "Software", "Manufacturing"] },
+  { name: "Kazakhstan", slug: "kazakhstan", region: "Central Asia", capital: "Astana", techHub: "Astana Hub", languages: ["Kazakh", "Russian", "English"], keyIndustries: ["Oil & Gas", "Mining", "ICT"] },
+  { name: "Kyrgyzstan", slug: "kyrgyzstan", region: "Central Asia", capital: "Bishkek", techHub: "Bishkek IT Park", languages: ["Kyrgyz", "Russian", "English"], keyIndustries: ["Agriculture", "Mining", "ICT"] },
+  { name: "Latvia", slug: "latvia", region: "Northern Europe", capital: "Riga", techHub: "Riga TechHub", languages: ["Latvian", "English", "Russian"], keyIndustries: ["IT Services", "Fintech", "Logistics"] },
+  { name: "Lithuania", slug: "lithuania", region: "Northern Europe", capital: "Vilnius", techHub: "Vilnius Tech Park", languages: ["Lithuanian", "English", "Russian"], keyIndustries: ["Fintech", "IT Services", "Biotech"] },
+  { name: "Moldova", slug: "moldova", region: "Eastern Europe", capital: "Chisinau", techHub: "Chisinau IT Park", languages: ["Romanian", "Russian", "English"], keyIndustries: ["Agriculture", "IT Services", "Manufacturing"] },
+  { name: "Montenegro", slug: "montenegro", region: "Southeast Europe", capital: "Podgorica", techHub: "Podgorica Technology Park", languages: ["Montenegrin", "Serbian", "English"], keyIndustries: ["Tourism", "Energy", "ICT"] },
+  { name: "North Macedonia", slug: "north-macedonia", region: "Southeast Europe", capital: "Skopje", techHub: "Skopje Tech Park", languages: ["Macedonian", "Albanian", "English"], keyIndustries: ["Manufacturing", "IT Services", "Agriculture"] },
+  { name: "Poland", slug: "poland", region: "Central Europe", capital: "Warsaw", techHub: "Warsaw Business Hub & Krakow Tech Park", languages: ["Polish", "English", "German"], keyIndustries: ["IT Outsourcing", "Fintech", "Gaming"] },
+  { name: "Romania", slug: "romania", region: "Southeast Europe", capital: "Bucharest", techHub: "Bucharest Tech Hub & Cluj Innovation Park", languages: ["Romanian", "English", "French"], keyIndustries: ["IT Outsourcing", "Automotive", "Manufacturing"] },
+  { name: "Serbia", slug: "serbia", region: "Southeast Europe", capital: "Belgrade", techHub: "Belgrade Science & Technology Park", languages: ["Serbian", "English", "Russian"], keyIndustries: ["IT Services", "Agriculture", "Manufacturing"] },
+  { name: "Slovakia", slug: "slovakia", region: "Central Europe", capital: "Bratislava", techHub: "Bratislava Technology Park", languages: ["Slovak", "English", "German"], keyIndustries: ["Automotive", "IT Services", "Manufacturing"] },
+  { name: "Slovenia", slug: "slovenia", region: "Central Europe", capital: "Ljubljana", techHub: "Ljubljana Technology Park", languages: ["Slovenian", "English", "German"], keyIndustries: ["Manufacturing", "Pharma", "ICT"] },
+  { name: "Ukraine", slug: "ukraine", region: "Eastern Europe", capital: "Kyiv", techHub: "Kyiv Tech Hub & Lviv IT Park", languages: ["Ukrainian", "Russian", "English"], keyIndustries: ["IT Outsourcing", "Agriculture", "Defense Tech"] },
+  { name: "Uzbekistan", slug: "uzbekistan", region: "Central Asia", capital: "Tashkent", techHub: "Tashkent IT Park", languages: ["Uzbek", "Russian", "English"], keyIndustries: ["ICT", "Textiles", "Agriculture"] },
+];
+
+const SERVICES = [
+  { slug: "ai-consulting", name: "AI Consulting", desc: "AI implementation, strategy development, machine learning, and intelligent automation" },
+  { slug: "business-development", name: "Business Development", desc: "Strategic B2B partnerships, lead generation, market entry strategy, and deal structuring" },
+  { slug: "digital-marketing", name: "Digital Marketing", desc: "SEO, SEM, content marketing, and social media management for B2B tech companies" },
+  { slug: "it-consulting", name: "IT Consulting", desc: "Digital transformation, technology assessment, and infrastructure optimization" },
+  { slug: "project-management", name: "Project Management", desc: "Agile/Scrum implementation, resource planning, and stakeholder communication" },
+  { slug: "sales-funnel", name: "Sales Funnel Setup", desc: "Landing page design, conversion optimization, email automation, and analytics" },
+];
+
+const INDUSTRIES = [
+  { slug: "saas-software", name: "SaaS & Software", desc: "End-to-end support for SaaS companies expanding into emerging markets" },
+  { slug: "fintech-financial-services", name: "Fintech & Financial Services", desc: "Regulatory navigation and market entry for fintech companies" },
+  { slug: "ecommerce-retail-tech", name: "E-Commerce & Retail Tech", desc: "Market entry strategy for e-commerce businesses expanding across European and Asian markets" },
+  { slug: "manufacturing-industry-4", name: "Manufacturing & Industry 4.0", desc: "Digital transformation consulting and technology implementation for manufacturing companies" },
+  { slug: "cybersecurity", name: "Cybersecurity", desc: "Market entry and business development for cybersecurity companies" },
+  { slug: "healthcare-medtech", name: "Healthcare & MedTech", desc: "Regulatory navigation and market expansion for healthcare technology companies" },
+  { slug: "agtech-agriculture", name: "AgTech & Agriculture", desc: "Technology adoption and market entry for agtech companies in Central Asia and Eastern Europe" },
+  { slug: "energy-renewables", name: "Energy & Renewables", desc: "Strategic consulting for renewable energy and clean technology companies" },
+  { slug: "logistics-supply-chain", name: "Logistics & Supply Chain Tech", desc: "Technology implementation for logistics companies leveraging the Middle Corridor trade route" },
+];
+
+// --- HELPERS ---
+
+function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs, ogType = 'website', noindex = false, bodyContent = '' }) {
+  const allSchemas = [...schemas];
+  if (breadcrumbs) {
+    allSchemas.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": item.name,
+        "item": item.url,
+      })),
+    });
+  }
+
+  const schemaScripts = allSchemas
+    .map(s => `    <script type="application/ld+json">\n${JSON.stringify(s, null, 2).split('\n').map(l => '    ' + l).join('\n')}\n    </script>`)
+    .join('\n');
+
+  // Take the clean template and inject route-specific meta
+  let html = cleanTemplate;
+
+  // Replace title
+  html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+  html = html.replace(/<meta name="title" content="[^"]*"/, `<meta name="title" content="${title}"`);
+  html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${description}"`);
+  html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${canonicalUrl}"`);
+  html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${title}"`);
+  html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${description}"`);
+  html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${canonicalUrl}"`);
+  html = html.replace(/<meta property="og:type" content="[^"]*"/, `<meta property="og:type" content="${ogType}"`);
+  html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${title}"`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${description}"`);
+  html = html.replace(/<meta name="twitter:url" content="[^"]*"/, `<meta name="twitter:url" content="${canonicalUrl}"`);
+
+  // Handle noindex
+  if (noindex) {
+    html = html.replace(/<meta name="robots" content="[^"]*"/, `<meta name="robots" content="noindex, nofollow"`);
+  }
+
+  // Inject schemas before PostHog script (or before </head>)
+  const insertPoint = html.indexOf('<!-- PostHog analytics -->');
+  if (insertPoint !== -1) {
+    html = html.slice(0, insertPoint) + '    <!-- Route-Specific Structured Data -->\n' + schemaScripts + '\n\n    ' + html.slice(insertPoint);
+  } else {
+    html = html.replace('</head>', schemaScripts + '\n  </head>');
+  }
+
+  // INJECT BODY CONTENT — critical for crawlers that don't render JS.
+  // Place SEO content inside #root so React hydrates over it cleanly.
+  // Use <noscript> wrapper + hidden div so it doesn't flash visually on hydration.
+  if (bodyContent) {
+    html = html.replace(
+      /<div id="root"><\/div>/,
+      `<div id="root"><div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap" aria-hidden="true">\n${bodyContent}\n      </div></div>`
+    );
+  }
+
+  return html;
+}
+
+// --- SEO BODY CONTENT BUILDERS ---
+// Generate crawlable HTML for each page type so search engines see real text.
+
+function buildHomepageBody() {
+  const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>: ${s.desc}.</li>`).join('\n      ');
+  const countries = COUNTRIES.map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a>`).join(', ');
+
+  return `<h1>Expand Your Tech Business Into 28 Emerging Markets</h1>
+      <p>Sipiteno helps technology companies expand using the <strong>3-Door Expansion System</strong>™ — Introductions, Regulatory Map, Execution Team. We operate across Eastern Europe, the Caucasus, and Central Asia. Founded in 2009, we've launched 50+ products across 28 countries with 15+ years of regional expertise. Download the free Emerging Markets Expansion Playbook — a 47-page framework covering market entry scorecards, partnership playbooks, and the 4-8 week rapid expansion timeline we use with SaaS clients.</p>
+      <h2>Free Emerging Markets Expansion Playbook</h2>
+      <p>Get our 47-page playbook (usually $97) free. Covers: country-by-country market entry scorecards for all 28 markets; the 4-8 week rapid expansion timeline; regulatory and partnership playbook per region; and real pricing benchmarks. Every month you delay costs ~$8,500 in unrealized pipeline. <a href="https://sipiteno.com/#free-playbook">Download the free playbook</a>.</p>
+      <h2>Our Services</h2>
+      <ul>
+      ${services}
+      </ul>
+      <h2>The 3-Door Expansion System</h2>
+      <p>Three doors to every market: (1) The Introductions — warm handoffs from people already trusted inside the market. (2) The Regulatory Map — knowing which licenses, data rules, and compliance traps kill deals. (3) The Execution Team — bilingual, local people who ship in 4-8 weeks. This is the same system behind 50+ successful market entries.</p>
+      <h2>Value Ladder: How We Work Together</h2>
+      <p>Five ways to engage Sipiteno, climbing in value: (1) Free Expansion Playbook PDF, (2) Free 30-minute strategy scoping call, (3) MicroSaaS MVP development ($15,000-$50,000 fixed), (4) Business Development retainer ($3,000-$10,000/month with 10-30 qualified leads/month), (5) AI implementation program ($25,000-$100,000+). Start free, scale when ready. <a href="https://sipiteno.com/pricing">See pricing</a>.</p>
+      <h2>Why Choose Sipiteno</h2>
+      <p>Five differentiators: 15+ years regional expertise across 28 countries, combined strategic and hands-on technical implementation, 50+ successful projects with 4.9/5 client satisfaction, rapid 4-8 week delivery, and flexible engagement models.</p>
+      <h2>Countries We Serve</h2>
+      <p>${countries}.</p>
+      <h2>Book a Free Strategy Call</h2>
+      <p>Book a free 30-minute call with a senior partner. Walk away with a written action plan, a custom market scorecard for your top 2 markets, and the Expansion Playbook — total value $497, free. <a href="https://sipiteno.com/#contact">Book your free call</a>.</p>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> | <a href="https://sipiteno.com/locations">View all locations</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`;
+}
+
+function buildServiceBody(svc) {
+  const countries = COUNTRIES.slice(0, 12).map(c => `<a href="https://sipiteno.com/locations/${c.slug}/${svc.slug}">${c.name}</a>`).join(', ');
+  const otherServices = SERVICES.filter(s => s.slug !== svc.slug).map(s => `<a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>`).join(', ');
+
+  return `<h1>${svc.name} Services | Sipiteno Consulting</h1>
+      <p>${svc.desc}. Sipiteno delivers ${svc.name.toLowerCase()} services across 28 countries in Europe, Caucasus, and Central Asia. With 15+ years of regional expertise and 50+ successful projects, we provide end-to-end ${svc.name.toLowerCase()} capabilities from strategy through implementation.</p>
+      <h2>What We Offer</h2>
+      <p>Our ${svc.name.toLowerCase()} practice combines strategic consulting with hands-on technical delivery. We work with technology companies from early-stage startups to Fortune 500 enterprises, tailoring our approach to each client's market position, growth stage, and regional objectives.</p>
+      <h2>Engagement Model</h2>
+      <p>${svc.name} projects are structured around clear deliverables, milestones, and timelines. Pricing ranges from $15,000 for focused engagements to $100,000+ for comprehensive programs. Retainer-based relationships ($3,000-$10,000/month) are available for ongoing support.</p>
+      <h2>Regions Served</h2>
+      <p>We provide ${svc.name.toLowerCase()} services across ${countries}, and 16 additional countries across Eastern Europe, Caucasus, Central Asia, Northern Europe, and beyond.</p>
+      <h2>Related Services</h2>
+      <p>${otherServices}.</p>
+      <p><a href="https://sipiteno.com/">Back to home</a> | <a href="https://sipiteno.com/contact">Contact us</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`;
+}
+
+function buildCountryBody(country) {
+  const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/locations/${country.slug}/${s.slug}">${s.name} in ${country.name}</a>: ${s.desc}.</li>`).join('\n      ');
+  const industries = country.keyIndustries.map(i => `<strong>${i}</strong>`).join(', ');
+
+  return `<h1>Business Consulting in ${country.name} | Sipiteno</h1>
+      <p>Sipiteno provides business development, AI consulting, IT solutions, and digital marketing services in ${country.name}. With local presence and expertise across ${country.region}, we help technology companies establish and grow their operations in ${country.name}'s dynamic market. The capital ${country.capital} hosts ${country.techHub}, a key technology ecosystem where we maintain active partnerships.</p>
+      <h2>Market Overview: ${country.name}</h2>
+      <p>${country.name} is located in ${country.region}. The primary languages are ${country.languages.join(', ')}. Key industries include ${industries}. The main technology hub is ${country.techHub} in ${country.capital}.</p>
+      <h2>Our Services in ${country.name}</h2>
+      <ul>
+      ${services}
+      </ul>
+      <h2>Why ${country.name}?</h2>
+      <p>${country.name} offers significant opportunities for technology companies. Our 15+ years of regional experience, established local networks, and deep market knowledge enable us to navigate regulatory environments, identify partnership opportunities, and accelerate market entry for our clients.</p>
+      <p><a href="https://sipiteno.com/locations">All locations</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`;
+}
+
+function buildCountryServiceBody(country, svc) {
+  const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 3).map(s => `<a href="https://sipiteno.com/locations/${country.slug}/${s.slug}">${s.name}</a>`).join(', ');
+  const otherCountries = COUNTRIES.filter(c => c.region === country.region && c.slug !== country.slug).slice(0, 5).map(c => `<a href="https://sipiteno.com/locations/${c.slug}/${svc.slug}">${c.name}</a>`).join(', ');
+
+  return `<h1>${svc.name} in ${country.name} | Sipiteno Consulting</h1>
+      <p>Sipiteno provides expert ${svc.name.toLowerCase()} services in ${country.name}. ${svc.desc}. Our local team in ${country.capital} brings deep expertise across ${country.region}, supported by 15+ years of regional experience and established networks in ${country.name}'s technology sector.</p>
+      <h2>${svc.name} Expertise in ${country.name}</h2>
+      <p>We deliver ${svc.name.toLowerCase()} solutions tailored to ${country.name}'s market dynamics. Key industries in ${country.name} include ${country.keyIndustries.join(', ')}. Our team operates from ${country.techHub} and serves clients across the entire country, with particular focus on ${country.capital} and surrounding regions.</p>
+      <h2>Local Capabilities</h2>
+      <p>Our ${svc.name.toLowerCase()} practice in ${country.name} covers strategy development, implementation, and ongoing optimization. We work in ${country.languages.slice(0, 2).join(' and ')}, ensuring seamless communication with local stakeholders, partners, and regulatory bodies. Projects typically range from $15,000 to $100,000+ depending on scope and duration.</p>
+      <h2>Regional Coverage</h2>
+      <p>In addition to ${country.name}, we provide ${svc.name.toLowerCase()} services in ${otherCountries}, and 20+ other countries across our operating regions.</p>
+      <h2>Related Services in ${country.name}</h2>
+      <p>${otherServices}.</p>
+      <p><a href="https://sipiteno.com/locations/${country.slug}">All services in ${country.name}</a> | <a href="https://sipiteno.com/services/${svc.slug}">${svc.name} overview</a> | <a href="https://sipiteno.com/">Home</a></p>`;
+}
+
+function buildIndustryBody(ind) {
+  return `<h1>${ind.name} Consulting | Sipiteno</h1>
+      <p>${ind.desc}. Sipiteno provides specialized ${ind.name.toLowerCase()} consulting services across 28 countries in Europe, Caucasus, and Central Asia, combining 15+ years of regional expertise with hands-on technical implementation capabilities.</p>
+      <h2>Our ${ind.name} Practice</h2>
+      <p>We work with ${ind.name.toLowerCase()} companies at every stage—from early-stage startups to established enterprises—on market entry strategy, business development, technology implementation, and scaling operations across emerging markets. Our team understands the regulatory landscape, competitive dynamics, and partnership ecosystems specific to the ${ind.name.toLowerCase()} sector.</p>
+      <h2>Services for ${ind.name}</h2>
+      <p>Our offerings include AI consulting, business development, IT consulting, digital marketing, sales funnel setup, and project management—all tailored to the unique needs of ${ind.name.toLowerCase()} companies expanding internationally.</p>
+      <p><a href="https://sipiteno.com/industries">All industries</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`;
+}
+
+function buildSimpleBody(title, description, links = []) {
+  let linkHtml = links.length > 0 ? `<p>${links.map(l => `<a href="${l.url}">${l.name}</a>`).join(' | ')}</p>` : '';
+  return `<h1>${title}</h1>\n      <p>${description}</p>\n      ${linkHtml}`;
+}
+
+function writeRoute(pathSegments, html) {
+  const dir = join(DIST, ...pathSegments);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'index.html'), html);
+}
+
+// --- ORGANIZATION SCHEMA (reused) ---
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://sipiteno.com/#organization",
+  "name": "Sipiteno",
+  "url": "https://sipiteno.com",
+  "logo": "https://sipiteno.com/favicon.png",
+  "foundingDate": "2009",
+  "sameAs": ["https://www.linkedin.com/company/34765968", "https://twitter.com/sipiteno", "https://github.com/sipiteno"],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://sipiteno.com/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What regions does Sipiteno serve?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sipiteno operates across 28 countries in Eastern Europe, Caucasus, Central Asia, Northern Europe, and beyond. Primary focus markets include Ukraine, Poland, Kazakhstan, Georgia, and Serbia." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost to work with Sipiteno?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sipiteno pricing: Business Development retainers $3,000-$10,000/month, AI Consulting projects $25,000-$100,000+, MicroSaaS MVP $15,000-$50,000, Hourly consulting $150-$300/hour." }
+    },
+    {
+      "@type": "Question",
+      "name": "What services does Sipiteno offer?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sipiteno offers AI Consulting, Business Development, IT Consulting, Digital Marketing, Sales Funnel Setup, Project Management, MicroSaaS MVP Development, and HR & Technical Recruitment." }
+    },
+  ]
+};
+
+// --- GENERATE PAGES ---
+
+let count = 0;
+
+// 1. Core static pages
+const corePages = [
+  {
+    path: [],
+    title: "Sipiteno - Strategic Business Development & AI Consulting | Europe, Caucasus, Central Asia",
+    description: "Sipiteno provides expert business development, AI consulting, IT solutions, and MicroSaaS MVP development across 28 countries. 15+ years experience, 50+ successful projects.",
+    canonicalUrl: "https://sipiteno.com/",
+    schemas: [orgSchema, faqSchema],
+    bodyContent: buildHomepageBody(),
+  },
+  {
+    path: ['blog'],
+    title: "Blog | Sipiteno - MicroSaaS Insights & AI Strategy",
+    description: "Practical insights on building MicroSaaS products, rapid validation, and AI-powered tools. Learn from real builds and get tactical guides on shipping faster.",
+    canonicalUrl: "https://sipiteno.com/blog",
+    bodyContent: buildSimpleBody('Blog | Sipiteno', 'Practical insights on building MicroSaaS products, rapid validation, and AI-powered tools.', [
+      { name: 'Home', url: 'https://sipiteno.com/' },
+      { name: 'Services', url: 'https://sipiteno.com/services/ai-consulting' },
+    ]),
+  },
+  {
+    path: ['case-studies'],
+    title: "Case Studies | Sipiteno - 50+ Projects Across 28 Countries",
+    description: "Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, AI, and more in Eastern Europe, Caucasus, and Central Asia.",
+    canonicalUrl: "https://sipiteno.com/case-studies",
+    breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Case Studies", url: "https://sipiteno.com/case-studies" }],
+    bodyContent: buildSimpleBody('Case Studies | Sipiteno', "Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, AI, and more in Eastern Europe, Caucasus, and Central Asia.", [
+      { name: 'Home', url: 'https://sipiteno.com/' },
+      { name: 'Services', url: 'https://sipiteno.com/services/ai-consulting' },
+      { name: 'Pricing', url: 'https://sipiteno.com/pricing' },
+    ]),
+  },
+  {
+    path: ['pricing'],
+    title: "Pricing | Sipiteno - Transparent Consulting Rates",
+    description: "Sipiteno pricing: Business Development $3K-$10K/month, AI Consulting $25K-$100K+, MicroSaaS MVP $15K-$50K, IT Consulting $15K-$75K+. Flexible engagement models.",
+    canonicalUrl: "https://sipiteno.com/pricing",
+    breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Pricing", url: "https://sipiteno.com/pricing" }],
+    bodyContent: `<h1>Pricing | Sipiteno Consulting Rates</h1>
+      <p>Sipiteno offers transparent and flexible pricing across all service lines. Business Development retainers range from $3,000 to $10,000 per month. AI Consulting projects range from $25,000 to $100,000+ depending on scope. MicroSaaS MVP development costs $15,000 to $50,000 for 4-8 week engagements. IT Consulting ranges from $15,000 to $75,000+. Hourly consulting is available at $150-$300/hour.</p>
+      <p>Payment structure is typically 30-50% upfront with milestone-based releases. We provide transparent proposals with clear deliverables, timelines, and payment schedules.</p>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a></p>`,
+  },
+  {
+    path: ['methodology'],
+    title: "Methodology | Sipiteno - How We Deliver Results",
+    description: "Sipiteno's proven 6-phase methodology for business development, AI consulting, and MicroSaaS MVP development. From discovery to deployment in 4-16 weeks.",
+    canonicalUrl: "https://sipiteno.com/methodology",
+    breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Methodology", url: "https://sipiteno.com/methodology" }],
+    bodyContent: `<h1>Methodology | Sipiteno's 6-Phase Delivery Framework</h1>
+      <p>Sipiteno uses a proven 6-phase methodology across all engagements: Discovery &amp; Assessment, Strategy Development, Planning &amp; Design, Implementation, Testing &amp; QA, and Deployment &amp; Optimization. This structured approach ensures predictable delivery timelines of 4-16 weeks depending on project scope.</p>
+      <h2>Phase 1: Discovery &amp; Assessment</h2>
+      <p>We begin with deep-dive workshops to understand your business objectives, market position, technical requirements, and success criteria. This phase identifies ROI opportunities and establishes measurable KPIs.</p>
+      <h2>Phase 2: Strategy Development</h2>
+      <p>Based on discovery findings, we develop a comprehensive strategy document covering market analysis, competitive positioning, technical architecture, and a phased implementation roadmap.</p>
+      <h2>Phase 3: Planning &amp; Design</h2>
+      <p>Detailed project planning including sprint breakdowns, resource allocation, risk mitigation, and stakeholder communication protocols. Design specifications and technical blueprints are finalized.</p>
+      <h2>Phase 4: Implementation</h2>
+      <p>Agile development sprints with weekly reviews and demos. Continuous integration and deployment ensure transparency and allow for iterative refinement based on feedback.</p>
+      <h2>Phase 5: Testing &amp; QA</h2>
+      <p>Comprehensive quality assurance including automated testing, user acceptance testing, performance testing, and security validation. All deliverables must pass defined acceptance criteria.</p>
+      <h2>Phase 6: Deployment &amp; Optimization</h2>
+      <p>Production deployment with monitoring and alerting setup. Post-launch optimization based on real-world performance data, followed by knowledge transfer and documentation handoff.</p>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`,
+  },
+  {
+    path: ['about'],
+    title: "About | Sipiteno - Founder Story & 28-Country Expansion System",
+    description: "How a failed 2009 market entry in Eastern Europe became a 28-country expansion system. Read the Sipiteno founder story — from one brutal lesson to 50+ successful projects.",
+    canonicalUrl: "https://sipiteno.com/about",
+    breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "About", url: "https://sipiteno.com/about" }],
+    bodyContent: `<h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
+      <p>In 2009, Sipiteno's founder moved a SaaS product into Eastern Europe believing "if the product is great, the market will come." Six months later: zero signed deals, bleeding runway, and the brutal realization that the product was never the problem.</p>
+      <p>The winning companies in Tbilisi, Kyiv, and Almaty all had three things: the right introductions, a regulatory map, and a local team that executes fast. That three-part system became Sipiteno. Today we've delivered 50+ successful projects across 28 countries with 15+ years of regional expertise.</p>
+      <h2>The Sipiteno System</h2>
+      <p>Three pillars: (1) Introductions — warm handoffs from people already trusted inside each market. (2) Regulatory Map — knowing which licenses, data rules, and compliance traps kill deals. (3) Execution Team — bilingual, local teams that ship in 4-8 weeks.</p>
+      <p><a href="https://sipiteno.com/#free-playbook">Get the free Expansion Playbook</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`,
+  },
+  {
+    path: ['terms'],
+    title: "Terms & Conditions | Sipiteno",
+    description: "Terms and conditions for Sipiteno Business Development consulting services.",
+    canonicalUrl: "https://sipiteno.com/terms",
+    noindex: true,
+    bodyContent: buildSimpleBody('Terms &amp; Conditions', 'Terms and conditions for Sipiteno Business Development consulting services.'),
+  },
+  {
+    path: ['privacy'],
+    title: "Privacy Policy | Sipiteno",
+    description: "Privacy policy for Sipiteno Business Development. How we collect, use, and protect your data.",
+    canonicalUrl: "https://sipiteno.com/privacy",
+    noindex: true,
+    bodyContent: buildSimpleBody('Privacy Policy', 'Privacy policy for Sipiteno Business Development. How we collect, use, and protect your data.'),
+  },
+];
+
+// 2. Service pages
+for (const svc of SERVICES) {
+  corePages.push({
+    path: ['services', svc.slug],
+    title: `${svc.name} Services | Sipiteno - Expert Consulting Across 28 Countries`,
+    description: `${svc.desc}. Sipiteno delivers ${svc.name.toLowerCase()} services across 28 countries in Europe, Caucasus, and Central Asia. 15+ years experience, proven results.`,
+    canonicalUrl: `https://sipiteno.com/services/${svc.slug}`,
+    schemas: [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": svc.name,
+      "description": svc.desc,
+      "url": `https://sipiteno.com/services/${svc.slug}`,
+      "provider": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "areaServed": { "@type": "Place", "name": "Europe, Caucasus, Central Asia" },
+    }],
+    breadcrumbs: [
+      { name: "Home", url: "https://sipiteno.com/" },
+      { name: "Services", url: "https://sipiteno.com/" },
+      { name: svc.name, url: `https://sipiteno.com/services/${svc.slug}` },
+    ],
+    bodyContent: buildServiceBody(svc),
+  });
+}
+
+// 3. Locations listing
+corePages.push({
+  path: ['locations'],
+  title: "Locations | Sipiteno - Business Services Across 28 Countries",
+  description: "Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.",
+  canonical: "https://sipiteno.com/locations",
+  breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Locations", url: "https://sipiteno.com/locations" }],
+  bodyContent: (() => {
+    const countryLinks = COUNTRIES.map(c => `<li><a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a> — ${c.region}, capital: ${c.capital}, tech hub: ${c.techHub}</li>`).join('\n      ');
+    return `<h1>Locations | Sipiteno Business Services Across 28 Countries</h1>
+      <p>Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, Northern Europe, South Asia, and East Africa. We maintain local presence and established networks in each market for business development, AI consulting, IT solutions, and digital marketing services.</p>
+      <h2>Countries We Serve</h2>
+      <ul>
+      ${countryLinks}
+      </ul>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services/ai-consulting">Services</a> | <a href="https://sipiteno.com/industries">Industries</a></p>`;
+  })(),
+});
+
+// 4. Industries listing
+corePages.push({
+  path: ['industries'],
+  title: "Industries | Sipiteno - Specialized Consulting Across Sectors",
+  description: "Sipiteno serves technology companies across SaaS, fintech, e-commerce, manufacturing, cybersecurity, healthcare, agtech, energy, and logistics.",
+  canonical: "https://sipiteno.com/industries",
+  breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Industries", url: "https://sipiteno.com/industries" }],
+  bodyContent: (() => {
+    const industryLinks = INDUSTRIES.map(i => `<li><a href="https://sipiteno.com/industries/${i.slug}">${i.name}</a>: ${i.desc}.</li>`).join('\n      ');
+    return `<h1>Industries | Sipiteno Specialized Consulting</h1>
+      <p>Sipiteno serves technology companies across nine industry verticals. Our specialized consulting combines 15+ years of regional expertise with deep sector knowledge to help companies expand into emerging markets.</p>
+      <h2>Industries We Serve</h2>
+      <ul>
+      ${industryLinks}
+      </ul>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/locations">Locations</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`;
+  })(),
+});
+
+// Write core pages
+for (const page of corePages) {
+  const html = buildPage(page);
+  writeRoute(page.path, html);
+  count++;
+}
+
+// 5. Country pages (28)
+for (const country of COUNTRIES) {
+  const title = `Business Consulting in ${country.name} | Sipiteno - ${country.capital}`;
+  const description = `Sipiteno provides business development, AI consulting, IT solutions, and digital marketing services in ${country.name}. Local presence in ${country.capital} with expertise across ${country.region}.`;
+  const canonical = `https://sipiteno.com/locations/${country.slug}`;
+
+  const html = buildPage({
+    title,
+    description,
+    canonicalUrl: canonical,
+    breadcrumbs: [
+      { name: "Home", url: "https://sipiteno.com/" },
+      { name: "Locations", url: "https://sipiteno.com/locations" },
+      { name: country.name, url: canonical },
+    ],
+    schemas: [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `Business Consulting in ${country.name}`,
+      "description": description,
+      "url": canonical,
+      "provider": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "areaServed": { "@type": "Country", "name": country.name },
+    }],
+    bodyContent: buildCountryBody(country),
+  });
+
+  writeRoute(['locations', country.slug], html);
+  count++;
+
+  // 6. Country + Service pages (28 × 6 = 168)
+  for (const svc of SERVICES) {
+    const svcTitle = `${svc.name} in ${country.name} | Sipiteno Consulting`;
+    const svcDescription = `Sipiteno provides ${svc.name.toLowerCase()} services in ${country.name}. ${svc.desc}. Local team in ${country.capital} with expertise across ${country.region}.`;
+    const svcCanonical = `https://sipiteno.com/locations/${country.slug}/${svc.slug}`;
+
+    const svcHtml = buildPage({
+      title: svcTitle,
+      description: svcDescription,
+      canonicalUrl: svcCanonical,
+      breadcrumbs: [
+        { name: "Home", url: "https://sipiteno.com/" },
+        { name: "Locations", url: "https://sipiteno.com/locations" },
+        { name: country.name, url: `https://sipiteno.com/locations/${country.slug}` },
+        { name: svc.name, url: svcCanonical },
+      ],
+      schemas: [{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": `${svc.name} in ${country.name}`,
+        "description": svcDescription,
+        "url": svcCanonical,
+        "provider": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+        "areaServed": { "@type": "Country", "name": country.name },
+      }],
+      bodyContent: buildCountryServiceBody(country, svc),
+    });
+
+    writeRoute(['locations', country.slug, svc.slug], svcHtml);
+    count++;
+  }
+}
+
+// 7. Industry pages (9)
+for (const ind of INDUSTRIES) {
+  const title = `${ind.name} Consulting | Sipiteno`;
+  const description = `${ind.desc}. Sipiteno provides specialized ${ind.name.toLowerCase()} consulting services across 28 countries in Europe, Caucasus, and Central Asia.`;
+  const canonical = `https://sipiteno.com/industries/${ind.slug}`;
+
+  const html = buildPage({
+    title,
+    description,
+    canonicalUrl: canonical,
+    breadcrumbs: [
+      { name: "Home", url: "https://sipiteno.com/" },
+      { name: "Industries", url: "https://sipiteno.com/industries" },
+      { name: ind.name, url: canonical },
+    ],
+    schemas: [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `${ind.name} Consulting`,
+      "description": description,
+      "url": canonical,
+      "provider": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "areaServed": { "@type": "Place", "name": "Europe, Caucasus, Central Asia" },
+    }],
+    bodyContent: buildIndustryBody(ind),
+  });
+
+  writeRoute(['industries', ind.slug], html);
+  count++;
+}
+
+console.log(`✓ Prerendered ${count} static HTML pages in dist/`);

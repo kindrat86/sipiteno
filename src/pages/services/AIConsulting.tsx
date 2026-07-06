@@ -21,7 +21,7 @@ const AIConsulting = () => {
       <SEOHead
         title="AI Consulting Services | Sipiteno - Strategy, ML Implementation, Automation"
         description="Sipiteno delivers AI consulting services including strategy development, machine learning implementation, and intelligent automation. Projects range $25,000-$100,000 with 8-16 week timelines across 28 countries."
-        canonicalUrl="https://sipiteno.com/services/ai-consulting"
+        url="https://sipiteno.com/services/ai-consulting"
         schemas={[schema]}
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },

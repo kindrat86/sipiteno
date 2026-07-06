@@ -1,18 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import Markets from "@/components/Markets";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { organizationSchema, servicesSchema, faqSchema } from "@/lib/seo/schemas";
 
+const EpiphanyBridge = lazy(() => import("@/components/EpiphanyBridge"));
+const NewOpportunity = lazy(() => import("@/components/NewOpportunity"));
+const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const LeadMagnet = lazy(() => import("@/components/LeadMagnet"));
+const ValueLadder = lazy(() => import("@/components/ValueLadder"));
+const OrderBump = lazy(() => import("@/components/OrderBump"));
+const MassMovement = lazy(() => import("@/components/MassMovement"));
+const Markets = lazy(() => import("@/components/Markets"));
+
 const Index = () => {
   const location = useLocation();
+  const { i18n } = useTranslation();
+  const lang = i18n.language || "en";
+  const initialised = useRef(false);
 
   useEffect(() => {
     if (location.hash) {
@@ -23,20 +35,30 @@ const Index = () => {
     }
   }, [location.hash]);
 
+  const localizedUrl = lang === "en" ? "https://sipiteno.com/" : `https://sipiteno.com/${lang}`;
+
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Sipiteno - Strategic Business Development & AI Consulting | Europe, Caucasus, Central Asia"
-        description="Sipiteno provides expert business development, AI consulting, IT solutions, and MicroSaaS MVP development across 28 countries. 15+ years experience, 50+ successful projects."
-        canonicalUrl="https://sipiteno.com/"
+        title={`Sipiteno | Expand Your Tech Business Into 28 Emerging Markets - ${lang.toUpperCase()}`}
+        description="Your product isn't the problem — your expansion system is. Sipiteno opens doors in Eastern Europe, the Caucasus, and Central Asia: introductions, regulatory maps, and local teams that ship in 4-8 weeks. Free 47-page playbook."
+        url={localizedUrl}
+        ogImage="https://sipiteno.com/og-image.png"
         schemas={[organizationSchema, servicesSchema, faqSchema]}
       />
       <Navigation />
       <main className="pt-16">
         <Hero />
+        <Suspense fallback={null}><MassMovement /></Suspense>
+        <Suspense fallback={null}><Testimonials /></Suspense>
+        <Suspense fallback={null}><EpiphanyBridge /></Suspense>
+        <Suspense fallback={null}><NewOpportunity /></Suspense>
+        <Suspense fallback={null}><ValueLadder /></Suspense>
         <Services />
-        <WhyChooseUs />
-        <Markets />
+        <Suspense fallback={null}><LeadMagnet /></Suspense>
+        <Suspense fallback={null}><WhyChooseUs /></Suspense>
+        <Suspense fallback={null}><OrderBump /></Suspense>
+        <Suspense fallback={null}><Markets /></Suspense>
         <FAQ />
         <Contact />
       </main>

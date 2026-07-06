@@ -21,7 +21,7 @@ const SalesFunnel = () => {
       <SEOHead
         title="Sales Funnel Setup | Sipiteno - Landing Pages, Conversion Optimization, Analytics"
         description="Sipiteno designs and implements high-converting B2B sales funnels including landing pages, conversion optimization, and analytics tracking. Projects from $10,000-$40,000 in 4-8 weeks."
-        canonicalUrl="https://sipiteno.com/services/sales-funnel"
+        url="https://sipiteno.com/services/sales-funnel"
         schemas={[schema]}
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },

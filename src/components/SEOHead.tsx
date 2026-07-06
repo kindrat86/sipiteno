@@ -4,7 +4,7 @@ import { breadcrumbSchema } from '@/lib/seo/schemas';
 interface SEOHeadProps {
   title: string;
   description: string;
-  canonicalUrl: string;
+  url: string;
   schemas?: object[];
   breadcrumbs?: Array<{ name: string; url: string }>;
   noindex?: boolean;
@@ -15,7 +15,7 @@ interface SEOHeadProps {
 const SEOHead = ({
   title,
   description,
-  canonicalUrl,
+  url,
   schemas = [],
   breadcrumbs,
   noindex = false,
@@ -30,6 +30,7 @@ const SEOHead = ({
       if (el) el.setAttribute(attr, value);
     };
 
+    const canonicalUrl = url || '';
     setMeta('meta[name="description"]', 'content', description);
     setMeta('link[rel="canonical"]', 'href', canonicalUrl);
 
@@ -73,7 +74,7 @@ const SEOHead = ({
       const dynamicSchemas = document.querySelectorAll('script[data-seo-schema]');
       dynamicSchemas.forEach(el => el.remove());
     };
-  }, [title, description, canonicalUrl, schemas, breadcrumbs, noindex, ogImage, ogType]);
+  }, [title, description, url, schemas, breadcrumbs, noindex, ogImage, ogType]);
 
   return null;
 };

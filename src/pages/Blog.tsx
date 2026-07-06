@@ -60,7 +60,7 @@ const Blog = () => {
       <SEOHead
         title="Blog | Sipiteno - MicroSaaS Insights"
         description="Practical insights on building MicroSaaS products, rapid validation, and AI-powered tools. Learn from real builds like VoiceLogPro and FunnelFixer."
-        canonicalUrl="https://sipiteno.com/blog"
+        url="https://sipiteno.com/blog"
       />
       <Navigation />
 

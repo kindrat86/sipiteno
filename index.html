@@ -14,12 +14,23 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="https://sipiteno.com/" />
 
+    <!-- Resource Hints for Core Web Vitals -->
+    <link rel="preconnect" href="https://eu.i.posthog.com" />
+    <link rel="dns-prefetch" href="https://eu.i.posthog.com" />
+    <link rel="preconnect" href="https://snap.licdn.com" />
+    <link rel="dns-prefetch" href="https://snap.licdn.com" />
+    <link rel="preconnect" href="https://www.clarity.ms" />
+    <link rel="dns-prefetch" href="https://www.clarity.ms" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sipiteno.com/" />
     <meta property="og:title" content="Sipiteno - Strategic Business Development & AI Consulting" />
     <meta property="og:description" content="Expert business development, AI & IT consulting across 28 countries in Europe, Caucasus, and Central Asia. 15+ years experience, 50+ successful projects." />
-    <meta property="og:image" content="https://sipiteno.com/favicon.png" />
+    <meta property="og:image" content="https://sipiteno.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Sipiteno - Strategic Business Development & AI Consulting across 28 countries" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Sipiteno" />
 
@@ -28,7 +39,7 @@
     <meta name="twitter:url" content="https://sipiteno.com/" />
     <meta name="twitter:title" content="Sipiteno - Strategic Business Development & AI Consulting" />
     <meta name="twitter:description" content="Expert business development, AI & IT consulting across 28 countries in Europe, Caucasus, and Central Asia." />
-    <meta name="twitter:image" content="https://sipiteno.com/favicon.png" />
+    <meta name="twitter:image" content="https://sipiteno.com/og-image.png" />
 
     <!-- Structured Data - Organization Schema with Entity Resolution -->
     <script type="application/ld+json">
@@ -107,14 +118,6 @@
         "Agile Project Management",
         "Market Entry Strategy for Emerging Markets"
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "reviewCount": "50",
-        "ratingCount": "50"
-      },
       "hasCredential": [
         {
           "@type": "EducationalOccupationalCredential",
@@ -131,7 +134,29 @@
           "credentialCategory": "Coverage",
           "name": "Operations across 28 countries"
         }
-      ]
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Sipi Teno",
+        "jobTitle": "Founder & Principal Consultant"
+      }
+    }
+    </script>
+
+    <!-- Structured Data - WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://sipiteno.com/#website",
+      "url": "https://sipiteno.com",
+      "name": "Sipiteno",
+      "publisher": { "@id": "https://sipiteno.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://sipiteno.com/locations?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
 
@@ -248,14 +273,32 @@
       ]
     }
     </script>
-    <!-- PostHog analytics -->
-    <script>
-      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=void 0,(o=e.createElement("script")).src="https://eu.i.posthog.com/static/array.js",o.onload=function(){window.posthog.__requestInit={headers:{"Content-Type":"application/json"}},p=n=e.createElement("script"),p.src="https://eu.i.posthog.com/array.js",p.crossOrigin="",p.type="text/javascript",p.onload=function(){posthog.init("phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX",{api_host:"https://eu.i.posthog.com",session_recording:{recordCrossOriginIframes:!0,maskAllInputs:!1}})},r=document.getElementsByTagName("script")[0],r.parentNode.insertBefore(p,r)}),r.parentNode.insertBefore(o,r))}(0,document);
-    </script>
-  </head>
+    <!-- PostHog preconnect (actual init in src/main.tsx for proper React lifecycle) -->
+   </head>
 
-  <body>
+   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- LinkedIn Insight Tag (retargeting) -->
+    <script type="text/javascript">
+      _linkedin_partner_id = "6891888";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script>
+    <script type="text/javascript">
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript"; b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=6891888&fmt=gif" />
+    </noscript>
   </body>
 </html>

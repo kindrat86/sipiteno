@@ -21,7 +21,7 @@ const DigitalMarketing = () => {
       <SEOHead
         title="Digital Marketing Services | Sipiteno - SEO, Content Marketing, Social Media"
         description="Sipiteno provides B2B digital marketing services including SEO, SEM, content marketing, and social media management for technology companies across 28 countries."
-        canonicalUrl="https://sipiteno.com/services/digital-marketing"
+        url="https://sipiteno.com/services/digital-marketing"
         schemas={[schema]}
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },

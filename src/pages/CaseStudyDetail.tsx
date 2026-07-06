@@ -60,7 +60,7 @@ const CaseStudyDetail = () => {
       <SEOHead
         title={`${project.name} - Case Study | Sipiteno`}
         description={project.description}
-        canonicalUrl={`https://sipiteno.com/case-studies/${project.id}`}
+        url={`https://sipiteno.com/case-studies/${project.id}`}
         schemas={[schema]}
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },

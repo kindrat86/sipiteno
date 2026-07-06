@@ -2,19 +2,18 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
+  server: { host: "::", port: 8080 },
   build: {
     sourcemap: mode !== "production",
+    target: "es2020",
+    cssMinify: "lightningcss",
+    minify: "esbuild",
+  },
+  esbuild: {
+    legalComments: "none",
+    drop: mode === "production" ? ["console", "debugger"] : [],
   },
   plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+  resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
 }));

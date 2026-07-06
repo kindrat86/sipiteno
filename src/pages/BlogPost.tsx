@@ -140,7 +140,7 @@ const BlogPost = () => {
       <SEOHead
         title={`${post.title} | Sipiteno Blog`}
         description={post.meta_description || `Read ${post.title} on the Sipiteno blog.`}
-        canonicalUrl={`https://sipiteno.com/blog/${post.slug}`}
+        url={`https://sipiteno.com/blog/${post.slug}`}
         ogType="article"
         schemas={[articleSchema({
           title: post.title,

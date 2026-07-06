@@ -146,7 +146,7 @@ const BlogGenerator = () => {
       <SEOHead
         title="Blog Generator | Sipiteno Admin"
         description="Sipiteno admin blog generator."
-        canonicalUrl="https://sipiteno.com/admin/blog-generator"
+        url="https://sipiteno.com/admin/blog-generator"
         noindex
       />
       <Navigation />

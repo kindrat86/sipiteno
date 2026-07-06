@@ -21,7 +21,7 @@ const ITConsulting = () => {
       <SEOHead
         title="IT Consulting Services | Sipiteno - Digital Transformation & Technology Assessment"
         description="Sipiteno delivers IT consulting services including digital transformation, technology stack assessment, and infrastructure optimization. Projects from $15,000-$75,000 across 28 countries."
-        canonicalUrl="https://sipiteno.com/services/it-consulting"
+        url="https://sipiteno.com/services/it-consulting"
         schemas={[schema]}
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },

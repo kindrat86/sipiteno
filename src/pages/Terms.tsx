@@ -9,7 +9,7 @@ const Terms = () => {
       <SEOHead
         title="Terms & Conditions | Sipiteno"
         description="Terms and conditions for Sipiteno's business development and consulting services."
-        canonicalUrl="https://sipiteno.com/terms"
+        url="https://sipiteno.com/terms"
         noindex
       />
       <div className="container mx-auto px-6 py-12">

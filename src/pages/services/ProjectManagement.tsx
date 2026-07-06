@@ -21,7 +21,7 @@ const ProjectManagement = () => {
       <SEOHead
         title="Project Management Services | Sipiteno - Agile, Scrum, Resource Planning"
         description="Sipiteno delivers agile project management services including Scrum implementation, resource planning, and risk management. Monthly retainers from $5,000-$20,000 across 28 countries."
-        canonicalUrl="https://sipiteno.com/services/project-management"
+        url="https://sipiteno.com/services/project-management"
         schemas={[schema]}
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },

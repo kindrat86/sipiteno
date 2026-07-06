@@ -100,7 +100,7 @@ const Auth = () => {
       <SEOHead
         title="Sign In | Sipiteno"
         description="Sipiteno admin sign in."
-        canonicalUrl="https://sipiteno.com/auth"
+        url="https://sipiteno.com/auth"
         noindex
       />
       <Navigation />

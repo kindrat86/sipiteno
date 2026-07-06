@@ -12,7 +12,7 @@ const CaseStudies = () => {
       <SEOHead
         title="Case Studies | Sipiteno - 50+ Projects Across Emerging Markets"
         description="Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, and more in Europe, Caucasus, and Central Asia."
-        canonicalUrl="https://sipiteno.com/case-studies"
+        url="https://sipiteno.com/case-studies"
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },
           { name: "Case Studies", url: "https://sipiteno.com/case-studies" }

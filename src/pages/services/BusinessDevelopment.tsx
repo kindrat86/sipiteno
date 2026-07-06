@@ -21,7 +21,7 @@ const BusinessDevelopment = () => {
       <SEOHead
         title="B2B Business Development | Sipiteno - Partnerships & Lead Generation"
         description="Sipiteno delivers B2B business development services including strategic partnerships, lead generation, and market entry across 28 countries. Monthly retainers from $3,000-$10,000."
-        canonicalUrl="https://sipiteno.com/services/business-development"
+        url="https://sipiteno.com/services/business-development"
         schemas={[schema]}
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },

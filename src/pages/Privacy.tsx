@@ -9,7 +9,7 @@ const Privacy = () => {
       <SEOHead
         title="Privacy Policy | Sipiteno"
         description="Sipiteno's privacy policy covering data collection, GDPR compliance, and user rights."
-        canonicalUrl="https://sipiteno.com/privacy"
+        url="https://sipiteno.com/privacy"
         noindex
       />
       <div className="container mx-auto px-6 py-12">
