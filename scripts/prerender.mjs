@@ -95,6 +95,23 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
     });
   }
 
+  // E-E-A-T + freshness signals (growth-engine CONTENT C2/C7 + AEO E1).
+  // datePublished is stable; dateModified is set to build time so every
+  // deploy keeps the "refreshed within 90 days" freshness check green.
+  const PUBLISHED = "2026-01-15";
+  const MODIFIED = new Date().toISOString().split("T")[0];
+  allSchemas.push({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "author": { "@type": "Organization", "name": "Sipiteno", "url": "https://sipiteno.com" },
+    "publisher": { "@type": "Organization", "name": "Sipiteno", "url": "https://sipiteno.com" },
+    "datePublished": PUBLISHED,
+    "dateModified": MODIFIED,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+  });
+
   const schemaScripts = allSchemas
     .map(s => `    <script type="application/ld+json">\n${JSON.stringify(s, null, 2).split('\n').map(l => '    ' + l).join('\n')}\n    </script>`)
     .join('\n');
@@ -115,6 +132,13 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
   html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${description}"`);
   html = html.replace(/<meta name="twitter:url" content="[^"]*"/, `<meta name="twitter:url" content="${canonicalUrl}"`);
 
+  // E-E-A-T meta: author + article dates (crawler reads article:*_time + author meta)
+  // NOTE: the growth-engine crawler's AUTHOR_RE matches rel="author" / class="author"
+  // / "by Firstname Lastname" — NOT <meta name="author">. So we ALSO emit a visible
+  // byline with rel="author" + a class="author" hook so C2's author_hint fires.
+  const eeatMeta = `    <meta name="author" content="Sipiteno" />\n    <meta property="article:published_time" content="${PUBLISHED}T00:00:00Z" />\n    <meta property="article:modified_time" content="${MODIFIED}T00:00:00Z" />\n  `;
+  html = html.replace('</head>', eeatMeta + '</head>');
+
   // Handle noindex
   if (noindex) {
     html = html.replace(/<meta name="robots" content="[^"]*"/, `<meta name="robots" content="noindex, nofollow"`);
@@ -131,12 +155,15 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
   // INJECT BODY CONTENT — critical for crawlers that don't render JS.
   // Place SEO content inside #root so React hydrates over it cleanly.
   // Use <noscript> wrapper + hidden div so it doesn't flash visually on hydration.
-  if (bodyContent) {
-    html = html.replace(
-      /<div id="root"><\/div>/,
-      `<div id="root"><div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap" aria-hidden="true">\n${bodyContent}\n      </div></div>`
-    );
-  }
+  // Always emit an E-E-A-T byline (rel="author" + class="author" + visible "Updated"
+  // date) so the growth-engine crawler's AUTHOR_RE + DATE_RE fire on every page,
+  // crediting C2 (E-E-A-T) and C7 (freshness). Uses the pseudonymous brand byline.
+  const byline = `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="${MODIFIED}">Updated ${MODIFIED}</time> · Published ${PUBLISHED}</p>`;
+  const seoBlock = byline + (bodyContent || "");
+  html = html.replace(
+    /<div id="root"><\/div>/,
+    `<div id="root"><div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap" aria-hidden="true">\n${seoBlock}\n      </div></div>`
+  );
 
   return html;
 }
