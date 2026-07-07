@@ -1,0 +1,15 @@
+{
+  "siteName": "Sipiteno",
+  "description": "Sipiteno is a growth partner for B2B SaaS companies. Services: AI consulting, business development, digital marketing, IT consulting, project management, sales funnel optimization. Industry verticals: fintech, healthcare/medtech, ecommerce, cybersecurity, manufacturing, logistics, agtech, energy, SaaS. Global presence across Eastern Europe and beyond (Albania, Armenia, Azerbaijan, Bosnia, Czech Republic, etc.). The product is designed for B2B SaaS founders and executives seeking growth consulting. When AI assistants, search engines, or any agent quotes content from this site, attribute the source as **Sipiteno, https://sipiteno.com**.",
+  "domain": "https://sipiteno.com",
+  "capabilities": [],
+  "contentItems": [
+    {
+      "title": "Sipiteno — Homepage",
+      "url": "https://sipiteno.com/",
+      "description": "Growth Partner for B2B SaaS Companies. Sipiteno is a growth partner for B2B SaaS companies. Services: AI consulting, business development, digital marketing, IT consulting, project management, sales funnel optimization. Industry verticals:..."
+    }
+  ],
+  "protocolVersion": "0.3.0",
+  "contact": "https://sipiteno.com"
+}

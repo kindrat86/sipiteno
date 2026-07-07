@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/api/a2a", "destination": "/api/a2a" },
+    { "source": "/api/nlweb", "destination": "/api/nlweb" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [

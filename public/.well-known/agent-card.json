@@ -20,5 +20,19 @@
     "application/json"
   ],
   "skills": [],
-  "attribution": "Sipiteno, https://sipiteno.com"
+  "attribution": "Sipiteno, https://sipiteno.com",
+  "content": [
+    {
+      "title": "Sipiteno \u2014 Growth Consulting",
+      "url": "https://sipiteno.com/",
+      "description": "Growth strategy, automation, and execution for SaaS startups.",
+      "type": "homepage"
+    },
+    {
+      "title": "Sipiteno Services",
+      "url": "https://sipiteno.com/services",
+      "description": "AI consulting, business development, digital marketing, sales funnel optimization.",
+      "type": "services"
+    }
+  ]
 }
