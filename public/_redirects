@@ -1,1 +1,13 @@
-/*    /index.html   200
+/about                /about.html           200
+/faq                  /faq.html             200
+/answers              /answers.html         200
+/citations            /citations.html       200
+/privacy              /privacy.html         200
+/terms                /terms.html           200
+/contact              /contact.html         200
+/alternatives-to/:slug  /alternatives-to/:slug.html  200
+/vs/:slug             /vs/:slug.html        200
+/for/:slug            /for/:slug.html       200
+/glossary/:slug       /glossary/:slug.html  200
+/best/:slug           /best/:slug.html      200
+/*                    /index.html           200
