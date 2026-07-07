@@ -1,0 +1,24 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Sipiteno Agent",
+  "description": "Sipiteno is a growth partner for B2B SaaS companies. Services: AI consulting, business development, digital marketing, IT consulting, project management, sales funnel optimization. Industry verticals: fintech, healthcare/medtech, ecommerce, cybersecurity, manufacturing, logistics, agtech, energy, Sa",
+  "url": "https://sipiteno.com",
+  "preferredTransport": "JSONRPC",
+  "iconUrl": "https://sipiteno.com/icon.png",
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [],
+  "attribution": "Sipiteno, https://sipiteno.com"
+}

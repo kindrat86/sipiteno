@@ -1,74 +1,30 @@
-# Robots.txt for Sipiteno - Optimized for AI/LLM and Traditional Search Engines
+User-Agent: *
+Disallow: /api/auth/
+Disallow: /api/webhook/
+Disallow: /api/cron/
+Disallow: /dashboard/
+Disallow: /account/
+Disallow: /login/
 
-# AI/LLM Search Engine Bots
-User-agent: PerplexityBot
+User-Agent: GPTBot
 Allow: /
-Disallow: /admin/
-Disallow: /auth
 
-User-agent: ChatGPT-User
+User-Agent: ChatGPT-User
 Allow: /
-Disallow: /admin/
-Disallow: /auth
 
-User-agent: GPTBot
+User-Agent: PerplexityBot
 Allow: /
-Disallow: /admin/
-Disallow: /auth
 
-User-agent: Claude-Web
+User-Agent: ClaudeBot
 Allow: /
-Disallow: /admin/
-Disallow: /auth
 
-User-agent: anthropic-ai
+User-Agent: anthropic-ai
 Allow: /
-Disallow: /admin/
-Disallow: /auth
 
-User-agent: Google-Extended
+User-Agent: Google-Extended
 Allow: /
-Disallow: /admin/
-Disallow: /auth
 
-# Traditional Search Engines
-User-agent: Googlebot
+User-Agent: Bingbot
 Allow: /
-Disallow: /admin/
-Disallow: /auth
 
-User-agent: Bingbot
-Allow: /
-Disallow: /admin/
-Disallow: /auth
-
-User-agent: Slurp
-Allow: /
-Disallow: /admin/
-Disallow: /auth
-
-# Social Media Bots
-User-agent: Twitterbot
-Allow: /
-Disallow: /admin/
-Disallow: /auth
-
-User-agent: facebookexternalhit
-Allow: /
-Disallow: /admin/
-Disallow: /auth
-
-User-agent: LinkedInBot
-Allow: /
-Disallow: /admin/
-Disallow: /auth
-
-# All Other Bots
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /auth
-
-# Sitemap and LLM content
 Sitemap: https://sipiteno.com/sitemap.xml
-Llms-txt: https://sipiteno.com/llms.txt
