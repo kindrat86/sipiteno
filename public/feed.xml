@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sipiteno</title>
+    <link>https://sipiteno.com</link>
+    <description>Growth consulting for B2B SaaS companies.</description>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Jul 2026 14:57:21 GMT</lastBuildDate>
+    <atom:link href="https://sipiteno.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homepage</title>
+      <link>https://sipiteno.com/</link>
+      <guid isPermaLink="true">https://sipiteno.com/</guid>
+      <description>B2B SaaS growth partner</description>
+    </item>
+    <item>
+      <title>Industries</title>
+      <link>https://sipiteno.com/industries</link>
+      <guid isPermaLink="true">https://sipiteno.com/industries</guid>
+      <description>Industry verticals</description>
+    </item>
+    <item>
+      <title>Case Studies</title>
+      <link>https://sipiteno.com/case-studies</link>
+      <guid isPermaLink="true">https://sipiteno.com/case-studies</guid>
+      <description>Client success stories</description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>https://sipiteno.com/blog</link>
+      <guid isPermaLink="true">https://sipiteno.com/blog</guid>
+      <description>Growth insights</description>
+    </item>
+    <item>
+      <title>Locations</title>
+      <link>https://sipiteno.com/locations</link>
+      <guid isPermaLink="true">https://sipiteno.com/locations</guid>
+      <description>Global presence</description>
+    </item>
+  </channel>
+</rss>

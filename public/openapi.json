@@ -1,0 +1,23 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Sipiteno",
+    "description": "Growth consulting for B2B SaaS companies.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://sipiteno.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://sipiteno.com"
+    }
+  ],
+  "paths": {},
+  "tags": [
+    {
+      "name": "content",
+      "description": "Site content"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Sipiteno",
+  "name_for_model": "sipiteno",
+  "description_for_human": "Growth consulting for B2B SaaS companies.",
+  "description_for_model": "Growth consulting for B2B SaaS companies.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://sipiteno.com/openapi.json",
+    "has_user_authentication": false
+  },
+  "logo_url": "https://sipiteno.com/icon.png",
+  "contact_email": "hello@sipiteno.com",
+  "legal_info_url": "https://sipiteno.com/terms"
+}
