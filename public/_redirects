@@ -10,4 +10,9 @@
 /for/:slug            /for/:slug.html       200
 /glossary/:slug       /glossary/:slug.html  200
 /best/:slug           /best/:slug.html      200
+/free/:slug           /free/:slug/index.html     200
+/use-cases/:slug      /use-cases/:slug/index.html  200
+/learn/:slug          /learn/:slug/index.html   200
+/pricing-questions/:slug  /pricing-questions/:slug/index.html  200
+/integrations/:slug   /integrations/:slug/index.html  200
 /*                    /index.html           200
