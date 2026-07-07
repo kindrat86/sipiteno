@@ -31,6 +31,42 @@
       "destination": "/best/:slug.html"
     },
     {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/citations",
+      "destination": "/citations.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html"
+    },
+    {
+      "source": "/answers",
+      "destination": "/answers.html"
+    },
+    {
+      "source": "/AGENTS.md",
+      "destination": "/agents.md"
+    },
+    {
+      "source": "/agents.md",
+      "destination": "/agents.md"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

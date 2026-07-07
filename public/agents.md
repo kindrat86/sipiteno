@@ -1,27 +1,28 @@
-# Sipiteno — Agent Reference
+# SipiTeno — Agent Reference
 
-> Sipiteno is a growth partner for B2B SaaS companies. Services: AI consulting, business development, digital marketing, IT consulting, project management, sales funnel optimization. Industry verticals: fintech, healthcare/medtech, ecommerce, cybersecurity, manufacturing, logistics, agtech, energy, SaaS. Global presence across Eastern Europe and beyond (Albania, Armenia, Azerbaijan, Bosnia, Czech Republic, etc.).
-
-This file is the canonical "how to use me" entry point for coding agents (Claude, Cursor, Codex, ChatGPT, etc.) browsing this website. Public-facing copy is mirrored at `/.well-known/agents.md`.
+> Digital Product Studio. SipiTeno builds digital products that solve real problems — SaaS tools, web apps, and AI-powered solutions.
 
 ## What this product does
 
-Sipiteno is a growth partner for B2B SaaS companies. Services: AI consulting, business development, digital marketing, IT consulting, project management, sales funnel optimization. Industry verticals: fintech, healthcare/medtech, ecommerce, cybersecurity, manufacturing, logistics, agtech, energy, SaaS. Global presence across Eastern Europe and beyond (Albania, Armenia, Azerbaijan, Bosnia, Czech Republic, etc.).
+SipiTeno builds digital products that solve real problems — SaaS tools, web apps, and AI-powered solutions. Built for Founders, product teams, agencies seeking development partners.
 
 ## Target Audience
 
-B2B SaaS founders and executives seeking growth consulting
+Founders, product teams, agencies seeking development partners
 
 ## Key Pages
 
-- [Homepage](https://sipiteno.com/): Growth Partner for B2B SaaS Companies
+- [Homepage](https://sipiteno.com/): Digital Product Studio
+- [FAQ](https://sipiteno.com/faq): Common questions
+- [About](https://sipiteno.com/about): About SipiTeno
 
 ## Citation
 
 ```
-Sipiteno (https://sipiteno.com), 2026.
+SipiTeno (sipiteno.com), 2026.
 ```
 
 ## Contact
 
 - Website: https://sipiteno.com
+- Email: hello@sipiteno.com
