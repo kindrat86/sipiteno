@@ -379,12 +379,78 @@ const corePages = [
     description: "How a failed 2009 market entry in Eastern Europe became a 28-country expansion system. Read the Sipiteno founder story — from one brutal lesson to 50+ successful projects.",
     canonicalUrl: "https://sipiteno.com/about",
     breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "About", url: "https://sipiteno.com/about" }],
+    schemas: [{
+      ...orgSchema,
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@sipiteno.com",
+        "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
+      }]
+    }, {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://sipiteno.com/about/#aboutpage",
+      "url": "https://sipiteno.com/about",
+      "name": "About Sipiteno — Our Story & Expansion System",
+      "description": "Sipiteno helps technology companies expand into emerging markets across Europe, Caucasus, and Central Asia. Founded in 2009, we deliver AI consulting, business development, and IT solutions across 28 countries.",
+      "mainEntity": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" }
+    }, {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sipiteno.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://sipiteno.com/about" }
+      ]
+    }],
     bodyContent: `<h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
       <p>In 2009, Sipiteno's founder moved a SaaS product into Eastern Europe believing "if the product is great, the market will come." Six months later: zero signed deals, bleeding runway, and the brutal realization that the product was never the problem.</p>
       <p>The winning companies in Tbilisi, Kyiv, and Almaty all had three things: the right introductions, a regulatory map, and a local team that executes fast. That three-part system became Sipiteno. Today we've delivered 50+ successful projects across 28 countries with 15+ years of regional expertise.</p>
       <h2>The Sipiteno System</h2>
       <p>Three pillars: (1) Introductions — warm handoffs from people already trusted inside each market. (2) Regulatory Map — knowing which licenses, data rules, and compliance traps kill deals. (3) Execution Team — bilingual, local teams that ship in 4-8 weeks.</p>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:hello@sipiteno.com">hello@sipiteno.com</a>. Get in touch about business development, AI consulting, IT solutions, and strategic expansion into emerging markets.</p>
       <p><a href="https://sipiteno.com/#free-playbook">Get the free Expansion Playbook</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`,
+  },
+  {
+    path: ['contact'],
+    title: "Contact | Sipiteno - Get in Touch",
+    description: "Contact Sipiteno for business development, AI consulting, and technology services across 28 countries. Email hello@sipiteno.com. Response within one business day.",
+    canonicalUrl: "https://sipiteno.com/contact",
+    breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Contact", url: "https://sipiteno.com/contact" }],
+    schemas: [{
+      ...orgSchema,
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hello@sipiteno.com",
+        "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
+      }]
+    }, {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "@id": "https://sipiteno.com/contact/#contactpage",
+      "url": "https://sipiteno.com/contact",
+      "name": "Contact Sipiteno",
+      "description": "Get in touch with Sipiteno for business development, AI consulting, and technology services across 28 countries.",
+      "mainEntity": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" }
+    }, {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sipiteno.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://sipiteno.com/contact" }
+      ]
+    }],
+    bodyContent: `<h1>Contact Sipiteno</h1>
+      <p>Get in touch with Sipiteno for business development, AI consulting, IT solutions, and strategic expansion into emerging markets across Europe, Caucasus, and Central Asia.</p>
+      <h2>Email</h2>
+      <p><a href="mailto:hello@sipiteno.com">hello@sipiteno.com</a> — We respond within one business day.</p>
+      <h2>What We Offer</h2>
+      <p>Sipiteno provides: AI Consulting ($25K-$100K+), Business Development ($3K-$10K/month retainer), IT Consulting ($15K-$75K), MicroSaaS MVP Development ($15K-$50K), Digital Marketing, Sales Funnel Setup, and Project Management.</p>
+      <h2>Service Areas</h2>
+      <p>We operate across 28 countries in Eastern Europe, the Caucasus, Central Asia, and beyond. Primary hubs include Kyiv, Tbilisi, Almaty, Warsaw, Belgrade, and Tallinn. We serve technology companies from early-stage startups to Fortune 500 enterprises.</p>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/about">About</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`,
   },
   {
     path: ['terms'],
