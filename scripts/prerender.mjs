@@ -267,6 +267,12 @@ function writeRoute(pathSegments, html) {
   const dir = join(DIST, ...pathSegments);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'index.html'), html);
+  // Also write the flat `<segment>.html` sibling so vercel.json rewrites that
+  // target flat files (e.g. /about -> /about.html, /for/:slug -> /for/:slug.html)
+  // serve this rich prerendered content instead of vite's thin SPA-shell fallback.
+  const flatDir = join(DIST, ...pathSegments.slice(0, -1));
+  mkdirSync(flatDir, { recursive: true });
+  writeFileSync(join(flatDir, `${pathSegments[pathSegments.length - 1]}.html`), html);
 }
 
 // --- ORGANIZATION SCHEMA (reused) ---
