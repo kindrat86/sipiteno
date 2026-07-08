@@ -38,6 +38,35 @@
   "description": "Terms of Service for SipiTeno.",
   "url": "https://sipiteno.com/terms"
 }</script>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sipiteno.com/#org",
+      "name": "SipiTeno",
+      "url": "https://sipiteno.com",
+      "description": "Digital Product Studio. Launches SaaS tools into 28 emerging markets. 200+ launches, 15+ years.",
+      "sameAs": ["https://github.com/kindrat86"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sipiteno.com/#website",
+      "url": "https://sipiteno.com",
+      "name": "SipiTeno",
+      "publisher": {"@id": "https://sipiteno.com/#org"}
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": ["Home", "About", "Contact"],
+      "url": ["https://sipiteno.com/", "https://sipiteno.com/about", "https://sipiteno.com/contact"]
+    }
+  ]
+}
+</script>
+<!-- Traffic-Readiness JSON-LD org+website schema -->
 </head>
 <body>
 <header><nav><a href="https://sipiteno.com">SipiTeno</a></nav></header>
