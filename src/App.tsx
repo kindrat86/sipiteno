@@ -37,6 +37,9 @@ const IndustriesPage = lazy(() => import("./pages/Industries"));
 // About / story page
 const About = lazy(() => import("./pages/About"));
 
+// Contact page
+const Contact = lazy(() => import("./pages/Contact"));
+
 // Admin pages
 const BlogGenerator = lazy(() => import("./pages/admin/BlogGenerator"));
 const ContactSubmissions = lazy(() => import("./pages/admin/ContactSubmissions"));
@@ -75,6 +78,7 @@ const App = () => (
             <Route path="/locations/:country/:service" element={<LocationService />} />
             {/* Top-level pSEO pages */}
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/industries" element={<IndustriesPage />} />

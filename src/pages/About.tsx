@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import { organizationSchema } from "@/lib/seo/schemas";
 
 const About = () => {
   const { t } = useTranslation();
@@ -27,6 +28,17 @@ const About = () => {
     <>
       <SEOHead title={t("about.title")} description={t("about.description")} url={canonicalUrl}
         breadcrumbs={[{ name: "Home", url: "https://sipiteno.com/" }, { name: "About", url: canonicalUrl }]}
+        schemas={[
+          organizationSchema,
+          {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "About SipiTeno",
+            "url": canonicalUrl,
+            "description": t("about.description"),
+            "mainEntity": { "@type": "Organization", "name": "SipiTeno", "url": "https://sipiteno.com/" },
+          },
+        ]}
       />
       <div className="min-h-screen bg-background">
         <Navigation />
