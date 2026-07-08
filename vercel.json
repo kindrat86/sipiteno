@@ -3,6 +3,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/:country/:service",
+      "destination": "/:country/:service/index.html"
+    },
+    {
       "source": "/integrations/:slug",
       "destination": "/integrations/:slug/index.html"
     },
