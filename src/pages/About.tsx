@@ -36,7 +36,7 @@ const About = () => {
             "name": "About SipiTeno",
             "url": canonicalUrl,
             "description": t("about.description"),
-            "mainEntity": { "@type": "Organization", "name": "SipiTeno", "url": "https://sipiteno.com/" },
+            "mainEntity": { "@type": "Organization", "name": "Sipiteno", "url": "https://sipiteno.com/" },
           },
         ]}
       />

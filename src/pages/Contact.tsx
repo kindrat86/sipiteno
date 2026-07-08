@@ -19,7 +19,7 @@ const Contact = () => {
     "description": "Get in touch with SipiTeno — a digital product studio building SaaS tools, web apps, and AI-powered solutions.",
     "mainEntity": {
       "@type": "Organization",
-      "name": "SipiTeno",
+      "name": "Sipiteno",
       "url": "https://sipiteno.com/",
       "email": "hello@sipiteno.com",
       "contactPoint": {
