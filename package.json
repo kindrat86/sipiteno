@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs",
+    "build": "vite build && node scripts/prerender.mjs && bash scripts/copy-pseo.sh",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
