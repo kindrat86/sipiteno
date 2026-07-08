@@ -15,3 +15,6 @@ for d in learn; do
   done
 done
 echo "Copied sipiteno pSEO pages: $(find dist -name 'index.html' | wc -l) total"
+# Copy IndexNow key files
+cp *.txt dist/ 2>/dev/null
+echo "Copied key files to dist"
