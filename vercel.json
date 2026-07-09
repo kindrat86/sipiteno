@@ -52,7 +52,15 @@
     },
     {
       "source": "/best/:slug",
-      "destination": "/best/:slug.html"
+      "destination": "/best/:slug/index.html"
+    },
+    {
+      "source": "/how-to/:slug",
+      "destination": "/how-to/:slug/index.html"
+    },
+    {
+      "source": "/business/:slug",
+      "destination": "/business/:slug/index.html"
     },
     {
       "source": "/about",
