@@ -287,6 +287,21 @@ const orgSchema = {
   "sameAs": ["https://www.linkedin.com/company/34765968", "https://twitter.com/sipiteno", "https://github.com/sipiteno"],
 };
 
+// WebSite schema — required by Google for Sitelinks Searchbox
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://sipiteno.com/#website",
+  "url": "https://sipiteno.com",
+  "name": "Sipiteno",
+  "publisher": { "@id": "https://sipiteno.com/#organization" },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://sipiteno.com/locations?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -321,7 +336,8 @@ const corePages = [
     title: "Sipiteno - Strategic Business Development & AI Consulting | Europe, Caucasus, Central Asia",
     description: "Sipiteno provides expert business development, AI consulting, IT solutions, and MicroSaaS MVP development across 28 countries. 15+ years experience, 50+ successful projects.",
     canonicalUrl: "https://sipiteno.com/",
-    schemas: [orgSchema, faqSchema],
+    schemas: [orgSchema, webSiteSchema, faqSchema],
+    breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }],
     bodyContent: buildHomepageBody(),
   },
   {

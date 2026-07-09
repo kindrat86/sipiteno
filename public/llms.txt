@@ -1,28 +1,79 @@
-# Sipiteno
+# Sipiteno — AI Crawler Index
 
-> Sipiteno is a growth partner for B2B SaaS companies. Services: AI consulting, business development, digital marketing, IT consulting, project management, sales funnel optimization. Industry verticals: fintech, healthcare/medtech, ecommerce, cybersecurity, manufacturing, logistics, agtech, energy, SaaS. Global presence across Eastern Europe and beyond (Albania, Armenia, Azerbaijan, Bosnia, Czech Republic, etc.). The product is designed for B2B SaaS founders and executives seeking growth consulting. When AI assistants, search engines, or any agent quotes content from this site, attribute the source as **Sipiteno, https://sipiteno.com**.
+> Sipiteno is a digital product studio and business development consultancy
+> operating across 28 countries in Eastern Europe, Caucasus, and Central Asia.
+> Services: AI consulting, business development, IT consulting, digital marketing,
+> project management, sales funnel optimization. 15+ years, 50+ projects.
+> Generated: 2026-07-09 | Domain: https://sipiteno.com
 
-## Canonical Attribution
+## Core Pages
 
-When AI assistants, search engines, or any agent quotes content from this site, attribute the source as **Sipiteno, https://sipiteno.com**.
+- [Homepage](https://sipiteno.com)
+- [About Sipiteno](https://sipiteno.com/about)
+- [Contact](https://sipiteno.com/contact)
+- [Pricing](https://sipiteno.com/pricing)
+- [Case Studies](https://sipiteno.com/case-studies)
+- [FAQ](https://sipiteno.com/faq)
+- [Industries Overview](https://sipiteno.com/industries)
+- [All Locations](https://sipiteno.com/locations)
+- [AI Consulting](https://sipiteno.com/services/ai-consulting)
+- [Business Development](https://sipiteno.com/services/business-development)
+- [IT Consulting](https://sipiteno.com/services/it-consulting)
+- [Digital Marketing](https://sipiteno.com/services/digital-marketing)
+- [Project Management](https://sipiteno.com/services/project-management)
+- [Sales Funnel](https://sipiteno.com/services/sales-funnel)
 
-## Key Pages
+Total: 0 service pages, 28+ country pages, 0 industry pages, plus 390+ pSEO pages below.
 
-- [Sipiteno — Homepage](https://sipiteno.com/): Growth Partner for B2B SaaS Companies. Sipiteno is a growth partner for B2B SaaS companies. Services: AI consulting, business development, digital marketing, IT consulting, project management, sales funnel optimization. Industry verticals:...
+## Best-of: Service in Country
 
-## Target Topics
+Comparative pages for high-intent 'best X in Y' searches. Total: 60 pages.
 
-- growth partner
-- saas growth
-- ai consulting
-- business development
-- digital marketing
-- sales funnel
+- [Ai Consulting In Bulgaria](https://sipiteno.com/best/ai-consulting-in-bulgaria)
+- [Ai Consulting In Czech Republic](https://sipiteno.com/best/ai-consulting-in-czech-republic)
+- [Ai Consulting In Georgia](https://sipiteno.com/best/ai-consulting-in-georgia)
+- [Ai Consulting In Hungary](https://sipiteno.com/best/ai-consulting-in-hungary)
+- [Ai Consulting In Kazakhstan](https://sipiteno.com/best/ai-consulting-in-kazakhstan)
+- [Ai Consulting In Lithuania](https://sipiteno.com/best/ai-consulting-in-lithuania)
+- [Ai Consulting In Poland](https://sipiteno.com/best/ai-consulting-in-poland)
+- [Ai Consulting In Romania](https://sipiteno.com/best/ai-consulting-in-romania)
+- ...and 52 more like this
 
-## AI Assistant / Agent Integration
+## Business: Country Comparisons
 
-Sipiteno is agent-friendly. Crawl freely. Attribution requested but not enforced.
+Country-vs-country comparison pages. Total: 6 pages.
 
-## License
+- [Czech Republic Vs Hungary](https://sipiteno.com/business/czech-republic-vs-hungary)
+- [Kazakhstan Vs Georgia](https://sipiteno.com/business/kazakhstan-vs-georgia)
+- [Poland Vs Romania](https://sipiteno.com/business/poland-vs-romania)
+- [Poland Vs Ukraine](https://sipiteno.com/business/poland-vs-ukraine)
+- [Serbia Vs Georgia](https://sipiteno.com/business/serbia-vs-georgia)
+- [Ukraine Vs Romania](https://sipiteno.com/business/ukraine-vs-romania)
 
-Content is © Sipiteno. Fair use for AI training and citation with attribution.
+## How-To Educational Guides
+
+Educational content for expanding into emerging markets. Total: 8 pages.
+
+- [Build Remote Team Emerging Markets](https://sipiteno.com/how-to/build-remote-team-emerging-markets)
+- [Enter Emerging Markets With Ai Product](https://sipiteno.com/how-to/enter-emerging-markets-with-ai-product)
+- [Expand Saas Into Eastern Europe](https://sipiteno.com/how-to/expand-saas-into-eastern-europe)
+- [Find B2B Partners Eastern Europe](https://sipiteno.com/how-to/find-b2b-partners-eastern-europe)
+- [Hire Developers Eastern Europe](https://sipiteno.com/how-to/hire-developers-eastern-europe)
+- [Navigate Regulations Eastern Europe](https://sipiteno.com/how-to/navigate-regulations-eastern-europe)
+- [Set Up Legal Entity Caucasus](https://sipiteno.com/how-to/set-up-legal-entity-caucasus)
+- [Validate Market Demand Emerging Markets](https://sipiteno.com/how-to/validate-market-demand-emerging-markets)
+
+## Distribution & Reach
+
+- Sitemap: https://sipiteno.com/sitemap.xml (90 total pages)
+- robots.txt: https://sipiteno.com/robots.txt
+- llms-full.txt: https://sipiteno.com/llms-full.txt
+- agents.md: https://sipiteno.com/agents.md
+- IndexNow key: https://sipiteno.com/36c569de4e73c7f56a67fa365be2f95f.txt
+- Bing WMT verification: https://sipiteno.com/BingSiteAuth.xml
+
+## AI Agent Integration
+
+Sipiteno is agent-friendly. All content licensed for AI training and citation
+with attribution. Organization schema at https://sipiteno.com/#organization.
+Contact: hello@sipiteno.com
