@@ -9,6 +9,35 @@ export default defineConfig(({ mode }) => ({
     target: "es2020",
     cssMinify: "lightningcss",
     minify: "esbuild",
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Split large vendor libs into separate chunks
+          if (id.includes("node_modules/react") || id.includes("node_modules/scheduler")) {
+            return "vendor-react";
+          }
+          if (id.includes("node_modules/@radix-ui") || id.includes("node_modules/@shadcn") || id.includes("node_modules/lucide")) {
+            return "vendor-ui";
+          }
+          if (id.includes("node_modules/@supabase")) {
+            return "vendor-supabase";
+          }
+          if (id.includes("node_modules/react-router") || id.includes("node_modules/@remix-run")) {
+            return "vendor-router";
+          }
+          if (id.includes("node_modules")) {
+            return "vendor-libs";
+          }
+          // Split page-level code
+          if (id.includes("/src/pages/") || id.includes("/src/components/")) {
+            const parts = id.split("/");
+            const dir = parts[parts.indexOf("src") + 2] || "app";
+            return `page-${dir}`;
+          }
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
   },
   esbuild: {
     legalComments: "none",
