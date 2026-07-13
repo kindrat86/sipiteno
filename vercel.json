@@ -39,6 +39,14 @@
       "destination": "/alternatives-to/:slug.html"
     },
     {
+      "source": "/alternatives",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/alternatives/",
+      "destination": "/index.html"
+    },
+    {
       "source": "/vs/:slug",
       "destination": "/vs/:slug.html"
     },
