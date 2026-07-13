@@ -1,0 +1,35 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Sipiteno — Expansion Insights",
+  "description": "Business development and AI consulting insights for expanding into 28 emerging markets.",
+  "home_page_url": "https://sipiteno.com",
+  "feed_url": "https://sipiteno.com/feed.json",
+  "authors": [{ "name": "Sipiteno", "url": "https://sipiteno.com" }],
+  "items": [
+    {
+      "id": "https://sipiteno.com/research/emerging-markets-tech-talent-2026",
+      "url": "https://sipiteno.com/research/emerging-markets-tech-talent-2026/",
+      "title": "Emerging Markets Tech Talent Report 2026",
+      "content_html": "<p>The most comprehensive open dataset for tech talent across 28 emerging markets. Developer counts, salaries, tax rates, and business costs. Free to cite under CC BY 4.0.</p>",
+      "date_published": "2026-01-15T00:00:00Z",
+      "date_modified": "2026-07-09T00:00:00Z",
+      "tags": ["research", "data", "tech-talent", "emerging-markets"]
+    },
+    {
+      "id": "https://sipiteno.com/roi-calculator",
+      "url": "https://sipiteno.com/roi-calculator/",
+      "title": "Expansion ROI Calculator — Estimate Your Market Entry Costs",
+      "content_html": "<p>Free interactive tool: calculate expansion costs, timelines, and ROI for 10 emerging markets. 10 countries x 6 services x 3 company sizes.</p>",
+      "date_published": "2026-07-09T00:00:00Z",
+      "tags": ["tool", "calculator", "free"]
+    },
+    {
+      "id": "https://sipiteno.com/how-to/expand-saas-into-eastern-europe",
+      "url": "https://sipiteno.com/how-to/expand-saas-into-eastern-europe/",
+      "title": "How to Expand Your SaaS Into Eastern Europe",
+      "content_html": "<p>A practical guide to market entry, localization, and partnership strategy for SaaS companies targeting Eastern Europe's 300M+ consumer market.</p>",
+      "date_published": "2026-07-09T00:00:00Z",
+      "tags": ["guide", "saas", "expansion"]
+    }
+  ]
+}

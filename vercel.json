@@ -67,6 +67,10 @@
       "destination": "/roi-calculator/:slug/index.html"
     },
     {
+      "source": "/research/:slug",
+      "destination": "/research/:slug/index.html"
+    },
+    {
       "source": "/about",
       "destination": "/about.html"
     },
