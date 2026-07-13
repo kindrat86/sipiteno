@@ -21,13 +21,26 @@ html {
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1.0625rem;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   min-height: 100vh;
   min-height: 100dvh;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  color: #1a1f2b;
+  background-color: #ffffff;
 }
+
+/* Keep wide tables scrollable instead of breaking the page */
+table { border-collapse: collapse; max-width: 100%; }
+@media (max-width: 640px) {
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #e3e6eb; }
 
 /* ── 3. RESPONSIVE HEADING SCALE ───────────────────── */
 h1 { font-size: clamp(1.75rem, 5vw, 3rem); line-height: 1.15; letter-spacing: -0.02em; }
@@ -77,8 +90,6 @@ a:active { color: #002266; }
 
 /* ── 7. IMAGES — CLS PREVENTION ────────────────────── */
 img, video, iframe, embed { max-width: 100%; height: auto; display: block; }
-img:not([width]):not([height]) { aspect-ratio: 16/9; }
-img[loading="lazy"] { opacity: 0; transition: opacity 0.3s ease; }
 
 /* ── 8. FORM ELEMENTS ───────────────────────────────── */
 input, textarea, select {
@@ -113,6 +124,7 @@ p { margin-bottom: 1.25em; }
 /* ── 11. DARK MODE ──────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   body { background-color: #0d1117; color: #e6edf3; }
+  th, td { border-bottom-color: #30363d; }
   a { color: #58a6ff; }
   a:hover { color: #79c0ff; }
   input, textarea, select { background: #161b22; border-color: #30363d; color: #e6edf3; }

@@ -15,7 +15,8 @@ const navItems = [
       { labelKey: "nav.industries", path: "/industries" },
       { labelKey: "nav.caseStudies", path: "/case-studies" },
       { labelKey: "nav.pricing", path: "/pricing" },
-      { labelKey: "nav.blog", path: "/blog" },
+      // Blog intentionally not in primary nav while it has no published posts
+      // ("Coming Soon" dead end). Still linked from the footer.
     ],
   },
   {
@@ -85,6 +86,7 @@ const Navigation = () => {
   };
 
   return (
+    <>
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
@@ -119,7 +121,7 @@ const Navigation = () => {
                   {t(group.groupKey)}
                   <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
                 </button>
-                <div className="absolute top-full left-0 mt-1 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 translate-y-1 group-hover:translate-y-0">
+                <div className="absolute top-full left-0 mt-1 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 translate-y-1 group-hover:translate-y-0 group-focus-within:translate-y-0">
                   <div className="bg-card border border-border rounded-xl shadow-xl p-1.5 space-y-0.5">
                     {group.items.map((item) => (
                       <button
@@ -153,14 +155,18 @@ const Navigation = () => {
           </Button>
         </div>
 
-        {/* Mobile Navigation — fullscreen overlay panel */}
-        {isMenuOpen && (
+      </div>
+    </nav>
+
+    {/* Mobile Navigation — fullscreen overlay panel. Rendered OUTSIDE <nav>
+        because the nav's backdrop-blur creates a CSS containing block that
+        traps fixed descendants inside its 64px box (menu was invisible). */}
+    {isMenuOpen && (
           <div
             id="mobile-menu"
             ref={menuRef}
-            className="fixed inset-0 top-16 md:hidden bg-background/98 backdrop-blur-xl z-40 animate-slide-in-right overflow-y-auto overscroll-contain"
+            className="fixed inset-x-0 top-16 bottom-0 md:hidden bg-background z-40 animate-slide-in-right overflow-y-auto overscroll-contain"
             role="menu"
-            aria-hidden={!isMenuOpen}
           >
             <div className="container mx-auto py-8 px-4 space-y-6 pb-[calc(env(safe-area-inset-bottom)+2rem)]">
               {navItems.map((group) => (
@@ -208,9 +214,8 @@ const Navigation = () => {
               </div>
             </div>
           </div>
-        )}
-      </div>
-    </nav>
+    )}
+    </>
   );
 };
 
