@@ -313,7 +313,7 @@
   }
 }
 
-/* ── Preven text overflow on mobile ────────────────────────── */
+/* ── Prevent text overflow on mobile ───────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -384,5 +384,117 @@ img {
   body {
     color: #000;
     background: #fff;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE PAGE-LEVEL OPTIMIZATIONS
+   Systematic fixes for all inner page templates
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Fluid H1 for inner pages (text-4xl md:text-5xl override) ─
+ * Inner pages use text-4xl (2.25rem) as the base which is too
+ * large for 320-375px screens. Cap at 2rem on small screens. */
+@media (max-width: 640px) {
+  main h1 {
+    font-size: clamp(1.75rem, 6vw, 2.25rem) !important;
+  }
+
+  /* Scale down text-3xl section headings on small screens */
+  main h2 {
+    font-size: clamp(1.5rem, 5vw, 1.875rem) !important;
+  }
+
+  /* Reduce inner page section spacing on mobile */
+  main section[class*="container"] {
+    margin-bottom: 3rem !important;
+  }
+
+  /* Inner page body text: slightly smaller on mobile */
+  main p {
+    line-height: 1.65;
+  }
+}
+
+/* ── Inner page container: tighter mobile padding ────────────
+ * px-6 (24px) is fine for ≥375px but tight for 320px screens.
+ * This adds a floor of 16px and lets px-6 apply at ≥640px. */
+@media (max-width: 375px) {
+  main .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* ── Card hover: disable transform on mobile ───────────────── */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-\[1\.02\]:hover,
+  .hover\:-translate-y-0\.5:hover {
+    transform: none !important;
+  }
+
+  /* Cards: remove shadow scaling on mobile */
+  .hover\:shadow-xl:hover,
+  .hover\:shadow-2xl:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* ── Pricing cards: stack cleanly on mobile ────────────────── */
+@media (max-width: 768px) {
+  /* Prevent highlighted card scale from causing horizontal scroll */
+  .scale-\[1\.02\] {
+    transform: none !important;
+  }
+}
+
+/* ── Dialog/Modal: full-screen on mobile ───────────────────── */
+@media (max-width: 640px) {
+  [role="dialog"] {
+    width: calc(100vw - 2rem) !important;
+    max-width: none !important;
+    margin: 1rem !important;
+    max-height: calc(100dvh - 2rem) !important;
+  }
+}
+
+/* ── Tables: horizontal scroll wrapper fallback ────────────── */
+/* If a table is wider than its container, scroll instead of overflow */
+.table-wrap,
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Long text: prevent janky wrapping ─────────────────────── */
+p, li, dd, dt, blockquote {
+  text-wrap: pretty;
+}
+
+/* ── Reduce layout shift: reserve space for lazy components ── */
+img, video, iframe {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Hide decorative elements on mobile for performance ────── */
+@media (max-width: 480px) {
+  .mobile-hide {
+    display: none !important;
+  }
+}
+
+/* ── Sticky mobile CTA bar ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    position: sticky;
+    bottom: 0;
+    z-index: 40;
+    padding: 12px 16px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    background: hsl(var(--background));
+    border-top: 1px solid hsl(var(--border));
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
   }
 }

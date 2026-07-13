@@ -1,10 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
   const { t } = useTranslation();
   const year = new Date().getFullYear();
+  const location = useLocation();
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+
+  // Show sticky CTA after scrolling 600px, hide on contact/pricing pages
+  useEffect(() => {
+    const isConversionPage = location.pathname === "/" && location.hash === "#contact";
+    const onScroll = () => {
+      setShowStickyCTA(window.scrollY > 600 && !isConversionPage);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [location]);
 
   const serviceLinks = [
     { label: t("services.s1Title"), to: "/services/ai-consulting" },
@@ -29,6 +42,7 @@ const Footer = () => {
   ];
 
   return (
+    <>
     <footer className="bg-primary text-white">
       <div className="container mx-auto px-4 md:px-6 py-10 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-8">
@@ -127,6 +141,24 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+
+    {/* Mobile sticky CTA bar — appears after scroll on non-home pages */}
+    {showStickyCTA && (
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden px-4 pt-3"
+        style={{ paddingBottom: "calc(12px + env(safe-area-inset-bottom))",
+                 background: "hsl(var(--background))",
+                 borderTop: "1px solid hsl(var(--border))",
+                 boxShadow: "0 -4px 12px rgba(0, 0, 0, 0.08)" }}
+      >
+        <Link
+          to="/#contact"
+          className="flex items-center justify-center w-full gap-2 px-6 py-3.5 rounded-xl bg-primary text-white font-bold text-base shadow-lg active:scale-95 transition-transform"
+        >
+          {t("hero.cta")}
+        </Link>
+      </div>
+    )}
+    </>
   );
 };
 
