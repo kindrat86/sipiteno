@@ -156,11 +156,11 @@ const Navigation = () => {
           <div
             id="mobile-menu"
             ref={menuRef}
-            className="fixed inset-0 top-16 md:hidden bg-background/98 backdrop-blur-xl z-40 animate-fade-in overflow-y-auto"
+            className="fixed inset-0 top-16 md:hidden bg-background/98 backdrop-blur-xl z-40 animate-slide-in-right overflow-y-auto overscroll-contain"
             role="menu"
             aria-hidden={!isMenuOpen}
           >
-            <div className="container mx-auto py-6 px-4 space-y-6">
+            <div className="container mx-auto py-8 px-4 space-y-6 pb-[calc(env(safe-area-inset-bottom)+2rem)]">
               {navItems.map((group) => (
                 <div key={group.groupKey}>
                   <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3 px-2">

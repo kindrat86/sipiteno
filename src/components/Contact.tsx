@@ -99,12 +99,12 @@ const Contact = () => {
             <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-5 md:space-y-6">
               <div>
                 <Label htmlFor="fullName">{t("contact.fullName")} <span className="text-destructive">*</span></Label>
-                <Input id="fullName" value={formData.fullName} onChange={(e) => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} placeholder={t("contact.fullNamePlaceholder")} />
+                <Input id="fullName" value={formData.fullName} onChange={(e) => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} placeholder={t("contact.fullNamePlaceholder")} autoComplete="name" enterKeyHint="next" />
                 {errors.fullName && <p className="text-destructive text-sm mt-1">{errors.fullName}</p>}
               </div>
               <div>
                 <Label htmlFor="companyName">{t("contact.companyName")}</Label>
-                <Input id="companyName" value={formData.companyName} onChange={(e) => handleChange("companyName", e.target.value)} placeholder={t("contact.companyNamePlaceholder")} />
+                <Input id="companyName" value={formData.companyName} onChange={(e) => handleChange("companyName", e.target.value)} placeholder={t("contact.companyNamePlaceholder")} autoComplete="organization" enterKeyHint="next" />
               </div>
               <div>
                 <Label htmlFor="email">{t("contact.email")} <span className="text-destructive">*</span></Label>
@@ -113,7 +113,7 @@ const Contact = () => {
               </div>
               <div>
                 <Label htmlFor="phone">{t("contact.phone")}</Label>
-                <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder={t("contact.phonePlaceholder")} autoComplete="tel" />
+                <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder={t("contact.phonePlaceholder")} autoComplete="tel" enterKeyHint="next" />
               </div>
               <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                 <div>
