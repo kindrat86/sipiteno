@@ -71,6 +71,18 @@
       "destination": "/research/:slug/index.html"
     },
     {
+      "source": "/industries/:slug",
+      "destination": "/industries/:slug/index.html"
+    },
+    {
+      "source": "/cost-analysis/:slug",
+      "destination": "/cost-analysis/:slug/index.html"
+    },
+    {
+      "source": "/hire/:slug",
+      "destination": "/hire/:slug/index.html"
+    },
+    {
       "source": "/about",
       "destination": "/about.html"
     },
