@@ -406,7 +406,7 @@ const corePages = [
       "contactPoint": [{
         "@type": "ContactPoint",
         "contactType": "customer support",
-        "email": "hello@sipiteno.com",
+        "email": "sales@sipiteno.com",
         "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
       }]
     }, {
@@ -431,13 +431,13 @@ const corePages = [
       <h2>The Sipiteno System</h2>
       <p>Three pillars: (1) Introductions — warm handoffs from people already trusted inside each market. (2) Regulatory Map — knowing which licenses, data rules, and compliance traps kill deals. (3) Execution Team — bilingual, local teams that ship in 4-8 weeks.</p>
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:hello@sipiteno.com">hello@sipiteno.com</a>. Get in touch about business development, AI consulting, IT solutions, and strategic expansion into emerging markets.</p>
+      <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>. Get in touch about business development, AI consulting, IT solutions, and strategic expansion into emerging markets.</p>
       <p><a href="https://sipiteno.com/#free-playbook">Get the free Expansion Playbook</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`,
   },
   {
     path: ['contact'],
     title: "Contact | Sipiteno - Get in Touch",
-    description: "Contact Sipiteno for business development, AI consulting, and technology services across 28 countries. Email hello@sipiteno.com. Response within one business day.",
+    description: "Contact Sipiteno for business development, AI consulting, and technology services across 28 countries. Email sales@sipiteno.com. Response within one business day.",
     canonicalUrl: "https://sipiteno.com/contact",
     breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Contact", url: "https://sipiteno.com/contact" }],
     schemas: [{
@@ -445,7 +445,7 @@ const corePages = [
       "contactPoint": [{
         "@type": "ContactPoint",
         "contactType": "customer support",
-        "email": "hello@sipiteno.com",
+        "email": "sales@sipiteno.com",
         "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
       }]
     }, {
@@ -467,7 +467,7 @@ const corePages = [
     bodyContent: `<h1>Contact Sipiteno</h1>
       <p>Get in touch with Sipiteno for business development, AI consulting, IT solutions, and strategic expansion into emerging markets across Europe, Caucasus, and Central Asia.</p>
       <h2>Email</h2>
-      <p><a href="mailto:hello@sipiteno.com">hello@sipiteno.com</a> — We respond within one business day.</p>
+      <p><a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> — We respond within one business day.</p>
       <h2>What We Offer</h2>
       <p>Sipiteno provides: AI Consulting ($25K-$100K+), Business Development ($3K-$10K/month retainer), IT Consulting ($15K-$75K), MicroSaaS MVP Development ($15K-$50K), Digital Marketing, Sales Funnel Setup, and Project Management.</p>
       <h2>Service Areas</h2>

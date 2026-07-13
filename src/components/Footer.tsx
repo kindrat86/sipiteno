@@ -9,12 +9,16 @@ const Footer = () => {
   const location = useLocation();
   const [showStickyCTA, setShowStickyCTA] = useState(false);
 
-  // Show sticky CTA after scrolling 600px, hide on contact/pricing pages
+  // Show sticky CTA after scrolling 600px, hide on pages that already convert
   useEffect(() => {
-    const isConversionPage = location.pathname === "/" && location.hash === "#contact";
+    const isConversionPage =
+      location.pathname === "/contact" ||
+      location.pathname === "/pricing" ||
+      location.hash === "#contact";
     const onScroll = () => {
       setShowStickyCTA(window.scrollY > 600 && !isConversionPage);
     };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [location]);
@@ -36,9 +40,11 @@ const Footer = () => {
     { label: t("footer.caseStudies"), to: "/case-studies" },
     { label: t("footer.pricing"), to: "/pricing" },
     { label: t("footer.methodology"), to: "/methodology" },
+    { label: t("nav.glossary"), to: "/glossary" },
+    { label: t("nav.alternatives"), to: "/alternatives" },
     { label: t("footer.blog"), to: "/blog" },
     { label: t("footer.faq"), to: "/#faq" },
-    { label: t("footer.contactLink"), to: "/#contact" },
+    { label: t("footer.contactLink"), to: "/contact" },
   ];
 
   return (
@@ -64,7 +70,7 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
+                    className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -83,7 +89,7 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
+                    className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -100,10 +106,18 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
+                  href="mailto:sales@sipiteno.com"
+                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                >
+                  sales@sipiteno.com
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://www.linkedin.com/company/34765968"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white text-sm transition-colors"
+                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
                 >
                   {t("footer.linkedin")}
                 </a>
@@ -119,7 +133,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/terms"
-                  className="text-white/60 hover:text-white text-sm transition-colors"
+                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
                 >
                   {t("footer.terms")}
                 </Link>
@@ -127,7 +141,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/privacy"
-                  className="text-white/60 hover:text-white text-sm transition-colors"
+                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
                 >
                   {t("footer.privacy")}
                 </Link>

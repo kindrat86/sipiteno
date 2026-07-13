@@ -14,6 +14,20 @@ for d in learn; do
     cp "$html" "dist/$d/$slug/index.html"
   done
 done
+# Copy flat static pSEO families (previously only reached prod as stale
+# leftovers in .vercel/output/static — copy them explicitly)
+for d in for alternatives-to vs glossary free; do
+  test -d "$d" || continue
+  mkdir -p "dist/$d"
+  for html in "$d"/*.html; do
+    test -f "$html" && cp "$html" "dist/$d/$(basename "$html")"
+  done
+  for sub in "$d"/*/; do
+    test -f "${sub}index.html" || continue
+    mkdir -p "dist/${sub}"
+    cp "${sub}index.html" "dist/${sub}index.html"
+  done
+done
 echo "Copied sipiteno pSEO pages: $(find dist -name 'index.html' | wc -l) total"
 # Copy IndexNow key files
 cp *.txt dist/ 2>/dev/null

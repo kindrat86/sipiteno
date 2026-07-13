@@ -314,10 +314,10 @@
 }
 
 /* ── Prevent text overflow on mobile ───────────────────────── */
+/* No hyphens:auto here — it hyphenated brand names ("De-loitte"). */
 h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  hyphens: auto;
 }
 
 /* ── Form UX ───────────────────────────────────────────────── */

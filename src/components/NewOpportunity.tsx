@@ -46,7 +46,7 @@ const NewOpportunity = () => {
           </div>
 
           <div className="p-6 md:p-8 rounded-2xl md:rounded-3xl border-2 border-secondary/40 bg-secondary/5 relative shadow-xl">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-secondary-foreground text-[10px] md:text-xs font-bold px-3 md:px-4 py-1.5 rounded-full whitespace-nowrap">{t("newOpportunity.newWayBadge")}</div>
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-secondary-foreground text-xs md:text-xs font-bold px-3 md:px-4 py-1.5 rounded-full whitespace-nowrap">{t("newOpportunity.newWayBadge")}</div>
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0"><Check className="w-5 h-5 text-secondary" /></div>
               <div className="min-w-0">
@@ -76,7 +76,7 @@ const NewOpportunity = () => {
                 <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 md:mb-5">
                   <pillar.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                 </div>
-                <div className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("newOpportunity.part")} {i + 1}</div>
+                <div className="text-xs md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("newOpportunity.part")} {i + 1}</div>
                 <h4 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{t(pillar.titleKey)}</h4>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t(pillar.descKey)}</p>
               </div>

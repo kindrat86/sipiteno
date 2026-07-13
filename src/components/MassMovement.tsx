@@ -19,7 +19,7 @@ const MassMovement = () => {
           <p className="text-base md:text-lg lg:text-xl text-background/70 text-center max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed">{t("massMovement.body")}</p>
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
             <div className="p-5 md:p-6 rounded-xl md:rounded-2xl bg-background/5 border border-background/10">
-              <div className="text-secondary font-bold text-[10px] md:text-xs uppercase tracking-wide mb-3 md:mb-4">{t("massMovement.forYou")}</div>
+              <div className="text-secondary font-bold text-xs md:text-xs uppercase tracking-wide mb-3 md:mb-4">{t("massMovement.forYou")}</div>
               <ul className="space-y-2 md:space-y-3 text-background/80 text-sm md:text-base">
                 {[1,2,3,4].map((i) => (
                   <li key={i} className="flex items-start gap-2"><span className="text-secondary font-bold flex-shrink-0">&rarr;</span><span>{t(`massMovement.forYou${i}`)}</span></li>
@@ -27,7 +27,7 @@ const MassMovement = () => {
               </ul>
             </div>
             <div className="p-5 md:p-6 rounded-xl md:rounded-2xl bg-background/5 border border-background/10">
-              <div className="text-destructive font-bold text-[10px] md:text-xs uppercase tracking-wide mb-3 md:mb-4">{t("massMovement.notForYou")}</div>
+              <div className="text-destructive font-bold text-xs md:text-xs uppercase tracking-wide mb-3 md:mb-4">{t("massMovement.notForYou")}</div>
               <ul className="space-y-2 md:space-y-3 text-background/60 text-sm md:text-base">
                 {[1,2,3,4].map((i) => (
                   <li key={i} className="flex items-start gap-2"><span className="text-destructive/70 flex-shrink-0">&#10005;</span><span>{t(`massMovement.notForYou${i}`)}</span></li>

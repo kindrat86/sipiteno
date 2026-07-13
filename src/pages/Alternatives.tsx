@@ -180,7 +180,7 @@ const Alternatives = () => {
                 </div>
                 <h1 className="text-[clamp(2rem,7vw,3.5rem)] font-black text-foreground mb-4 leading-[1.1] tracking-tight">
                   Sipiteno vs
-                  <span className="block bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
+                  <span className="block text-primary">
                     the Alternatives
                   </span>
                 </h1>
@@ -213,7 +213,7 @@ const Alternatives = () => {
                     <button
                       key={i}
                       onClick={() => setSelected(i)}
-                      className={`px-5 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all min-h-[48px] flex items-center gap-2 ${
+                      className={`px-5 py-3 rounded-xl text-sm font-bold whitespace-nowrap shrink-0 transition-all min-h-[48px] flex items-center gap-2 ${
                         selected === i
                           ? `text-white bg-gradient-to-r ${c.color} shadow-lg`
                           : "bg-card/60 backdrop-blur border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
@@ -238,7 +238,7 @@ const Alternatives = () => {
                       <div className="flex items-center gap-3 mb-3">
                         <span className="text-3xl md:text-4xl">{comp.icon}</span>
                         <div>
-                          <span className="inline-block text-[10px] md:text-xs px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur font-semibold uppercase tracking-wider">{comp.type}</span>
+                          <span className="inline-block text-xs md:text-xs px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur font-semibold uppercase tracking-wider">{comp.type}</span>
                         </div>
                       </div>
                       <h2 className="text-xl md:text-3xl font-black mb-2">{comp.name}</h2>
@@ -253,7 +253,7 @@ const Alternatives = () => {
                         <TrendingUp className="w-5 h-5 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest mb-1">Best for</p>
+                        <p className="text-xs md:text-xs font-bold text-primary uppercase tracking-widest mb-1">Best for</p>
                         <p className="text-sm md:text-base text-foreground font-medium">{comp.bestFor}</p>
                       </div>
                     </div>

@@ -19,16 +19,16 @@ const EpiphanyBridge = () => {
           </div>
           <div className="text-muted-foreground space-y-7 md:space-y-8 text-base md:text-lg leading-relaxed">
             <div>
-              <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("epiphanyBridge.backstory")}</p>
+              <p className="text-xs md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("epiphanyBridge.backstory")}</p>
               <p>{t("epiphanyBridge.backstoryBody")}</p>
             </div>
             <div>
-              <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("epiphanyBridge.theWall")}</p>
+              <p className="text-xs md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("epiphanyBridge.theWall")}</p>
               <p>{t("epiphanyBridge.wallBody")}</p>
               <p>{t("epiphanyBridge.wallBody2")}</p>
             </div>
             <div>
-              <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("epiphanyBridge.theEpiphany")}</p>
+              <p className="text-xs md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("epiphanyBridge.theEpiphany")}</p>
               <p>{t("epiphanyBridge.epiphanyBody")}</p>
               <ol className="space-y-2 md:space-y-3 my-4 md:my-6 not-prose">
                 {[1,2,3].map((i) => (
@@ -43,12 +43,12 @@ const EpiphanyBridge = () => {
               <p>{t("epiphanyBridge.epiphanyConclusion")}</p>
             </div>
             <div>
-              <p className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("epiphanyBridge.thePlan")}</p>
+              <p className="text-xs md:text-xs font-bold text-primary uppercase tracking-widest mb-2">{t("epiphanyBridge.thePlan")}</p>
               <p>{t("epiphanyBridge.planBody")}</p>
             </div>
           </div>
           <div className="mt-10 md:mt-14 p-6 md:p-10 rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary to-[hsl(var(--hero-gradient-to))] text-center text-white">
-            <p className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-widest mb-3 md:mb-4">{t("epiphanyBridge.bigDominoLabel")}</p>
+            <p className="text-xs md:text-xs font-bold text-secondary uppercase tracking-widest mb-3 md:mb-4">{t("epiphanyBridge.bigDominoLabel")}</p>
             <p className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight max-w-3xl mx-auto">
               {t("epiphanyBridge.bigDomino")}
             </p>

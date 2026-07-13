@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
 import { BookOpen, CheckCircle2, Download, Lock, Clock, Globe2, AlertCircle, TrendingUp, Loader2 } from "lucide-react";
 
@@ -32,15 +31,17 @@ const LeadMagnet = () => {
     }
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", {
-        body: { fullName: name || "Playbook Subscriber", companyName: "(lead magnet)", email, phone: "", country: "", service: "Free Expansion Playbook (Lead Magnet)", message: "LEAD MAGNET REQUEST: User requested 'The Emerging Markets Expansion Playbook (28 Countries, 2026)'. Please add to autoresponder / send download link.", leadType: "playbook" },
+      const resp = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullName: name || "Playbook Subscriber", companyName: "(lead magnet)", email, phone: "", country: "", service: "Free Expansion Playbook (Lead Magnet)", message: "LEAD MAGNET REQUEST: User requested 'The Emerging Markets Expansion Playbook (28 Countries, 2026)'. Please add to autoresponder / send download link.", honeypot }),
       });
-      if (error) throw error;
-      await supabase.from("soap_opera_subscribers").upsert({ email, name: name || null, source: "playbook", current_step: 0, next_email_due_at: new Date().toISOString(), completed: false }, { onConflict: "email" });
+      if (!resp.ok) throw new Error(`contact api ${resp.status}`);
       trackEvent("lead_magnet_requested", { lead_magnet: "emerging_markets_playbook" });
       toast({ title: t("leadMagnet.successTitle"), description: t("leadMagnet.successDesc") });
       setEmail(""); setName("");
     } catch {
+      trackEvent("lead_magnet_failed", {});
       toast({ title: t("leadMagnet.errorTitle"), description: t("leadMagnet.errorDesc"), variant: "destructive" });
     } finally { setIsSubmitting(false); }
   };
@@ -52,7 +53,7 @@ const LeadMagnet = () => {
           <div className="text-white">
             <div className="inline-flex items-center gap-2 mb-4 md:mb-6 px-3 md:px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
               <Download className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />
-              <span className="text-secondary font-semibold text-[10px] md:text-xs tracking-wide uppercase">{t("leadMagnet.badge")}</span>
+              <span className="text-secondary font-semibold text-xs md:text-xs tracking-wide uppercase">{t("leadMagnet.badge")}</span>
             </div>
             <h2 className="text-[clamp(1.75rem,4vw+0.5rem,3rem)] md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
               {t("leadMagnet.title1")} <span className="text-secondary">{t("leadMagnet.title2")}</span> {t("leadMagnet.title3")}
@@ -68,7 +69,7 @@ const LeadMagnet = () => {
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl md:rounded-2xl p-4 md:p-6 mb-4 md:mb-6">
               <div className="flex items-center gap-2 mb-2 md:mb-3">
                 <AlertCircle className="w-4 h-4 md:w-5 md:h-5 text-amber-400" />
-                <h3 className="text-amber-400 font-bold text-[10px] md:text-xs uppercase tracking-wider">{t("leadMagnet.inactionTitle")}</h3>
+                <h3 className="text-amber-400 font-bold text-xs md:text-xs uppercase tracking-wider">{t("leadMagnet.inactionTitle")}</h3>
               </div>
               <div className="space-y-1.5 md:space-y-2 text-white/80 text-xs md:text-sm leading-relaxed">
                 <p>{t("leadMagnet.inaction1")}</p>

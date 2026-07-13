@@ -40,7 +40,7 @@ const HookStoryOffer = () => {
               <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 rounded-2xl bg-blue-500 text-white flex items-center justify-center">
                 <Fish className="w-7 h-7 md:w-8 md:h-8" />
               </div>
-              <span className="text-[10px] md:text-xs font-bold text-blue-500 uppercase tracking-widest">
+              <span className="text-xs md:text-xs font-bold text-blue-500 uppercase tracking-widest">
                 {t("hso.hookLabel")}
               </span>
               <h3 className="text-lg md:text-xl font-bold mb-3">
@@ -56,7 +56,7 @@ const HookStoryOffer = () => {
               <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center">
                 <BookOpen className="w-7 h-7 md:w-8 md:h-8" />
               </div>
-              <span className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-widest">
+              <span className="text-xs md:text-xs font-bold text-primary uppercase tracking-widest">
                 {t("hso.storyLabel")}
               </span>
               <h3 className="text-lg md:text-xl font-bold mb-3">
@@ -72,7 +72,7 @@ const HookStoryOffer = () => {
               <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 rounded-2xl bg-green-500 text-white flex items-center justify-center">
                 <Gift className="w-7 h-7 md:w-8 md:h-8" />
               </div>
-              <span className="text-[10px] md:text-xs font-bold text-green-600 uppercase tracking-widest">
+              <span className="text-xs md:text-xs font-bold text-green-600 uppercase tracking-widest">
                 {t("hso.offerLabel")}
               </span>
               <h3 className="text-lg md:text-xl font-bold mb-3">

@@ -32,7 +32,7 @@ const Hero = () => {
               {t("hero.eyebrow")}
             </span>
             <span className="hidden sm:inline text-white/30">·</span>
-            <span className="text-white/50 font-medium tracking-wide uppercase text-[10px] md:text-xs">
+            <span className="hidden sm:inline text-white/50 font-medium tracking-wide uppercase text-xs">
               {t("hero.eyebrowSub")}
             </span>
           </div>
@@ -99,7 +99,7 @@ const Hero = () => {
           {/* Cost-of-delay counter */}
           <div className="mt-4 inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-amber-500/20 border border-amber-400/40 backdrop-blur-sm">
             <TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-400 flex-shrink-0" aria-hidden="true" />
-            <span className="text-amber-300 text-[10px] md:text-xs font-semibold">
+            <span className="text-amber-300 text-xs md:text-xs font-semibold">
               {t("hero.costDelay")}
             </span>
           </div>

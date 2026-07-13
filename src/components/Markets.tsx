@@ -42,7 +42,7 @@ const Markets = () => {
             {markets.map((market, index) => (
               <div key={index} className="flex flex-col items-center p-4 md:p-5 bg-card/50 backdrop-blur-sm rounded-xl md:rounded-2xl border-2 border-border hover:border-primary/30 transition-all duration-300 hover:shadow-xl group hover:-translate-y-1 gpu-accelerated">
                 <div className="text-3xl md:text-4xl mb-1.5 md:mb-2 group-hover:scale-125 transition-transform duration-300" role="img" aria-label={`${t("markets.flagOf")} ${market.country}`}>{market.flag}</div>
-                <div className="text-[10px] md:text-xs font-medium text-center text-foreground/80 group-hover:text-primary transition-colors leading-tight">{market.country}</div>
+                <div className="text-xs md:text-xs font-medium text-center text-foreground/80 group-hover:text-primary transition-colors leading-tight">{market.country}</div>
               </div>
             ))}
           </div>

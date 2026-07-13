@@ -229,7 +229,7 @@ const IndustriesListing = () => {
 
                 <h1 className="text-[clamp(2rem,7vw,3.5rem)] font-black text-foreground mb-4 leading-[1.1] tracking-tight">
                   Industries
-                  <span className="block bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
+                  <span className="block text-primary">
                     We Serve
                   </span>
                 </h1>
@@ -247,7 +247,7 @@ const IndustriesListing = () => {
                 <div className="relative group max-w-xl mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity" />
                   <div className="relative">
-                    <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                    <Search className="absolute z-10 pointer-events-none left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                     <input
                       type="search"
                       value={search}
@@ -264,7 +264,7 @@ const IndustriesListing = () => {
                     <button
                       key={f}
                       onClick={() => setActiveFilter(f)}
-                      className={`px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all min-h-[44px] ${
+                      className={`px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap shrink-0 transition-all min-h-[44px] ${
                         activeFilter === f
                           ? "text-white bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/20"
                           : "bg-card/60 backdrop-blur border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-card"

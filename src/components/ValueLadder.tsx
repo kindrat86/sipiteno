@@ -33,16 +33,16 @@ const ValueLadder = () => {
             {rungs.map((rung, i) => (
               <div key={i} className={`relative flex flex-col p-5 md:p-6 rounded-2xl border-2 transition-all duration-300 hover:-translate-y-1 gpu-accelerated ${rung.highlight ? "border-primary bg-primary/5 shadow-xl shadow-primary/10" : "border-border bg-card/50 hover:border-primary/30 hover:shadow-lg"}`}>
                 {rung.highlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-[10px] md:text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">{t("valueLadder.mostStartHere")}</div>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs md:text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">{t("valueLadder.mostStartHere")}</div>
                 )}
                 <div className="flex items-center gap-2 mb-3">
                   <rung.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                  <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-wide">{t(rung.tierKey)}</span>
+                  <span className="text-xs md:text-xs font-bold text-muted-foreground uppercase tracking-wide">{t(rung.tierKey)}</span>
                 </div>
                 <h3 className="text-base md:text-lg font-bold mb-1">{t(rung.titleKey)}</h3>
                 <div className="mb-2 md:mb-3">
                   <span className="text-xl md:text-2xl font-bold text-primary">{t(rung.priceKey)}</span>
-                  <span className="text-[10px] md:text-xs text-muted-foreground ml-1">{t(rung.priceNoteKey)}</span>
+                  <span className="text-xs md:text-xs text-muted-foreground ml-1">{t(rung.priceNoteKey)}</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground leading-relaxed flex-1">{t(rung.descKey)}</p>
                 <Link to={rung.href} className="mt-4 md:mt-5 inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-primary hover:gap-2 transition-all">

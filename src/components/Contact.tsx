@@ -7,7 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Mail, CheckCircle2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/analytics";
 
 const countries = [
@@ -46,12 +45,17 @@ const Contact = () => {
     }
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", { body: formData });
-      if (error) throw error;
+      const resp = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!resp.ok) throw new Error(`contact api ${resp.status}`);
       trackEvent("contact_form_submitted", { service: formData.service || "not_specified", country: formData.country || "not_specified" });
       setSubmitted(true);
       toast({ title: t("contact.successToast"), description: t("contact.successToastDesc") });
     } catch {
+      trackEvent("contact_form_failed", {});
       toast({ title: t("contact.errorTitle"), description: t("contact.errorDesc"), variant: "destructive" });
     } finally { setIsSubmitting(false); }
   };
@@ -151,6 +155,12 @@ const Contact = () => {
               <Button type="submit" size="lg" variant="secondary" className="w-full font-semibold text-base md:text-lg h-12 md:h-14 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 disabled:hover:translate-y-0" disabled={isSubmitting}>
                 {isSubmitting ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{t("contact.sending")}</> : <><Mail className="w-5 h-5 mr-2" />{t("contact.submit")}</>}
               </Button>
+              <p className="text-center text-sm text-muted-foreground">
+                Prefer email? Write to{" "}
+                <a href="mailto:sales@sipiteno.com" className="text-primary font-medium hover:underline">
+                  sales@sipiteno.com
+                </a>
+              </p>
             </form>
           </div>
         </div>

@@ -129,7 +129,7 @@ lines.append(f"## AI Agent Integration")
 lines.append(f"")
 lines.append(f"Sipiteno is agent-friendly. All content licensed for AI training and citation")
 lines.append(f"with attribution. Organization schema at {DOMAIN}/#organization.")
-lines.append(f"Contact: hello@sipiteno.com")
+lines.append(f"Contact: sales@sipiteno.com")
 lines.append(f"")
 
 output = "\n".join(lines)

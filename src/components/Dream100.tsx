@@ -41,7 +41,7 @@ const Dream100 = () => {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Target className="w-5 h-5 text-primary" />
                 </div>
-                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                <span className="text-xs md:text-xs font-bold text-muted-foreground uppercase tracking-widest">
                   {t("dream100.step1Label")}
                 </span>
               </div>
@@ -58,7 +58,7 @@ const Dream100 = () => {
                 <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center">
                   <Users className="w-5 h-5 text-secondary" />
                 </div>
-                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                <span className="text-xs md:text-xs font-bold text-muted-foreground uppercase tracking-widest">
                   {t("dream100.step2Label")}
                 </span>
               </div>
@@ -75,7 +75,7 @@ const Dream100 = () => {
                 <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
                   <Trophy className="w-5 h-5 text-green-600" />
                 </div>
-                <span className="text-[10px] md:text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                <span className="text-xs md:text-xs font-bold text-muted-foreground uppercase tracking-widest">
                   {t("dream100.step3Label")}
                 </span>
               </div>
