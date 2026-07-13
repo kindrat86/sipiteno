@@ -24,6 +24,8 @@ const navItems = [
       { labelKey: "nav.whyUs", path: "/#why-choose-us", scroll: true },
       { labelKey: "nav.faq", path: "/#faq", scroll: true },
       { labelKey: "nav.methodology", path: "/methodology" },
+      { labelKey: "nav.glossary", path: "/glossary" },
+      { labelKey: "nav.alternatives", path: "/alternatives" },
       { labelKey: "nav.contact", path: "/#contact", scroll: true },
     ],
   },

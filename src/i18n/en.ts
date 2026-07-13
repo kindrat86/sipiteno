@@ -26,6 +26,8 @@ const en = {
     whyUs: "Why Us",
     faq: "FAQ",
     methodology: "Methodology",
+    glossary: "Glossary",
+    alternatives: "Alternatives",
     contact: "Contact",
     about: "About",
     getFreePlaybook: "Get the Free Playbook",
