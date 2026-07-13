@@ -30,9 +30,11 @@ const CaseStudyDetail = lazy(() => import("./pages/CaseStudyDetail"));
 // pSEO pages
 const Locations = lazy(() => import("./pages/Locations"));
 const LocationService = lazy(() => import("./pages/LocationService"));
-const Pricing = lazy(() => import("./pages/Pricing"));
-const Methodology = lazy(() => import("./pages/Methodology"));
-const IndustriesPage = lazy(() => import("./pages/Industries"));
+const Pricing = lazy(() => import("@/pages/Pricing"));
+const Methodology = lazy(() => import("@/pages/Methodology"));
+const IndustriesPage = lazy(() => import("@/pages/Industries"));
+const Glossary = lazy(() => import("@/pages/Glossary"));
+const Alternatives = lazy(() => import("@/pages/Alternatives"));
 
 // About / story page
 const About = lazy(() => import("./pages/About"));
@@ -83,6 +85,8 @@ const App = () => (
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/industries" element={<IndustriesPage />} />
             <Route path="/industries/:industry" element={<IndustriesPage />} />
+            <Route path="/glossary" element={<Glossary />} />
+            <Route path="/alternatives" element={<Alternatives />} />
             {/* Admin pages */}
             <Route path="/auth" element={<Auth />} />
             <Route path="/admin/blog-generator" element={<BlogGenerator />} />
