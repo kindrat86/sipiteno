@@ -116,6 +116,84 @@ const en = {
     disclaimer: "Testimonials anonymized per client request. Full references available on qualified request.",
   },
 
+  // ===== DREAM 100 (Russell Brunson — Traffic Secrets: "Dream 100") =====
+  dream100: {
+    eyebrow: "15 Years of Relationship Building",
+    title1: "Your Dream Customers",
+    title2: "Already Trust Us",
+    subtitle:
+      "We spent 15 years building relationships with the people your customers listen to — government agencies, tech associations, VC firms, and enterprise buyers across 28 markets. When you work with Sipiteno, you don't start from zero. You start from trust.",
+    step1Label: "Step 1",
+    step1Title: "Identify the Gatekeepers",
+    step1Body:
+      "In every market, there are 5-10 people whose endorsement opens every door. We spent 15 years finding them — across regulators, industry associations, and enterprise buyer committees in all 28 countries.",
+    step2Label: "Step 2",
+    step2Title: "Build Real Relationships",
+    step2Body:
+      "Not cold outreach. Not paid placements. Genuine partnerships built on 15 years of in-region work, shared deals, and mutual trust. These relationships are the moat — they can't be bought or copied.",
+    step3Label: "Step 3",
+    step3Title: "You Get the Warm Intro",
+    step3Body:
+      "When you engage Sipiteno, we connect you directly to our Dream 100 in your target markets. Your first conversation with a buyer or regulator starts with 'Sipiteno sent me' — not a cold email from a stranger.",
+    ctaTitle: "Who in our network should you meet?",
+    ctaBody: "On your free strategy call, we'll match your product against our Dream 100 and identify 3-5 specific introductions that could accelerate your expansion.",
+    cta: "Claim Your Free Strategy Call",
+  },
+
+  // ===== HOOK STORY OFFER (Russell Brunson — Traffic Secrets) =====
+  hso: {
+    eyebrow: "How We Earn Your Trust",
+    title1: "Every Story We Tell",
+    title2: "Follows One Framework",
+    subtitle:
+      "We don't pitch. We don't spam. Every email, post, and video we publish is built on the same three-part framework — so you always know exactly what you're getting.",
+    hookLabel: "1. The Hook",
+    hookTitle: "Grab Your Attention",
+    hookBody:
+      "We earn the click with a real insight — not clickbait. A number, a counter-intuitive truth, a framework. If it doesn't serve you, we don't publish it.",
+    storyLabel: "2. The Story",
+    storyTitle: "Keep Your Attention",
+    storyBody:
+      "We teach through story — our own failures, our clients' wins, the patterns we've seen across 28 markets in 15 years. Knowledge sticks when it rides a narrative.",
+    offerLabel: "3. The Offer",
+    offerTitle: "Convert Your Attention",
+    offerBody:
+      "The offer is always the same: a free playbook, a free strategy call, or a working session. Never a bait-and-switch. The value exchange is honest from the first word.",
+    cta: "Get the first hook — the free playbook",
+  },
+
+  // ===== THREE SECRETS (Russell Brunson — Expert Secrets: "The 3 Secrets") =====
+  threeSecrets: {
+    eyebrow: "The 3 False Beliefs We Kill",
+    title1: "If Expansion Hasn't Worked,",
+    title2: "It's One of Three Things",
+    subtitle:
+      "Every founder who comes to us believed at least one of these three false beliefs. Here's what they believed — and the epiphany that changed everything.",
+    falseBelief: "The False Belief",
+    theEpiphany: "The Epiphany",
+    secret1Label: "Secret #1 — The Vehicle",
+    secret1Title: "\"My product or offer is wrong.\"",
+    secret1False:
+      "\"Our product isn't winning in these markets, so the product must be the problem. We need to rebuild features, cut the price, or rebrand.\"",
+    secret1Truth:
+      "Your product is NOT the problem. We've watched second-rate technology win because the company behind it had warm introductions, a regulatory map, and a local team. Fix the system around the product, and the same product starts winning in weeks.",
+    secret2Label: "Secret #2 — Internal Belief",
+    secret2Title: "\"I can't do this myself.\"",
+    secret2False:
+      "\"I don't have the network, the language skills, or the local expertise to pull this off. I'd need to hire a full regional team and it would take years.\"",
+    secret2Truth:
+      "You don't have to. That's the entire point of Sipiteno. Our 15-year network, bilingual team, and compliance map become your network, your language skills, and your local expertise — on day one. You get the outcome without building the org.",
+    secret3Label: "Secret #3 — External Belief",
+    secret3Title: "\"These markets won't let us in.\"",
+    secret3False:
+      "\"Eastern Europe, the Caucasus, Central Asia — the regulators are too complex, the partners don't trust foreigners, and the timing isn't right for our company.\"",
+    secret3Truth:
+      "These markets WANT you. Regulators are actively courting foreign tech companies. Local partners are hungry. The timing is only wrong if you're knocking on doors cold — with warm introductions and a pre-mapped regulatory path, doors open in weeks, not quarters.",
+    conclusion:
+      "Kill all three false beliefs and only one question remains: which of the 28 markets do we open first?",
+    cta: "Get the Free Playbook",
+  },
+
   // ===== EPIPHANY BRIDGE =====
   epiphanyBridge: {
     eyebrow: "The Sipiteno Story",

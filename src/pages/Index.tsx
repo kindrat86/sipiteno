@@ -19,6 +19,9 @@ const ValueLadder = lazy(() => import("@/components/ValueLadder"));
 const OrderBump = lazy(() => import("@/components/OrderBump"));
 const MassMovement = lazy(() => import("@/components/MassMovement"));
 const Markets = lazy(() => import("@/components/Markets"));
+const ThreeSecrets = lazy(() => import("@/components/ThreeSecrets"));
+const HookStoryOffer = lazy(() => import("@/components/HookStoryOffer"));
+const Dream100 = lazy(() => import("@/components/Dream100"));
 
 const Index = () => {
   const location = useLocation();
@@ -52,9 +55,12 @@ const Index = () => {
         <Suspense fallback={null}><MassMovement /></Suspense>
         <Suspense fallback={null}><Testimonials /></Suspense>
         <Suspense fallback={null}><EpiphanyBridge /></Suspense>
+        <Suspense fallback={null}><ThreeSecrets /></Suspense>
         <Suspense fallback={null}><NewOpportunity /></Suspense>
+        <Suspense fallback={null}><Dream100 /></Suspense>
         <Suspense fallback={null}><ValueLadder /></Suspense>
         <Services />
+        <Suspense fallback={null}><HookStoryOffer /></Suspense>
         <Suspense fallback={null}><LeadMagnet /></Suspense>
         <Suspense fallback={null}><WhyChooseUs /></Suspense>
         <Suspense fallback={null}><OrderBump /></Suspense>
