@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Code2, DollarSign, ShoppingCart, Factory, Shield, HeartPulse, Sprout, Zap, Truck, CheckCircle, Globe, Search } from "lucide-react";
+import { ArrowLeft, ArrowRight, Code2, DollarSign, ShoppingCart, Factory, Shield, HeartPulse, Sprout, Zap, Truck, CheckCircle, Globe, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
@@ -208,113 +208,139 @@ const IndustriesListing = () => {
         ]}
       />
       
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/30">
         <Navigation />
-        
-        <main className="pt-20 md:pt-24 pb-16">
-          <section className="container mx-auto px-4 sm:px-6 mb-8 md:mb-12">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 mb-4 md:mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-                <Globe className="w-4 h-4 text-primary" />
-                <span className="text-primary font-semibold text-xs md:text-sm tracking-wide uppercase">Industry Expertise</span>
-              </div>
-              
-              <h1 className="text-[clamp(1.75rem,6vw,3rem)] md:text-5xl font-bold text-foreground mb-3 md:mb-4 leading-tight">
-                Industries We Serve
-              </h1>
-              
-              <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Deep industry knowledge combined with cross-market expertise. We help technology companies expand into emerging markets across {INDUSTRIES.length} sectors.
-              </p>
-            </div>
-          </section>
 
-          {/* Search + Filter — mobile-first */}
-          <section className="container mx-auto px-4 sm:px-6 mb-6 md:mb-8">
-            <div className="max-w-5xl mx-auto space-y-3">
-              {/* Search */}
-              <div className="relative max-w-xl mx-auto">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                <input
-                  type="search"
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
-                  placeholder="Search industries..."
-                  className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-card border-2 border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors text-base"
-                  style={{ fontSize: "16px" }}
-                />
-              </div>
-              {/* Filter pills */}
-              <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center"
-                style={{ scrollbarWidth: "none" }}
-              >
-                {FILTERS.map(f => (
-                  <button
-                    key={f}
-                    onClick={() => setActiveFilter(f)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all min-h-[40px] ${
-                      activeFilter === f
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
-                    }`}
-                  >
-                    {f === "All" ? "All Industries" : serviceLabels[f]?.split(" ")[0] || f}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </section>
+        <div className="relative overflow-hidden">
+          {/* Gradient orbs */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-[100px]" />
+            <div className="absolute top-20 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]" />
+          </div>
 
-          {/* Industry cards */}
-          <section className="container mx-auto px-4 sm:px-6 mb-16">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
-              {filtered.map((ind, i) => {
-                const IconComp = iconMap[ind.icon] || Code2;
-                return (
-                  <Link key={i} to={`/industries/${ind.slug}`}>
-                    <Card className="h-full border-2 hover:border-primary/30 transition-all duration-300 hover:shadow-xl group">
-                      <CardHeader>
-                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                          <IconComp className="w-7 h-7 text-primary" />
-                        </div>
-                        <CardTitle className="group-hover:text-primary transition-colors">{ind.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{ind.description}</p>
-                        <div className="flex flex-wrap gap-1.5">
-                          {ind.keyServices.map(s => (
-                            <span key={s} className="text-xs px-2 py-1 rounded-full bg-primary/5 text-primary">
-                              {serviceLabels[s]?.split(" ")[0] || s}
-                            </span>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                );
-              })}
-            </div>
+          <main className="pt-20 md:pt-24 pb-16">
+            {/* Hero */}
+            <section className="container mx-auto px-4 sm:px-6 mb-10 md:mb-14">
+              <div className="max-w-4xl mx-auto text-center">
+                <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+                  <Globe className="w-4 h-4 text-primary" />
+                  <span className="text-primary font-semibold text-xs md:text-sm tracking-wide uppercase">Industry Expertise</span>
+                </div>
 
-            {filtered.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground text-lg mb-4">No industries match your search.</p>
-                <Button variant="outline" onClick={() => { setSearch(""); setActiveFilter("All"); }}>Reset filters</Button>
+                <h1 className="text-[clamp(2rem,7vw,3.5rem)] font-black text-foreground mb-4 leading-[1.1] tracking-tight">
+                  Industries
+                  <span className="block bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
+                    We Serve
+                  </span>
+                </h1>
+
+                <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                  Deep industry knowledge combined with cross-market expertise. We help technology companies expand into emerging markets across {INDUSTRIES.length} sectors.
+                </p>
               </div>
-            )}
-          </section>
+            </section>
 
-          <section className="container mx-auto px-4 sm:px-6 text-center">
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-6 md:p-12 max-w-4xl mx-auto">
-              <h2 className="text-xl md:text-3xl font-bold text-foreground mb-3 md:mb-4">Your Industry Not Listed?</h2>
-              <p className="text-sm md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-xl mx-auto">
-                We work across multiple sectors. Contact us to discuss how we can help in your specific industry.
-              </p>
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                <Link to="/#contact">Talk to Us</Link>
-              </Button>
-            </div>
-          </section>
-        </main>
+            {/* Search + Filter — premium mobile-first */}
+            <section className="container mx-auto px-4 sm:px-6 mb-8 md:mb-10">
+              <div className="max-w-5xl mx-auto space-y-3">
+                {/* Search */}
+                <div className="relative group max-w-xl mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity" />
+                  <div className="relative">
+                    <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                    <input
+                      type="search"
+                      value={search}
+                      onChange={e => setSearch(e.target.value)}
+                      placeholder="Search industries..."
+                      className="w-full pl-14 pr-5 py-4 md:py-5 rounded-2xl bg-card/80 backdrop-blur border-2 border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-base md:text-lg shadow-lg"
+                      style={{ fontSize: "16px" }}
+                    />
+                  </div>
+                </div>
+                {/* Filter pills */}
+                <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                  {FILTERS.map(f => (
+                    <button
+                      key={f}
+                      onClick={() => setActiveFilter(f)}
+                      className={`px-4 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all min-h-[44px] ${
+                        activeFilter === f
+                          ? "text-white bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/20"
+                          : "bg-card/60 backdrop-blur border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-card"
+                      }`}
+                    >
+                      {f === "All" ? "All Industries" : serviceLabels[f]?.split(" ")[0] || f}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Industry cards */}
+            <section className="container mx-auto px-4 sm:px-6 mb-16">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+                {filtered.map((ind, i) => {
+                  const IconComp = iconMap[ind.icon] || Code2;
+                  return (
+                    <Link key={i} to={`/industries/${ind.slug}`}>
+                      <Card className="h-full border-2 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5 group overflow-hidden relative">
+                        {/* Glow effect on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <CardHeader className="relative">
+                          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <IconComp className="w-7 h-7 text-primary" />
+                          </div>
+                          <CardTitle className="group-hover:text-primary transition-colors flex items-center justify-between">
+                            {ind.name}
+                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-primary" />
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="relative">
+                          <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">{ind.description}</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {ind.keyServices.map(s => (
+                              <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-primary/5 text-primary font-medium">
+                                {serviceLabels[s]?.split(" ")[0] || s}
+                              </span>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {filtered.length === 0 && (
+                <div className="text-center py-16">
+                  <div className="w-20 h-20 mx-auto mb-5 rounded-full bg-muted flex items-center justify-center">
+                    <Search className="w-8 h-8 text-muted-foreground" />
+                  </div>
+                  <p className="text-muted-foreground text-lg mb-5">No industries match your search.</p>
+                  <Button variant="outline" onClick={() => { setSearch(""); setActiveFilter("All"); }}>Reset filters</Button>
+                </div>
+              )}
+            </section>
+
+            {/* CTA */}
+            <section className="container mx-auto px-4 sm:px-6">
+              <div className="max-w-3xl mx-auto relative overflow-hidden rounded-3xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
+                <div className="relative p-8 md:p-12 text-center">
+                  <h2 className="text-xl md:text-3xl font-black text-foreground mb-3 md:mb-4">Your Industry Not Listed?</h2>
+                  <p className="text-sm md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-xl mx-auto">
+                    We work across multiple sectors. Contact us to discuss how we can help in your specific industry.
+                  </p>
+                  <Button size="lg" className="shadow-xl shadow-primary/20 hover:scale-105 transition-transform bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+                    <Link to="/#contact">Talk to Us <ArrowRight className="w-4 h-4 ml-2" /></Link>
+                  </Button>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
 
         <Footer />
       </div>
