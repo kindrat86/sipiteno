@@ -555,6 +555,68 @@ corePages.push({
   })(),
 });
 
+// 4b. Glossary
+corePages.push({
+  path: ['glossary'],
+  title: "Glossary | Sipiteno - Business & Technology Terms Explained",
+  description: "A comprehensive glossary of business development, technology, marketing, and emerging market terms. Plain-English definitions for B2B expansion into CEE and beyond.",
+  canonical: "https://sipiteno.com/glossary",
+  breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Glossary", url: "https://sipiteno.com/glossary" }],
+  bodyContent: `<h1>Business &amp; Technology Glossary</h1>
+    <p>A comprehensive reference of business development, technology, marketing, and emerging market terms — explained in plain English for B2B expansion into Central &amp; Eastern Europe and beyond.</p>
+    <h2>Market Entry</h2>
+    <dl>
+      <dt>Market Entry Strategy</dt><dd>A comprehensive plan for introducing a product or service into a new geographic or demographic market. Includes regulatory compliance, competitor analysis, pricing strategy, channel partnerships, and go-to-market timing.</dd>
+      <dt>Greenfield Investment</dt><dd>Building operations from scratch in a new market, as opposed to acquiring an existing local company.</dd>
+      <dt>Go-To-Market (GTM)</dt><dd>The tactical execution plan for reaching target customers and delivering value.</dd>
+      <dt>Soft Landing</dt><dd>Entering a new market gradually through partnerships or incubators rather than committing full resources immediately.</dd>
+    </dl>
+    <h2>Business Development</h2>
+    <dl>
+      <dt>B2B Lead Generation</dt><dd>The process of identifying and attracting potential business customers, often requiring local market intelligence and warm introductions.</dd>
+      <dt>Strategic Partnership</dt><dd>A formal alliance between two companies to share resources, distribution, or technology for mutual benefit.</dd>
+      <dt>Warm Introduction</dt><dd>A referral or introduction to a potential customer through a mutual connection. In CEE, warm intros often outperform cold outreach 10:1.</dd>
+    </dl>
+    <h2>Technology &amp; SaaS</h2>
+    <dl>
+      <dt>SaaS (Software as a Service)</dt><dd>Software delivered via subscription over the internet rather than installed locally.</dd>
+      <dt>Data Residency</dt><dd>Legal requirement that data about a country's citizens must be stored on servers physically located within that country.</dd>
+      <dt>Digital Transformation</dt><dd>The integration of digital technology into all areas of a business.</dd>
+    </dl>
+    <h2>Finance &amp; Emerging Markets</h2>
+    <dl>
+      <dt>Customer Acquisition Cost (CAC)</dt><dd>The total cost of acquiring a new customer. In emerging markets, CAC is often significantly lower than in saturated Western markets.</dd>
+      <dt>Lifetime Value (LTV)</dt><dd>The total revenue a customer generates over their entire relationship with your company. A healthy LTV:CAC ratio is at least 3:1.</dd>
+      <dt>CEE (Central &amp; Eastern Europe)</dt><dd>The region comprising countries like Poland, Czech Republic, Romania, Hungary, Bulgaria, and the Baltics. Offers EU market access with lower costs.</dd>
+      <dt>PSD2</dt><dd>The EU's revised Payment Services Directive, enabling open banking and fintech innovation.</dd>
+    </dl>
+    <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/industries">Industries</a> | <a href="https://sipiteno.com/alternatives">Alternatives</a></p>`,
+});
+
+// 4c. Alternatives
+corePages.push({
+  path: ['alternatives'],
+  title: "Sipiteno vs Alternatives | Consulting & Market Entry Comparison",
+  description: "How Sipiteno compares to Big 4 consulting firms, boutique market entry specialists, DIY expansion, LinkedIn agencies, and trade chambers for B2B expansion into emerging markets.",
+  canonical: "https://sipiteno.com/alternatives",
+  breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Alternatives", url: "https://sipiteno.com/alternatives" }],
+  bodyContent: `<h1>Sipiteno vs the Alternatives</h1>
+    <p>Honest comparison with 5 categories of alternatives for B2B market expansion. We tell you who each option is actually best for — including when it's not us.</p>
+    <h2>Big 4 Consulting (Deloitte, PwC, EY, KPMG)</h2>
+    <p>Best for: Enterprise companies needing audit, tax, and compliance alongside market entry. Starting cost: $50,000+. Limitations: Junior associates do the work, 3-6 month timelines, generalist approach. Sipiteno advantage: 5-10x lower cost, senior consultant on every project, 4-16 week timelines, technology-specialized.</p>
+    <h2>Boutique Market Entry Firms</h2>
+    <p>Best for: Companies that only need market research. Starting cost: $15,000+. Limitations: Research-only, single-region focus, no technology expertise. Sipiteno advantage: Full execution, 28 markets, deep tech specialization, ongoing BD retainers.</p>
+    <h2>DIY / In-House Expansion</h2>
+    <p>Best for: Companies with large teams willing to invest 12-18 months. Limitations: Long learning curve, expensive mistakes, no existing network. Sipiteno advantage: 15 years of existing relationships, avoid costly mistakes, pipeline within weeks.</p>
+    <h2>LinkedIn / Cold Outreach Agencies</h2>
+    <p>Best for: Transactional products with no local relationships needed. Limitations: Cold leads, under 1% response rates, no local knowledge. Sipiteno advantage: Warm introductions, in-person meetings, cultural guidance, strategic partnerships.</p>
+    <h2>Trade Associations &amp; Chambers</h2>
+    <p>Best for: General networking and industry events. Limitations: No targeted deal support, expensive memberships with no guaranteed ROI. Sipiteno advantage: Proactive deal sourcing, direct pipeline, fraction of the cost.</p>
+    <h2>Feature Comparison</h2>
+    <p>Sipiteno leads on: emerging market specialization, technology focus, warm introductions, in-person meetings, BD execution, 28+ market coverage, senior consultants, and under $10K starting price.</p>
+    <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/industries">Industries</a> | <a href="https://sipiteno.com/glossary">Glossary</a></p>`,
+});
+
 // Write core pages
 for (const page of corePages) {
   const html = buildPage(page);
