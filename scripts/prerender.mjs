@@ -425,14 +425,39 @@ const corePages = [
         { "@type": "ListItem", "position": 2, "name": "About", "item": "https://sipiteno.com/about" }
       ]
     }],
-    bodyContent: `<h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
+    bodyContent: `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="2026-07-17">Updated 2026-07-17</time> · Published 2026-01-15</p>
+      <h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
+      <p><strong>Sipiteno helps technology companies expand into 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, Central Asia, South Asia, and East Africa.</strong> Founded in 2009, we've delivered 50+ projects with a 92% client retention rate and an average time-to-first-deal of 11 weeks. This page explains who we are, how the system works, and why a failed market entry became the foundation of everything we do.</p>
+      <h2>Our Track Record</h2>
+      <p>Over 15+ years of operating across emerging markets, the numbers that matter to us:</p>
+      <ul>
+        <li><strong>50+ projects delivered</strong> across 28 countries since 2009</li>
+        <li><strong>92% client retention</strong> — measured across multi-month engagements in 2024-2025</li>
+        <li><strong>11 weeks average time-to-first-signed-deal</strong> — from kickoff to first contract in a new market</li>
+        <li><strong>28 countries with active local teams</strong> — from Albania to Uzbekistan</li>
+        <li><strong>6 service lines</strong> — AI consulting, business development, digital marketing, IT consulting, project management, and sales funnel setup</li>
+        <li><strong>6 languages of operation</strong> — English, Russian, Ukrainian, Polish, Serbian, Georgian</li>
+      </ul>
+      <h2>The Failed Market Entry That Started Everything</h2>
       <p>In 2009, Sipiteno's founder moved a SaaS product into Eastern Europe believing "if the product is great, the market will come." Six months later: zero signed deals, bleeding runway, and the brutal realization that the product was never the problem.</p>
-      <p>The winning companies in Tbilisi, Kyiv, and Almaty all had three things: the right introductions, a regulatory map, and a local team that executes fast. That three-part system became Sipiteno. Today we've delivered 50+ successful projects across 28 countries with 15+ years of regional expertise.</p>
-      <h2>The Sipiteno System</h2>
-      <p>Three pillars: (1) Introductions — warm handoffs from people already trusted inside each market. (2) Regulatory Map — knowing which licenses, data rules, and compliance traps kill deals. (3) Execution Team — bilingual, local teams that ship in 4-8 weeks.</p>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>. Get in touch about business development, AI consulting, IT solutions, and strategic expansion into emerging markets.</p>
-      <p><a href="https://sipiteno.com/#free-playbook">Get the free Expansion Playbook</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`,
+      <p>The winning companies in Tbilisi, Kyiv, and Almaty all had three things the founder didn't: the right introductions, a regulatory map, and a local team that executes fast. That three-part system became Sipiteno.</p>
+      <h2>The Sipiteno System: Three Pillars</h2>
+      <h3>1. Introductions — Warm Handoffs, Not Cold Outreach</h3>
+      <p>In emerging markets, warm introductions from trusted local partners outperform cold outreach by 10:1. Our network includes C-level contacts at banks, telcos, manufacturers, and tech hubs across all 28 countries. When we open a conversation, the prospect already knows who we are and why we're calling.</p>
+      <h3>2. Regulatory Map — Compliance Before Code</h3>
+      <p>Every market has traps: <a href="https://sipiteno.com/glossary/data-residency">data residency</a> rules in Russia and Kazakhstan, GDPR compliance in EU members like Poland and Romania, licensing requirements for fintech in Georgia and Lithuania, and sector-specific regulations in healthcare and energy. We map these before any code ships, so deals don't die at the legal review.</p>
+      <h3>3. Execution Team — Local, Bilingual, Fast</h3>
+      <p>Our teams operate from tech hubs in each country — <a href="https://sipiteno.com/locations/poland">Warsaw</a>, <a href="https://sipiteno.com/locations/romania">Bucharest</a>, <a href="https://sipiteno.com/locations/serbia">Belgrade</a>, <a href="https://sipiteno.com/locations/georgia">Tbilisi</a>, <a href="https://sipiteno.com/locations/ukraine">Kyiv</a>, <a href="https://sipiteno.com/locations/kazakhstan">Astana</a>. They're bilingual, culturally fluent, and ship in 4-8 week sprints. The average project runs 12-16 weeks end-to-end.</p>
+      <h2>Who We Serve</h2>
+      <p>Sipiteno works primarily with B2B technology companies: <a href="https://sipiteno.com/industries/saas-software">SaaS &amp; software</a>, <a href="https://sipiteno.com/industries/fintech-financial-services">fintech</a>, <a href="https://sipiteno.com/industries/manufacturing-industry-4">manufacturing &amp; Industry 4.0</a>, <a href="https://sipiteno.com/industries/cybersecurity">cybersecurity</a>, and <a href="https://sipiteno.com/industries/healthcare-medtech">healthcare &amp; medtech</a>. Most clients are post-Series A companies ($2M-$20M ARR) looking to enter their second or third geographic market.</p>
+      <h2>How We're Different</h2>
+      <p>Most market-entry consultants deliver a 200-page strategy document and leave. Sipiteno delivers signed deals. We're measured on outcomes — introductions made, partnerships signed, revenue generated — not slides delivered. Our <a href="https://sipiteno.com/pricing">pricing</a> reflects this: we tie a portion of our fee to results, not just time.</p>
+      <p>See how we compare to <a href="https://sipiteno.com/alternatives">Big 4 consulting, boutique firms, DIY expansion, and trade chambers</a>.</p>
+      <h2>Our Methodology</h2>
+      <p>Every engagement follows our <a href="https://sipiteno.com/methodology">four-phase methodology</a>: Discovery (weeks 1-2), Strategy (weeks 3-4), Execution (weeks 5-12), and Optimization (weeks 13-16). Read the full breakdown on our <a href="https://sipiteno.com/methodology">methodology page</a>.</p>
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>. We respond within one business day. Tell us your target market and current stage — we'll tell you honestly whether we can help.</p>
+      <p><a href="https://sipiteno.com/#free-playbook">Get the free Expansion Playbook</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/locations">Locations</a> | <a href="https://sipiteno.com/industries">Industries</a></p>`,
   },
   {
     path: ['contact'],
@@ -522,7 +547,7 @@ corePages.push({
   path: ['locations'],
   title: "Locations | Sipiteno - Business Services Across 28 Countries",
   description: "Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.",
-  canonical: "https://sipiteno.com/locations",
+  canonicalUrl: "https://sipiteno.com/locations",
   breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Locations", url: "https://sipiteno.com/locations" }],
   bodyContent: (() => {
     const countryLinks = COUNTRIES.map(c => `<li><a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a> — ${c.region}, capital: ${c.capital}, tech hub: ${c.techHub}</li>`).join('\n      ');
@@ -541,7 +566,7 @@ corePages.push({
   path: ['industries'],
   title: "Industries | Sipiteno - Specialized Consulting Across Sectors",
   description: "Sipiteno serves technology companies across SaaS, fintech, e-commerce, manufacturing, cybersecurity, healthcare, agtech, energy, and logistics.",
-  canonical: "https://sipiteno.com/industries",
+  canonicalUrl: "https://sipiteno.com/industries",
   breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Industries", url: "https://sipiteno.com/industries" }],
   bodyContent: (() => {
     const industryLinks = INDUSTRIES.map(i => `<li><a href="https://sipiteno.com/industries/${i.slug}">${i.name}</a>: ${i.desc}.</li>`).join('\n      ');
@@ -560,7 +585,7 @@ corePages.push({
   path: ['glossary'],
   title: "Glossary | Sipiteno - Business & Technology Terms Explained",
   description: "A comprehensive glossary of business development, technology, marketing, and emerging market terms. Plain-English definitions for B2B expansion into CEE and beyond.",
-  canonical: "https://sipiteno.com/glossary",
+  canonicalUrl: "https://sipiteno.com/glossary",
   breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Glossary", url: "https://sipiteno.com/glossary" }],
   bodyContent: `<h1>Business &amp; Technology Glossary</h1>
     <p>A comprehensive reference of business development, technology, marketing, and emerging market terms — explained in plain English for B2B expansion into Central &amp; Eastern Europe and beyond.</p>
@@ -598,7 +623,7 @@ corePages.push({
   path: ['alternatives'],
   title: "Sipiteno vs Alternatives | Consulting & Market Entry Comparison",
   description: "How Sipiteno compares to Big 4 consulting firms, boutique market entry specialists, DIY expansion, LinkedIn agencies, and trade chambers for B2B expansion into emerging markets.",
-  canonical: "https://sipiteno.com/alternatives",
+  canonicalUrl: "https://sipiteno.com/alternatives",
   breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Alternatives", url: "https://sipiteno.com/alternatives" }],
   bodyContent: `<h1>Sipiteno vs the Alternatives</h1>
     <p>Honest comparison with 5 categories of alternatives for B2B market expansion. We tell you who each option is actually best for — including when it's not us.</p>
