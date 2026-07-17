@@ -218,44 +218,105 @@ function buildCountryBody(country) {
   const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/locations/${country.slug}/${s.slug}">${s.name} in ${country.name}</a>: ${s.desc}.</li>`).join('\n      ');
   const industries = country.keyIndustries.map(i => `<strong>${i}</strong>`).join(', ');
 
-  return `<h1>Business Consulting in ${country.name} | Sipiteno</h1>
-      <p>Sipiteno provides business development, AI consulting, IT solutions, and digital marketing services in ${country.name}. With local presence and expertise across ${country.region}, we help technology companies establish and grow their operations in ${country.name}'s dynamic market. The capital ${country.capital} hosts ${country.techHub}, a key technology ecosystem where we maintain active partnerships.</p>
-      <h2>Market Overview: ${country.name}</h2>
-      <p>${country.name} is located in ${country.region}. The primary languages are ${country.languages.join(', ')}. Key industries include ${industries}. The main technology hub is ${country.techHub} in ${country.capital}.</p>
-      <h2>Our Services in ${country.name}</h2>
+  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno Research Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
+      <h1>Business Consulting in ${country.name}: Market Entry &amp; Expansion Services</h1>
+      <p><strong>Sipiteno helps technology companies enter and scale in ${country.name} from our base in ${country.capital}.</strong> We provide business development, AI consulting, IT solutions, and digital marketing — combining 15+ years of regional expertise with local teams who speak ${country.languages.slice(0, 2).join(' and ')}. Typical engagement: 12-16 weeks from kickoff to first signed deal.</p>
+      <h2>TL;DR — ${country.name} Market Entry at a Glance</h2>
+      <ul>
+        <li><strong>Region:</strong> ${country.region}</li>
+        <li><strong>Capital &amp; tech hub:</strong> ${country.capital} (${country.techHub})</li>
+        <li><strong>Languages:</strong> ${country.languages.join(', ')}</li>
+        <li><strong>Key industries:</strong> ${industries}</li>
+        <li><strong>Typical project timeline:</strong> 12-16 weeks</li>
+        <li><strong>Average engagement size:</strong> $15,000-$100,000+</li>
+      </ul>
+      <h2>Why Expand Into ${country.name}?</h2>
+      <p>${country.name} sits in ${country.region}, offering strategic access to regional markets. The technology ecosystem centers on ${country.techHub} in ${country.capital}. Key industries include ${industries}. For B2B technology companies, ${country.name} represents an opportunity to establish a regional foothold with lower operational costs than Western European markets while maintaining quality talent pipelines.</p>
+      <h2>What Services Does Sipiteno Offer in ${country.name}?</h2>
+      <p>We provide six core service lines in ${country.name}, each delivered by bilingual local teams with deep sector expertise. Projects range from focused 4-week sprints to multi-month transformation programs. All engagements include local regulatory compliance review and partnership network access.</p>
+      <h3>Our Services in ${country.name}</h3>
       <ul>
       ${services}
       </ul>
-      <h2>Why ${country.name}?</h2>
-      <p>${country.name} offers significant opportunities for technology companies. Our 15+ years of regional experience, established local networks, and deep market knowledge enable us to navigate regulatory environments, identify partnership opportunities, and accelerate market entry for our clients.</p>
-      <p><a href="https://sipiteno.com/locations">All locations</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`;
+      <h2>How Long Does Market Entry in ${country.name} Take?</h2>
+      <p>A typical ${country.name} market entry engagement runs 12-16 weeks. The first two weeks cover discovery and regulatory mapping. Weeks 3-4 focus on strategy development and partner identification. Weeks 5-12 are execution — introductions, meetings, and initial deal structuring. The final phase (weeks 13-16) optimizes what's working and transitions to self-sufficient operations.</p>
+      <h2>What Does It Cost to Expand Into ${country.name}?</h2>
+      <p>Sipiteno engagements in ${country.name} range from $15,000 for focused, short-term projects to $100,000+ for comprehensive multi-month programs. Retainer-based business development services start at $3,000/month. We tie a portion of our fee to measurable outcomes — introductions made, partnerships signed, pipeline generated. See our <a href="https://sipiteno.com/pricing">pricing page</a> for detailed tiers.</p>
+      <h2>Market Overview: ${country.name}</h2>
+      <p>${country.name} is located in ${country.region}. The primary languages are ${country.languages.join(', ')}. Key industries include ${industries}. The main technology hub is ${country.techHub} in ${country.capital}. Our local team maintains active relationships with industry leaders, government innovation programs, and the startup ecosystem across the country.</p>
+      <h2>Who Should Consider ${country.name} for Expansion?</h2>
+      <p>${country.name} is ideal for post-Series A B2B technology companies ($2M-$20M ARR) looking to enter their second or third geographic market. The combination of EU/regional market access, competitive talent costs, and growing technology adoption makes it particularly attractive for <a href="https://sipiteno.com/industries/saas-software">SaaS companies</a>, <a href="https://sipiteno.com/industries/fintech-financial-services">fintech firms</a>, and <a href="https://sipiteno.com/industries/manufacturing-industry-4">manufacturing technology</a> providers.</p>
+      <h2>Our Track Record in ${country.region}</h2>
+      <p>Across ${country.region}, Sipiteno has delivered 50+ projects over 15+ years. Our average time-to-first-deal is 11 weeks. We maintain active teams in every country we serve, not fly-in consultants who leave after the strategy deck. <a href="https://sipiteno.com/case-studies">Read case studies</a> from clients who've expanded into similar markets.</p>
+      <h2>Next Steps</h2>
+      <p>Ready to explore ${country.name}? <a href="https://sipiteno.com/#contact">Book a free 30-minute strategy call</a>. You'll get a custom market scorecard for ${country.name}, a preliminary regulatory assessment, and an honest opinion on whether this market is right for your company right now.</p>
+      <p><a href="https://sipiteno.com/locations">All locations</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/industries">Industries</a></p>`;
 }
 
 function buildCountryServiceBody(country, svc) {
   const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 3).map(s => `<a href="https://sipiteno.com/locations/${country.slug}/${s.slug}">${s.name}</a>`).join(', ');
   const otherCountries = COUNTRIES.filter(c => c.region === country.region && c.slug !== country.slug).slice(0, 5).map(c => `<a href="https://sipiteno.com/locations/${c.slug}/${svc.slug}">${c.name}</a>`).join(', ');
 
-  return `<h1>${svc.name} in ${country.name} | Sipiteno Consulting</h1>
-      <p>Sipiteno provides expert ${svc.name.toLowerCase()} services in ${country.name}. ${svc.desc}. Our local team in ${country.capital} brings deep expertise across ${country.region}, supported by 15+ years of regional experience and established networks in ${country.name}'s technology sector.</p>
+  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${svc.name} Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
+      <h1>${svc.name} in ${country.name}: Local Experts, Fast Delivery</h1>
+      <p><strong>Sipiteno delivers ${svc.name.toLowerCase()} services in ${country.name} from our team in ${country.capital}.</strong> ${svc.desc} We combine 15+ years of regional expertise with bilingual local teams who understand ${country.name}'s regulatory landscape, business culture, and key industries. Projects start at $15,000 and run 4-16 weeks depending on scope.</p>
+      <h2>TL;DR — ${svc.name} in ${country.name}</h2>
+      <ul>
+        <li><strong>Service:</strong> ${svc.name}</li>
+        <li><strong>Location:</strong> ${country.capital}, ${country.name} (${country.techHub})</li>
+        <li><strong>Languages:</strong> ${country.languages.slice(0, 3).join(', ')}</li>
+        <li><strong>Key industries served:</strong> ${country.keyIndustries.join(', ')}</li>
+        <li><strong>Starting price:</strong> $15,000</li>
+        <li><strong>Typical timeline:</strong> 4-16 weeks</li>
+      </ul>
+      <h2>What Does ${svc.name} in ${country.name} Include?</h2>
+      <p>Our ${svc.name.toLowerCase()} practice in ${country.name} covers the full lifecycle: strategy, implementation, and ongoing optimization. ${svc.desc} Every engagement starts with a discovery phase to understand your specific market position and goals in ${country.name}, followed by a tailored execution plan with clear milestones and deliverables.</p>
+      <h2>Why Choose Sipiteno for ${svc.name} in ${country.name}?</h2>
+      <p>We're not fly-in consultants. Our team lives in ${country.name}, works in ${country.languages.slice(0, 2).join(' and ')}, and maintains active relationships with ${country.keyIndustries.join(', ')} sector leaders. This means faster access to decision-makers, deeper regulatory knowledge, and execution that actually works in the local context — not a Western playbook applied blindly.</p>
+      <h2>How Much Does ${svc.name} Cost in ${country.name}?</h2>
+      <p>${svc.name} engagements in ${country.name} range from $15,000 for focused projects to $100,000+ for comprehensive programs. Retainer-based support starts at $3,000/month. Pricing depends on scope, duration, and the number of team members required. We provide detailed quotes after the initial discovery call — <a href="https://sipiteno.com/#contact">book a free consultation</a> to get started.</p>
+      <h2>What Industries Do We Serve in ${country.name}?</h2>
+      <p>Key industries in ${country.name} include ${country.keyIndustries.join(', ')}. Our ${svc.name.toLowerCase()} team has delivered projects for clients in <a href="https://sipiteno.com/industries/saas-software">SaaS</a>, <a href="https://sipiteno.com/industries/fintech-financial-services">fintech</a>, and <a href="https://sipiteno.com/industries/manufacturing-industry-4">manufacturing</a> sectors expanding into ${country.region}. We adapt our methodology to each sector's regulatory requirements and competitive dynamics.</p>
+      <h2>How Quickly Can We Start?</h2>
+      <p>Most ${svc.name.toLowerCase()} engagements in ${country.name} kick off within 2 weeks of contract signing. The first week covers discovery and stakeholder alignment. By week 3, we're in active execution. For urgent market-entry situations, we can assemble a rapid-response team within 5 business days.</p>
       <h2>${svc.name} Expertise in ${country.name}</h2>
       <p>We deliver ${svc.name.toLowerCase()} solutions tailored to ${country.name}'s market dynamics. Key industries in ${country.name} include ${country.keyIndustries.join(', ')}. Our team operates from ${country.techHub} and serves clients across the entire country, with particular focus on ${country.capital} and surrounding regions.</p>
-      <h2>Local Capabilities</h2>
-      <p>Our ${svc.name.toLowerCase()} practice in ${country.name} covers strategy development, implementation, and ongoing optimization. We work in ${country.languages.slice(0, 2).join(' and ')}, ensuring seamless communication with local stakeholders, partners, and regulatory bodies. Projects typically range from $15,000 to $100,000+ depending on scope and duration.</p>
-      <h2>Regional Coverage</h2>
-      <p>In addition to ${country.name}, we provide ${svc.name.toLowerCase()} services in ${otherCountries}, and 20+ other countries across our operating regions.</p>
+      <h2>Local Capabilities &amp; Regional Coverage</h2>
+      <p>Our ${svc.name.toLowerCase()} practice in ${country.name} covers strategy development, implementation, and ongoing optimization. We work in ${country.languages.slice(0, 2).join(' and ')}, ensuring seamless communication with local stakeholders, partners, and regulatory bodies. In addition to ${country.name}, we provide ${svc.name.toLowerCase()} services in ${otherCountries}, and 20+ other countries.</p>
       <h2>Related Services in ${country.name}</h2>
-      <p>${otherServices}.</p>
-      <p><a href="https://sipiteno.com/locations/${country.slug}">All services in ${country.name}</a> | <a href="https://sipiteno.com/services/${svc.slug}">${svc.name} overview</a> | <a href="https://sipiteno.com/">Home</a></p>`;
+      <p>Beyond ${svc.name.toLowerCase()}, we offer: ${otherServices}. See <a href="https://sipiteno.com/locations/${country.slug}">all services in ${country.name}</a> or the <a href="https://sipiteno.com/services/${svc.slug}">${svc.name} overview</a> for the global service description.</p>
+      <h2>Get Started</h2>
+      <p>Email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> or <a href="https://sipiteno.com/#contact">book a free 30-minute call</a>. Tell us about your ${svc.name.toLowerCase()} needs in ${country.name} — we'll tell you honestly whether we're the right fit.</p>
+      <p><a href="https://sipiteno.com/locations/${country.slug}">All services in ${country.name}</a> | <a href="https://sipiteno.com/services/${svc.slug}">${svc.name} overview</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`;
 }
 
 function buildIndustryBody(ind) {
-  return `<h1>${ind.name} Consulting | Sipiteno</h1>
-      <p>${ind.desc}. Sipiteno provides specialized ${ind.name.toLowerCase()} consulting services across 28 countries in Europe, Caucasus, and Central Asia, combining 15+ years of regional expertise with hands-on technical implementation capabilities.</p>
-      <h2>Our ${ind.name} Practice</h2>
-      <p>We work with ${ind.name.toLowerCase()} companies at every stage—from early-stage startups to established enterprises—on market entry strategy, business development, technology implementation, and scaling operations across emerging markets. Our team understands the regulatory landscape, competitive dynamics, and partnership ecosystems specific to the ${ind.name.toLowerCase()} sector.</p>
-      <h2>Services for ${ind.name}</h2>
-      <p>Our offerings include AI consulting, business development, IT consulting, digital marketing, sales funnel setup, and project management—all tailored to the unique needs of ${ind.name.toLowerCase()} companies expanding internationally.</p>
-      <p><a href="https://sipiteno.com/industries">All industries</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`;
+  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${ind.name} Practice</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
+      <h1>${ind.name} Consulting &amp; Market Entry | Sipiteno</h1>
+      <p><strong>Sipiteno helps ${ind.name.toLowerCase()} companies expand into 28 emerging markets across Europe, Caucasus, and Central Asia.</strong> ${ind.desc} We combine 15+ years of regional expertise with hands-on technical implementation — from market entry strategy through to signed partnerships and deployed technology.</p>
+      <h2>TL;DR — ${ind.name} Consulting with Sipiteno</h2>
+      <ul>
+        <li><strong>Markets covered:</strong> 28 countries across CEE, Caucasus, Central Asia</li>
+        <li><strong>Typical client:</strong> Post-Series A ${ind.name.toLowerCase()} companies ($2M-$20M ARR)</li>
+        <li><strong>Engagement size:</strong> $15,000-$100,000+</li>
+        <li><strong>Timeline:</strong> 12-16 weeks average</li>
+        <li><strong>Outcome focus:</strong> Signed deals, not strategy slides</li>
+      </ul>
+      <h2>What Does ${ind.name} Consulting Include?</h2>
+      <p>Our ${ind.name.toLowerCase()} consulting covers the full expansion lifecycle: market assessment and scoring, regulatory mapping, partnership identification, business development execution, and technology implementation where needed. ${ind.desc} We work with ${ind.name.toLowerCase()} companies at every stage — from early-stage startups testing market fit to established enterprises building regional operations.</p>
+      <h2>Why Choose Sipiteno for ${ind.name} Expansion?</h2>
+      <p>Most consulting firms deliver a strategy document and leave. We deliver signed deals. Our team maintains active local networks in each of the 28 markets we serve — meaning when you need an introduction to a ${ind.name.toLowerCase()} buyer in Warsaw, Bucharest, or Tbilisi, we already know who to call. We tie a portion of our fee to outcomes.</p>
+      <h2>Which Markets Are Best for ${ind.name} Companies?</h2>
+      <p>Market selection depends on your product, regulatory requirements, and competitive landscape. For most ${ind.name.toLowerCase()} companies, we recommend starting with 2-3 markets scored by: market size, regulatory complexity, talent availability, and partnership potential. <a href="https://sipiteno.com/#contact">Book a free strategy call</a> to get a custom market scorecard for your top targets.</p>
+      <h2>Services We Provide for ${ind.name} Companies</h2>
+      <p>Our offerings include <a href="https://sipiteno.com/services/ai-consulting">AI consulting</a>, <a href="https://sipiteno.com/services/business-development">business development</a>, <a href="https://sipiteno.com/services/it-consulting">IT consulting</a>, <a href="https://sipiteno.com/services/digital-marketing">digital marketing</a>, <a href="https://sipiteno.com/services/sales-funnel">sales funnel setup</a>, and <a href="https://sipiteno.com/services/project-management">project management</a> — all tailored to the unique needs of ${ind.name.toLowerCase()} companies expanding internationally.</p>
+      <h2>How Much Does ${ind.name} Market Entry Cost?</h2>
+      <p>Engagements range from $15,000 for focused market assessments to $100,000+ for comprehensive multi-country expansion programs. Business development retainers start at $3,000/month with 10-30 qualified leads per month. See <a href="https://sipiteno.com/pricing">pricing details</a> or contact us for a custom quote.</p>
+      <h2>Our ${ind.name} Track Record</h2>
+      <p>We've delivered 50+ projects across 28 countries over 15+ years. Our average time-to-first-deal is 11 weeks, with a 92% client retention rate. <a href="https://sipiteno.com/case-studies">Read case studies</a> from ${ind.name.toLowerCase()} clients who've successfully expanded with Sipiteno.</p>
+      <h2>Get Started</h2>
+      <p>Email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> or <a href="https://sipiteno.com/#contact">book a free 30-minute strategy call</a>. We'll assess your ${ind.name.toLowerCase()} expansion readiness and recommend the right markets and approach.</p>
+      <p><a href="https://sipiteno.com/industries">All industries</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/locations">Locations</a></p>`;
 }
 
 function buildSimpleBody(title, description, links = []) {
