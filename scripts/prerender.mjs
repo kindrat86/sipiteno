@@ -197,7 +197,7 @@ function buildHomepageBody() {
       <h2>Book a Free Strategy Call</h2>
       <p>Book a free 30-minute call with a senior partner. Walk away with a written action plan, a custom market scorecard for your top 2 markets, and the Expansion Playbook — total value $497, free. <a href="https://sipiteno.com/#contact">Book your free call</a>.</p>
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> | <a href="https://sipiteno.com/locations">View all locations</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`;
+      <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> | <a href="https://sipiteno.com/locations">View all locations</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/answers">Quick answers</a></p>`;
 }
 
 function buildServiceBody(svc) {
