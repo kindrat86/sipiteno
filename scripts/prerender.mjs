@@ -319,6 +319,56 @@ function buildIndustryBody(ind) {
       <p><a href="https://sipiteno.com/industries">All industries</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/locations">Locations</a></p>`;
 }
 
+function buildLocationsHubBody() {
+  // Group the 28-country dataset by region so the hub reads as a real guide
+  // (E4 long-form + TL;DR) while every fact stays derived from COUNTRIES.
+  const regions = {};
+  for (const c of COUNTRIES) (regions[c.region] ||= []).push(c);
+  const regionNames = Object.keys(regions);
+  const regionSummary = regionNames
+    .map(r => `${r} (${regions[r].length})`)
+    .join(', ');
+
+  const tldrItems = regionNames.map(r =>
+    `<li><strong>${r}:</strong> ${regions[r].map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a>`).join(', ')}</li>`
+  ).join('\n        ');
+
+  const regionSections = regionNames.map(r => {
+    const list = regions[r].map(c =>
+      `<li><a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a> — capital ${c.capital}; tech hub: ${c.techHub}; working languages: ${c.languages.join(', ')}; key industries: ${c.keyIndustries.join(', ')}.</li>`
+    ).join('\n        ');
+    const capitals = regions[r].map(c => c.capital).join(', ');
+    return `<h2>${r}: ${regions[r].map(c => c.name).join(', ')}</h2>
+      <p>We cover ${regions[r].length === 1 ? 'one market' : regions[r].length + ' markets'} in ${r}, working out of ${capitals}. Every country page below details the services offered there, typical project timelines, and how engagements are priced for that market.</p>
+      <ul>
+        ${list}
+      </ul>`;
+  }).join('\n      ');
+
+  const serviceList = SERVICES.map(s =>
+    `<li><a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>: ${s.desc}. Available in every listed country via the country-and-service pages (for example, <a href="https://sipiteno.com/locations/${COUNTRIES[0].slug}/${s.slug}">${s.name} in ${COUNTRIES[0].name}</a>).</li>`
+  ).join('\n        ');
+
+  return `<h1>Locations: Sipiteno Business Consulting Across ${COUNTRIES.length} Countries</h1>
+      <p><strong>Sipiteno operates in ${COUNTRIES.length} countries across ${regionNames.length} regions: ${regionSummary}.</strong> This page is the index of every market we serve. Each country link below opens a dedicated page covering the services available there, the local capital and tech hub we work from, working languages, key industries, typical timelines, and pricing — so you can evaluate a specific market before you talk to us.</p>
+      <h2>TL;DR — Coverage at a Glance</h2>
+      <ul>
+        ${tldrItems}
+      </ul>
+      <h2>How This Index Is Organized</h2>
+      <p>Countries are grouped by region below. For each country we list the capital, the technology hub our work centers on, the working languages, and the key industries in that market — the same facts used on the country pages themselves. If you already know both your market and the service you need, jump straight to a country-and-service page (every country page links to all ${SERVICES.length} of its service pages).</p>
+      ${regionSections}
+      <h2>What Services Are Available in Each Location?</h2>
+      <p>All ${SERVICES.length} service lines are offered in every country listed on this page. Each has a country-specific page describing scope, timeline, and pricing for that market:</p>
+      <ul>
+        ${serviceList}
+      </ul>
+      <h2>How Do You Choose the Right Market?</h2>
+      <p>Start from your constraints, not from a map. The country pages above give you the raw facts — languages, key industries, and the tech hub each market is organized around — and our <a href="https://sipiteno.com/methodology">methodology page</a> explains how we score markets for a specific product. If you want a recommendation for your case, <a href="https://sipiteno.com/#contact">book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> and we'll walk through the shortlist with you.</p>
+      <h2>Where to Go Next</h2>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services/ai-consulting">Services</a> | <a href="https://sipiteno.com/industries">Industries</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`;
+}
+
 function buildSimpleBody(title, description, links = []) {
   let linkHtml = links.length > 0 ? `<p>${links.map(l => `<a href="${l.url}">${l.name}</a>`).join(' | ')}</p>` : '';
   return `<h1>${title}</h1>\n      <p>${description}</p>\n      ${linkHtml}`;
@@ -637,16 +687,7 @@ corePages.push({
   description: "Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.",
   canonicalUrl: "https://sipiteno.com/locations",
   breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Locations", url: "https://sipiteno.com/locations" }],
-  bodyContent: (() => {
-    const countryLinks = COUNTRIES.map(c => `<li><a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a> — ${c.region}, capital: ${c.capital}, tech hub: ${c.techHub}</li>`).join('\n      ');
-    return `<h1>Locations | Sipiteno Business Services Across 28 Countries</h1>
-      <p>Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, Northern Europe, South Asia, and East Africa. We maintain local presence and established networks in each market for business development, AI consulting, IT solutions, and digital marketing services.</p>
-      <h2>Countries We Serve</h2>
-      <ul>
-      ${countryLinks}
-      </ul>
-      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services/ai-consulting">Services</a> | <a href="https://sipiteno.com/industries">Industries</a></p>`;
-  })(),
+  bodyContent: buildLocationsHubBody(),
 });
 
 // 4. Industries listing
