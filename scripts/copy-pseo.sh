@@ -1,6 +1,6 @@
 #!/bin/bash
 # Copy pSEO country×service combo pages into dist/
-for country in serbia kazakhstan azerbaijan ukraine poland georgia uzbekistan armenia romania bulgaria croatia montenegro; do
+for country in serbia kazakhstan azerbaijan ukraine poland georgia uzbekistan armenia romania bulgaria croatia montenegro greece indonesia portugal slovakia; do
   for svc in ai-consulting mvp-development digital-transformation market-entry b2b-partnerships tech-recruiting; do
     test -f "$country/$svc/index.html" && mkdir -p "dist/$country/$svc" && cp "$country/$svc/index.html" "dist/$country/$svc/index.html"
   done
@@ -29,6 +29,8 @@ for d in for alternatives-to vs glossary free; do
   done
 done
 echo "Copied sipiteno pSEO pages: $(find dist -name 'index.html' | wc -l) total"
+# Deploy the branded 404 page (Vercel serves dist/404.html for unmatched routes)
+cp 404.html dist/404.html
 # Copy IndexNow key files
 cp *.txt dist/ 2>/dev/null
 echo "Copied key files to dist"

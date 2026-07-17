@@ -1,7 +1,7 @@
-import posthog from "posthog-js";
+import { capture } from "./posthog";
 import { trackClarityEvent } from "./clarity";
 
 export function trackEvent(name: string, properties?: Record<string, string>) {
-  posthog.capture(name, properties);
+  capture(name, properties);
   trackClarityEvent(name);
 }

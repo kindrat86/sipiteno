@@ -124,6 +124,13 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
   html = html.replace(/<meta name="title" content="[^"]*"/, `<meta name="title" content="${title}"`);
   html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${description}"`);
   html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${canonicalUrl}"`);
+
+  // hreflang tags — en (language), en-US (US English), x-default (fallback)
+  // Signals to Google/LLM crawlers the language is English with a canonical default.
+  const hreflangTags = `    <link rel="alternate" hreflang="en" href="${canonicalUrl}" />\n    <link rel="alternate" hreflang="en-US" href="${canonicalUrl}" />\n    <link rel="alternate" hreflang="x-default" href="${canonicalUrl}" />`;
+  // Remove any existing hreflang to avoid duplicates, then inject after canonical
+  html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\s*/g, '\n    ');
+  html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n' + hreflangTags);
   html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${title}"`);
   html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${description}"`);
   html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${canonicalUrl}"`);

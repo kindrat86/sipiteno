@@ -23,7 +23,7 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      <div className="container mx-auto relative z-10 py-12 md:py-16">
+      <div className="container mx-auto relative z-10 pt-12 md:pt-16 pb-32 md:pb-40">
         <header className="max-w-4xl mx-auto text-center animate-fade-in-up">
           {/* Eyebrow */}
           <div className="flex items-center justify-center gap-2 mb-4 md:mb-6 flex-wrap">

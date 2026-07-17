@@ -5,9 +5,11 @@
     <link rel="icon" href="/favicon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0a0a" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+    <!-- Mark JS-capable browsers so static crawler-only content (footer nav,
+         trust bar) below #root never flashes before hydration. -->
+    <script>document.documentElement.classList.add('js')</script>
+    <style>.js .no-js-only{display:none}</style>
+
     <!-- Primary Meta Tags -->
     <title>Sipiteno - Strategic Business Development & AI Consulting | Europe, Caucasus, Central Asia</title>
     <!-- NOTE: never link /ux.css here. It's the stylesheet for the bare static
@@ -395,7 +397,9 @@
       <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=6891888&fmt=gif" />
     </noscript>
   
-<!-- Static footer for crawlers (React renders Footer.tsx on hydration) -->
+<!-- Static footer for crawlers (React renders Footer.tsx on hydration).
+     .no-js-only: hidden for JS users (pre-hydration flash/CLS fix); crawlers still see it. -->
+<div class="no-js-only">
 <footer>
 <!-- pSEO Footer Navigation -->
 <style>
@@ -458,6 +462,7 @@
   </div>
   <p style="color:#cc3300;font-weight:600;margin-top:12px">📌 Accepting 3 New Clients This Quarter</p>
 </section>
+</div>
 
 </body>
 </html>

@@ -136,6 +136,15 @@
       "source": "/(.*)",
       "headers": [
         {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
           "key": "X-Frame-Options",
           "value": "DENY"
         },
@@ -236,15 +245,6 @@
         {
           "key": "X-Robots-Tag",
           "value": "noindex, nofollow"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
         }
       ]
     }

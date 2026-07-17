@@ -182,8 +182,21 @@ function getCurrentDayInCycle(): number {
   return (diffDays % 15) + 1; // 1-indexed, 15-day cycle
 }
 
-// Check if a request is using service role authentication
-// Verifies against SUPABASE_SERVICE_ROLE_KEY env var (supports both legacy JWT and new key formats)
+// Constant-time string comparison (prevents timing side-channels on key checks)
+function timingSafeEqualStr(a: string, b: string): boolean {
+  const enc = new TextEncoder();
+  const ab = enc.encode(a);
+  const bb = enc.encode(b);
+  if (ab.length !== bb.length) return false;
+  let diff = 0;
+  for (let i = 0; i < ab.length; i++) diff |= ab[i] ^ bb[i];
+  return diff === 0;
+}
+
+// Check if a request is using service role authentication.
+// SECURITY: only an exact (constant-time) match against SUPABASE_SERVICE_ROLE_KEY
+// authenticates. Never trust decoded JWT claims without signature verification —
+// anyone can forge an unsigned payload claiming role=service_role.
 function isServiceRoleAuth(authHeader: string | null): boolean {
   if (!authHeader) return false;
 
@@ -192,23 +205,7 @@ function isServiceRoleAuth(authHeader: string | null): boolean {
 
   const token = authHeader.replace("Bearer ", "");
 
-  // Direct match against the service role key
-  if (token === serviceRoleKey) return true;
-
-  // Check if it's a valid JWT with service_role claim signed by our project
-  try {
-    const [, payloadB64] = token.split(".");
-    if (payloadB64) {
-      const payload = JSON.parse(atob(payloadB64));
-      if (payload.role === "service_role" && payload.ref === Deno.env.get("SUPABASE_URL")?.match(/https:\/\/(.+?)\.supabase/)?.[1]) {
-        return true;
-      }
-    }
-  } catch {
-    // Not a valid JWT
-  }
-
-  return false;
+  return timingSafeEqualStr(token, serviceRoleKey);
 }
 
 serve(async (req) => {
