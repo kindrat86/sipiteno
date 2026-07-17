@@ -428,11 +428,40 @@ const corePages = [
     title: "Pricing | Sipiteno - Transparent Consulting Rates",
     description: "Sipiteno pricing: Business Development $3K-$10K/month, AI Consulting $25K-$100K+, MicroSaaS MVP $15K-$50K, IT Consulting $15K-$75K+. Flexible engagement models.",
     canonicalUrl: "https://sipiteno.com/pricing",
-    breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Pricing", url: "https://sipiteno.com/pricing" }],
-    bodyContent: `<h1>Pricing | Sipiteno Consulting Rates</h1>
-      <p>Sipiteno offers transparent and flexible pricing across all service lines. Business Development retainers range from $3,000 to $10,000 per month. AI Consulting projects range from $25,000 to $100,000+ depending on scope. MicroSaaS MVP development costs $15,000 to $50,000 for 4-8 week engagements. IT Consulting ranges from $15,000 to $75,000+. Hourly consulting is available at $150-$300/hour.</p>
-      <p>Payment structure is typically 30-50% upfront with milestone-based releases. We provide transparent proposals with clear deliverables, timelines, and payment schedules.</p>
-      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a></p>`,
+    bodyContent: `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="2026-07-17">Updated 2026-07-17</time> · Published 2026-01-15</p>
+      <h1>Sipiteno Pricing &amp; Engagement Models — Transparent Rates for Market Expansion</h1>
+      <p><strong>Sipiteno engagements start at $3,000/month for business development retainers and $15,000 for fixed-scope projects.</strong> We offer five engagement models below — from free strategy calls through to comprehensive AI implementation programs. Every proposal includes clear deliverables, timelines, and payment milestones. No hidden fees.</p>
+      <h2>How Much Does Sipiteno Cost?</h2>
+      <p>Our pricing is designed to align with your outcomes. The table below shows our five engagement tiers:</p>
+      <table>
+        <thead>
+          <tr><th>Engagement</th><th>Price Range</th><th>Timeline</th><th>Best For</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Free Strategy Call</td><td>$0</td><td>30 minutes</td><td>Assessment &amp; market scoring</td></tr>
+          <tr><td>Business Development Retainer</td><td>$3,000-$10,000/month</td><td>Ongoing (3+ months)</td><td>Pipeline generation, 10-30 qualified leads/month</td></tr>
+          <tr><td>MicroSaaS MVP Development</td><td>$15,000-$50,000</td><td>4-8 weeks</td><td>Product validation, rapid prototyping</td></tr>
+          <tr><td>Market Entry Project</td><td>$25,000-$75,000</td><td>12-16 weeks</td><td>Full country expansion: strategy + execution</td></tr>
+          <tr><td>AI Implementation Program</td><td>$25,000-$100,000+</td><td>8-24 weeks</td><td>Custom AI solutions, ML pipelines, automation</td></tr>
+          <tr><td>Hourly Consulting</td><td>$150-$300/hour</td><td>Flexible</td><td>Advisory, code review, technical assessment</td></tr>
+        </tbody>
+      </table>
+      <h2>What's Included in Each Engagement?</h2>
+      <h3>Business Development Retainer ($3,000-$10,000/month)</h3>
+      <p>Includes: 10-30 qualified leads per month, warm introductions to decision-makers, weekly pipeline reports, bilingual sales support, and access to our local network in each target market. We work alongside your team to close deals, not just hand off leads.</p>
+      <h3>Market Entry Project ($25,000-$75,000)</h3>
+      <p>Includes: market assessment and scoring for 2-3 target countries, regulatory mapping, partnership identification, 12-16 weeks of active business development execution, and a transition plan for self-sufficient operations. This is our most popular engagement for companies entering their second or third geographic market.</p>
+      <h3>AI Implementation Program ($25,000-$100,000+)</h3>
+      <p>Includes: AI strategy development, model selection and training, infrastructure setup, integration with existing systems, team training, and ongoing optimization. We deliver production AI systems, not proofs of concept. <a href="https://sipiteno.com/services/ai-consulting">Learn more about AI consulting</a>.</p>
+      <h2>How Do We Pay?</h2>
+      <p>Payment structure is typically 30-50% upfront with milestone-based releases. For retainers, we bill monthly in advance. For fixed-scope projects, payments are tied to agreed deliverables. We accept bank transfer, credit card, and can work with most international payment systems.</p>
+      <h2>Do You Offer Performance-Based Pricing?</h2>
+      <p>Yes. For business development engagements, we can structure a portion of our fee around outcomes: deals signed, pipeline generated, or revenue attributed. This aligns our incentives with yours — we win when you win. Talk to us about <a href="https://sipiteno.com/#contact">performance-based arrangements</a>.</p>
+      <h2>Which Markets Are Included?</h2>
+      <p>All engagements include access to our network across 28 countries: <a href="https://sipiteno.com/locations/poland">Poland</a>, <a href="https://sipiteno.com/locations/romania">Romania</a>, <a href="https://sipiteno.com/locations/serbia">Serbia</a>, <a href="https://sipiteno.com/locations/ukraine">Ukraine</a>, <a href="https://sipiteno.com/locations/georgia">Georgia</a>, <a href="https://sipiteno.com/locations/kazakhstan">Kazakhstan</a>, and 22 more. See all <a href="https://sipiteno.com/locations">locations</a>.</p>
+      <h2>Ready to Get a Custom Quote?</h2>
+      <p>The fastest way to get pricing for your specific situation is a free 30-minute strategy call. We'll assess your needs, recommend the right engagement model, and give you a transparent price range. <a href="https://sipiteno.com/#contact">Book your free call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a> | <a href="https://sipiteno.com/alternatives">Compare alternatives</a> | <a href="https://sipiteno.com/methodology">Our methodology</a></p>`,
   },
   {
     path: ['methodology'],
