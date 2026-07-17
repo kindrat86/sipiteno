@@ -158,8 +158,11 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
   // Always emit an E-E-A-T byline (rel="author" + class="author" + visible "Updated"
   // date) so the growth-engine crawler's AUTHOR_RE + DATE_RE fire on every page,
   // crediting C2 (E-E-A-T) and C7 (freshness). Uses the pseudonymous brand byline.
+  // Byline goes AFTER the body content: crawlers and answer engines judge the
+  // FIRST paragraph (C1 answer-first). Metadata-first openings fail that check;
+  // the author/date markup still credits C2/C7 wherever it appears on the page.
   const byline = `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="${MODIFIED}">Updated ${MODIFIED}</time> · Published ${PUBLISHED}</p>`;
-  const seoBlock = byline + (bodyContent || "");
+  const seoBlock = (bodyContent || "") + byline;
   html = html.replace(
     /<div id="root"><\/div>/,
     `<div id="root"><div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap" aria-hidden="true">\n${seoBlock}\n      </div></div>`
@@ -175,8 +178,7 @@ function buildHomepageBody() {
   const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>: ${s.desc}.</li>`).join('\n      ');
   const countries = COUNTRIES.map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a>`).join(', ');
 
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno Research Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>Sipiteno: Expand Your Tech Business Into 28 Emerging Markets</h1>
+  return `<h1>Sipiteno: Expand Your Tech Business Into 28 Emerging Markets</h1>
       <p><strong>Yes — you can enter and win in emerging markets.</strong> Sipiteno has helped 50+ technology companies expand into Central &amp; Eastern Europe, the Caucasus, and Central Asia since 2009. Our average client signs their first deal in 11 weeks, not 11 months. The system works because we combine three things most consultants lack: warm local introductions, regulatory maps built from 15+ years of experience, and bilingual execution teams who actually live in the markets they serve.</p>
       <h2>Free Emerging Markets Expansion Playbook</h2>
       <p>Get our 47-page playbook (usually $97) free. Covers: country-by-country market entry scorecards for all 28 markets; the 4-8 week rapid expansion timeline; regulatory and partnership playbook per region; and real pricing benchmarks. Every month you delay costs ~$8,500 in unrealized pipeline. <a href="https://sipiteno.com/#free-playbook">Download the free playbook</a>.</p>
@@ -202,8 +204,7 @@ function buildServiceBody(svc) {
   const countries = COUNTRIES.slice(0, 12).map(c => `<a href="https://sipiteno.com/locations/${c.slug}/${svc.slug}">${c.name}</a>`).join(', ');
   const otherServices = SERVICES.filter(s => s.slug !== svc.slug).map(s => `<a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>`).join(', ');
 
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${svc.name} Practice</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>${svc.name} Services: Strategy, Implementation &amp; Results</h1>
+  return `<h1>${svc.name} Services: Strategy, Implementation &amp; Results</h1>
       <p><strong>Sipiteno delivers ${svc.name.toLowerCase()} services that produce measurable outcomes — not strategy decks.</strong> ${svc.desc} We've completed 50+ projects across 28 countries with a 92% retention rate. Projects start at $15,000 and run 4-16 weeks depending on scope. Our approach combines strategic consulting with hands-on technical delivery, led by bilingual teams who understand both your industry and the local market context.</p>
       <h2>What We Offer</h2>
       <p>Our ${svc.name.toLowerCase()} practice combines strategic consulting with hands-on technical delivery. We work with technology companies from early-stage startups to Fortune 500 enterprises, tailoring our approach to each client's market position, growth stage, and regional objectives.</p>
@@ -220,8 +221,7 @@ function buildCountryBody(country) {
   const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/locations/${country.slug}/${s.slug}">${s.name} in ${country.name}</a>: ${s.desc}.</li>`).join('\n      ');
   const industries = country.keyIndustries.map(i => `<strong>${i}</strong>`).join(', ');
 
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno Research Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>Business Consulting in ${country.name}: Market Entry &amp; Expansion Services</h1>
+  return `<h1>Business Consulting in ${country.name}: Market Entry &amp; Expansion Services</h1>
       <p><strong>Sipiteno helps technology companies enter and scale in ${country.name} from our base in ${country.capital}.</strong> We provide business development, AI consulting, IT solutions, and digital marketing — combining 15+ years of regional expertise with local teams who speak ${country.languages.slice(0, 2).join(' and ')}. Typical engagement: 12-16 weeks from kickoff to first signed deal.</p>
       <h2>TL;DR — ${country.name} Market Entry at a Glance</h2>
       <ul>
@@ -259,8 +259,7 @@ function buildCountryServiceBody(country, svc) {
   const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 3).map(s => `<a href="https://sipiteno.com/locations/${country.slug}/${s.slug}">${s.name}</a>`).join(', ');
   const otherCountries = COUNTRIES.filter(c => c.region === country.region && c.slug !== country.slug).slice(0, 5).map(c => `<a href="https://sipiteno.com/locations/${c.slug}/${svc.slug}">${c.name}</a>`).join(', ');
 
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${svc.name} Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>${svc.name} in ${country.name}: Local Experts, Fast Delivery</h1>
+  return `<h1>${svc.name} in ${country.name}: Local Experts, Fast Delivery</h1>
       <p><strong>Sipiteno delivers ${svc.name.toLowerCase()} services in ${country.name} from our team in ${country.capital}.</strong> ${svc.desc} We combine 15+ years of regional expertise with bilingual local teams who understand ${country.name}'s regulatory landscape, business culture, and key industries. Projects start at $15,000 and run 4-16 weeks depending on scope.</p>
       <h2>TL;DR — ${svc.name} in ${country.name}</h2>
       <ul>
@@ -293,8 +292,7 @@ function buildCountryServiceBody(country, svc) {
 }
 
 function buildIndustryBody(ind) {
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${ind.name} Practice</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>${ind.name} Consulting &amp; Market Entry | Sipiteno</h1>
+  return `<h1>${ind.name} Consulting &amp; Market Entry | Sipiteno</h1>
       <p><strong>Sipiteno helps ${ind.name.toLowerCase()} companies expand into 28 emerging markets across Europe, Caucasus, and Central Asia.</strong> ${ind.desc} We combine 15+ years of regional expertise with hands-on technical implementation — from market entry strategy through to signed partnerships and deployed technology.</p>
       <h2>TL;DR — ${ind.name} Consulting with Sipiteno</h2>
       <ul>
@@ -430,8 +428,7 @@ const corePages = [
     title: "Pricing | Sipiteno - Transparent Consulting Rates",
     description: "Sipiteno pricing: Business Development $3K-$10K/month, AI Consulting $25K-$100K+, MicroSaaS MVP $15K-$50K, IT Consulting $15K-$75K+. Flexible engagement models.",
     canonicalUrl: "https://sipiteno.com/pricing",
-    bodyContent: `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="2026-07-17">Updated 2026-07-17</time> · Published 2026-01-15</p>
-      <h1>Sipiteno Pricing &amp; Engagement Models — Transparent Rates for Market Expansion</h1>
+    bodyContent: `<h1>Sipiteno Pricing &amp; Engagement Models — Transparent Rates for Market Expansion</h1>
       <p><strong>Sipiteno engagements start at $3,000/month for business development retainers and $15,000 for fixed-scope projects.</strong> We offer five engagement models below — from free strategy calls through to comprehensive AI implementation programs. Every proposal includes clear deliverables, timelines, and payment milestones. No hidden fees.</p>
       <h2>How Much Does Sipiteno Cost?</h2>
       <p>Our pricing is designed to align with your outcomes. The table below shows our five engagement tiers:</p>
@@ -517,8 +514,7 @@ const corePages = [
         { "@type": "ListItem", "position": 2, "name": "About", "item": "https://sipiteno.com/about" }
       ]
     }],
-    bodyContent: `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="2026-07-17">Updated 2026-07-17</time> · Published 2026-01-15</p>
-      <h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
+    bodyContent: `<h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
       <p><strong>Sipiteno helps technology companies expand into 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, Central Asia, South Asia, and East Africa.</strong> Founded in 2009, we've delivered 50+ projects with a 92% client retention rate and an average time-to-first-deal of 11 weeks. This page explains who we are, how the system works, and why a failed market entry became the foundation of everything we do.</p>
       <h2>Our Track Record</h2>
       <p>Over 15+ years of operating across emerging markets, the numbers that matter to us:</p>
@@ -582,7 +578,7 @@ const corePages = [
       ]
     }],
     bodyContent: `<h1>Contact Sipiteno</h1>
-      <p>Get in touch with Sipiteno for business development, AI consulting, IT solutions, and strategic expansion into emerging markets across Europe, Caucasus, and Central Asia.</p>
+      <p><strong>To contact Sipiteno, email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> — we respond within one business day.</strong> Tell us which of the 28 markets you're targeting and what you need (business development, AI consulting, IT solutions, or market entry), and we'll reply with next steps and, if useful, a free 30-minute strategy call.</p>
       <h2>Email</h2>
       <p><a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> — We respond within one business day.</p>
       <h2>What We Offer</h2>
