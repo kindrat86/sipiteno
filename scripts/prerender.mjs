@@ -175,8 +175,9 @@ function buildHomepageBody() {
   const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>: ${s.desc}.</li>`).join('\n      ');
   const countries = COUNTRIES.map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a>`).join(', ');
 
-  return `<h1>Expand Your Tech Business Into 28 Emerging Markets</h1>
-      <p>Sipiteno helps technology companies expand using the <strong>3-Door Expansion System</strong>™ — Introductions, Regulatory Map, Execution Team. We operate across Eastern Europe, the Caucasus, and Central Asia. Founded in 2009, we've launched 50+ products across 28 countries with 15+ years of regional expertise. Download the free Emerging Markets Expansion Playbook — a 47-page framework covering market entry scorecards, partnership playbooks, and the 4-8 week rapid expansion timeline we use with SaaS clients.</p>
+  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno Research Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
+      <h1>Sipiteno: Expand Your Tech Business Into 28 Emerging Markets</h1>
+      <p><strong>Yes — you can enter and win in emerging markets.</strong> Sipiteno has helped 50+ technology companies expand into Central &amp; Eastern Europe, the Caucasus, and Central Asia since 2009. Our average client signs their first deal in 11 weeks, not 11 months. The system works because we combine three things most consultants lack: warm local introductions, regulatory maps built from 15+ years of experience, and bilingual execution teams who actually live in the markets they serve.</p>
       <h2>Free Emerging Markets Expansion Playbook</h2>
       <p>Get our 47-page playbook (usually $97) free. Covers: country-by-country market entry scorecards for all 28 markets; the 4-8 week rapid expansion timeline; regulatory and partnership playbook per region; and real pricing benchmarks. Every month you delay costs ~$8,500 in unrealized pipeline. <a href="https://sipiteno.com/#free-playbook">Download the free playbook</a>.</p>
       <h2>Our Services</h2>
@@ -201,8 +202,9 @@ function buildServiceBody(svc) {
   const countries = COUNTRIES.slice(0, 12).map(c => `<a href="https://sipiteno.com/locations/${c.slug}/${svc.slug}">${c.name}</a>`).join(', ');
   const otherServices = SERVICES.filter(s => s.slug !== svc.slug).map(s => `<a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>`).join(', ');
 
-  return `<h1>${svc.name} Services | Sipiteno Consulting</h1>
-      <p>${svc.desc}. Sipiteno delivers ${svc.name.toLowerCase()} services across 28 countries in Europe, Caucasus, and Central Asia. With 15+ years of regional expertise and 50+ successful projects, we provide end-to-end ${svc.name.toLowerCase()} capabilities from strategy through implementation.</p>
+  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${svc.name} Practice</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
+      <h1>${svc.name} Services: Strategy, Implementation &amp; Results</h1>
+      <p><strong>Sipiteno delivers ${svc.name.toLowerCase()} services that produce measurable outcomes — not strategy decks.</strong> ${svc.desc} We've completed 50+ projects across 28 countries with a 92% retention rate. Projects start at $15,000 and run 4-16 weeks depending on scope. Our approach combines strategic consulting with hands-on technical delivery, led by bilingual teams who understand both your industry and the local market context.</p>
       <h2>What We Offer</h2>
       <p>Our ${svc.name.toLowerCase()} practice combines strategic consulting with hands-on technical delivery. We work with technology companies from early-stage startups to Fortune 500 enterprises, tailoring our approach to each client's market position, growth stage, and regional objectives.</p>
       <h2>Engagement Model</h2>
