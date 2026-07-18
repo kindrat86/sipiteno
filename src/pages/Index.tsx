@@ -8,6 +8,8 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
+import BackToTop from "@/components/BackToTop";
 import { organizationSchema, servicesSchema, faqSchema } from "@/lib/seo/schemas";
 
 const EpiphanyBridge = lazy(() => import("@/components/EpiphanyBridge"));
@@ -50,6 +52,7 @@ const Index = () => {
         schemas={[organizationSchema, servicesSchema, faqSchema]}
       />
       <Navigation />
+      <ReadingProgressBar />
       <main className="pt-16">
         <Hero />
         <Suspense fallback={null}><MassMovement /></Suspense>
@@ -69,6 +72,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };

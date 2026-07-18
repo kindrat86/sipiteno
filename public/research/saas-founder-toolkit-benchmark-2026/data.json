@@ -1,0 +1,227 @@
+[
+  {
+    "tool_category": "Communication",
+    "tool_name": "Slack",
+    "adoption_pct": "89",
+    "freemium": "Yes",
+    "avg_monthly_cost": "7.25",
+    "user_rating": "8.2",
+    "recommended_by_founders_pct": "76"
+  },
+  {
+    "tool_category": "Communication",
+    "tool_name": "Discord",
+    "adoption_pct": "64",
+    "freemium": "Yes",
+    "avg_monthly_cost": "0",
+    "user_rating": "7.8",
+    "recommended_by_founders_pct": "43"
+  },
+  {
+    "tool_category": "ProjectMgmt",
+    "tool_name": "Notion",
+    "adoption_pct": "78",
+    "freemium": "Yes",
+    "avg_monthly_cost": "10",
+    "user_rating": "8.5",
+    "recommended_by_founders_pct": "72"
+  },
+  {
+    "tool_category": "ProjectMgmt",
+    "tool_name": "Linear",
+    "adoption_pct": "45",
+    "freemium": "Yes",
+    "avg_monthly_cost": "8",
+    "user_rating": "8.7",
+    "recommended_by_founders_pct": "51"
+  },
+  {
+    "tool_category": "ProjectMgmt",
+    "tool_name": "Trello",
+    "adoption_pct": "52",
+    "freemium": "Yes",
+    "avg_monthly_cost": "0",
+    "user_rating": "7.1",
+    "recommended_by_founders_pct": "33"
+  },
+  {
+    "tool_category": "Design",
+    "tool_name": "Canva",
+    "adoption_pct": "71",
+    "freemium": "Yes",
+    "avg_monthly_cost": "12.99",
+    "user_rating": "8.3",
+    "recommended_by_founders_pct": "65"
+  },
+  {
+    "tool_category": "Design",
+    "tool_name": "Figma",
+    "adoption_pct": "58",
+    "freemium": "Yes",
+    "avg_monthly_cost": "12",
+    "user_rating": "8.8",
+    "recommended_by_founders_pct": "62"
+  },
+  {
+    "tool_category": "Code",
+    "tool_name": "VS Code",
+    "adoption_pct": "83",
+    "freemium": "Yes",
+    "avg_monthly_cost": "0",
+    "user_rating": "8.9",
+    "recommended_by_founders_pct": "79"
+  },
+  {
+    "tool_category": "Code",
+    "tool_name": "GitHub",
+    "adoption_pct": "81",
+    "freemium": "Yes",
+    "avg_monthly_cost": "4",
+    "user_rating": "8.6",
+    "recommended_by_founders_pct": "77"
+  },
+  {
+    "tool_category": "CRM",
+    "tool_name": "HubSpot",
+    "adoption_pct": "44",
+    "freemium": "Yes",
+    "avg_monthly_cost": "20",
+    "user_rating": "8.0",
+    "recommended_by_founders_pct": "48"
+  },
+  {
+    "tool_category": "CRM",
+    "tool_name": "Clay",
+    "adoption_pct": "18",
+    "freemium": "No",
+    "avg_monthly_cost": "149",
+    "user_rating": "7.6",
+    "recommended_by_founders_pct": "22"
+  },
+  {
+    "tool_category": "Analytics",
+    "tool_name": "Google Analytics",
+    "adoption_pct": "67",
+    "freemium": "Yes",
+    "avg_monthly_cost": "0",
+    "user_rating": "7.3",
+    "recommended_by_founders_pct": "45"
+  },
+  {
+    "tool_category": "Analytics",
+    "tool_name": "PostHog",
+    "adoption_pct": "23",
+    "freemium": "Yes",
+    "avg_monthly_cost": "0",
+    "user_rating": "8.4",
+    "recommended_by_founders_pct": "35"
+  },
+  {
+    "tool_category": "Email",
+    "tool_name": "Resend",
+    "adoption_pct": "31",
+    "freemium": "Yes",
+    "avg_monthly_cost": "0",
+    "user_rating": "8.1",
+    "recommended_by_founders_pct": "34"
+  },
+  {
+    "tool_category": "Email",
+    "tool_name": "ConvertKit",
+    "adoption_pct": "28",
+    "freemium": "Yes",
+    "avg_monthly_cost": "29",
+    "user_rating": "7.8",
+    "recommended_by_founders_pct": "31"
+  },
+  {
+    "tool_category": "Marketing",
+    "tool_name": "RankMath",
+    "adoption_pct": "22",
+    "freemium": "Yes",
+    "avg_monthly_cost": "0",
+    "user_rating": "8.2",
+    "recommended_by_founders_pct": "26"
+  },
+  {
+    "tool_category": "Marketing",
+    "tool_name": "Typefully",
+    "adoption_pct": "17",
+    "freemium": "Yes",
+    "avg_monthly_cost": "0",
+    "user_rating": "7.9",
+    "recommended_by_founders_pct": "21"
+  },
+  {
+    "tool_category": "Payment",
+    "tool_name": "Stripe",
+    "adoption_pct": "86",
+    "freemium": "Yes",
+    "avg_monthly_cost": "2.9",
+    "user_rating": "8.8",
+    "recommended_by_founders_pct": "81"
+  },
+  {
+    "tool_category": "Payment",
+    "tool_name": "LemonSqueezy",
+    "adoption_pct": "24",
+    "freemium": "No",
+    "avg_monthly_cost": "0",
+    "user_rating": "8.0",
+    "recommended_by_founders_pct": "29"
+  },
+  {
+    "tool_category": "Hosting",
+    "tool_name": "Vercel",
+    "adoption_pct": "53",
+    "freemium": "Yes",
+    "avg_monthly_cost": "20",
+    "user_rating": "8.5",
+    "recommended_by_founders_pct": "48"
+  },
+  {
+    "tool_category": "Hosting",
+    "tool_name": "Railway",
+    "adoption_pct": "19",
+    "freemium": "Yes",
+    "avg_monthly_cost": "5",
+    "user_rating": "8.1",
+    "recommended_by_founders_pct": "22"
+  },
+  {
+    "tool_category": "NoCode",
+    "tool_name": "Webflow",
+    "adoption_pct": "34",
+    "freemium": "Yes",
+    "avg_monthly_cost": "14",
+    "user_rating": "7.9",
+    "recommended_by_founders_pct": "36"
+  },
+  {
+    "tool_category": "AIAgent",
+    "tool_name": "Claude",
+    "adoption_pct": "42",
+    "freemium": "Yes",
+    "avg_monthly_cost": "20",
+    "user_rating": "8.4",
+    "recommended_by_founders_pct": "45"
+  },
+  {
+    "tool_category": "AIAgent",
+    "tool_name": "ChatGPT",
+    "adoption_pct": "76",
+    "freemium": "Yes",
+    "avg_monthly_cost": "20",
+    "user_rating": "7.6",
+    "recommended_by_founders_pct": "58"
+  },
+  {
+    "tool_category": "AIAgent",
+    "tool_name": "GitHub Copilot",
+    "adoption_pct": "48",
+    "freemium": "Yes",
+    "avg_monthly_cost": "10",
+    "user_rating": "8.3",
+    "recommended_by_founders_pct": "52"
+  }
+]

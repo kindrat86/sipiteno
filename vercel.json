@@ -131,16 +131,16 @@
       "destination": "/answers.html"
     },
     {
+      "source": "/free",
+      "destination": "/free/index.html"
+    },
+    {
       "source": "/AGENTS.md",
       "destination": "/agents.md"
     },
     {
       "source": "/agents.md",
       "destination": "/agents.md"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     },
     {
       "source": "/portfolio",
@@ -153,6 +153,10 @@
     {
       "source": "/embed/tools/:slug",
       "destination": "/embed/tools/:slug.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
