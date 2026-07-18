@@ -81,7 +81,9 @@ const INDUSTRIES = [
 // --- HELPERS ---
 
 function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs, ogType = 'website', noindex = false, bodyContent = '' }) {
-  const allSchemas = [...schemas];
+  // Always carry an Organization schema (with canonical disambiguation) on every
+  // page — prepend orgSchema unless the caller already supplied an Organization.
+  const allSchemas = schemas.some(s => s && s['@type'] === 'Organization') ? [...schemas] : [orgSchema, ...schemas];
   if (breadcrumbs) {
     allSchemas.push({
       "@context": "https://schema.org",
@@ -429,6 +431,8 @@ const orgSchema = {
   "@type": "Organization",
   "@id": "https://sipiteno.com/#organization",
   "name": "Sipiteno",
+  "description": "SipiTeno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies — an accountable product team that ships, not a marketplace where you hire and manage individual freelancers.",
+  "disambiguatingDescription": "SipiTeno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.",
   "url": "https://sipiteno.com",
   "logo": "https://sipiteno.com/favicon.png",
   "foundingDate": "2009",
