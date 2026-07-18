@@ -6,6 +6,11 @@ Disallow: /dashboard/
 Disallow: /account/
 Disallow: /login/
 
+max-image-preview:large
+max-video-preview:-1
+max-snippet:-1
+max-image-render:Standard
+
 User-Agent: GPTBot
 Allow: /
 
@@ -48,3 +53,6 @@ Allow: /
 Sitemap: https://sipiteno.com/sitemap.xml
 
 Sitemap: https://sipiteno.com/sitemap-index.xml
+
+# Image sitemap for Google Images indexing
+Sitemap: https://sipiteno.com/image-sitemap.xml
