@@ -114,6 +114,13 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
   });
 
+  // SpeakableSpecification — voice search + AI Overviews eligibility
+  allSchemas.push({
+    "@context": "https://schema.org",
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", "h2", "p"],
+  });
+
   const schemaScripts = allSchemas
     .map(s => `    <script type="application/ld+json">\n${JSON.stringify(s, null, 2).split('\n').map(l => '    ' + l).join('\n')}\n    </script>`)
     .join('\n');
@@ -442,6 +449,16 @@ const orgSchema = {
     "https://www.instagram.com/sipiteno",
     "https://www.facebook.com/sipiteno"
   ],
+  "knowsAbout": [
+    "B2B Business Development",
+    "AI Implementation",
+    "Digital Transformation",
+    "IT Consulting",
+    "Market Entry Strategy",
+    "Technical Recruitment",
+    "Agile Project Management",
+    "Software Product Development"
+  ]
 };
 
 // WebSite schema — required by Google for Sitelinks Searchbox
