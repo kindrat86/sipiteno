@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://sipiteno.com/#organization",
+  "name": "Sipiteno",
+  "alternateName": [
+    "Sipiteno.com",
+    "SipiTeno"
+  ],
+  "description": "AI-powered voice agents for customer service automation.",
+  "url": "https://sipiteno.com",
+  "sameAs": [
+    "https://voicelogpro.com"
+  ],
+  "knowsAbout": [
+    "AI Voice Agents",
+    "Customer Service Automation",
+    "Conversational AI",
+    "Call Center Technology",
+    "Voice AI Integration"
+  ],
+  "areaServed": "Worldwide",
+  "foundingDate": "2024",
+  "dateModified": "2026-07-18T17:06:43Z",
+  "hasPart": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sipiteno.com/answers/#website",
+      "name": "Sipiteno Answers",
+      "description": "Structured Q&A hub for Sipiteno",
+      "url": "https://sipiteno.com/answers/"
+    }
+  ],
+  "subjectOf": [
+    {
+      "@type": "DataFeed",
+      "name": "Sipiteno Answer Feed",
+      "url": "https://sipiteno.com/answers/feed.json",
+      "description": "JSON Feed of structured Q&A content for AI consumption."
+    }
+  ]
+}
