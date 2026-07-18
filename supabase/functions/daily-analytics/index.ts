@@ -29,7 +29,7 @@ serve(async (req) => {
 
     let totalVisitors = 0;
     let totalPageviews = 0;
-    let countries: { country: string; visitors: number; requests: number }[] = [];
+    const countries: { country: string; visitors: number; requests: number }[] = [];
     let cfError = "";
 
     if (cfToken && cfZoneId) {

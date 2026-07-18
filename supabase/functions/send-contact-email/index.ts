@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "https://esm.sh/resend@2.0.0";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient, SupabaseClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
@@ -35,17 +35,6 @@ const contactSchema = z.object({
   honeypot: z.string().optional(), // Honeypot field to catch bots
 });
 
-interface ContactFormData {
-  fullName: string;
-  companyName?: string;
-  email: string;
-  phone?: string;
-  country?: string;
-  service?: string;
-  message: string;
-  honeypot?: string;
-}
-
 // HTML escape function to prevent XSS
 const escapeHtml = (unsafe: string): string => {
   return unsafe
@@ -68,7 +57,7 @@ const getClientIp = (req: Request): string => {
 };
 
 // Check rate limit
-const checkRateLimit = async (supabaseAdmin: any, ipAddress: string): Promise<{ allowed: boolean; message?: string }> => {
+const checkRateLimit = async (supabaseAdmin: SupabaseClient, ipAddress: string): Promise<{ allowed: boolean; message?: string }> => {
   const oneHourAgo = new Date(Date.now() - RATE_LIMIT_WINDOW).toISOString();
   
   // Get rate limit record for this IP
@@ -253,12 +242,12 @@ const handler = async (req: Request): Promise<Response> => {
         },
       }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in send-contact-email function:", error);
-    
+
     // Handle validation errors - log details server-side only, return generic message
-    if (error.name === "ZodError") {
-      console.error("Validation errors:", error.errors);
+    if (error instanceof Error && error.name === "ZodError") {
+      console.error("Validation errors:", (error as { errors?: unknown }).errors);
       return new Response(
         JSON.stringify({ 
           success: false, 

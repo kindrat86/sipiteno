@@ -2,7 +2,7 @@
 // This is used at build time to create individual country pages
 
 import { Link } from "react-router-dom";
-import { ArrowLeft, Target, Handshake, Globe, TrendingUp, CheckCircle, Building2, MapPin, DollarSign } from "lucide-react";
+import { ArrowLeft, Target, Handshake, Globe, TrendingUp, CheckCircle, Building2, MapPin, DollarSign, Brain, Zap, BarChart3, Users, Search, FileText, Share2, Mail, RefreshCw, Settings, Cloud, Shield, ClipboardList, AlertTriangle, Layout, MousePointerClick } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
@@ -20,22 +20,7 @@ interface CountryServicePageProps {
 
 const iconMap: Record<string, React.ElementType> = {
   Target, Handshake, Globe, TrendingUp,
-  Brain: require("lucide-react").Brain,
-  Zap: require("lucide-react").Zap,
-  BarChart3: require("lucide-react").BarChart3,
-  Users: require("lucide-react").Users,
-  Search: require("lucide-react").Search,
-  FileText: require("lucide-react").FileText,
-  Share2: require("lucide-react").Share2,
-  Mail: require("lucide-react").Mail,
-  RefreshCw: require("lucide-react").RefreshCw,
-  Settings: require("lucide-react").Settings,
-  Cloud: require("lucide-react").Cloud,
-  Shield: require("lucide-react").Shield,
-  ClipboardList: require("lucide-react").ClipboardList,
-  AlertTriangle: require("lucide-react").AlertTriangle,
-  Layout: require("lucide-react").Layout,
-  MousePointerClick: require("lucide-react").MousePointerClick,
+  Brain, Zap, BarChart3, Users, Search, FileText, Share2, Mail, RefreshCw, Settings, Cloud, Shield, ClipboardList, AlertTriangle, Layout, MousePointerClick,
 };
 
 const CountryServicePage = ({ country, service, serviceLabel }: CountryServicePageProps) => {

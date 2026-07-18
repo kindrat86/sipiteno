@@ -14,4 +14,4 @@ export const supabase = SUPABASE_URL && SUPABASE_PUBLISHABLE_KEY
         autoRefreshToken: true,
       }
     })
-  : (new Proxy({}, { get: () => () => Promise.resolve({ data: null, error: null }) }) as any);
+  : (new Proxy({}, { get: () => () => Promise.resolve({ data: null, error: null }) }) as unknown as Database);
