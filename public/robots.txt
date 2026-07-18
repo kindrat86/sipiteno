@@ -28,3 +28,5 @@ User-Agent: Bingbot
 Allow: /
 
 Sitemap: https://sipiteno.com/sitemap.xml
+
+Sitemap: https://sipiteno.com/sitemap-index.xml
