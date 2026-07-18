@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>What is Data Residency? Sipiteno Glossary</title>
+<link rel="stylesheet" href="/ux.css">
+    <meta name="description" content="Data residency explained simply. Definition, why it matters for founders expanding into regulated markets, and how to handle it before code ships. Learn more in the Sipiteno glossary.">
+    <link rel="canonical" href="https://sipiteno.com/glossary/data-residency">
+    <link rel="alternate" hreflang="en" href="https://sipiteno.com/glossary/data-residency" />
+    <link rel="alternate" hreflang="en-US" href="https://sipiteno.com/glossary/data-residency" />
+    <link rel="alternate" hreflang="x-default" href="https://sipiteno.com/glossary/data-residency" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What is Data Residency? Sipiteno Glossary">
+    <meta property="og:description" content="Data residency explained simply. Definition, why it matters for founders expanding into regulated markets, and how to handle it before code ships.">
+    <meta property="og:url" content="https://sipiteno.com/glossary/data-residency">
+    <meta property="og:site_name" content="Sipiteno">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="What is Data Residency? Sipiteno Glossary">
+    <meta name="twitter:description" content="Data residency explained simply. Definition, why it matters for founders expanding into regulated markets, and how to handle it before code ships.">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Sipiteno",
+      "item": "https://sipiteno.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Glossary",
+      "item": "https://sipiteno.com/glossary"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Data Residency",
+      "item": "https://sipiteno.com/glossary/data-residency"
+    }
+  ]
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": "Data Residency",
+  "description": "The legal and regulatory requirement that personal or sensitive data be stored and processed within a specific country or region's borders. Data residency rules determine where servers, databases, and backups can physically reside for a product operating in that market.",
+  "url": "https://sipiteno.com/glossary/data-residency",
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Sipiteno Glossary",
+    "url": "https://sipiteno.com/glossary"
+  }
+}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is data residency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data residency is the legal or regulatory requirement that certain data, especially personal data of a country's citizens, must be stored and processed on servers physically located within that country's borders. Russia, Kazakhstan, China, and EU member states all enforce residency rules that affect where a product can host user data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does data residency matter when expanding a product into new markets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your product stores user data on servers outside a regulated jurisdiction, you can face fines, service blocks, or an outright ban on operating in that market. Russia and China require local server infrastructure for citizen data. EU GDPR restricts cross-border transfers. Mapping residency requirements before you build prevents deals from dying at legal review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is data residency different from data sovereignty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data residency specifies where data is physically stored. Data sovereignty extends that to which country's laws govern the data. Data stored in a German data center is resident in Germany, but the sovereignty question is whether German or EU law applies to access requests, government subpoenas, and breach notifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which countries have the strictest data residency rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Russia (Federal Law 242-FZ requires personal data of Russian citizens on Russian servers), China (Cybersecurity Law and PIPL), Kazakhstan, and increasingly India and Indonesia. The EU GDPR does not mandate in-EU storage but restricts transfers outside the EU unless adequacy decisions or safeguards are in place."
+      }
+    }
+  ]
+}</script>
+</head>
+<body>
+    <nav>
+        <a href="/">Sipiteno</a>
+        <a href="/about">About</a>
+        <a href="/glossary">Glossary</a>
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <main>
+        <article>
+            <h1>Data Residency</h1>
+            <p class="lead"><strong>Data residency</strong> is the legal or regulatory requirement that certain data, especially personal data of a country's citizens, must be stored and processed on servers physically located within that country's borders.</p>
+
+            <h2>Why it matters for founders</h2>
+            <p>When you expand a product into a new market, the data residency rules of that country dictate where you can legally host user data, backups, and logs. Russia, China, and Kazakhstan require local server infrastructure for citizen data. The EU does not mandate in-EU storage but restricts transfers outside the EU under GDPR. Get this wrong and you face fines, service blocks, or an outright ban on operating in that market.</p>
+
+            <h2>How Sipiteno handles it</h2>
+            <p>Before any code ships on an expansion engagement, we map the regulatory and data-residency landscape for every target market. That means identifying which jurisdictions require local hosting, which cloud regions satisfy the requirement, what data classification applies (personal, financial, health), and how cross-border transfers between regions stay compliant. This prevents deals from dying at legal review and avoids expensive re-architecture after launch.</p>
+
+            <h2>Data residency vs. data sovereignty</h2>
+            <p>Data residency specifies <em>where</em> data is physically stored. Data sovereignty extends that to <em>whose laws govern</em> the data. Data stored in a German data center is resident in Germany, but the sovereignty question is whether German or EU law applies to access requests, government subpoenas, and breach notifications. The two concepts overlap but are not interchangeable.</p>
+
+            <h2>Countries with the strictest rules</h2>
+            <ul>
+                <li><strong>Russia</strong> &mdash; Federal Law 242-FZ requires personal data of Russian citizens to be stored in databases on Russian soil.</li>
+                <li><strong>China</strong> &mdash; Cybersecurity Law and PIPL impose localization and cross-border transfer assessments.</li>
+                <li><strong>Kazakhstan</strong> &mdash; Personal Data Law requires storage on servers located in Kazakhstan.</li>
+                <li><strong>EU</strong> &mdash; GDPR does not mandate in-EU storage but restricts transfers outside the EU unless an adequacy decision or appropriate safeguards apply.</li>
+                <li><strong>India, Indonesia</strong> &mdash; Increasingly strict localization rules for payments and financial data.</li>
+            </ul>
+
+            <h2>Common questions</h2>
+            <details>
+                <summary>What is data residency?</summary>
+                <p>Data residency is the legal or regulatory requirement that certain data, especially personal data of a country's citizens, must be stored and processed on servers physically located within that country's borders. Russia, Kazakhstan, China, and EU member states all enforce residency rules that affect where a product can host user data.</p>
+            </details>
+            <details>
+                <summary>Why does data residency matter when expanding into new markets?</summary>
+                <p>If your product stores user data on servers outside a regulated jurisdiction, you can face fines, service blocks, or an outright ban on operating in that market. Russia and China require local server infrastructure for citizen data. EU GDPR restricts cross-border transfers. Mapping residency requirements before you build prevents deals from dying at legal review.</p>
+            </details>
+            <details>
+                <summary>How is data residency different from data sovereignty?</summary>
+                <p>Data residency specifies where data is physically stored. Data sovereignty extends that to which country's laws govern the data. Data stored in a German data center is resident in Germany, but the sovereignty question is whether German or EU law applies to access requests, government subpoenas, and breach notifications.</p>
+            </details>
+            <details>
+                <summary>Which countries have the strictest data residency rules?</summary>
+                <p>Russia (Federal Law 242-FZ requires personal data of Russian citizens on Russian servers), China (Cybersecurity Law and PIPL), Kazakhstan, and increasingly India and Indonesia. The EU GDPR does not mandate in-EU storage but restricts transfers outside the EU unless adequacy decisions or safeguards are in place.</p>
+            </details>
+
+            <p><a href="/glossary">&larr; Back to glossary</a></p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sipiteno. <a href="/about">About</a> &middot; <a href="/contact">Contact</a></p>
+    </footer>
+</body>
+</html>
