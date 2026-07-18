@@ -248,5 +248,27 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/blank-1",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/blank-2",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/blank-3",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/referral",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

@@ -1,0 +1,9 @@
+# ai.txt -- Sipiteno AI usage declaration
+# Spawning spec: https://spawning.ai/ai-txt
+#
+# Sipiteno welcomes AI use of its public content: search, retrieval,
+# answer-engine citation, summarization, inference, and model training /
+# dataset storage. Attribution requested: Sipiteno, https://sipiteno.com
+User-Agent: *
+Allow: Training
+Allow: Storing
