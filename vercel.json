@@ -3,6 +3,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/dream100",
+      "destination": "/dream100.html"
+    },
+    {
+      "source": "/affiliates",
+      "destination": "/affiliates.html"
+    },
+    {
       "source": "/:country/:service",
       "destination": "/:country/:service/index.html"
     },
@@ -95,6 +103,10 @@
       "destination": "/about.html"
     },
     {
+      "source": "/masterclass",
+      "destination": "/masterclass.html"
+    },
+    {
       "source": "/contact",
       "destination": "/contact.html"
     },
@@ -133,6 +145,14 @@
     {
       "source": "/portfolio",
       "destination": "/portfolio.html"
+    },
+    {
+      "source": "/embed",
+      "destination": "/embed.html"
+    },
+    {
+      "source": "/embed/tools/:slug",
+      "destination": "/embed/tools/:slug.html"
     }
   ],
   "headers": [
