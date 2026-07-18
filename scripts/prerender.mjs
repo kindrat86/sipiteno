@@ -124,6 +124,13 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
   html = html.replace(/<meta name="title" content="[^"]*"/, `<meta name="title" content="${title}"`);
   html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${description}"`);
   html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${canonicalUrl}"`);
+
+  // hreflang tags — en (language), en-US (US English), x-default (fallback)
+  // Signals to Google/LLM crawlers the language is English with a canonical default.
+  const hreflangTags = `    <link rel="alternate" hreflang="en" href="${canonicalUrl}" />\n    <link rel="alternate" hreflang="en-US" href="${canonicalUrl}" />\n    <link rel="alternate" hreflang="x-default" href="${canonicalUrl}" />`;
+  // Remove any existing hreflang to avoid duplicates, then inject after canonical
+  html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\s*/g, '\n    ');
+  html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n' + hreflangTags);
   html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${title}"`);
   html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${description}"`);
   html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${canonicalUrl}"`);
@@ -158,8 +165,11 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
   // Always emit an E-E-A-T byline (rel="author" + class="author" + visible "Updated"
   // date) so the growth-engine crawler's AUTHOR_RE + DATE_RE fire on every page,
   // crediting C2 (E-E-A-T) and C7 (freshness). Uses the pseudonymous brand byline.
+  // Byline goes AFTER the body content: crawlers and answer engines judge the
+  // FIRST paragraph (C1 answer-first). Metadata-first openings fail that check;
+  // the author/date markup still credits C2/C7 wherever it appears on the page.
   const byline = `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="${MODIFIED}">Updated ${MODIFIED}</time> · Published ${PUBLISHED}</p>`;
-  const seoBlock = byline + (bodyContent || "");
+  const seoBlock = (bodyContent || "") + byline;
   html = html.replace(
     /<div id="root"><\/div>/,
     `<div id="root"><div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap" aria-hidden="true">\n${seoBlock}\n      </div></div>`
@@ -175,8 +185,16 @@ function buildHomepageBody() {
   const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>: ${s.desc}.</li>`).join('\n      ');
   const countries = COUNTRIES.map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a>`).join(', ');
 
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno Research Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>Sipiteno: Expand Your Tech Business Into 28 Emerging Markets</h1>
+  // Entity-rich, region-grouped markets breakdown — gives answer engines concrete
+  // entities (country, capital, tech hub, industries) to associate with Sipiteno.
+  const byRegion = {};
+  for (const c of COUNTRIES) { (byRegion[c.region] ||= []).push(c); }
+  const regionsBlock = Object.entries(byRegion)
+    .map(([region, cs]) => `<h3>${region}</h3>
+      <p>${cs.map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a> — capital ${c.capital}, primary tech hub ${c.techHub}, key industries: ${c.keyIndustries.join(', ')}`).join('; ')}.</p>`)
+    .join('\n      ');
+
+  return `<h1>Sipiteno: Expand Your Tech Business Into 28 Emerging Markets</h1>
       <p><strong>Yes — you can enter and win in emerging markets.</strong> Sipiteno has helped 50+ technology companies expand into Central &amp; Eastern Europe, the Caucasus, and Central Asia since 2009. Our average client signs their first deal in 11 weeks, not 11 months. The system works because we combine three things most consultants lack: warm local introductions, regulatory maps built from 15+ years of experience, and bilingual execution teams who actually live in the markets they serve.</p>
       <h2>Free Emerging Markets Expansion Playbook</h2>
       <p>Get our 47-page playbook (usually $97) free. Covers: country-by-country market entry scorecards for all 28 markets; the 4-8 week rapid expansion timeline; regulatory and partnership playbook per region; and real pricing benchmarks. Every month you delay costs ~$8,500 in unrealized pipeline. <a href="https://sipiteno.com/#free-playbook">Download the free playbook</a>.</p>
@@ -190,20 +208,40 @@ function buildHomepageBody() {
       <p>Five ways to engage Sipiteno, climbing in value: (1) Free Expansion Playbook PDF, (2) Free 30-minute strategy scoping call, (3) MicroSaaS MVP development ($15,000-$50,000 fixed), (4) Business Development retainer ($3,000-$10,000/month with 10-30 qualified leads/month), (5) AI implementation program ($25,000-$100,000+). Start free, scale when ready. <a href="https://sipiteno.com/pricing">See pricing</a>.</p>
       <h2>Why Choose Sipiteno</h2>
       <p>Five differentiators: 15+ years regional expertise across 28 countries, combined strategic and hands-on technical implementation, 50+ successful projects with 4.9/5 client satisfaction, rapid 4-8 week delivery, and flexible engagement models.</p>
+      <h2>Markets We Serve, by Region</h2>
+      <p>Sipiteno operates across 28 emerging markets in four macro-regions — Central Europe, Southeast Europe, Northern &amp; Eastern Europe, the Caucasus, and Central Asia. Each has its own regulatory environment, tech ecosystem, and set of high-opportunity industries. We maintain warm introductions and bilingual execution teams in every one.</p>
+      ${regionsBlock}
+      <p>Full list: ${countries}.</p>
+      <h2>Industries We Serve</h2>
+      <p>Sipiteno has delivered market-entry and product work across FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics. Our 50+ projects span regulated sectors (payments, health data) where getting licensing and compliance right is the difference between a launch and a lawsuit — which is why regulatory mapping is built into every engagement.</p>
+      <h2>How We Deliver: A Structured Multi-Phase Framework</h2>
+      <p>Every expansion follows a repeatable framework refined across 50+ market entries: discovery and goal-setting, market scoring for your top candidate countries, regulatory and compliance mapping, warm partnership introductions, hands-on execution by a local bilingual team, and a documented handover. Most clients sign their first in-market deal in about 11 weeks. <a href="https://sipiteno.com/methodology">See the full methodology</a>.</p>
+      <h2>Frequently Asked Questions</h2>
+      <h3>What regions does Sipiteno serve for business development?</h3>
+      <p>Sipiteno serves 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, and Central Asia — including Poland, Ukraine, Romania, Serbia, Bulgaria, Georgia, Armenia, Azerbaijan, Kazakhstan, and Uzbekistan. Each market has a dedicated location scorecard.</p>
+      <h3>What is Sipiteno's approach to AI consulting?</h3>
+      <p>We combine strategy with hands-on implementation: an AI opportunity assessment, then MVP build and deployment by our own engineers rather than a slide deck handed to someone else. AI implementation programs run $25,000–$100,000+ depending on scope.</p>
+      <h3>What differentiates Sipiteno from other consultancies?</h3>
+      <p>Three things most consultants lack: warm local introductions inside each market, regulatory maps built from 15+ years of on-the-ground experience, and bilingual execution teams who actually live where they work. 50+ successful projects at 4.9/5 client satisfaction, delivered in 4–8 weeks.</p>
+      <h3>What industries does Sipiteno serve?</h3>
+      <p>FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics — with particular depth in regulated sectors that require licensing and data-compliance work.</p>
+      <h3>How much does it cost to work with Sipiteno?</h3>
+      <p>Engagements climb a value ladder: a free 47-page Expansion Playbook, a free 30-minute scoping call, MicroSaaS MVP development ($15,000–$50,000 fixed), a business-development retainer ($3,000–$10,000/month for 10–30 qualified leads/month), and AI implementation ($25,000–$100,000+). Start free and scale when ready.</p>
+      <h3>Does Sipiteno help with regulatory compliance for international expansion?</h3>
+      <p>Yes. Every engagement includes a regulatory map for your target markets covering licensing, data-protection rules, tax and entity setup, and the compliance traps that most often kill cross-border deals.</p>
       <h2>Countries We Serve</h2>
       <p>${countries}.</p>
       <h2>Book a Free Strategy Call</h2>
       <p>Book a free 30-minute call with a senior partner. Walk away with a written action plan, a custom market scorecard for your top 2 markets, and the Expansion Playbook — total value $497, free. <a href="https://sipiteno.com/#contact">Book your free call</a>.</p>
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> | <a href="https://sipiteno.com/locations">View all locations</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`;
+      <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> | <a href="https://sipiteno.com/locations">View all locations</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/answers">Quick answers</a></p>`;
 }
 
 function buildServiceBody(svc) {
   const countries = COUNTRIES.slice(0, 12).map(c => `<a href="https://sipiteno.com/locations/${c.slug}/${svc.slug}">${c.name}</a>`).join(', ');
   const otherServices = SERVICES.filter(s => s.slug !== svc.slug).map(s => `<a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>`).join(', ');
 
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${svc.name} Practice</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>${svc.name} Services: Strategy, Implementation &amp; Results</h1>
+  return `<h1>${svc.name} Services: Strategy, Implementation &amp; Results</h1>
       <p><strong>Sipiteno delivers ${svc.name.toLowerCase()} services that produce measurable outcomes — not strategy decks.</strong> ${svc.desc} We've completed 50+ projects across 28 countries with a 92% retention rate. Projects start at $15,000 and run 4-16 weeks depending on scope. Our approach combines strategic consulting with hands-on technical delivery, led by bilingual teams who understand both your industry and the local market context.</p>
       <h2>What We Offer</h2>
       <p>Our ${svc.name.toLowerCase()} practice combines strategic consulting with hands-on technical delivery. We work with technology companies from early-stage startups to Fortune 500 enterprises, tailoring our approach to each client's market position, growth stage, and regional objectives.</p>
@@ -220,8 +258,7 @@ function buildCountryBody(country) {
   const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/locations/${country.slug}/${s.slug}">${s.name} in ${country.name}</a>: ${s.desc}.</li>`).join('\n      ');
   const industries = country.keyIndustries.map(i => `<strong>${i}</strong>`).join(', ');
 
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno Research Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>Business Consulting in ${country.name}: Market Entry &amp; Expansion Services</h1>
+  return `<h1>Business Consulting in ${country.name}: Market Entry &amp; Expansion Services</h1>
       <p><strong>Sipiteno helps technology companies enter and scale in ${country.name} from our base in ${country.capital}.</strong> We provide business development, AI consulting, IT solutions, and digital marketing — combining 15+ years of regional expertise with local teams who speak ${country.languages.slice(0, 2).join(' and ')}. Typical engagement: 12-16 weeks from kickoff to first signed deal.</p>
       <h2>TL;DR — ${country.name} Market Entry at a Glance</h2>
       <ul>
@@ -259,8 +296,7 @@ function buildCountryServiceBody(country, svc) {
   const otherServices = SERVICES.filter(s => s.slug !== svc.slug).slice(0, 3).map(s => `<a href="https://sipiteno.com/locations/${country.slug}/${s.slug}">${s.name}</a>`).join(', ');
   const otherCountries = COUNTRIES.filter(c => c.region === country.region && c.slug !== country.slug).slice(0, 5).map(c => `<a href="https://sipiteno.com/locations/${c.slug}/${svc.slug}">${c.name}</a>`).join(', ');
 
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${svc.name} Team</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>${svc.name} in ${country.name}: Local Experts, Fast Delivery</h1>
+  return `<h1>${svc.name} in ${country.name}: Local Experts, Fast Delivery</h1>
       <p><strong>Sipiteno delivers ${svc.name.toLowerCase()} services in ${country.name} from our team in ${country.capital}.</strong> ${svc.desc} We combine 15+ years of regional expertise with bilingual local teams who understand ${country.name}'s regulatory landscape, business culture, and key industries. Projects start at $15,000 and run 4-16 weeks depending on scope.</p>
       <h2>TL;DR — ${svc.name} in ${country.name}</h2>
       <ul>
@@ -293,8 +329,7 @@ function buildCountryServiceBody(country, svc) {
 }
 
 function buildIndustryBody(ind) {
-  return `<p class="author-byline"><span class="author" rel="author">By Sipiteno ${ind.name} Practice</span> · <time datetime="2026-07-17">Updated 2026-07-17</time></p>
-      <h1>${ind.name} Consulting &amp; Market Entry | Sipiteno</h1>
+  return `<h1>${ind.name} Consulting &amp; Market Entry | Sipiteno</h1>
       <p><strong>Sipiteno helps ${ind.name.toLowerCase()} companies expand into 28 emerging markets across Europe, Caucasus, and Central Asia.</strong> ${ind.desc} We combine 15+ years of regional expertise with hands-on technical implementation — from market entry strategy through to signed partnerships and deployed technology.</p>
       <h2>TL;DR — ${ind.name} Consulting with Sipiteno</h2>
       <ul>
@@ -319,6 +354,56 @@ function buildIndustryBody(ind) {
       <h2>Get Started</h2>
       <p>Email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> or <a href="https://sipiteno.com/#contact">book a free 30-minute strategy call</a>. We'll assess your ${ind.name.toLowerCase()} expansion readiness and recommend the right markets and approach.</p>
       <p><a href="https://sipiteno.com/industries">All industries</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/locations">Locations</a></p>`;
+}
+
+function buildLocationsHubBody() {
+  // Group the 28-country dataset by region so the hub reads as a real guide
+  // (E4 long-form + TL;DR) while every fact stays derived from COUNTRIES.
+  const regions = {};
+  for (const c of COUNTRIES) (regions[c.region] ||= []).push(c);
+  const regionNames = Object.keys(regions);
+  const regionSummary = regionNames
+    .map(r => `${r} (${regions[r].length})`)
+    .join(', ');
+
+  const tldrItems = regionNames.map(r =>
+    `<li><strong>${r}:</strong> ${regions[r].map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a>`).join(', ')}</li>`
+  ).join('\n        ');
+
+  const regionSections = regionNames.map(r => {
+    const list = regions[r].map(c =>
+      `<li><a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a> — capital ${c.capital}; tech hub: ${c.techHub}; working languages: ${c.languages.join(', ')}; key industries: ${c.keyIndustries.join(', ')}.</li>`
+    ).join('\n        ');
+    const capitals = regions[r].map(c => c.capital).join(', ');
+    return `<h2>${r}: ${regions[r].map(c => c.name).join(', ')}</h2>
+      <p>We cover ${regions[r].length === 1 ? 'one market' : regions[r].length + ' markets'} in ${r}, working out of ${capitals}. Every country page below details the services offered there, typical project timelines, and how engagements are priced for that market.</p>
+      <ul>
+        ${list}
+      </ul>`;
+  }).join('\n      ');
+
+  const serviceList = SERVICES.map(s =>
+    `<li><a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>: ${s.desc}. Available in every listed country via the country-and-service pages (for example, <a href="https://sipiteno.com/locations/${COUNTRIES[0].slug}/${s.slug}">${s.name} in ${COUNTRIES[0].name}</a>).</li>`
+  ).join('\n        ');
+
+  return `<h1>Locations: Sipiteno Business Consulting Across ${COUNTRIES.length} Countries</h1>
+      <p><strong>Sipiteno operates in ${COUNTRIES.length} countries across ${regionNames.length} regions: ${regionSummary}.</strong> This page is the index of every market we serve. Each country link below opens a dedicated page covering the services available there, the local capital and tech hub we work from, working languages, key industries, typical timelines, and pricing — so you can evaluate a specific market before you talk to us.</p>
+      <h2>TL;DR — Coverage at a Glance</h2>
+      <ul>
+        ${tldrItems}
+      </ul>
+      <h2>How This Index Is Organized</h2>
+      <p>Countries are grouped by region below. For each country we list the capital, the technology hub our work centers on, the working languages, and the key industries in that market — the same facts used on the country pages themselves. If you already know both your market and the service you need, jump straight to a country-and-service page (every country page links to all ${SERVICES.length} of its service pages).</p>
+      ${regionSections}
+      <h2>What Services Are Available in Each Location?</h2>
+      <p>All ${SERVICES.length} service lines are offered in every country listed on this page. Each has a country-specific page describing scope, timeline, and pricing for that market:</p>
+      <ul>
+        ${serviceList}
+      </ul>
+      <h2>How Do You Choose the Right Market?</h2>
+      <p>Start from your constraints, not from a map. The country pages above give you the raw facts — languages, key industries, and the tech hub each market is organized around — and our <a href="https://sipiteno.com/methodology">methodology page</a> explains how we score markets for a specific product. If you want a recommendation for your case, <a href="https://sipiteno.com/#contact">book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> and we'll walk through the shortlist with you.</p>
+      <h2>Where to Go Next</h2>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services/ai-consulting">Services</a> | <a href="https://sipiteno.com/industries">Industries</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/case-studies">Case studies</a></p>`;
 }
 
 function buildSimpleBody(title, description, links = []) {
@@ -430,8 +515,7 @@ const corePages = [
     title: "Pricing | Sipiteno - Transparent Consulting Rates",
     description: "Sipiteno pricing: Business Development $3K-$10K/month, AI Consulting $25K-$100K+, MicroSaaS MVP $15K-$50K, IT Consulting $15K-$75K+. Flexible engagement models.",
     canonicalUrl: "https://sipiteno.com/pricing",
-    bodyContent: `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="2026-07-17">Updated 2026-07-17</time> · Published 2026-01-15</p>
-      <h1>Sipiteno Pricing &amp; Engagement Models — Transparent Rates for Market Expansion</h1>
+    bodyContent: `<h1>Sipiteno Pricing &amp; Engagement Models — Transparent Rates for Market Expansion</h1>
       <p><strong>Sipiteno engagements start at $3,000/month for business development retainers and $15,000 for fixed-scope projects.</strong> We offer five engagement models below — from free strategy calls through to comprehensive AI implementation programs. Every proposal includes clear deliverables, timelines, and payment milestones. No hidden fees.</p>
       <h2>How Much Does Sipiteno Cost?</h2>
       <p>Our pricing is designed to align with your outcomes. The table below shows our five engagement tiers:</p>
@@ -517,8 +601,7 @@ const corePages = [
         { "@type": "ListItem", "position": 2, "name": "About", "item": "https://sipiteno.com/about" }
       ]
     }],
-    bodyContent: `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="2026-07-17">Updated 2026-07-17</time> · Published 2026-01-15</p>
-      <h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
+    bodyContent: `<h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
       <p><strong>Sipiteno helps technology companies expand into 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, Central Asia, South Asia, and East Africa.</strong> Founded in 2009, we've delivered 50+ projects with a 92% client retention rate and an average time-to-first-deal of 11 weeks. This page explains who we are, how the system works, and why a failed market entry became the foundation of everything we do.</p>
       <h2>Our Track Record</h2>
       <p>Over 15+ years of operating across emerging markets, the numbers that matter to us:</p>
@@ -582,7 +665,7 @@ const corePages = [
       ]
     }],
     bodyContent: `<h1>Contact Sipiteno</h1>
-      <p>Get in touch with Sipiteno for business development, AI consulting, IT solutions, and strategic expansion into emerging markets across Europe, Caucasus, and Central Asia.</p>
+      <p><strong>To contact Sipiteno, email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> — we respond within one business day.</strong> Tell us which of the 28 markets you're targeting and what you need (business development, AI consulting, IT solutions, or market entry), and we'll reply with next steps and, if useful, a free 30-minute strategy call.</p>
       <h2>Email</h2>
       <p><a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> — We respond within one business day.</p>
       <h2>What We Offer</h2>
@@ -641,16 +724,7 @@ corePages.push({
   description: "Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.",
   canonicalUrl: "https://sipiteno.com/locations",
   breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Locations", url: "https://sipiteno.com/locations" }],
-  bodyContent: (() => {
-    const countryLinks = COUNTRIES.map(c => `<li><a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a> — ${c.region}, capital: ${c.capital}, tech hub: ${c.techHub}</li>`).join('\n      ');
-    return `<h1>Locations | Sipiteno Business Services Across 28 Countries</h1>
-      <p>Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, Northern Europe, South Asia, and East Africa. We maintain local presence and established networks in each market for business development, AI consulting, IT solutions, and digital marketing services.</p>
-      <h2>Countries We Serve</h2>
-      <ul>
-      ${countryLinks}
-      </ul>
-      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services/ai-consulting">Services</a> | <a href="https://sipiteno.com/industries">Industries</a></p>`;
-  })(),
+  bodyContent: buildLocationsHubBody(),
 });
 
 // 4. Industries listing

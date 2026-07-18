@@ -1,16 +1,13 @@
 import { createRoot } from "react-dom/client";
-import posthog from "posthog-js";
-import { initClarity } from "./lib/clarity";
+import { initPostHogDeferred } from "./lib/posthog";
+import { initClarityDeferred } from "./lib/clarity";
 import "./i18n";
 import App from "./App.tsx";
 import "./index.css";
 
-posthog.init(import.meta.env.VITE_POSTHOG_KEY || "phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX", {
-  api_host: import.meta.env.VITE_POSTHOG_HOST || "https://eu.i.posthog.com",
-  person_profiles: "identified_only",
-  defaults: "2025-05-24",
-});
-
-initClarity();
-
 createRoot(document.getElementById("root")!).render(<App />);
+
+// Analytics load at idle, after first paint — posthog-js alone was ~30% of
+// the render-critical bundle when imported synchronously here.
+initPostHogDeferred();
+initClarityDeferred();

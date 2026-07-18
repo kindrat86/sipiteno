@@ -2,7 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Globe, Check, ChevronDown } from "lucide-react";
 import { LANGUAGES } from "@/i18n/languages";
-import { setLanguage } from "@/i18n";
+import { setLanguage, availableCodes } from "@/i18n";
+
+// Only offer languages that have a real translation bundle on disk —
+// the rest silently no-op in setLanguage and confuse users.
+const AVAILABLE_LANGUAGES = LANGUAGES.filter((l) => availableCodes.has(l.code));
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -10,7 +14,7 @@ const LanguageSwitcher = () => {
   const [search, setSearch] = useState("");
   const ref = useRef<HTMLDivElement>(null);
   const current = i18n.language || "en";
-  const currentLang = LANGUAGES.find((l) => l.code === current) || LANGUAGES[0];
+  const currentLang = AVAILABLE_LANGUAGES.find((l) => l.code === current) || AVAILABLE_LANGUAGES[0];
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -24,13 +28,13 @@ const LanguageSwitcher = () => {
   }, []);
 
   const filtered = search
-    ? LANGUAGES.filter(
+    ? AVAILABLE_LANGUAGES.filter(
         (l) =>
           l.name.toLowerCase().includes(search.toLowerCase()) ||
           l.nativeName.toLowerCase().includes(search.toLowerCase()) ||
           l.code.toLowerCase().includes(search.toLowerCase())
       )
-    : LANGUAGES;
+    : AVAILABLE_LANGUAGES;
 
   const handleSelect = (code: string) => {
     setLanguage(code);

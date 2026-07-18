@@ -45,6 +45,7 @@ for (const filePath of htmlFiles) {
 
   // Skip files we don't want in sitemap
   if (relPath.startsWith('admin') || relPath.startsWith('auth')) continue;
+  if (relPath === '404.html') continue;
 
   let urlPath;
 

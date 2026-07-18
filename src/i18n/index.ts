@@ -10,7 +10,7 @@ const localeLoaders = import.meta.glob("./locales/*.ts") as Record<
   () => Promise<{ default: typeof en }>
 >;
 
-const availableCodes = new Set<string>(["en"]);
+export const availableCodes = new Set<string>(["en"]);
 for (const path of Object.keys(localeLoaders)) {
   const code = path.match(/\/locales\/(.+)\.ts$/)?.[1];
   if (code) availableCodes.add(code);
