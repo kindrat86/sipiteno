@@ -185,6 +185,15 @@ function buildHomepageBody() {
   const services = SERVICES.map(s => `<li><a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>: ${s.desc}.</li>`).join('\n      ');
   const countries = COUNTRIES.map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a>`).join(', ');
 
+  // Entity-rich, region-grouped markets breakdown — gives answer engines concrete
+  // entities (country, capital, tech hub, industries) to associate with Sipiteno.
+  const byRegion = {};
+  for (const c of COUNTRIES) { (byRegion[c.region] ||= []).push(c); }
+  const regionsBlock = Object.entries(byRegion)
+    .map(([region, cs]) => `<h3>${region}</h3>
+      <p>${cs.map(c => `<a href="https://sipiteno.com/locations/${c.slug}">${c.name}</a> — capital ${c.capital}, primary tech hub ${c.techHub}, key industries: ${c.keyIndustries.join(', ')}`).join('; ')}.</p>`)
+    .join('\n      ');
+
   return `<h1>Sipiteno: Expand Your Tech Business Into 28 Emerging Markets</h1>
       <p><strong>Yes — you can enter and win in emerging markets.</strong> Sipiteno has helped 50+ technology companies expand into Central &amp; Eastern Europe, the Caucasus, and Central Asia since 2009. Our average client signs their first deal in 11 weeks, not 11 months. The system works because we combine three things most consultants lack: warm local introductions, regulatory maps built from 15+ years of experience, and bilingual execution teams who actually live in the markets they serve.</p>
       <h2>Free Emerging Markets Expansion Playbook</h2>
@@ -199,6 +208,27 @@ function buildHomepageBody() {
       <p>Five ways to engage Sipiteno, climbing in value: (1) Free Expansion Playbook PDF, (2) Free 30-minute strategy scoping call, (3) MicroSaaS MVP development ($15,000-$50,000 fixed), (4) Business Development retainer ($3,000-$10,000/month with 10-30 qualified leads/month), (5) AI implementation program ($25,000-$100,000+). Start free, scale when ready. <a href="https://sipiteno.com/pricing">See pricing</a>.</p>
       <h2>Why Choose Sipiteno</h2>
       <p>Five differentiators: 15+ years regional expertise across 28 countries, combined strategic and hands-on technical implementation, 50+ successful projects with 4.9/5 client satisfaction, rapid 4-8 week delivery, and flexible engagement models.</p>
+      <h2>Markets We Serve, by Region</h2>
+      <p>Sipiteno operates across 28 emerging markets in four macro-regions — Central Europe, Southeast Europe, Northern &amp; Eastern Europe, the Caucasus, and Central Asia. Each has its own regulatory environment, tech ecosystem, and set of high-opportunity industries. We maintain warm introductions and bilingual execution teams in every one.</p>
+      ${regionsBlock}
+      <p>Full list: ${countries}.</p>
+      <h2>Industries We Serve</h2>
+      <p>Sipiteno has delivered market-entry and product work across FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics. Our 50+ projects span regulated sectors (payments, health data) where getting licensing and compliance right is the difference between a launch and a lawsuit — which is why regulatory mapping is built into every engagement.</p>
+      <h2>How We Deliver: A Structured Multi-Phase Framework</h2>
+      <p>Every expansion follows a repeatable framework refined across 50+ market entries: discovery and goal-setting, market scoring for your top candidate countries, regulatory and compliance mapping, warm partnership introductions, hands-on execution by a local bilingual team, and a documented handover. Most clients sign their first in-market deal in about 11 weeks. <a href="https://sipiteno.com/methodology">See the full methodology</a>.</p>
+      <h2>Frequently Asked Questions</h2>
+      <h3>What regions does Sipiteno serve for business development?</h3>
+      <p>Sipiteno serves 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, and Central Asia — including Poland, Ukraine, Romania, Serbia, Bulgaria, Georgia, Armenia, Azerbaijan, Kazakhstan, and Uzbekistan. Each market has a dedicated location scorecard.</p>
+      <h3>What is Sipiteno's approach to AI consulting?</h3>
+      <p>We combine strategy with hands-on implementation: an AI opportunity assessment, then MVP build and deployment by our own engineers rather than a slide deck handed to someone else. AI implementation programs run $25,000–$100,000+ depending on scope.</p>
+      <h3>What differentiates Sipiteno from other consultancies?</h3>
+      <p>Three things most consultants lack: warm local introductions inside each market, regulatory maps built from 15+ years of on-the-ground experience, and bilingual execution teams who actually live where they work. 50+ successful projects at 4.9/5 client satisfaction, delivered in 4–8 weeks.</p>
+      <h3>What industries does Sipiteno serve?</h3>
+      <p>FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics — with particular depth in regulated sectors that require licensing and data-compliance work.</p>
+      <h3>How much does it cost to work with Sipiteno?</h3>
+      <p>Engagements climb a value ladder: a free 47-page Expansion Playbook, a free 30-minute scoping call, MicroSaaS MVP development ($15,000–$50,000 fixed), a business-development retainer ($3,000–$10,000/month for 10–30 qualified leads/month), and AI implementation ($25,000–$100,000+). Start free and scale when ready.</p>
+      <h3>Does Sipiteno help with regulatory compliance for international expansion?</h3>
+      <p>Yes. Every engagement includes a regulatory map for your target markets covering licensing, data-protection rules, tax and entity setup, and the compliance traps that most often kill cross-border deals.</p>
       <h2>Countries We Serve</h2>
       <p>${countries}.</p>
       <h2>Book a Free Strategy Call</h2>
