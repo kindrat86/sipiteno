@@ -1,41 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Sipiteno</title>
     <link>https://sipiteno.com</link>
-    <description>Growth consulting for B2B SaaS companies.</description>
+    <description>Strategic business development &amp; AI consulting — helps companies expand into emerging markets with data-driven market entry strategies, competitor analysis, and AI-powered growth frameworks.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Jul 2026 14:57:21 GMT</lastBuildDate>
-    <atom:link href="https://sipiteno.com/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Jul 2026 09:01:49 GMT</lastBuildDate>
+    <generator>Hermes WebSub Feed Generator</generator>
+    <ttl>60</ttl>
+    <atom:link href="https://sipiteno.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://sipiteno.com/rss.xml" rel="alternate" type="application/rss+xml"/>
+    <atom:link href="https://sipiteno.com/feed.json" rel="alternate" type="application/json"/>
+    <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
+    <atom:link href="https://pubsubhubbub.superfeedr.com/" rel="hub"/>
+    <atom:link href="https://websubhub.com/" rel="hub"/>
     <item>
-      <title>Homepage</title>
-      <link>https://sipiteno.com/</link>
-      <guid isPermaLink="true">https://sipiteno.com/</guid>
-      <description>B2B SaaS growth partner</description>
+      <title>Sipiteno - Strategic Business Development &amp; AI Consulting | Europe, Caucasus, Central Asia</title>
+      <link>https://sipiteno.com</link>
+      <guid isPermaLink="true">https://sipiteno.com</guid>
+      <description>Sipiteno provides expert business development, AI consulting, IT solutions, and MicroSaaS MVP development across 28 countries. 15+ years experience, 50+ successful projects.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
     </item>
     <item>
-      <title>Industries</title>
+      <title>About | Sipiteno - Founder Story &amp; 28-Country Expansion System</title>
+      <link>https://sipiteno.com/about</link>
+      <guid isPermaLink="true">https://sipiteno.com/about</guid>
+      <description>How a failed 2009 market entry in Eastern Europe became a 28-country expansion system. Read the Sipiteno founder story — from one brutal lesson to 50+ successful projects.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>FAQ — SipiTeno</title>
+      <link>https://sipiteno.com/faq</link>
+      <guid isPermaLink="true">https://sipiteno.com/faq</guid>
+      <description>Frequently asked questions about SipiTeno.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Tue, 14 Jul 2026 09:01:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>Contact | Sipiteno - Get in Touch</title>
+      <link>https://sipiteno.com/contact</link>
+      <guid isPermaLink="true">https://sipiteno.com/contact</guid>
+      <description>Contact Sipiteno for business development, AI consulting, and technology services across 28 countries. Email sales@sipiteno.com. Response within one business day.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Industries | Sipiteno - Specialized Consulting Across Sectors</title>
       <link>https://sipiteno.com/industries</link>
       <guid isPermaLink="true">https://sipiteno.com/industries</guid>
-      <description>Industry verticals</description>
+      <description>Sipiteno serves technology companies across SaaS, fintech, e-commerce, manufacturing, cybersecurity, healthcare, agtech, energy, and logistics.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
     </item>
     <item>
-      <title>Case Studies</title>
-      <link>https://sipiteno.com/case-studies</link>
-      <guid isPermaLink="true">https://sipiteno.com/case-studies</guid>
-      <description>Client success stories</description>
+      <title>Who SipiTeno Is For: 6 Use-Case Guides — Startups to Enterprise</title>
+      <link>https://sipiteno.com/for</link>
+      <guid isPermaLink="true">https://sipiteno.com/for</guid>
+      <description>SipiTeno works with 6 kinds of teams: startups, agencies, enterprises, e-commerce, fintech, and healthtech companies. Pick your use-case guide to see how an engagement works.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Thu, 16 Jul 2026 21:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Blog</title>
-      <link>https://sipiteno.com/blog</link>
-      <guid isPermaLink="true">https://sipiteno.com/blog</guid>
-      <description>Growth insights</description>
+      <title>Vs — SipiTeno</title>
+      <link>https://sipiteno.com/vs</link>
+      <guid isPermaLink="true">https://sipiteno.com/vs</guid>
+      <description>Detailed comparisons: SipiTeno vs other tools.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Mon, 06 Jul 2026 09:01:49 GMT</pubDate>
     </item>
     <item>
-      <title>Locations</title>
+      <title>Sipiteno - Strategic Business Development &amp; AI Consulting | Europe, Caucasus, Central Asia</title>
+      <link>https://sipiteno.com/undefined</link>
+      <guid isPermaLink="true">https://sipiteno.com/undefined</guid>
+      <description>Sipiteno provides expert business development, AI consulting, IT solutions, and MicroSaaS MVP development across 28 countries. 15+ years experience, 50+ successful projects.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Terms &amp; Conditions | Sipiteno</title>
+      <link>https://sipiteno.com/terms</link>
+      <guid isPermaLink="true">https://sipiteno.com/terms</guid>
+      <description>Terms and conditions for Sipiteno Business Development consulting services.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Expansion ROI Calculator — Estimate Your Market Entry Costs | Sipiteno</title>
+      <link>https://sipiteno.com/roi-calculator</link>
+      <guid isPermaLink="true">https://sipiteno.com/roi-calculator</guid>
+      <description>Calculate the estimated cost, timeline, and ROI of expanding your technology business into 10 emerging markets. Free tool — no signup required.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Tue, 30 Jun 2026 09:01:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>Privacy Policy | Sipiteno</title>
+      <link>https://sipiteno.com/privacy</link>
+      <guid isPermaLink="true">https://sipiteno.com/privacy</guid>
+      <description>Privacy policy for Sipiteno Business Development. How we collect, use, and protect your data.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Pricing | Sipiteno - Transparent Consulting Rates</title>
+      <link>https://sipiteno.com/pricing</link>
+      <guid isPermaLink="true">https://sipiteno.com/pricing</guid>
+      <description>Sipiteno pricing: Business Development $3K-$10K/month, AI Consulting $25K-$100K+, MicroSaaS MVP $15K-$50K, IT Consulting $15K-$75K+. Flexible engagement models.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Methodology | Sipiteno - How We Deliver Results</title>
+      <link>https://sipiteno.com/methodology</link>
+      <guid isPermaLink="true">https://sipiteno.com/methodology</guid>
+      <description>Sipiteno</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Locations | Sipiteno - Business Services Across 28 Countries</title>
       <link>https://sipiteno.com/locations</link>
       <guid isPermaLink="true">https://sipiteno.com/locations</guid>
-      <description>Global presence</description>
+      <description>Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>/googlea30bb998b91eb6ac</title>
+      <link>https://sipiteno.com/googlea30bb998b91eb6ac</link>
+      <guid isPermaLink="true">https://sipiteno.com/googlea30bb998b91eb6ac</guid>
+      <description>Strategic business development &amp; AI consulting — helps companies expand into emerging markets with data-driven market entry strategies, competitor analysis, and AI-powered growth frameworks.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Sat, 20 Jun 2026 09:01:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>Glossary | Sipiteno - Business &amp; Technology Terms Explained</title>
+      <link>https://sipiteno.com/glossary</link>
+      <guid isPermaLink="true">https://sipiteno.com/glossary</guid>
+      <description>A comprehensive glossary of business development, technology, marketing, and emerging market terms. Plain-English definitions for B2B expansion into CEE and beyond.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Citations &amp; Sources — SipiTeno</title>
+      <link>https://sipiteno.com/citations</link>
+      <guid isPermaLink="true">https://sipiteno.com/citations</guid>
+      <description>Sources and references used by SipiTeno.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Tue, 16 Jun 2026 09:01:49 GMT</pubDate>
+    </item>
+    <item>
+      <title>Case Studies | Sipiteno - 50+ Projects Across 28 Countries</title>
+      <link>https://sipiteno.com/case-studies</link>
+      <guid isPermaLink="true">https://sipiteno.com/case-studies</guid>
+      <description>Explore Sipiteno</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Blog | Sipiteno - MicroSaaS Insights &amp; AI Strategy</title>
+      <link>https://sipiteno.com/blog</link>
+      <guid isPermaLink="true">https://sipiteno.com/blog</guid>
+      <description>Practical insights on building MicroSaaS products, rapid validation, and AI-powered tools. Learn from real builds and get tactical guides on shipping faster.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 14 Jan 2026 22:00:00 GMT</pubDate>
+      <media:content url="https://sipiteno.com/og-image.png" medium="image"/>
+    </item>
+    <item>
+      <title>Answers — SipiTeno</title>
+      <link>https://sipiteno.com/answers</link>
+      <guid isPermaLink="true">https://sipiteno.com/answers</guid>
+      <description>Quick answers to common questions about digital product studio.</description>
+      <dc:creator>Sipiteno</dc:creator>
+      <pubDate>Wed, 10 Jun 2026 09:01:49 GMT</pubDate>
     </item>
   </channel>
 </rss>
