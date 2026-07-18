@@ -431,12 +431,17 @@ const orgSchema = {
   "@type": "Organization",
   "@id": "https://sipiteno.com/#organization",
   "name": "Sipiteno",
-  "description": "SipiTeno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies — an accountable product team that ships, not a marketplace where you hire and manage individual freelancers.",
-  "disambiguatingDescription": "SipiTeno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.",
+  "description": "Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies — an accountable product team that ships, not a marketplace where you hire and manage individual freelancers.",
+  "disambiguatingDescription": "Sipiteno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.",
   "url": "https://sipiteno.com",
   "logo": "https://sipiteno.com/favicon.png",
   "foundingDate": "2009",
-  "sameAs": ["https://www.linkedin.com/company/34765968", "https://twitter.com/sipiteno", "https://github.com/sipiteno"],
+  "sameAs": [
+    "https://www.linkedin.com/company/34765968",
+    "https://github.com/kindrat86",
+    "https://www.instagram.com/sipiteno",
+    "https://www.facebook.com/sipiteno"
+  ],
 };
 
 // WebSite schema — required by Google for Sitelinks Searchbox
@@ -497,10 +502,26 @@ const corePages = [
     title: "Blog | Sipiteno - MicroSaaS Insights & AI Strategy",
     description: "Practical insights on building MicroSaaS products, rapid validation, and AI-powered tools. Learn from real builds and get tactical guides on shipping faster.",
     canonicalUrl: "https://sipiteno.com/blog",
-    bodyContent: buildSimpleBody('Blog | Sipiteno', 'Practical insights on building MicroSaaS products, rapid validation, and AI-powered tools.', [
-      { name: 'Home', url: 'https://sipiteno.com/' },
-      { name: 'Services', url: 'https://sipiteno.com/services/ai-consulting' },
-    ]),
+    bodyContent: (() => {
+      const posts = [
+        { slug: "napkin-to-paying-customer-4-weeks", title: "From Napkin Sketch to First Paying Customer in 4 Weeks: The MicroSaaS Blueprint", week: "Speed to Market", desc: "The complete playbook for validating and shipping a product in record time." },
+        { slug: "60-days-absolute-limit-first-build", title: "Why 60 Days Is the Absolute Limit for Your First Product Build", week: "Speed to Market", desc: "The economics and psychology of rapid validation." },
+        { slug: "stop-hiring-fulltime-devs-first-product", title: "Stop Hiring Full-Time Devs for Your First Product: The Case for Agency Execution", week: "Speed to Market", desc: "When and why agency partnerships outperform in-house builds." },
+        { slug: "blue-collar-saas-wins-faster", title: "Why Blue-Collar SaaS Wins Faster Than B2B Dashboards", week: "Vertical & Niche SaaS", desc: "The untapped opportunity in trade and service industries." },
+        { slug: "logistics-construction-agriculture-microsaas-goldmines", title: "Why Logistics, Construction, and Agriculture Are MicroSaaS Goldmines", week: "Vertical & Niche SaaS", desc: "Industries desperate for modern tooling." },
+        { slug: "integrate-ai-into-existing-product", title: "How to Integrate AI Into an Existing Product (Without Rewriting It)", week: "AI & Technical Strategy", desc: "A pragmatic five-step path from idea to production AI feature." },
+      ];
+      const items = posts.map(p => `<li><a href="https://sipiteno.com/blog/${p.slug}"><strong>${p.title}</strong></a><br><em>${p.week}</em> — ${p.desc}</li>`).join('\n      ');
+      return `<h1>Blog | Sipiteno</h1>
+      <p>Practical insights on building MicroSaaS products, rapid validation, and AI-powered tools. Learn from real builds and get tactical guides on shipping faster. Written by the Sipiteno product team — the same people who ship the products.</p>
+      <h2>Latest posts</h2>
+      <ul>
+      ${items}
+      </ul>
+      <h2>What you'll find here</h2>
+      <p>Three recurring themes: <strong>Speed to Market</strong> (how to ship an MVP in weeks, not quarters), <strong>Vertical &amp; Niche SaaS</strong> (why unglamorous industries are the best place to build), and <strong>AI &amp; Technical Strategy</strong> (how to integrate AI into real products without rebuilding everything). The posts draw from 50+ projects shipped across 28 emerging markets.</p>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a> | <a href="https://sipiteno.com/contact">Talk to us</a></p>`;
+    })(),
   },
   {
     path: ['case-studies'],
@@ -508,11 +529,34 @@ const corePages = [
     description: "Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, AI, and more in Eastern Europe, Caucasus, and Central Asia.",
     canonicalUrl: "https://sipiteno.com/case-studies",
     breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Case Studies", url: "https://sipiteno.com/case-studies" }],
-    bodyContent: buildSimpleBody('Case Studies | Sipiteno', "Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, AI, and more in Eastern Europe, Caucasus, and Central Asia.", [
-      { name: 'Home', url: 'https://sipiteno.com/' },
-      { name: 'Services', url: 'https://sipiteno.com/services/ai-consulting' },
-      { name: 'Pricing', url: 'https://sipiteno.com/pricing' },
-    ]),
+    bodyContent: (() => {
+      const cases = [
+        { id: 1, name: "FinanceFlow AI", industry: "FinTech", result: "500+ active users, 95% CSAT across 3 countries" },
+        { id: 2, name: "HealthConnect", industry: "HealthTech", result: "200+ clinicians onboarded, 6 languages" },
+        { id: 3, name: "RetailOptimize Pro", industry: "E-commerce", result: "15% profit lift, $2M+ monthly volume" },
+        { id: 4, name: "EduTrack System", industry: "EdTech", result: "10,000+ students, 40% engagement lift" },
+        { id: 5, name: "AgriTech Monitor", industry: "AgriTech", result: "50 pilot farms, 20% water reduction" },
+        { id: 6, name: "LogiChain Pro", industry: "Logistics", result: "30% faster customs clearance" },
+        { id: 7, name: "TalentMatch AI", industry: "HR Tech", result: "1,000+ placements, 80% match satisfaction" },
+        { id: 8, name: "CyberShield Suite", industry: "Cybersecurity", result: "150+ businesses protected" },
+        { id: 9, name: "PropertyPulse", industry: "PropTech", result: "$100M+ property values tracked" },
+        { id: 10, name: "EventHub Connect", industry: "Event Management", result: "50,000+ attendees, 4.8/5 rating" },
+        { id: 11, name: "ContentCreator Studio", industry: "Marketing Tech", result: "60% time savings with AI" },
+        { id: 12, name: "GreenEnergy Dashboard", industry: "CleanTech", result: "18% energy cost reduction" },
+      ];
+      const cards = cases.map(c => `<li><a href="https://sipiteno.com/case-studies/${c.id}"><strong>${c.name}</strong> (${c.industry})</a> — ${c.result}</li>`).join('\n      ');
+      return `<h1>Case Studies | Sipiteno</h1>
+      <p>Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, AI, and more in Eastern Europe, Caucasus, and Central Asia. Each case study covers the challenge, the solution shipped, and the measurable result — what was actually built and what it achieved.</p>
+      <h2>How to read these case studies</h2>
+      <p>Every engagement follows the same model: one accountable product team that ships end-to-end, not a marketplace of individual contractors. The metrics below are what shipped to production, not projections. Where a product is marked "In Progress," it is live in beta with the metrics shown.</p>
+      <h2>Selected work</h2>
+      <ul>
+      ${cards}
+      </ul>
+      <h2>Engagement models behind these builds</h2>
+      <p>These projects were delivered under three commercial models: <strong>fixed-scope MVP</strong> ($15k–$50k, 4–8 weeks), <strong>AI implementation program</strong> ($25k–$100k+, 8–24 weeks), and <strong>market-entry project</strong> ($25k–$75k, 12–16 weeks). See <a href="https://sipiteno.com/pricing">pricing</a> for detail. If you have a comparable build, <a href="https://sipiteno.com/contact">book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
+      <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/methodology">Methodology</a></p>`;
+    })(),
   },
   {
     path: ['pricing'],
@@ -552,6 +596,37 @@ const corePages = [
       <h2>Ready to Get a Custom Quote?</h2>
       <p>The fastest way to get pricing for your specific situation is a free 30-minute strategy call. We'll assess your needs, recommend the right engagement model, and give you a transparent price range. <a href="https://sipiteno.com/#contact">Book your free call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
       <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a> | <a href="https://sipiteno.com/alternatives">Compare alternatives</a> | <a href="https://sipiteno.com/methodology">Our methodology</a></p>`,
+  },
+  {
+    path: ['services'],
+    title: "Services | Sipiteno — AI Consulting, Product Development & Market Entry",
+    description: "Sipiteno's six core services: AI consulting and implementation, business development, IT consulting, digital marketing, sales funnel setup, project management, and MicroSaaS MVP development across 28 emerging markets.",
+    canonicalUrl: "https://sipiteno.com/services",
+    breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Services", url: "https://sipiteno.com/services" }],
+    bodyContent: `
+    <h1>Sipiteno Services</h1>
+    <p>Sipiteno delivers six core services for technology companies expanding into or across emerging markets in Eastern Europe, the Caucasus, and Central Asia. Each service can be engaged standalone or combined into a full market-entry program. Engagements scale from a $15,000 fixed-scope MVP to a multi-quarter $100,000+ AI implementation program.</p>
+    <h2>Product &amp; Engineering</h2>
+    <h3><a href="https://sipiteno.com/services/ai-consulting">AI Consulting &amp; Implementation</a></h3>
+    <p>From strategy to shipped software: opportunity identification, model and vendor selection (OpenAI, Anthropic, open-source), RAG and fine-tuning, evaluation harnesses, and the surrounding product. We ship production AI features inside SaaS products — not strategy decks. Engagements: $25,000-$100,000+ over 8-24 weeks.</p>
+    <h3>MicroSaaS MVP Development</h3>
+    <p>A production-deployable SaaS MVP in 4-8 weeks: discovery, design, engineering, QA, deployment. Fixed-scope, fixed-fee. Reusable scaffolding for auth, billing, and analytics knocks ~40% off the build. Engagements: $15,000-$50,000. <a href="https://sipiteno.com/case-studies">See MVP case studies</a>.</p>
+    <h3><a href="https://sipiteno.com/services/it-consulting">IT Consulting</a></h3>
+    <p>Architecture review, technology selection, code review, DevOps setup, and technical due diligence for companies that need a senior second opinion before committing to a build or a hire. Engagements: $15,000-$75,000 or $150-$300/hour.</p>
+    <h2>Market Entry &amp; Growth</h2>
+    <h3><a href="https://sipiteno.com/services/business-development">Business Development &amp; B2B Partnerships</a></h3>
+    <p>Pipeline generation, warm introductions to decision-makers, partnership development, and bilingual sales support across 28 countries. We work alongside your team to close deals, not just hand off leads. Retainers: $3,000-$10,000/month for 10-30 qualified leads per month.</p>
+    <h3>Market Entry Project</h3>
+    <p>Full country expansion: market assessment and scoring for 2-3 target countries, regulatory mapping, partnership identification, 12-16 weeks of active business development execution, and a transition plan for self-sufficient operations. Our most popular engagement for second or third geographic market entry. $25,000-$75,000.</p>
+    <h3><a href="https://sipiteno.com/services/digital-marketing">Digital Marketing</a></h3>
+    <p>Localized demand generation: SEO, content, paid acquisition, and localization across Cyrillic and Latin scripts. Tuned for emerging-market buyers who research in their local language. Engagements: retainer or project-based.</p>
+    <h3><a href="https://sipiteno.com/services/sales-funnel">Sales Funnel Setup</a></h3>
+    <p>End-to-end funnel design: landing pages, lead capture, CRM setup, nurture sequences, and attribution. Built for the longer sales cycles typical of B2B in emerging markets.</p>
+    <h3><a href="https://sipiteno.com/services/project-management">Project Management</a></h3>
+    <p>Dedicated product managers and agile delivery for companies that need a single accountable owner across an in-house or mixed team. One-week or two-week sprints with demos; the client sees a live staging environment from week one.</p>
+    <h2>Not Sure Which Service You Need?</h2>
+    <p>If you are unsure, the fastest path is a <a href="https://sipiteno.com/contact">free 30-minute strategy call</a>. We'll assess your situation and recommend the right engagement — including telling you if none of our services are the right fit. See <a href="https://sipiteno.com/pricing">pricing</a> for the full tier table or <a href="https://sipiteno.com/methodology">methodology</a> for how delivery works.</p>
+    <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/answers">FAQ</a> | <a href="https://sipiteno.com/contact">Contact</a></p>`,
   },
   {
     path: ['methodology'],
@@ -913,4 +988,380 @@ for (const ind of INDUSTRIES) {
   count++;
 }
 
+// 8. Case-study detail pages (12)
+const CASE_STUDIES = [
+  { id: 1, name: "FinanceFlow AI", industry: "FinTech", tech: "React, Node.js, TensorFlow, PostgreSQL", status: "Completed",
+    description: "AI-powered financial analytics platform for SMEs in Eastern Europe, providing real-time insights and predictive modeling.",
+    challenges: "Complex regulatory requirements across multiple jurisdictions and need for real-time data processing.",
+    solution: "Built a modular architecture with country-specific compliance modules and implemented efficient data streaming.",
+    results: "Successfully launched in 3 countries with 500+ active users and 95% customer satisfaction rate.",
+    metrics: ["3 countries live", "500+ active users", "95% CSAT", "Real-time data pipeline"] },
+  { id: 2, name: "HealthConnect", industry: "HealthTech", tech: "React Native, Firebase, Python, ML", status: "In Progress",
+    description: "Telemedicine platform connecting patients with healthcare providers across rural Eastern European regions.",
+    challenges: "Limited internet infrastructure in rural areas and multi-language support requirements.",
+    solution: "Optimized for low-bandwidth connections with offline capabilities and integrated 6 local languages.",
+    results: "Currently in beta testing with 200+ medical professionals onboarded.",
+    metrics: ["6 languages", "200+ clinicians", "Offline-first", "Low-bandwidth optimized"] },
+  { id: 3, name: "RetailOptimize Pro", industry: "E-commerce", tech: "Vue.js, Django, Redis, AWS", status: "Completed",
+    description: "Inventory management and pricing optimization tool for e-commerce businesses in emerging markets.",
+    challenges: "Volatile market conditions and integration with diverse payment systems.",
+    solution: "Dynamic pricing algorithm with real-time market data integration and universal payment gateway.",
+    results: "15% average profit increase for clients, processing $2M+ in transactions monthly.",
+    metrics: ["15% profit lift", "$2M+ monthly volume", "Dynamic pricing", "Multi-gateway"] },
+  { id: 4, name: "EduTrack System", industry: "EdTech", tech: "Angular, .NET Core, MongoDB", status: "Completed",
+    description: "Learning management system tailored for vocational training institutions in Kazakhstan and Uzbekistan.",
+    challenges: "Outdated existing systems and need for gradual migration without disrupting operations.",
+    solution: "Phased migration approach with parallel systems and comprehensive training program.",
+    results: "Deployed across 20 institutions, serving 10,000+ students with 40% improved engagement.",
+    metrics: ["20 institutions", "10,000+ students", "40% engagement lift", "Phased migration"] },
+  { id: 5, name: "AgriTech Monitor", industry: "AgriTech", tech: "React, IoT, Python, TimescaleDB", status: "In Progress",
+    description: "IoT-enabled crop monitoring and yield prediction platform for agricultural cooperatives.",
+    challenges: "Harsh environmental conditions for sensors and limited technical expertise among end users.",
+    solution: "Ruggedized IoT devices with intuitive mobile-first interface and automated alerts.",
+    results: "Piloting with 50 farms, early data shows 20% reduction in water usage.",
+    metrics: ["50 pilot farms", "20% water reduction", "IoT + ML", "Mobile-first"] },
+  { id: 6, name: "LogiChain Pro", industry: "Logistics", tech: "Next.js, GraphQL, PostgreSQL, Docker", status: "Completed",
+    description: "Supply chain visibility platform for cross-border logistics in Eastern European trade corridors.",
+    challenges: "Complex customs procedures and need for real-time tracking across multiple carriers.",
+    solution: "API integrations with 15+ carriers and customs systems, blockchain for document verification.",
+    results: "Reduced customs clearance time by 30%, handling 5,000+ shipments monthly.",
+    metrics: ["30% faster clearance", "5,000+ shipments/mo", "15+ carrier APIs", "Blockchain verified"] },
+  { id: 7, name: "TalentMatch AI", industry: "HR Tech", tech: "React, Python, NLP, PostgreSQL", status: "Completed",
+    description: "AI-powered recruitment platform matching tech talent with opportunities across the region.",
+    challenges: "Diverse skill sets and qualifications across countries, language barriers in assessments.",
+    solution: "Multilingual NLP model for resume parsing and standardized skill assessment framework.",
+    results: "1,000+ successful placements, 80% candidate-company match satisfaction rate.",
+    metrics: ["1,000+ placements", "80% match satisfaction", "Multilingual NLP", "Standardized scoring"] },
+  { id: 8, name: "CyberShield Suite", industry: "Cybersecurity", tech: "Vue.js, Go, Elasticsearch, Kubernetes", status: "In Progress",
+    description: "Comprehensive cybersecurity monitoring and threat detection platform for SMEs.",
+    challenges: "Limited cybersecurity awareness and budget constraints among target users.",
+    solution: "Affordable tiered pricing model with automated threat detection and user-friendly dashboards.",
+    results: "Currently protecting 150+ businesses, detected and prevented 500+ threats.",
+    metrics: ["150+ businesses", "500+ threats blocked", "Tiered pricing", "Automated detection"] },
+  { id: 9, name: "PropertyPulse", industry: "PropTech", tech: "React, Node.js, MongoDB, Mapbox", status: "Completed",
+    description: "Real estate market analytics and property management platform for emerging markets.",
+    challenges: "Fragmented property data sources and varying legal frameworks across regions.",
+    solution: "Data aggregation from 20+ sources with country-specific legal compliance modules.",
+    results: "Used by 300+ real estate professionals, tracking $100M+ in property values.",
+    metrics: ["300+ professionals", "$100M+ tracked", "20+ data sources", "Multi-jurisdiction"] },
+  { id: 10, name: "EventHub Connect", industry: "Event Management", tech: "React, Firebase, Stripe, WebRTC", status: "Completed",
+    description: "Hybrid event platform supporting both in-person and virtual attendees with networking features.",
+    challenges: "Seamless experience between physical and virtual attendees, multiple payment methods.",
+    solution: "Integrated WebRTC for live streaming and breakout rooms, local payment gateway support.",
+    results: "Hosted 100+ events with 50,000+ total attendees, 4.8/5 average rating.",
+    metrics: ["100+ events", "50,000+ attendees", "4.8/5 rating", "Hybrid format"] },
+  { id: 11, name: "ContentCreator Studio", industry: "Marketing Tech", tech: "React, Python, OpenAI API, AWS S3", status: "In Progress",
+    description: "AI-assisted content creation and social media management tool for regional businesses.",
+    challenges: "Need for culturally appropriate content and support for Cyrillic and Latin scripts.",
+    solution: "Custom AI models trained on regional content with multi-script text editor.",
+    results: "Beta users creating 1,000+ pieces of content monthly with 60% time savings.",
+    metrics: ["1,000+ posts/mo", "60% time saved", "Cyrillic + Latin", "Culturally tuned"] },
+  { id: 12, name: "GreenEnergy Dashboard", industry: "CleanTech", tech: "Angular, Python, InfluxDB, Grafana", status: "Completed",
+    description: "Energy consumption monitoring and optimization platform for commercial buildings.",
+    challenges: "Legacy building management systems and diverse energy metering standards.",
+    solution: "Universal API adapters for legacy systems and predictive analytics for optimization.",
+    results: "Deployed in 80 buildings, achieving average 18% energy cost reduction.",
+    metrics: ["80 buildings", "18% energy savings", "Legacy integration", "Predictive analytics"] },
+];
+
+for (const cs of CASE_STUDIES) {
+  const canonical = `https://sipiteno.com/case-studies/${cs.id}`;
+  const title = `${cs.name} — ${cs.industry} Case Study | Sipiteno`;
+  const description = `How Sipiteno built ${cs.name}: ${cs.description} Stack: ${cs.tech}. Result: ${cs.results}`;
+
+  const metricsHtml = cs.metrics.map(m => `<li>${m}</li>`).join('');
+
+  const bodyContent = `
+    <h1>${cs.name} — ${cs.industry} Case Study</h1>
+    <p><em>Status: ${cs.status} · Technology: ${cs.tech}</em></p>
+    <h2>Overview</h2>
+    <p>${cs.description}</p>
+    <h2>Challenge</h2>
+    <p>${cs.challenges}</p>
+    <h2>Solution</h2>
+    <p>${cs.solution}</p>
+    <h2>Results</h2>
+    <p>${cs.results}</p>
+    <h2>Key Metrics</h2>
+    <ul>${metricsHtml}</ul>
+    <h2>Work with Sipiteno</h2>
+    <p>This engagement reflects Sipiteno's model: one accountable team that ships a product end-to-end, not a marketplace of individual contractors. If you have a comparable build — SaaS, web, or AI product — <a href="https://sipiteno.com/contact">book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
+    <p><a href="https://sipiteno.com/case-studies">All case studies</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a> | <a href="https://sipiteno.com/pricing">Pricing</a></p>`;
+
+  const html = buildPage({
+    title,
+    description,
+    canonicalUrl: canonical,
+    breadcrumbs: [
+      { name: "Home", url: "https://sipiteno.com/" },
+      { name: "Case Studies", url: "https://sipiteno.com/case-studies" },
+      { name: cs.name, url: canonical },
+    ],
+    schemas: [{
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": `${cs.name} — Case Study`,
+      "description": cs.description,
+      "url": canonical,
+      "creator": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "about": {
+        "@type": "Thing",
+        "name": `${cs.industry} product development`,
+      },
+    }],
+    bodyContent,
+  });
+
+  writeRoute(['case-studies', String(cs.id)], html);
+  count++;
+}
+
 console.log(`✓ Prerendered ${count} static HTML pages in dist/`);
+
+// 9. Blog post detail pages (6 substantive posts)
+const BLOG_POSTS = [
+  {
+    slug: "napkin-to-paying-customer-4-weeks",
+    title: "From Napkin Sketch to First Paying Customer in 4 Weeks: The MicroSaaS Blueprint",
+    category: "Speed to Market",
+    date: "2026-06-02",
+    body: `<p>The fastest path from an idea to a paying customer is shorter than most founders believe — but only if you are ruthless about what does not ship in week one. This is the blueprint Sipiteno uses to take a MicroSaaS from napkin sketch to first paid user in roughly four weeks, based on 50+ builds.</p>
+<h2>Week 1: Discovery and scope lock</h2>
+<p>Before any code, the team locks three things: the single pain point, the smallest feature set that resolves it, and the one number that proves it worked. Everything else is parked. The output of week one is a one-page scope document with a fixed feature list and a definition of done. No Gantt chart, no discovery deck — those are the artifacts of a slower model.</p>
+<p>The most common failure mode here is scope creep disguised as "just one more thing." Every additional feature added in week one is a feature that must be designed, built, tested, documented, and maintained. At four weeks, two extra features can be the difference between shipping and stalling.</p>
+<h2>Week 2: Design and architecture</h2>
+<p>With scope locked, week two is design and architecture in parallel. The team picks a proven stack — React or Next.js with TypeScript, FastAPI or Flask in Python, PostgreSQL, Tailwind — and reuses internal scaffolding for the parts every product needs: authentication, billing, analytics, error tracking, deployment. These are not differentiators; building them from scratch is a tax, not an investment.</p>
+<p>Design is intentionally low-fidelity in week two. The goal is a clickable prototype that lets a real user walk through the core flow end-to-end. Pixel-perfect design happens after the flow is validated, not before.</p>
+<h2>Weeks 3-4: Engineering and ship</h2>
+<p>Engineering runs in one-week sprints with a demo at the end of each. The client sees a live staging environment from day one. By the end of week three, the core flow works end-to-end on staging. Week four is QA, deployment to production, and the first cohort of real users.</p>
+<p>The deployment itself is unglamorous: Vercel for the front end, Fly.io or a managed Postgres for the back end, a single environment variable for each secret. No Kubernetes, no microservices, no "we'll fix it in post." The goal is a product a real person can pay for.</p>
+<h2>What gets cut</h2>
+<p>In a four-week build, the following almost never ship in v1: multi-tenancy beyond a single organization, granular role-based access control, a custom admin dashboard, marketing site polish, email automation sequences, a mobile app (web responsive is enough), and anything described as "AI-powered" that is not directly tied to the core pain. These are v2 problems.</p>
+<h2>The first paying customer</h2>
+<p>A "paying customer" in week four does not mean a self-serve signup on a landing page. It usually means three to five founder-led sales conversations with people who have the pain, a working product they can try, and a price. If none of those conversations convert, the product has a positioning or pain-point problem — not a feature problem — and more features will not save it.</p>
+<h2>When four weeks is wrong</h2>
+<p>Four weeks is wrong when the core product is genuinely complex: a regulated fintech, a multi-sided marketplace with a chicken-and-egg problem, anything requiring custom ML training, or a product where the data integration alone takes weeks. For those, budget eight to twelve weeks and scope the first release around a narrower audience, not a narrower feature set.</p>
+<h2>The economics</h2>
+<p>A four-week MicroSaaS MVP typically runs $15,000-$50,000 depending on complexity. The math is simple: two to three senior engineers, a designer, and a product manager for four weeks, plus reusable scaffolding that knocks roughly 40% off the build. The alternative — hiring a full-time engineer, waiting three months to ramp, and then building — costs more and ships slower.</p>
+<p>Ready to scope your build? <a href="https://sipiteno.com/contact">Book a free 30-minute strategy call</a> or read our <a href="https://sipiteno.com/case-studies">case studies</a>.</p>`
+  },
+  {
+    slug: "60-days-absolute-limit-first-build",
+    title: "Why 60 Days Is the Absolute Limit for Your First Product Build",
+    category: "Speed to Market",
+    date: "2026-06-03",
+    body: `<p>There is a hard ceiling on how long a first product build should take before the economics turn against you, and in our experience it is around sixty days. Past that point, the cost of delay rises faster than the value of additional features — yet most first-time founders blow straight through it. This is why.</p>
+<h2>The sunk-cost spiral</h2>
+<p>Every additional week in a first build compounds two costs. The obvious one is cash: engineering time, infrastructure, and the opportunity cost of the founder's attention. The less obvious one is psychological: the longer you work on a product before showing it to a real user, the more attached you become to decisions that have not been validated. By week eight, most teams have convinced themselves the product needs "just two more weeks" — and then two more after that.</p>
+<h2>The validation window closes</h2>
+<p>Markets move. Competitors ship. The pain point you identified in week one may have shifted by week twelve. More importantly, the signal you need — does anyone actually want this? — can only come from putting the product in front of real users. Every week you delay that signal is a week building on assumptions.</p>
+<p>The products that succeed are not the ones with the most features at launch. They are the ones that reach real users fastest, learn what is broken, and iterate. Speed to first user is the single highest-leverage variable in early-stage product.</p>
+<h2>Why sixty days, specifically</h2>
+<p>Sixty days is roughly the point at which three things converge: you have enough time to build something real (not a prototype), you have not yet burned the runway that would let you pivot, and the team has not yet accumulated enough technical debt or emotional attachment to resist change. Past sixty days, the cost of throwing away what you built starts to feel unacceptable, and that fear drives teams to ship the wrong product.</p>
+<h2>The sixty-day budget</h2>
+<p>If you accept the sixty-day ceiling, the budget falls out of it. At typical senior engineering rates, sixty days of focused work for a small team lands in the $30,000-$80,000 range. That buys you a production-deployable product, not a prototype — real auth, real billing, real deployment, real users. Anything cheaper is usually a prototype dressed up as a product; anything more expensive is usually scope you do not need yet.</p>
+<h2>How to stay under the ceiling</h2>
+<p>Three disciplines keep a build under sixty days. First, a written scope document signed before engineering starts, with a rule that any addition pushes something else out. Second, weekly demos to a real user — not the founder, not the team, a real user. Third, a "one more feature" budget: the team is allowed exactly one addition after scope lock, and after that, everything else is v2.</p>
+<p>The teams that violate all three are the ones still "almost done" at month six.</p>
+<h2>What happens after sixty days</h2>
+<p>The goal of the first sixty days is not a perfect product. It is evidence: do people want this, will they pay, what is broken, what is missing. The product that ships at day sixty is a starting point, not a destination. The companies that win are the ones that ship at sixty, learn for ninety, and ship the real v2 at month six — not the ones that spend six months building v1 in private.</p>
+<p><a href="https://sipiteno.com/contact">Talk to Sipiteno</a> about your build timeline.</p>`
+  },
+  {
+    slug: "stop-hiring-fulltime-devs-first-product",
+    title: "Stop Hiring Full-Time Devs for Your First Product: The Case for Agency Execution",
+    category: "Speed to Market",
+    date: "2026-06-04",
+    body: `<p>For a first product, the default reflex — hire a full-time engineer — is usually the wrong one. The reasoning is intuitive (we need someone committed) but the economics are backwards. Here is why an accountable product team outperforms a first hire for the first build, and when the calculus flips.</p>
+<h2>The hidden costs of the first full-time hire</h2>
+<p>A senior full-time engineer in 2026 costs $120,000-$200,000+ fully loaded, takes two to three months to ramp, and then builds your product alone — which means they are simultaneously the front-end engineer, the back-end engineer, the DevOps person, the designer, and the product manager. Nobody is good at all of those things. The result is a product that reflects one person's strengths and one person's blind spots, shipped slower than a team would ship it.</p>
+<p>There is also a recruitment cost that first-time founders underestimate: finding, interviewing, and closing a senior engineer takes one to three months of founder time. That is one to three months of zero product progress, before the hire even starts.</p>
+<h2>What an accountable product team gives you</h2>
+<p>A product studio gives you something different: a team that has already worked together, has shipped together, and has a product manager who owns the outcome. You are not hiring headcount; you are buying a shipped product. The team brings reusable scaffolding (auth, billing, analytics, deployment), a proven stack, and a process that has delivered dozens of products. The result is typically two to three times faster than a first full-time hire working alone.</p>
+<p>The key distinction is <em>accountable</em>. A staff-augmentation body shop rents you developers; you still manage them, and you still own the outcome. A product studio commits to shipping the product and carries the delivery risk. For a first build, where you do not yet have an engineering culture, the latter is almost always the right model.</p>
+<h2>The economics side by side</h2>
+<p>Compare two paths to a shipped MVP. Path A: hire a senior engineer at $150k, spend two months recruiting, three months ramping, and four months building — total around nine months and $112k in salary alone, before benefits, infrastructure, or the founder's time. Path B: engage a product studio for a fixed-scope MVP at $25k-$50k over four to eight weeks. Path B ships in less than half the time at less than half the cost, and the product is better because it is built by a team, not a single person.</p>
+<h2>When to flip to hiring</h2>
+<p>The calculus flips when you have product-market fit and need to iterate quickly on a codebase the team understands. Once the product is live, users are paying, and the roadmap is clear, hiring a full-time engineer who owns the codebase day-to-day becomes the right move. The product studio can hand off cleanly — architecture documented, runbooks written, deployment reproducible — and the first hire inherits a working product instead of starting from zero.</p>
+<p>This is the sequence Sipiteno recommends to most founders: studio for v1, hire for v2 and beyond. It is faster, cheaper, and produces a better first product.</p>
+<h2>The trap to avoid</h2>
+<p>The trap is the hybrid: hiring a junior engineer and supplementing them with a freelancer. This combines the slowness of ramping a junior with the coordination overhead of a freelancer, and nobody owns the outcome. It feels cheaper but ships slower and produces a worse product. If budget is the constraint, reduce the scope of v1 and ship it with a team — do not split the difference.</p>
+<p><a href="https://sipiteno.com/contact">Talk to Sipiteno</a> about whether a studio or a hire is right for your stage.</p>`
+  },
+  {
+    slug: "blue-collar-saas-wins-faster",
+    title: "Why Blue-Collar SaaS Wins Faster Than B2B Dashboards",
+    category: "Vertical & Niche SaaS",
+    date: "2026-06-09",
+    body: `<p>If you are choosing what to build next and you want to reach revenue fast, the most overlooked category is blue-collar SaaS — software for trades, construction, logistics, agriculture, and field services. These industries are underserved by modern software, have clear pain points, and pay willingly when you solve them. Here is why they consistently outperform generic B2B dashboards in the first twelve months.</p>
+<h2>The competition is paper and spreadsheets</h2>
+<p>In most blue-collar industries, the incumbent tool is a paper form, a whiteboard, or a spreadsheet someone built in 2014. The bar for "this is dramatically better" is low. A mobile-first app that does one workflow well — time tracking, job photos, equipment logs, delivery confirmations — is a ten-times improvement over the status quo, and adoption is fast because the pain is acute.</p>
+<p>Generic B2B dashboards, by contrast, compete with every other dashboard. The buyer has seen a dozen tools that look similar, the switching cost is real, and the wedge is narrow. The same engineering effort that produces an obvious win in blue-collar produces a "nice to have" in a crowded B2B category.</p>
+<h2>Clear pain, clear buyer, clear price</h2>
+<p>Blue-collar software has three properties that make it commercially fast. First, the pain is concrete and daily: a construction foreman who loses two hours a week to paperwork feels it every single week. Second, the buyer is often the owner or operations manager who can make a decision in one call. Third, the price is anchored against labor cost: if your software saves five hours a week at $40/hour, a $200/month subscription pays for itself in a week.</p>
+<p>Contrast this with a generic B2B dashboard, where the pain is diffuse, the buyer is a committee, and the ROI case requires a six-month analysis nobody believes.</p>
+<h2>Mobile-first is a moat</h2>
+<p>Blue-collar work happens in the field, not at a desk. A genuinely good mobile app — offline-capable, low-bandwidth, usable with gloves on — is a meaningful moat because most B2B software is still desktop-first. The team that nails the mobile workflow wins the category, and the incumbent B2B players struggle to catch up because retrofitting mobile onto a desktop product is a rewrite.</p>
+<p>This is why we ship mobile-first by default for trade and field-service products. The desktop dashboard comes later, for the office staff; the mobile app is the product the field actually uses.</p>
+<h2>Vertical wedge, horizontal expansion</h2>
+<p>The pattern that works: start with one vertical wedge — electricians, plumbers, HVAC, landscapers, a specific trade — and nail their workflow end-to-end. Once you own one trade, expanding into adjacent trades is a marketing exercise, not a product rebuild. The software is 80% the same; the 20% that differs is terminology, compliance, and a few trade-specific forms.</p>
+<p>The mistake founders make is trying to serve "all trades" from day one. The product becomes generic, the wedge is lost, and the moat never forms. Pick one trade, win it, then expand.</p>
+<h2>Real numbers</h2>
+<p>From our portfolio: a voice-logging product for construction crews reached $8k MRR in four months by solving one workflow — daily site reports — that previously took foremen 30 minutes a day. A delivery-confirmation tool for a regional logistics company hit $15k MRR in six weeks by replacing paper sign-off sheets. Both are products that would have been "nice to have" in a generic B2B category; in blue-collar, they were obviously worth paying for.</p>
+<p><a href="https://sipiteno.com/contact">Talk to Sipiteno</a> about a blue-collar SaaS build.</p>`
+  },
+  {
+    slug: "logistics-construction-agriculture-microsaas-goldmines",
+    title: "Why Logistics, Construction, and Agriculture Are MicroSaaS Goldmines",
+    category: "Vertical & Niche SaaS",
+    date: "2026-06-11",
+    body: `<p>Three industries consistently produce the fastest path to profitable MicroSaaS: logistics, construction, and agriculture. They are unglamorous, underserved by software, and populated by buyers who will pay for a tool that saves time or reduces error. This is why they are goldmines, and what to build in each.</p>
+<h2>Logistics: the cost of a mistake is high</h2>
+<p>In logistics, a single error — a mislabeled shipment, a missed customs window, a wrong delivery address — costs hundreds to thousands of dollars and hours of phone calls. Software that prevents one error per week pays for itself immediately. The pain is daily, the buyer is reachable, and the existing tools are clunky enterprise systems or spreadsheets.</p>
+<p>The products that win in logistics are narrow: customs document generation for one corridor, real-time tracking for one carrier network, a delivery-confirmation workflow for one trade lane. The wedge is a single document or a single workflow; the expansion is adding corridors, carriers, or lanes over time.</p>
+<h2>Construction: paperwork is the job</h2>
+<p>A construction foreman spends a surprising share of the day on paperwork: daily site reports, safety checklists, equipment logs, photo documentation for compliance. None of this is glamorous, all of it is required, and almost all of it is still done on paper or in a spreadsheet. A mobile-first app that cuts 30 minutes of paperwork per day per foreman is a clear win, and a mid-size contractor with twenty foremen will pay $2,000-$5,000/month for it without hesitation.</p>
+<p>The moat in construction is mobile UX and offline capability. Job sites have unreliable connectivity, foreman work in gloves, and the app must be usable in those conditions. Teams that nail this win the category.</p>
+<h2>Agriculture: decisions are expensive and data is sparse</h2>
+<p>Agriculture is the most underserved of the three. Decisions — when to irrigate, when to harvest, when to apply inputs — are expensive (a wrong call costs a season of yield) and the data to make them is surprisingly sparse. IoT sensors, satellite imagery, and weather data exist, but the layer that turns them into a recommendation is missing for most crops and most regions.</p>
+<p>The products that win here combine a data source (sensors, weather, satellite) with a recommendation engine tuned to one crop and one region. Yield prediction, irrigation scheduling, and pest alerts are all proven wedges. Buyers are cooperatives and larger farms; pricing is per-acre or per-hectare and aligns with the value of the decision.</p>
+<h2>Why these three, and not others</h2>
+<p>These three industries share a structural property: the cost of a bad workflow is high and measurable, and the buyer is close to the pain. Compare this to, say, generic project management software — the pain is diffuse, the buyer is distant, and the ROI case is theoretical. The same engineering effort produces a product that pays for itself in week one versus a product that competes on design polish.</p>
+<p>There are other categories with similar dynamics — field services, manufacturing QA, facilities management — but logistics, construction, and agriculture are the three where we have repeatedly seen a focused four-to-eight week build turn into a profitable product within months.</p>
+<h2>What not to build</h2>
+<p>The trap in all three industries is building a "platform" instead of a product. A platform that connects every stakeholder in logistics, or every trade in construction, is a five-year project that will run out of runway. A product that solves one workflow for one buyer in one region is a four-week build that can be in market next month. Start with the product; earn the platform over years.</p>
+<p><a href="https://sipiteno.com/contact">Talk to Sipiteno</a> about a build in one of these industries.</p>`
+  },
+  {
+    slug: "integrate-ai-into-existing-product",
+    title: "How to Integrate AI Into an Existing Product (Without Rewriting It)",
+    category: "AI & Technical Strategy",
+    date: "2026-06-16",
+    body: `<p>Most advice on adding AI to a product assumes a greenfield build. The reality for most companies is different: you have a working product, a real codebase, real users, and a finite budget. This is the pragmatic five-step path we use to integrate AI into an existing product without rewriting it, based on production AI features shipped across our portfolio.</p>
+<h2>Step 1: Identify the highest-leverage repetitive task</h2>
+<p>Do not start with "where can we add AI." Start with "where does a human do something repetitive that a model could do faster." The best candidates are tasks that a person does many times a day, that follow a recognizable pattern, and where a wrong answer is recoverable. Classification, summarization, extraction, drafting, and routing are all strong candidates; anything where a mistake is catastrophic (medical diagnosis, legal advice) is a poor first project.</p>
+<p>The test: if you cannot point to a person whose job includes this task today, the AI feature has no buyer. Start with the task, not the model.</p>
+<h2>Step 2: Prototype with an off-the-shelf API behind a feature flag</h2>
+<p>With the task identified, prototype it in days, not weeks. Use an off-the-shelf API — OpenAI, Anthropic, or an open model behind a managed endpoint — wrapped behind a feature flag so only internal users see it. The goal is a working end-to-end path: real input, model call, output surfaced in the product UI. At this stage the quality does not matter; the integration does.</p>
+<p>The most common mistake here is over-investing in the prototype. A 50-line handler that calls the API and renders the response is enough. Do not build a vector database, do not fine-tune a model, do not set up a training pipeline. Those come later, if they come at all.</p>
+<h2>Step 3: Add an evaluation harness</h2>
+<p>Before scaling, build a lightweight evaluation harness: a held-out set of 50-200 real inputs with the expected output, and a script that runs the model against them and reports accuracy. This is the piece most teams skip and it is the single biggest predictor of whether the AI feature ships. Without an eval set, you are optimizing by vibes; with one, you can measure whether a prompt change, a model swap, or a retrieval improvement actually helped.</p>
+<p>The eval set does not need to be perfect. Fifty examples reviewed by a human is enough to catch regressions and to give the team confidence in the changes they are about to ship to real users.</p>
+<h2>Step 4: Harden for production</h2>
+<p>With the eval set passing, harden the feature for production. This means: structured outputs (force the model to return JSON in a known schema), guardrails (validate the output before showing it to users), observability (log every input and output for later debugging), cost controls (set per-request token limits and monthly budgets), and a fallback path (if the model is slow or fails, degrade gracefully rather than breaking the page).</p>
+<p>Structured outputs are the highest-leverage of these. A model that returns free text is a liability; a model that returns a typed JSON object you validate against a schema is a feature. Most production AI bugs come from treating the model's output as text instead of data.</p>
+<h2>Step 5: Roll out to a cohort, measure business impact, scale</h2>
+<p>Ship to a small cohort first — 5% of users, or one customer — and measure the business metric the feature is supposed to move. Not model accuracy; the business metric. If the feature was supposed to reduce support tickets, measure ticket volume. If it was supposed to speed up a workflow, measure time-on-task. If the business metric does not move, the model accuracy does not matter.</p>
+<p>This is the step where most AI features die a quiet death: they ship, they work, the accuracy is fine, and the business metric does not move — usually because the task identified in step 1 was not actually the bottleneck. Better to find that out at 5% rollout than at 100%.</p>
+<h2>What to skip</h2>
+<p>For a first AI integration, skip: custom model training (use APIs), building your own vector database (use pgvector or a managed offering), multi-model orchestration (pick one model and stick with it), and agentic workflows (they are harder to evaluate and harder to operate). These all have their place, but not in v1. Ship the simple version first, measure, and then decide whether the harder version is worth it.</p>
+<p>The products that ship AI successfully are not the ones with the most sophisticated models. They are the ones that picked the right task, measured it honestly, and shipped a boring integration that works.</p>
+<p><a href="https://sipiteno.com/services/ai-consulting">Talk to Sipiteno's AI consulting team</a> about integrating AI into your product.</p>`
+  },
+];
+
+for (const post of BLOG_POSTS) {
+  const canonical = `https://sipiteno.com/blog/${post.slug}`;
+  const wordCount = post.body.split(/\s+/).length;
+
+  const bodyContent = `
+    <article>
+    <h1>${post.title}</h1>
+    <p><em>By the Sipiteno product team · ${post.date} · ${post.category} · ${wordCount} words</em></p>
+    ${post.body}
+    </article>
+    <p><a href="https://sipiteno.com/blog">All posts</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/contact">Talk to us</a></p>`;
+
+  const html = buildPage({
+    title: `${post.title} | Sipiteno Blog`,
+    description: post.body.replace(/<[^>]+>/g, '').slice(0, 155),
+    canonicalUrl: canonical,
+    breadcrumbs: [
+      { name: "Home", url: "https://sipiteno.com/" },
+      { name: "Blog", url: "https://sipiteno.com/blog" },
+      { name: post.category, url: canonical },
+    ],
+    schemas: [{
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "datePublished": post.date,
+      "dateModified": post.date,
+      "author": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "publisher": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "mainEntityOfPage": canonical,
+      "articleSection": post.category,
+      "wordCount": wordCount,
+    }],
+    bodyContent,
+  });
+
+  writeRoute(['blog', post.slug], html);
+  count++;
+}
+
+console.log(`✓ Prerendered ${count} static HTML pages (incl. case studies + blog posts)`);
+
+// 10. The 3-Door Expansion System — branded framework page (P3 AEO: named frameworks survive LLM flattening)
+corePages.push({
+  path: ['expansion-system'],
+  title: "The 3-Door Expansion System | Sipiteno's Emerging-Markets Framework",
+  description: "The 3-Door Expansion System is Sipiteno's branded framework for entering emerging tech markets: Introductions, Regulatory Map, and Local Team That Ships. The three doors that open markets.",
+  canonicalUrl: "https://sipiteno.com/expansion-system",
+  breadcrumbs: [
+    { name: "Home", url: "https://sipiteno.com/" },
+    { name: "3-Door Expansion System", url: "https://sipiteno.com/expansion-system" },
+  ],
+  schemas: [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The 3-Door Expansion System",
+    "description": "Sipiteno's branded framework for entering emerging tech markets. The three doors that open markets: Introductions, Regulatory Map, and a Local Team That Ships.",
+    "author": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+    "publisher": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+    "mainEntityOfPage": "https://sipiteno.com/expansion-system",
+    "keywords": ["3-Door Expansion System", "emerging markets framework", "market entry methodology", "Sipiteno"],
+  }],
+  bodyContent: `
+  <h1>The 3-Door&trade; Expansion System</h1>
+  <p><em>Sipiteno's branded framework for entering emerging tech markets. The three doors that actually open a market — and why most expansion efforts stall because they only open one.</em></p>
+
+  <h2>What it is</h2>
+  <p>The 3-Door Expansion System is the methodology Sipiteno uses to take a technology company into a new emerging market in 12-16 weeks. It is built on a simple observation: almost every failed expansion we have seen over 15+ years and 50+ projects failed because the company opened only one of the three doors below. Opening one door gets you a meeting. Opening all three gets you a market.</p>
+  <p>The three doors are:</p>
+  <ol>
+    <li><strong>Door 1 — Introductions.</strong> Warm paths to the 15-25 decision-makers who actually buy in that market. Not cold outreach, not a purchased list — relationships built over years.</li>
+    <li><strong>Door 2 — Regulatory Map.</strong> A clear, current map of the legal, tax, and compliance requirements for operating in that specific country, including the unwritten rules that never appear in the official guidance.</li>
+    <li><strong>Door 3 — A Local Team That Ships.</strong> A bilingual team on the ground that can close, deliver, and support — not fly-in consultants who leave after the strategy deck.</li>
+  </ol>
+
+  <h2>Why three doors, not one</h2>
+  <p>Most expansion efforts focus on a single door. A Western tech company hires a business-development consultant (Door 1) but ignores regulatory complexity (Door 2) and has no delivery capability in-country (Door 3). They get meetings, fail to close because the contract structure is wrong, and cannot deliver when they do. Or they hire a law firm (Door 2) to set up an entity but have no warm pipeline (Door 1) and no team to execute (Door 3) — they spend six figures on paperwork and see zero revenue.</p>
+  <p>The pattern repeats across every emerging market we operate in: Ukraine, Poland, Kazakhstan, Georgia, Serbia, and the other 23 countries in the footprint. The companies that succeed open all three doors in parallel, on a compressed timeline, with a single accountable partner coordinating them.</p>
+
+  <h2>The 12-16 week timeline</h2>
+  <p>A typical 3-Door engagement runs 12-16 weeks and progresses through three phases, one per door:</p>
+  <h3>Weeks 1-4: Open Door 1 (Introductions)</h3>
+  <p>Sipiteno maps the 15-25 decision-makers in the buyer's category across 2-3 target countries and begins warm introductions through its existing network. By the end of week 4, the client has 5-10 qualified meetings on the calendar with buyers who have the problem and the budget.</p>
+  <h3>Weeks 3-8: Open Door 2 (Regulatory Map)</h3>
+  <p>Running in parallel, Sipiteno maps the legal, tax, data-residency, and compliance requirements specific to the target country and the client's industry. The output is a written regulatory brief covering: entity vs. branch vs. representative office; VAT and permanent-establishment triggers; data-protection requirements (GDPR equivalents, local data-residency rules); industry-specific licensing; and the unwritten norms that determine whether contracts actually get signed. This is the work most companies skip and most failures trace back to.</p>
+  <h3>Weeks 5-16: Open Door 3 (Local Team)</h3>
+  <p>Once introductions are converting and the regulatory path is clear, Sipiteno stands up the local team: a bilingual product manager or business-development lead, technical and design capacity if a localization build is needed, and the supporting infrastructure (local phone, local email, local entity or employer-of-record arrangement). This team closes the first deals and delivers against them, with a transition plan for the client to take over self-sufficiently by month six.</p>
+
+  <h2>The three doors applied</h2>
+  <p>The system has been applied across a range of industries and markets: a SaaS company entering Poland (Door 1: 22 introductions to mid-market manufacturers; Door 2: VAT and data-residency map; Door 3: a Warsaw-based BD lead hired in week 6); an AI consulting engagement in Kazakhstan (Door 1: 14 introductions to financial-services and telco buyers; Door 2: personal-data law and sub-sovereign procurement rules; Door 3: a two-person delivery team in Astana); a healthtech company entering Serbia (Door 1: introductions to three hospital networks; Door 2: medical-device and software-as-medical-device classification; Door 3: a clinical-trials lead in Belgrade). <a href="https://sipiteno.com/case-studies">See relevant case studies</a>.</p>
+
+  <h2>When the 3-Door System is wrong</h2>
+  <p>The system is wrong when the company does not yet have a working product (build first, expand second), when the target market is Western Europe or North America (the system is tuned for emerging markets where informal networks and regulatory ambiguity dominate), or when the company expects expansion to be free (each door requires real investment — the total engagement typically runs $25,000-$75,000).</p>
+
+  <h2>How to engage</h2>
+  <p>The 3-Door Expansion System is delivered as Sipiteno's <strong>Market Entry Project</strong> engagement ($25,000-$75,000, 12-16 weeks). It can be preceded by a free 30-minute strategy call to scope which 2-3 countries are the highest-leverage target. <a href="https://sipiteno.com/contact">Book the call</a>, see <a href="https://sipiteno.com/pricing">pricing</a>, or read the <a href="https://sipiteno.com/methodology">full delivery methodology</a>.</p>
+  <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services">Services</a> | <a href="https://sipiteno.com/locations">Markets we serve</a> | <a href="https://sipiteno.com/answers">FAQ</a></p>`,
+});
+{
+  const html = buildPage(corePages[corePages.length - 1]);
+  writeRoute(['expansion-system'], html);
+  count++;
+}
+
+console.log(`✓ Prerendered ${count} static HTML pages total`);

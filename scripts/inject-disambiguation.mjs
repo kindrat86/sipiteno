@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Self-contained AEO durability step. Re-injects SipiTeno's canonical
+ * Self-contained AEO durability step. Re-injects Sipiteno's canonical
  * Organization disambiguation into every built pSEO page in dist/ that lacks it,
  * so the entity-collision fix survives growth-engine regeneration of the static
  * pSEO pages. Runs at the END of the build (after copy-pseo). Idempotent.
@@ -16,10 +16,10 @@ const MARKER = '<!-- canonical-disambiguation -->';
 const ORG = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'SipiTeno',
+  name: 'Sipiteno',
   url: 'https://sipiteno.com',
-  description: 'SipiTeno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies — an accountable product team that ships, not a marketplace where you hire and manage individual freelancers.',
-  disambiguatingDescription: 'SipiTeno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.',
+  description: 'Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies — an accountable product team that ships, not a marketplace where you hire and manage individual freelancers.',
+  disambiguatingDescription: 'Sipiteno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.',
 };
 const BLOCK = MARKER + '<script type="application/ld+json">' + JSON.stringify(ORG) + '</script>';
 const SKIP = new Set(['assets', 'og', '_app', 'node_modules']);

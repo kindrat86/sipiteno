@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0"><head><title>Sipiteno Portfolio</title></head><body>
+<outline text="GitDealFlow — Deal-Flow Signal for Investors" type="rss" xmlUrl="https://gitdealflow.com/feed.xml" htmlUrl="https://gitdealflow.com"/>
+<outline text="ChurnLens — Buyer-Side SaaS Due Diligence" type="rss" xmlUrl="https://churnlens.site/feed.xml" htmlUrl="https://churnlens.site"/>
+<outline text="CarShake — Free Valet Damage-Proof App" type="rss" xmlUrl="https://carshake.online/feed.xml" htmlUrl="https://carshake.online"/>
+<outline text="VoiceLogPro — Voice-to-PDF Construction Reports" type="rss" xmlUrl="https://voicelogpro.com/feed.xml" htmlUrl="https://voicelogpro.com"/>
+<outline text="Unlock SaaS — First Paying Customer in 60 Days" type="rss" xmlUrl="https://unlocksaas.com/feed.xml" htmlUrl="https://unlocksaas.com"/>
+<outline text="AgentMail — OFAC Sanctions Check API" type="rss" xmlUrl="https://sanctionsai.dev/feed.xml" htmlUrl="https://sanctionsai.dev"/>
+<outline text="SipiBot — Open-Source AI Agent Toolkit" type="rss" xmlUrl="https://sipi.bot/feed.xml" htmlUrl="https://sipi.bot"/>
+<outline text="Invisible Exit — Privacy-First Browsing" type="rss" xmlUrl="https://invisibleexit.com/feed.xml" htmlUrl="https://invisibleexit.com"/>
+</body></opml>

@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { initPostHogDeferred } from "./lib/posthog";
 import { initClarityDeferred } from "./lib/clarity";
+import { trackAiReferral } from "./lib/analytics";
 import "./i18n";
 import App from "./App.tsx";
 import "./index.css";
@@ -11,3 +12,5 @@ createRoot(document.getElementById("root")!).render(<App />);
 // the render-critical bundle when imported synchronously here.
 initPostHogDeferred();
 initClarityDeferred();
+// Capture AI referrer once on first load (ChatGPT/Perplexity/Gemini/etc.).
+trackAiReferral();

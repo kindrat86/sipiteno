@@ -3,7 +3,7 @@
 // Falls back to 503 when unconfigured so the client can show an honest
 // error + mailto fallback instead of a fake success state.
 
-const MAX_LEN = { fullName: 200, companyName: 200, email: 320, phone: 50, country: 100, service: 100, message: 2000 };
+const MAX_LEN = { fullName: 200, companyName: 200, email: 320, phone: 50, country: 100, service: 100, hearAboutUs: 100, message: 2000 };
 
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
@@ -45,6 +45,7 @@ export default async function handler(req, res) {
   const phone = field("phone");
   const country = field("country");
   const service = field("service");
+  const hearAboutUs = field("hearAboutUs");
 
   const esc = (s) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const row = (label, value) => (value ? `<tr><td style="padding:4px 12px 4px 0;color:#666;">${label}</td><td style="padding:4px 0;">${esc(value)}</td></tr>` : "");
@@ -58,6 +59,7 @@ export default async function handler(req, res) {
       ${row("Phone", phone)}
       ${row("Country", country)}
       ${row("Service", service)}
+      ${row("How did you hear about us?", hearAboutUs)}
     </table>
     <h3 style="margin:16px 0 8px;">Message</h3>
     <p style="white-space:pre-wrap;font-size:14px;">${esc(message)}</p>`;

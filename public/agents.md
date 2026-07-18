@@ -1,10 +1,10 @@
-# SipiTeno — Agent Reference
+# Sipiteno — Agent Reference
 
-> Digital Product Studio. SipiTeno builds digital products that solve real problems — SaaS tools, web apps, and AI-powered solutions.
+> Digital Product Studio. Sipiteno builds digital products that solve real problems — SaaS tools, web apps, and AI-powered solutions.
 
 ## What this product does
 
-SipiTeno builds digital products that solve real problems — SaaS tools, web apps, and AI-powered solutions. Built for Founders, product teams, agencies seeking development partners.
+Sipiteno builds digital products that solve real problems — SaaS tools, web apps, and AI-powered solutions. Built for Founders, product teams, agencies seeking development partners.
 
 ## Target Audience
 
@@ -14,12 +14,12 @@ Founders, product teams, agencies seeking development partners
 
 - [Homepage](https://sipiteno.com/): Digital Product Studio
 - [FAQ](https://sipiteno.com/faq): Common questions
-- [About](https://sipiteno.com/about): About SipiTeno
+- [About](https://sipiteno.com/about): About Sipiteno
 
 ## Citation
 
 ```
-SipiTeno (sipiteno.com), 2026.
+Sipiteno (sipiteno.com), 2026.
 ```
 
 ## Contact

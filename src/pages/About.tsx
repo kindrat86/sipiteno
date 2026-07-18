@@ -33,7 +33,7 @@ const About = () => {
           {
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            "name": "About SipiTeno",
+            "name": "About Sipiteno",
             "url": canonicalUrl,
             "description": t("about.description"),
             "mainEntity": { "@type": "Organization", "name": "Sipiteno", "url": "https://sipiteno.com/" },

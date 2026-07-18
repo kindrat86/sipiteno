@@ -76,7 +76,12 @@ lines.append(f"")
 lines.append(f"## Core Pages")
 lines.append(f"")
 for slug, name in [("", "Homepage"), ("about", "About Sipiteno"), ("contact", "Contact"),
-                    ("pricing", "Pricing"), ("case-studies", "Case Studies"),
+                    ("pricing", "Pricing"), ("services", "All Services"),
+                    ("case-studies", "Case Studies (12 detail pages)"),
+                    ("expansion-system", "3-Door Expansion System"),
+                    ("methodology", "Methodology"),
+                    ("blog", "Blog (6 posts)"),
+                    ("answers", "Answers / FAQ (21 Q&As)"),
                     ("faq", "FAQ"), ("industries", "Industries Overview"),
                     ("locations", "All Locations"), ("services/ai-consulting", "AI Consulting"),
                     ("services/business-development", "Business Development"),

@@ -18,7 +18,7 @@ const countries = [
 const Contact = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
-  const [formData, setFormData] = useState({ fullName: "", companyName: "", email: "", phone: "", country: "", service: "", message: "", honeypot: "" });
+  const [formData, setFormData] = useState({ fullName: "", companyName: "", email: "", phone: "", country: "", service: "", message: "", hearAboutUs: "", honeypot: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -51,7 +51,7 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
       if (!resp.ok) throw new Error(`contact api ${resp.status}`);
-      trackEvent("contact_form_submitted", { service: formData.service || "not_specified", country: formData.country || "not_specified" });
+      trackEvent("contact_form_submitted", { service: formData.service || "not_specified", country: formData.country || "not_specified", hear_about_us: formData.hearAboutUs || "not_specified" });
       setSubmitted(true);
       toast({ title: t("contact.successToast"), description: t("contact.successToastDesc") });
     } catch {
@@ -80,7 +80,7 @@ const Contact = () => {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("contact.successTitle")}</h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">{t("contact.successBody")}</p>
-              <Button variant="outline" size="lg" onClick={() => { setSubmitted(false); setFormData({ fullName: "", companyName: "", email: "", phone: "", country: "", service: "", message: "", honeypot: "" }); setErrors({}); }}>{t("contact.successButton")}</Button>
+              <Button variant="outline" size="lg" onClick={() => { setSubmitted(false); setFormData({ fullName: "", companyName: "", email: "", phone: "", country: "", service: "", message: "", hearAboutUs: "", honeypot: "" }); setErrors({}); }}>{t("contact.successButton")}</Button>
             </div>
           </div>
         </div>
@@ -138,6 +138,15 @@ const Contact = () => {
                     </SelectContent>
                   </Select>
                 </div>
+              </div>
+              <div>
+                <Label htmlFor="hearAboutUs">How did you hear about us?</Label>
+                <Select value={formData.hearAboutUs} onValueChange={(value) => handleChange("hearAboutUs", value)}>
+                  <SelectTrigger id="hearAboutUs"><SelectValue placeholder="Where did you find us?" /></SelectTrigger>
+                  <SelectContent>
+                    {["ChatGPT", "Google AI Overview / AI Mode", "Perplexity", "Gemini", "Copilot", "Google Search", "LinkedIn", "Reddit", "Referral", "Other"].map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <Label htmlFor="message">{t("contact.message")} <span className="text-destructive">*</span></Label>

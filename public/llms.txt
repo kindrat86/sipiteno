@@ -12,7 +12,12 @@
 - [About Sipiteno](https://sipiteno.com/about)
 - [Contact](https://sipiteno.com/contact)
 - [Pricing](https://sipiteno.com/pricing)
-- [Case Studies](https://sipiteno.com/case-studies)
+- [All Services](https://sipiteno.com/services)
+- [Case Studies (12 detail pages)](https://sipiteno.com/case-studies)
+- [3-Door Expansion System](https://sipiteno.com/expansion-system)
+- [Methodology](https://sipiteno.com/methodology)
+- [Blog (6 posts)](https://sipiteno.com/blog)
+- [Answers / FAQ (21 Q&As)](https://sipiteno.com/answers)
 - [FAQ](https://sipiteno.com/faq)
 - [Industries Overview](https://sipiteno.com/industries)
 - [All Locations](https://sipiteno.com/locations)
@@ -52,14 +57,17 @@ Country-vs-country comparison pages. Total: 6 pages.
 
 ## Vertical/Audience Pages
 
-Targeted pages for agencies, e-commerce, enterprise, startups. Total: 6 pages.
+Targeted pages for agencies, e-commerce, enterprise, startups. Total: 10 pages.
 
 - [Agencies](https://sipiteno.com/for/agencies)
 - [Agencies Scaling](https://sipiteno.com/for/agencies-scaling)
 - [Ai Startups Hiring](https://sipiteno.com/for/ai-startups-hiring)
 - [Ecommerce](https://sipiteno.com/for/ecommerce)
-- [Series A Startups](https://sipiteno.com/for/series-a-startups)
-- [Startups](https://sipiteno.com/for/startups)
+- [Enterprise Teams](https://sipiteno.com/for/enterprise-teams)
+- [Fintech Companies](https://sipiteno.com/for/fintech-companies)
+- [Saas Companies](https://sipiteno.com/for/saas-companies)
+- [Scaleups](https://sipiteno.com/for/scaleups)
+- ...and 2 more like this
 
 ## How-To Educational Guides
 
@@ -76,7 +84,7 @@ Educational content for expanding into emerging markets. Total: 8 pages.
 
 ## Distribution & Reach
 
-- Sitemap: https://sipiteno.com/sitemap.xml (244 total pages)
+- Sitemap: https://sipiteno.com/sitemap.xml (250 total pages)
 - robots.txt: https://sipiteno.com/robots.txt
 - llms-full.txt: https://sipiteno.com/llms-full.txt
 - agents.md: https://sipiteno.com/agents.md

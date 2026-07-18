@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns_atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sipiteno Portfolio — Products &amp; Updates</title>
+    <link>https://sipiteno.com/portfolio</link>
+    <description>Latest updates across all 10 products built by Sipiteno — a digital product studio operating across 28 emerging markets.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Jul 2026 17:10:52 GMT</lastBuildDate>
+    <item>
+      <title>GitDealFlow — Deal-Flow Signal for Investors</title>
+      <link>https://gitdealflow.com</link>
+      <description>Flags startups heating up 3–6 weeks before funding rounds using public GitHub activity. Free MCP server, A2A endpoint, Chrome extension.</description>
+      <guid>https://gitdealflow.com</guid>
+      <pubDate>Sat, 18 Jul 2026 17:10:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>ChurnLens — Buyer-Side SaaS Due Diligence</title>
+      <link>https://churnlens.site</link>
+      <description>Upload CSVs, get a revenue-quality risk report. Scores logo retention, concentration risk, zombie MRR, and annual-plan churn.</description>
+      <guid>https://churnlens.site</guid>
+      <pubDate>Sat, 18 Jul 2026 17:10:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>CarShake — Free Valet Damage-Proof App</title>
+      <link>https://carshake.online</link>
+      <description>60-second scan timestamps your car's condition before any handover. Court-admissible proof against false damage claims.</description>
+      <guid>https://carshake.online</guid>
+      <pubDate>Sat, 18 Jul 2026 17:10:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>VoiceLogPro — Voice-to-PDF Construction Reports</title>
+      <link>https://voicelogpro.com</link>
+      <description>Converts spoken notes into legally defensible daily reports for lien rights and compliance documentation.</description>
+      <guid>https://voicelogpro.com</guid>
+      <pubDate>Sat, 18 Jul 2026 17:10:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>Unlock SaaS — First Paying Customer in 60 Days</title>
+      <link>https://unlocksaas.com</link>
+      <description>Playbook that turns an already-shipped product into a verified paying customer. If it doesn't, you don't pay.</description>
+      <guid>https://unlocksaas.com</guid>
+      <pubDate>Sat, 18 Jul 2026 17:10:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>AgentMail — OFAC Sanctions Check API</title>
+      <link>https://sanctionsai.dev</link>
+      <description>$0.05 per check. Built for AI agents that need compliance verification before transacting.</description>
+      <guid>https://sanctionsai.dev</guid>
+      <pubDate>Sat, 18 Jul 2026 17:10:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>SipiBot — Open-Source AI Agent Toolkit</title>
+      <link>https://sipi.bot</link>
+      <description>PyPI package for autonomous AI workflows. CLI, MCP support, GitHub Actions integration.</description>
+      <guid>https://sipi.bot</guid>
+      <pubDate>Sat, 18 Jul 2026 17:10:52 GMT</pubDate>
+    </item>
+    <item>
+      <title>Invisible Exit — Privacy-First Browsing</title>
+      <link>https://invisibleexit.com</link>
+      <description>No tracking, no logs, no digital footprint. For users who need to disappear from surveillance.</description>
+      <guid>https://invisibleexit.com</guid>
+      <pubDate>Sat, 18 Jul 2026 17:10:52 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -32,7 +32,8 @@ export const organizationSchema = {
   "sameAs": [
     "https://www.linkedin.com/company/34765968",
     "https://github.com/kindrat86",
-    "https://github.com/kindrat86"
+    "https://www.instagram.com/sipiteno",
+    "https://www.facebook.com/sipiteno"
   ],
   "areaServed": [
     { "@type": "Country", "name": "Ukraine" },
