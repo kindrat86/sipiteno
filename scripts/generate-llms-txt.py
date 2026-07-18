@@ -9,11 +9,24 @@ from datetime import date
 
 REPO = Path("/Users/sipi/sipiteno")
 PUBLIC = REPO / "public"
+DIST = REPO / "dist"
 TODAY = date.today().isoformat()
 DOMAIN = "https://sipiteno.com"
 
-def count_dir(d):
+def _resolve(d):
+    """Prefer public/ (source), fall back to dist/ (build output).
+    Some page types (e.g. services, industries) are prerendered only into
+    dist/ and never staged in public/, so counting public/ alone reports 0."""
     p = PUBLIC / d
+    if p.is_dir() and any(x.is_dir() for x in p.iterdir()):
+        return p
+    dp = DIST / d
+    if dp.is_dir():
+        return dp
+    return p
+
+def count_dir(d):
+    p = _resolve(d)
     if p.is_dir():
         dirs = [x for x in p.iterdir() if x.is_dir()]
         return len(dirs)
@@ -21,7 +34,7 @@ def count_dir(d):
 
 def sample_links(d, n=5):
     """Return n sample links from a directory of pSEO pages."""
-    p = PUBLIC / d
+    p = _resolve(d)
     if not p.is_dir():
         return []
     dirs = sorted([x for x in p.iterdir() if x.is_dir()])

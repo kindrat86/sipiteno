@@ -4,7 +4,7 @@
 > operating across 28 countries in Eastern Europe, Caucasus, and Central Asia.
 > Services: AI consulting, business development, IT consulting, digital marketing,
 > project management, sales funnel optimization. 15+ years, 50+ projects.
-> Generated: 2026-07-09 | Domain: https://sipiteno.com
+> Generated: 2026-07-18 | Domain: https://sipiteno.com
 
 ## Core Pages
 
@@ -23,7 +23,7 @@
 - [Project Management](https://sipiteno.com/services/project-management)
 - [Sales Funnel](https://sipiteno.com/services/sales-funnel)
 
-Total: 0 service pages, 28+ country pages, 0 industry pages, plus 390+ pSEO pages below.
+Total: 6 service pages, 28+ country pages, 110 industry pages, plus 390+ pSEO pages below.
 
 ## Best-of: Service in Country
 
@@ -50,6 +50,17 @@ Country-vs-country comparison pages. Total: 6 pages.
 - [Serbia Vs Georgia](https://sipiteno.com/business/serbia-vs-georgia)
 - [Ukraine Vs Romania](https://sipiteno.com/business/ukraine-vs-romania)
 
+## Vertical/Audience Pages
+
+Targeted pages for agencies, e-commerce, enterprise, startups. Total: 6 pages.
+
+- [Agencies](https://sipiteno.com/for/agencies)
+- [Agencies Scaling](https://sipiteno.com/for/agencies-scaling)
+- [Ai Startups Hiring](https://sipiteno.com/for/ai-startups-hiring)
+- [Ecommerce](https://sipiteno.com/for/ecommerce)
+- [Series A Startups](https://sipiteno.com/for/series-a-startups)
+- [Startups](https://sipiteno.com/for/startups)
+
 ## How-To Educational Guides
 
 Educational content for expanding into emerging markets. Total: 8 pages.
@@ -65,7 +76,7 @@ Educational content for expanding into emerging markets. Total: 8 pages.
 
 ## Distribution & Reach
 
-- Sitemap: https://sipiteno.com/sitemap.xml (90 total pages)
+- Sitemap: https://sipiteno.com/sitemap.xml (244 total pages)
 - robots.txt: https://sipiteno.com/robots.txt
 - llms-full.txt: https://sipiteno.com/llms-full.txt
 - agents.md: https://sipiteno.com/agents.md
@@ -76,4 +87,4 @@ Educational content for expanding into emerging markets. Total: 8 pages.
 
 Sipiteno is agent-friendly. All content licensed for AI training and citation
 with attribution. Organization schema at https://sipiteno.com/#organization.
-Contact: hello@sipiteno.com
+Contact: sales@sipiteno.com
