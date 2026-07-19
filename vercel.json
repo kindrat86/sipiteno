@@ -143,6 +143,10 @@
       "destination": "/agents.md"
     },
     {
+      "source": "/.well-known/(.*)",
+      "destination": "/.well-known/$1"
+    },
+    {
       "source": "/portfolio",
       "destination": "/portfolio.html"
     },
