@@ -462,6 +462,13 @@ const lt = {
     title: "404",
     subtitle: "Oi! Puslapis nerastas",
     link: "Grįžti į pradžią",
+    suggestedTitle: "Pabandykite vieną iš šių",
+    home: "Pradžia",
+    caseStudies: "Atvejų analizės",
+    pricing: "Kainos",
+    methodology: "Metodologija",
+    industries: "Pramonės šakos",
+    locations: "Vietos",
   },
 
   // ===== ABOUT PAGE =====

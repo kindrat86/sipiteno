@@ -460,6 +460,13 @@ const es = {
     title: "404",
     subtitle: "¡Vaya! Página no encontrada",
     link: "Volver al inicio",
+    suggestedTitle: "Prueba una de estas opciones",
+    home: "Inicio",
+    caseStudies: "Casos de éxito",
+    pricing: "Precios",
+    methodology: "Metodología",
+    industries: "Industrias",
+    locations: "Ubicaciones",
   },
 
   // ===== ABOUT PAGE =====

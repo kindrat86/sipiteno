@@ -62,24 +62,24 @@ const caseStudies: CaseStudy[] = [
 
 const CaseStudies = () => {
   return (
-    <section id="case-studies" className="py-32 bg-gradient-to-br from-background via-muted/10 to-background relative overflow-hidden">
+    <section id="case-studies" className="py-section-lg bg-gradient-to-br from-background via-muted/10 to-background relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5" role="presentation" aria-hidden="true"></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 rounded-full bg-primary/10 border border-primary/20">
+        <div className="text-center mb-12 md:mb-20">
+          <div className="inline-flex items-center gap-3 mb-4 md:mb-6 px-4 md:px-6 py-2 md:py-3 rounded-full bg-primary/10 border border-primary/20">
             <TrendingUp className="w-5 h-5 text-primary" aria-hidden="true" />
-            <span className="text-primary font-semibold text-sm tracking-wide uppercase">
+            <span className="text-primary font-semibold text-xs md:text-sm tracking-wide uppercase">
               Proven Results
             </span>
           </div>
-          
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+
+          <h2 className="text-[clamp(2rem,4vw+0.5rem,3.75rem)] md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-tight">
             Case Studies
           </h2>
-          
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Real projects demonstrating Sipiteno's methodology and measurable outcomes across different industries and service types.
           </p>
         </div>

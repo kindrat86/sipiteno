@@ -22,6 +22,7 @@ const Contact = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   const validateForm = () => {
@@ -44,6 +45,7 @@ const Contact = () => {
       return;
     }
     setIsSubmitting(true);
+    setSubmitError(false);
     try {
       const resp = await fetch("/api/contact", {
         method: "POST",
@@ -56,6 +58,7 @@ const Contact = () => {
       toast({ title: t("contact.successToast"), description: t("contact.successToastDesc") });
     } catch {
       trackEvent("contact_form_failed", {});
+      setSubmitError(true);
       toast({ title: t("contact.errorTitle"), description: t("contact.errorDesc"), variant: "destructive" });
     } finally { setIsSubmitting(false); }
   };
@@ -102,18 +105,18 @@ const Contact = () => {
           <div className="bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm p-6 md:p-10 rounded-2xl md:rounded-3xl border-2 border-border shadow-xl md:shadow-2xl">
             <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-5 md:space-y-6">
               <div>
-                <Label htmlFor="fullName">{t("contact.fullName")} <span className="text-destructive">*</span></Label>
-                <Input id="fullName" value={formData.fullName} onChange={(e) => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} placeholder={t("contact.fullNamePlaceholder")} autoComplete="name" enterKeyHint="next" />
-                {errors.fullName && <p className="text-destructive text-sm mt-1">{errors.fullName}</p>}
+                <Label htmlFor="fullName">{t("contact.fullName")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
+                <Input id="fullName" required aria-required="true" aria-invalid={!!errors.fullName} aria-describedby={errors.fullName ? "fullName-error" : undefined} value={formData.fullName} onChange={(e) => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} placeholder={t("contact.fullNamePlaceholder")} autoComplete="name" enterKeyHint="next" />
+                {errors.fullName && <p id="fullName-error" className="text-destructive text-sm mt-1">{errors.fullName}</p>}
               </div>
               <div>
                 <Label htmlFor="companyName">{t("contact.companyName")}</Label>
                 <Input id="companyName" value={formData.companyName} onChange={(e) => handleChange("companyName", e.target.value)} placeholder={t("contact.companyNamePlaceholder")} autoComplete="organization" enterKeyHint="next" />
               </div>
               <div>
-                <Label htmlFor="email">{t("contact.email")} <span className="text-destructive">*</span></Label>
-                <Input id="email" type="email" value={formData.email} onChange={(e) => handleChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} placeholder={t("contact.emailPlaceholder")} autoComplete="email" />
-                {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
+                <Label htmlFor="email">{t("contact.email")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
+                <Input id="email" type="email" required aria-required="true" aria-invalid={!!errors.email} aria-describedby={errors.email ? "email-error" : undefined} value={formData.email} onChange={(e) => handleChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} placeholder={t("contact.emailPlaceholder")} autoComplete="email" />
+                {errors.email && <p id="email-error" className="text-destructive text-sm mt-1">{errors.email}</p>}
               </div>
               <div>
                 <Label htmlFor="phone">{t("contact.phone")}</Label>
@@ -149,18 +152,23 @@ const Contact = () => {
                 </Select>
               </div>
               <div>
-                <Label htmlFor="message">{t("contact.message")} <span className="text-destructive">*</span></Label>
-                <Textarea id="message" rows={5} value={formData.message} onChange={(e) => handleChange("message", e.target.value)}
+                <Label htmlFor="message">{t("contact.message")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
+                <Textarea id="message" rows={5} required aria-required="true" aria-invalid={!!errors.message || isCharError} aria-describedby={errors.message ? "message-error" : "message-charcount"} value={formData.message} onChange={(e) => handleChange("message", e.target.value)}
                   className={errors.message ? "border-destructive" : isCharError ? "border-destructive" : isCharWarning ? "border-amber-400" : ""}
                   placeholder={t("contact.messagePlaceholder")} />
                 <div className="flex items-center justify-between mt-1">
-                  {errors.message ? <p className="text-destructive text-sm">{errors.message}</p> : <span />}
-                  <p className={`text-sm ml-auto ${isCharError ? "text-destructive" : isCharWarning ? "text-amber-500" : "text-muted-foreground"}`}>
+                  {errors.message ? <p id="message-error" className="text-destructive text-sm">{errors.message}</p> : <span />}
+                  <p id="message-charcount" aria-live="polite" className={`text-sm ml-auto ${isCharError ? "text-destructive" : isCharWarning ? "text-amber-500" : "text-muted-foreground"}`}>
                     {charCount} {t("contact.charCount")}{charCount < 10 && ` ${t("contact.charMin")}`}{isCharError && t("contact.charTooLong")}
                   </p>
                 </div>
               </div>
               <input type="text" name="honeypot" value={formData.honeypot} onChange={(e) => handleChange("honeypot", e.target.value)} style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+              {submitError && (
+                <p role="alert" className="text-destructive text-sm text-center bg-destructive/10 border border-destructive/30 rounded-lg py-2 px-3">
+                  {t("contact.errorDesc")}
+                </p>
+              )}
               <Button type="submit" size="lg" variant="secondary" className="w-full font-semibold text-base md:text-lg h-12 md:h-14 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 disabled:hover:translate-y-0" disabled={isSubmitting}>
                 {isSubmitting ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{t("contact.sending")}</> : <><Mail className="w-5 h-5 mr-2" />{t("contact.submit")}</>}
               </Button>

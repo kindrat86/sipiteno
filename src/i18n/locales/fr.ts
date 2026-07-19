@@ -460,6 +460,13 @@ const fr = {
     title: "404",
     subtitle: "Oups ! Page non trouvée",
     link: "Retour à l'accueil",
+    suggestedTitle: "Essayez plutôt l'une de ces pages",
+    home: "Accueil",
+    caseStudies: "Études de cas",
+    pricing: "Tarifs",
+    methodology: "Méthodologie",
+    industries: "Secteurs",
+    locations: "Emplacements",
   },
 
   // ===== ABOUT PAGE =====

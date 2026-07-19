@@ -462,6 +462,13 @@ const ku = {
     title: "404",
     subtitle: "Oops! Rûpel nehat dîtin",
     link: "Vegere Rûpelê Serekî",
+    suggestedTitle: "Yek ji vana biceribîne",
+    home: "Serekî",
+    caseStudies: "Lêkolînên Rewşê",
+    pricing: "Biha",
+    methodology: "Rêbaz",
+    industries: "Pîşesazî",
+    locations: "Cîh",
   },
 
   // ===== ABOUT PAGE =====

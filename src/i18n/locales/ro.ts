@@ -462,6 +462,13 @@ const ro = {
     title: "404",
     subtitle: "Oops! Pagina nu a fost găsită",
     link: "Înapoi la Acasă",
+    suggestedTitle: "Încearcă una dintre acestea",
+    home: "Acasă",
+    caseStudies: "Studii de caz",
+    pricing: "Prețuri",
+    methodology: "Metodologie",
+    industries: "Industrii",
+    locations: "Locații",
   },
 
   // ===== ABOUT PAGE =====

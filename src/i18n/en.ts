@@ -542,6 +542,13 @@ const en = {
     title: "404",
     subtitle: "Oops! Page not found",
     link: "Return to Home",
+    suggestedTitle: "Try one of these instead",
+    home: "Home",
+    caseStudies: "Case Studies",
+    pricing: "Pricing",
+    methodology: "Methodology",
+    industries: "Industries",
+    locations: "Locations",
   },
 
   // ===== ABOUT PAGE =====

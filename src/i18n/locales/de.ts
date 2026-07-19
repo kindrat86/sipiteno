@@ -462,6 +462,13 @@ const de = {
     title: "404",
     subtitle: "Huch! Seite nicht gefunden",
     link: "Zurück zur Startseite",
+    suggestedTitle: "Probieren Sie stattdessen eine dieser Seiten",
+    home: "Startseite",
+    caseStudies: "Fallstudien",
+    pricing: "Preise",
+    methodology: "Methodik",
+    industries: "Branchen",
+    locations: "Standorte",
   },
 
   // ===== ABOUT PAGE =====

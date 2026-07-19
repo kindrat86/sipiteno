@@ -462,6 +462,13 @@ const it = {
     title: "404",
     subtitle: "Ops! Pagina non trovata",
     link: "Torna alla Home",
+    suggestedTitle: "Prova una di queste",
+    home: "Home",
+    caseStudies: "Casi studio",
+    pricing: "Prezzi",
+    methodology: "Metodologia",
+    industries: "Settori",
+    locations: "Sedi",
   },
 
   // ===== ABOUT PAGE =====

@@ -36,9 +36,23 @@ const Navigation = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Close open dropdown on outside click
+  useEffect(() => {
+    if (!openGroup) return;
+    const onClick = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenGroup(null);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [openGroup]);
 
   // Track scroll for nav background
   useEffect(() => {
@@ -50,7 +64,10 @@ const Navigation = () => {
   // Close mobile menu on Escape
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsMenuOpen(false);
+      if (e.key === "Escape") {
+        setIsMenuOpen(false);
+        setOpenGroup(null);
+      }
     };
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
@@ -59,10 +76,32 @@ const Navigation = () => {
   // Trap focus in mobile menu
   useEffect(() => {
     if (!isMenuOpen || !menuRef.current) return;
-    const firstFocusable = menuRef.current.querySelector<HTMLElement>(
-      "a, button, [tabindex]:not([tabindex='-1'])"
-    );
-    firstFocusable?.focus();
+    const focusable = () =>
+      menuRef.current
+        ? Array.from(
+            menuRef.current.querySelectorAll<HTMLElement>(
+              "a, button, [tabindex]:not([tabindex='-1'])"
+            )
+          )
+        : [];
+    focusable()[0]?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const items = focusable();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [isMenuOpen]);
 
   const scrollToSection = (id: string) => {
@@ -77,6 +116,7 @@ const Navigation = () => {
 
   const handleNavAction = (item: { labelKey: string; path: string; scroll?: boolean }) => {
     setIsMenuOpen(false);
+    setOpenGroup(null);
     if (item.path.startsWith("/#") && item.scroll) {
       const id = item.path.slice(2);
       scrollToSection(id);
@@ -109,35 +149,66 @@ const Navigation = () => {
 
           {/* Desktop Navigation — cleaner groups */}
           <div
+            ref={navRef}
             className="hidden md:flex items-center gap-1"
             role="menubar"
           >
-            {navItems.map((group) => (
-              <div key={group.groupKey} className="relative group">
-                <button
-                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted/50"
-                  aria-haspopup="true"
-                >
-                  {t(group.groupKey)}
-                  <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
-                </button>
-                <div className="absolute top-full left-0 mt-1 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-150 translate-y-1 group-hover:translate-y-0 group-focus-within:translate-y-0">
-                  <div className="bg-card border border-border rounded-xl shadow-xl p-1.5 space-y-0.5">
-                    {group.items.map((item) => (
-                      <button
-                        key={item.labelKey}
-                        onClick={() => handleNavAction(item)}
-                        className="w-full text-left px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-                        role="menuitem"
-                      >
-                        {t(item.labelKey)}
-                      </button>
-                    ))}
+            {navItems.map((group) => {
+              const isOpen = openGroup === group.groupKey;
+              return (
+                <div key={group.groupKey} className="relative group">
+                  <button
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted/50"
+                    aria-haspopup="true"
+                    aria-expanded={isOpen}
+                    onClick={() =>
+                      setOpenGroup(isOpen ? null : group.groupKey)
+                    }
+                  >
+                    {t(group.groupKey)}
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform group-hover:rotate-180 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <div
+                    className={`absolute top-full left-0 mt-1 w-48 transition-all duration-150 translate-y-1 group-hover:translate-y-0 group-focus-within:translate-y-0 group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible ${
+                      isOpen
+                        ? "opacity-100 visible translate-y-0"
+                        : "opacity-0 invisible"
+                    }`}
+                  >
+                    <div className="bg-card border border-border rounded-xl shadow-xl p-1.5 space-y-0.5">
+                      {group.items.map((item) => (
+                        <button
+                          key={item.labelKey}
+                          onClick={() => handleNavAction(item)}
+                          className="w-full text-left px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+                          role="menuitem"
+                        >
+                          {t(item.labelKey)}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
+            <button
+              onClick={() => handleNavAction({ labelKey: "nav.contact", path: "/#contact", scroll: true })}
+              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted/50"
+            >
+              {t("nav.contact")}
+            </button>
             <LanguageSwitcher />
+            <Button
+              size="sm"
+              className="ml-1 font-semibold"
+              onClick={() => navigate("/#free-playbook")}
+            >
+              Get the Free Playbook
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
