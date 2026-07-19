@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Register a Trusted Types default policy. The CSP enforces
+         require-trusted-types-for 'script' with no policy registered, which
+         makes any innerHTML/script.src assignment anywhere in the app (React
+         internals, third-party pixels) throw and crash the whole page. Must
+         be the very first script so it runs before anything else. -->
+    <script>
+      if (window.trustedTypes && window.trustedTypes.createPolicy) {
+        window.trustedTypes.createPolicy('default', {
+          createHTML: (s) => s,
+          createScript: (s) => s,
+          createScriptURL: (s) => s,
+        });
+      }
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
