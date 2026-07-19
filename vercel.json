@@ -206,7 +206,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://eu.i.posthog.com https://us.i.posthog.com https://www.clarity.ms https://scripts.clarity.ms https://snap.licdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://*.supabase.co https://eu.i.posthog.com https://us.i.posthog.com https://eu-assets.i.posthog.com https://us-assets.i.posthog.com https://www.clarity.ms https://e.clarity.ms https://report.clarity.ms https://px.ads.linkedin.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://eu.i.posthog.com https://us.i.posthog.com https://www.clarity.ms https://scripts.clarity.ms https://snap.licdn.com https://px.ads.linkedin.com https://www.linkedin.com https://connect.facebook.net https://www.facebook.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://*.supabase.co https://eu.i.posthog.com https://us.i.posthog.com https://eu-assets.i.posthog.com https://us-assets.i.posthog.com https://www.clarity.ms https://e.clarity.ms https://report.clarity.ms https://px.ads.linkedin.com https://www.linkedin.com https://connect.facebook.net https://www.facebook.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -215,6 +215,19 @@
         {
           "key": "Cross-Origin-Resource-Policy",
           "value": "same-site"
+        }
+      ]
+    },
+    {
+      "source": "/embed/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "ALLOWALL"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; style-src 'unsafe-inline'; img-src https: data:; frame-ancestors *"
         }
       ]
     },
