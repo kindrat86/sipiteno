@@ -28,6 +28,13 @@ for d in for alternatives-to vs glossary free; do
     cp "${sub}index.html" "dist/${sub}index.html"
   done
 done
+# Copy the embeddable widget farm (portfolio-network + tool widgets) so the
+# next `rm -rf dist && vite build` does not nuke them. Vite's build pipeline
+# does not carry /embed/* into dist/ on its own.
+if [ -d "embed" ]; then
+  mkdir -p "dist/embed/tools"
+  cp -R embed/. dist/embed/
+fi
 echo "Copied sipiteno pSEO pages: $(find dist -name 'index.html' | wc -l) total"
 # Deploy the branded 404 page (Vercel serves dist/404.html for unmatched routes)
 cp 404.html dist/404.html
