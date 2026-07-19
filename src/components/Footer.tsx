@@ -122,6 +122,16 @@ const Footer = () => {
                   {t("footer.linkedin")}
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://x.com/sipiteno"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                >
+                  X / Twitter
+                </a>
+              </li>
             </ul>
             <div className="mt-4">
               <LanguageSwitcher />
