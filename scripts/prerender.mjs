@@ -508,7 +508,7 @@ const corePages = [
   {
     path: [],
     title: "Sipiteno - Strategic Business Development & AI Consulting | Europe, Caucasus, Central Asia",
-    description: "Sipiteno provides expert business development, AI consulting, IT solutions, and MicroSaaS MVP development across 28 countries. 15+ years experience, 50+ successful projects.",
+    description: "Business development and AI consulting for startups expanding across 28 countries. 15+ years experience, 50+ projects. MicroSaaS MVPs delivered in 4-8 weeks.",
     canonicalUrl: "https://sipiteno.com/",
     schemas: [orgSchema, webSiteSchema, faqSchema],
     breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }],
