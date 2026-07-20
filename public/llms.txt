@@ -82,9 +82,25 @@ Educational content for expanding into emerging markets. Total: 8 pages.
 - [Set Up Legal Entity Caucasus](https://sipiteno.com/how-to/set-up-legal-entity-caucasus)
 - [Validate Market Demand Emerging Markets](https://sipiteno.com/how-to/validate-market-demand-emerging-markets)
 
+## Free Interactive Tools
+
+- [Market Entry Scorecard](https://sipiteno.com/market-entry-scorecard): Score all 28 emerging markets for your product in 60 seconds. Free, no sign-up.
+- [Free Resources Hub](https://sipiteno.com/free/): AI readiness assessment, automation audit, ROI calculator.
+
+## Market Entry Guides (Industry × Country)
+
+252 industry-specific market entry guides covering 9 industries across 28 countries:
+
+- [Expand SaaS to Poland](https://sipiteno.com/expand-to/saas-software/poland)
+- [Expand Fintech to Lithuania](https://sipiteno.com/expand-to/fintech-financial-services/lithuania)
+- [Expand AI/ML to Estonia](https://sipiteno.com/expand-to/ai-machine-learning/estonia)
+- [Expand to Georgia (SaaS)](https://sipiteno.com/expand-to/saas-software/georgia)
+- [Expand E-Commerce to Romania](https://sipiteno.com/expand-to/ecommerce-retail-tech/romania)
+- ...and 247 more at [All Market Entry Guides](https://sipiteno.com/expand-to/)
+
 ## Distribution & Reach
 
-- Sitemap: https://sipiteno.com/sitemap.xml (250 total pages)
+- Sitemap: https://sipiteno.com/sitemap.xml (500+ total pages)
 - robots.txt: https://sipiteno.com/robots.txt
 - llms-full.txt: https://sipiteno.com/llms-full.txt
 - agents.md: https://sipiteno.com/agents.md

@@ -175,6 +175,38 @@
       "destination": "/embed/tools/:slug.html"
     },
     {
+      "source": "/embed/market-scorecard",
+      "destination": "/embed/market-scorecard.html"
+    },
+    {
+      "source": "/market-entry-scorecard",
+      "destination": "/market-entry-scorecard.html"
+    },
+    {
+      "source": "/expand-to",
+      "destination": "/expand-to/index.html"
+    },
+    {
+      "source": "/expand-to/",
+      "destination": "/expand-to/index.html"
+    },
+    {
+      "source": "/expand-to/:industry",
+      "destination": "/expand-to/:industry/index.html"
+    },
+    {
+      "source": "/expand-to/:industry/",
+      "destination": "/expand-to/:industry/index.html"
+    },
+    {
+      "source": "/expand-to/:industry/:market",
+      "destination": "/expand-to/:industry/:market/index.html"
+    },
+    {
+      "source": "/expand-to/:industry/:market/",
+      "destination": "/expand-to/:industry/:market/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
