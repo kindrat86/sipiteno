@@ -223,7 +223,11 @@
       "destination": "/data/$1/index.html"
     },
     {
-      "source": "/:locale/:path*",
+      "source": "/:locale(de|es|fr|it|ku|lt|ro)",
+      "destination": "/:locale/index.html"
+    },
+    {
+      "source": "/:locale(de|es|fr|it|ku|lt|ro)/:path*",
       "destination": "/:locale/:path*/index.html"
     },
     {
