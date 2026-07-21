@@ -465,15 +465,7 @@ const orgSchema = {
     "Technical Recruitment",
     "Agile Project Management",
     "Software Product Development"
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": 50,
-    "reviewCount": 50
-  }
+  ]
 };
 
 // WebSite schema — required by Google for Sitelinks Searchbox
