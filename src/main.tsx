@@ -2,15 +2,22 @@ import { createRoot } from "react-dom/client";
 import { initPostHogDeferred } from "./lib/posthog";
 import { initClarityDeferred } from "./lib/clarity";
 import { trackAiReferral } from "./lib/analytics";
+import { hasConsented, getConsent } from "./lib/consent";
 import "./i18n";
 import App from "./App.tsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(<App />);
 
-// Analytics load at idle, after first paint — posthog-js alone was ~30% of
-// the render-critical bundle when imported synchronously here.
-initPostHogDeferred();
-initClarityDeferred();
-// Capture AI referrer once on first load (ChatGPT/Perplexity/Gemini/etc.).
-trackAiReferral();
+// Only fire trackers if consent was previously given.
+// The CookieConsent banner handles first-time consent + re-init.
+if (hasConsented()) {
+  const consent = getConsent()!;
+  if (consent.analytics) {
+    initPostHogDeferred();
+    trackAiReferral();
+  }
+  if (consent.experience) {
+    initClarityDeferred();
+  }
+}

@@ -9,6 +9,7 @@ import type posthogType from "posthog-js";
 type CaptureArgs = [string, Record<string, string> | undefined];
 
 let client: typeof posthogType | null = null;
+let initialized = false;
 const queue: CaptureArgs[] = [];
 
 export function capture(name: string, properties?: Record<string, string>) {
@@ -20,6 +21,8 @@ export function capture(name: string, properties?: Record<string, string>) {
 }
 
 export function initPostHogDeferred(): void {
+  if (initialized) return;
+  initialized = true;
   const load = () => {
     import("posthog-js").then(({ default: posthog }) => {
       posthog.init(import.meta.env.VITE_POSTHOG_KEY || "phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX", {
