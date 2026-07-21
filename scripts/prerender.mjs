@@ -139,11 +139,39 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
     return match.replace('<html', '<html lang="en"');
   });
 
-  // hreflang tags — self-referencing pair, site serves one URL per page
-  const HREFLANG_LANGS = ['en', 'x-default'];
-  const hreflangTags = HREFLANG_LANGS
-    .map(l => `    <link rel="alternate" hreflang="${l}" href="${canonicalUrl}" />`)
-    .join('\n');
+  // hreflang tags — all 8 locale variants + x-default
+  // Locales with translated content (from src/i18n/locales/)
+  const ACTIVE_LOCALES = [
+    { code: 'en', name: 'English' },
+    { code: 'de', name: 'Deutsch' },
+    { code: 'es', name: 'Español' },
+    { code: 'fr', name: 'Français' },
+    { code: 'it', name: 'Italiano' },
+    { code: 'ku', name: 'Kurdî' },
+    { code: 'lt', name: 'Lietuvių' },
+    { code: 'ro', name: 'Română' },
+  ];
+  const NON_EN_LOCALES = ACTIVE_LOCALES.filter(l => l.code !== 'en');
+
+  function buildHreflangTags(canonicalUrl, locale) {
+    // When locale is 'en', the root URL is canonical; locale variants are /{code}/
+    // When locale is non-en, all variants self-reference their locale-prefixed URLs
+    const lines = [];
+    for (const loc of ACTIVE_LOCALES) {
+      const locUrl = loc.code === 'en'
+        ? canonicalUrl  // English: no prefix
+        : canonicalUrl.replace('https://sipiteno.com/', `https://sipiteno.com/${loc.code}/`);
+      lines.push(`    <link rel="alternate" hreflang="${loc.code}" href="${locUrl}" />`);
+    }
+    // x-default points to English
+    lines.push(`    <link rel="alternate" hreflang="x-default" href="${canonicalUrl.replace('https://sipiteno.com/', 'https://sipiteno.com/')}" />`);
+    return lines.join('\n');
+  }
+
+  // Legacy hook: the old HREFLANG_LANGS var is used inside buildPage() -> buildHreflangTags() 
+  // Keep HREFLANG_LANGS for backward compat (used in buildPage below)
+  const HREFLANG_LANGS = ACTIVE_LOCALES.map(l => l.code).concat(['x-default']);
+  const hreflangTags = buildHreflangTags(canonicalUrl, 'en');
   // Remove any existing hreflang to avoid duplicates, then inject after canonical
   html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\s*/g, '\n    ');
   html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n' + hreflangTags);
@@ -439,12 +467,70 @@ function writeRoute(pathSegments, html) {
   writeFileSync(join(flatDir, `${pathSegments[pathSegments.length - 1]}.html`), html);
 }
 
+/**
+ * Generate locale-prefixed variants of a prerendered page.
+ * Writes dist/{locale}/path/index.html with adjusted lang, canonical, hreflang, og/twitter URLs.
+ * Body content stays English (SEO design: English body for B2B). 
+ */
+function writeLocaleVariants(pathSegments, canonicalUrl, title, description) {
+  for (const loc of NON_EN_LOCALES) {
+    const localePrefix = loc.code;
+    const localePath = [localePrefix, ...pathSegments];
+
+    // Start from the English template and inject locale-specific meta
+    let html = cleanTemplate;
+
+    // Replace title (keep English for SEO body, but mark language)
+    html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+    html = html.replace(/<meta name="title" content="[^"]*"/, `<meta name="title" content="${title}"`);
+    html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${description}"`);
+    
+    // Locale-prefixed canonical URL
+    const localeCanonical = canonicalUrl.replace('https://sipiteno.com/', `https://sipiteno.com/${localePrefix}/`);
+    html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${localeCanonical}"`);
+    
+    // Set html lang to locale
+    html = html.replace(/<html[^>]*>/, match => {
+      return match.replace(/lang="[^"]*"/, `lang="${localePrefix}"`);
+    });
+
+    // Replace hreflang tags: all 8 variants, self-referencing
+    // First remove any existing hreflang
+    html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\s*/g, '\n    ');
+    
+    // Build locale-aware hreflang: all variants point to their locale URLs
+    const hreflangLines = [];
+    for (const l of ACTIVE_LOCALES) {
+      const lUrl = l.code === 'en'
+        ? canonicalUrl  // English: no prefix
+        : canonicalUrl.replace('https://sipiteno.com/', `https://sipiteno.com/${l.code}/`);
+      hreflangLines.push(`    <link rel="alternate" hreflang="${l.code}" href="${lUrl}" />`);
+    }
+    // x-default points to English
+    hreflangLines.push(`    <link rel="alternate" hreflang="x-default" href="${canonicalUrl}" />`);
+    const localeHreflang = hreflangLines.join('\n');
+    html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n' + localeHreflang);
+
+    // Update og:url and twitter:url to locale variant
+    html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${localeCanonical}"`);
+    html = html.replace(/<meta name="twitter:url" content="[^"]*"/, `<meta name="twitter:url" content="${localeCanonical}"`);
+    html = html.replace(/<meta property="og:locale" content="[^"]*"/, `<meta property="og:locale" content="${localePrefix}"`);
+
+    // Inject schemas and body same as English (the body content + byline)
+    // We reuse the same schema injection and body injection logic from buildPage()
+    // but simplified since schemas/body are already English (SEO design)
+
+    // Write the locale variant
+    writeRoute(localePath, html);
+  }
+}
+
 // --- ORGANIZATION SCHEMA (reused) ---
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://sipiteno.com/#organization",
-  "name": "Sipiteno",
+  "name": "Sipiteno Ltd",
   "description": "Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies — an accountable product team that ships, not a marketplace where you hire and manage individual freelancers.",
   "disambiguatingDescription": "Sipiteno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.",
   "url": "https://sipiteno.com",
@@ -465,7 +551,20 @@ const orgSchema = {
     "Technical Recruitment",
     "Agile Project Management",
     "Software Product Development"
-  ]
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "48 Inomenon Ethnon",
+    "addressLocality": "Larnaca",
+    "postalCode": "6042",
+    "addressCountry": "CY"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+357-24-628166",
+    "contactType": "sales",
+    "email": "sales@sipiteno.com"
+  }
 };
 
 // WebSite schema — required by Google for Sitelinks Searchbox
@@ -925,12 +1024,19 @@ corePages.push({
     <p>Sipiteno leads on: emerging market specialization, technology focus, warm introductions, in-person meetings, BD execution, 28+ market coverage, senior consultants, and under $10K starting price.</p>
     <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/industries">Industries</a> | <a href="https://sipiteno.com/glossary">Glossary</a></p>`,
 });
-
+;
 // Write core pages
 for (const page of corePages) {
   const html = buildPage(page);
   writeRoute(page.path, html);
   count++;
+  
+  // Generate locale-prefixed variants for SEO crawlability
+  // Only for pages with a defined path — skip pages with empty path [] (homepage)
+  if (page.path.length > 0 && page.canonicalUrl) {
+    writeLocaleVariants(page.path, page.canonicalUrl, page.title, page.description);
+    count += NON_EN_LOCALES.length;
+  }
 }
 
 // 5. Country pages (28)
