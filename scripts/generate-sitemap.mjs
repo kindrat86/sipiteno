@@ -91,10 +91,17 @@ const urlEntries = sortedUrls.map(url => {
     priority = '0.9';
     changefreq = 'monthly';
   } else if (url.includes('/locations/') && url.split('/').length === 6) {
-    // Country + service pages
+    // Country + service pages (SPA routes)
     priority = '0.8';
     changefreq = 'monthly';
   } else if (url.includes('/locations/') || url === BASE + '/locations') {
+    priority = '0.7';
+    changefreq = 'monthly';
+  // Static country+service pages at /{country}/{service} (pSEO gen)
+  } else if (url.split('/').length === 5 && !url.includes('/locations/') && !url.includes('/services/') && !url.includes('/api/') && !url.includes('/vs/') && !url.includes('/for/') && !url.includes('/glossary/') && !url.includes('/best/') && !url.includes('/learn/')) {
+    priority = '0.8';
+    changefreq = 'monthly';
+  } else if (url === BASE + '/locations') {
     priority = '0.7';
     changefreq = 'monthly';
   } else if (url.includes('/alternatives-to/') || url.includes('/vs/') || url.includes('/for/')) {
