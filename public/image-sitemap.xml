@@ -4,10 +4,6 @@
   <url>
     <loc>https://sipiteno.com/</loc>
       <image:image>
-        <image:loc>https://px.ads.linkedin.com/collect/?pid=6891888&amp;fmt=gif</image:loc>
-        <image:title>Sipiteno</image:title>
-      </image:image>
-      <image:image>
         <image:loc>https://sipiteno.com/og-image.png</image:loc>
         <image:title>Sipiteno</image:title>
       </image:image>
@@ -15,20 +11,12 @@
   <url>
     <loc>https://sipiteno.com/about</loc>
       <image:image>
-        <image:loc>https://px.ads.linkedin.com/collect/?pid=6891888&amp;fmt=gif</image:loc>
-        <image:title>Sipiteno</image:title>
-      </image:image>
-      <image:image>
         <image:loc>https://sipiteno.com/og-image.png</image:loc>
         <image:title>Sipiteno</image:title>
       </image:image>
   </url>
   <url>
     <loc>https://sipiteno.com/alternatives</loc>
-      <image:image>
-        <image:loc>https://px.ads.linkedin.com/collect/?pid=6891888&amp;fmt=gif</image:loc>
-        <image:title>Sipiteno</image:title>
-      </image:image>
       <image:image>
         <image:loc>https://sipiteno.com/og-image.png</image:loc>
         <image:title>Sipiteno</image:title>
