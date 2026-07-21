@@ -64,11 +64,11 @@
     },
     {
       "source": "/alternatives",
-      "destination": "/index.html"
+      "destination": "/alternatives.html"
     },
     {
       "source": "/alternatives/",
-      "destination": "/index.html"
+      "destination": "/alternatives.html"
     },
     {
       "source": "/vs/:slug",
@@ -205,6 +205,22 @@
     {
       "source": "/expand-to/:industry/:market/",
       "destination": "/expand-to/:industry/:market/index.html"
+    },
+    {
+      "source": "/data",
+      "destination": "/data/index.html"
+    },
+    {
+      "source": "/data/",
+      "destination": "/data/index.html"
+    },
+    {
+      "source": "/data/(.*)/",
+      "destination": "/data/$1/index.html"
+    },
+    {
+      "source": "/data/(.*)",
+      "destination": "/data/$1/index.html"
     },
     {
       "source": "/(.*)",

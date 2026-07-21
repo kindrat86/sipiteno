@@ -507,7 +507,7 @@ let count = 0;
 const corePages = [
   {
     path: [],
-    title: "Sipiteno - Strategic Business Development & AI Consulting | Europe, Caucasus, Central Asia",
+    title: "Sipiteno — AI Consulting & Business Development Across 28 Countries",
     description: "Business development and AI consulting for startups expanding across 28 countries. 15+ years experience, 50+ projects. MicroSaaS MVPs delivered in 4-8 weeks.",
     canonicalUrl: "https://sipiteno.com/",
     schemas: [orgSchema, webSiteSchema, faqSchema],
@@ -681,6 +681,21 @@ const corePages = [
         "email": "sales@sipiteno.com",
         "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
       }]
+    }, {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://sipiteno.com/about/#person",
+      "name": "Sipi Teno",
+      "givenName": "Sipi",
+      "familyName": "Teno",
+      "jobTitle": "Founder & Principal Consultant",
+      "worksFor": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "description": "Founder of Sipiteno, a digital product studio and business development consultancy operating across 28 emerging markets since 2009. 15+ years delivering AI consulting, MicroSaaS MVP development, and market entry strategy for technology companies.",
+      "knowsAbout": ["Market Entry Strategy", "AI Implementation", "MicroSaaS Development", "Business Development", "Digital Transformation", "Emerging Markets"],
+      "sameAs": [
+        "https://www.linkedin.com/company/34765968",
+        "https://github.com/kindrat86"
+      ]
     }, {
       "@context": "https://schema.org",
       "@type": "AboutPage",

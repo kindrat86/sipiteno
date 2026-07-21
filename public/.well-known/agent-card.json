@@ -1,10 +1,9 @@
 {
   "protocolVersion": "0.3.0",
   "name": "Sipiteno Agent",
-  "description": "Sipiteno is a growth partner for B2B SaaS companies. Services: AI consulting, business development, digital marketing, IT consulting, project management, sales funnel optimization. Industry verticals: fintech, healthcare/medtech, ecommerce, cybersecurity, manufacturing, logistics, agtech, energy, Sa",
-  "url": "https://sipiteno.com",
+  "description": "Growth consulting for SaaS founders. Data-driven strategies for organic traffic, conversion optimization, and scaling from 0 to 10K users.",
+  "url": "https://sipiteno.com/api/a2a",
   "preferredTransport": "JSONRPC",
-  "iconUrl": "https://sipiteno.com/icon.png",
   "version": "1.0.0",
   "capabilities": {
     "streaming": false,
@@ -19,20 +18,37 @@
     "text/plain",
     "application/json"
   ],
-  "skills": [],
-  "attribution": "Sipiteno, https://sipiteno.com",
-  "content": [
+  "skills": [
     {
-      "title": "Sipiteno \u2014 Growth Consulting",
-      "url": "https://sipiteno.com/",
-      "description": "Growth strategy, automation, and execution for SaaS startups.",
-      "type": "homepage"
+      "id": "growth_audit",
+      "name": "Growth Audit",
+      "description": "Comprehensive growth audit covering SEO, conversion rate, traffic sources, content gaps, and competitive positioning.",
+      "tags": [
+        "growth",
+        "audit",
+        "saas",
+        "consulting",
+        "seo"
+      ],
+      "examples": [
+        "Audit my SaaS growth",
+        "What's blocking my growth?"
+      ]
     },
     {
-      "title": "Sipiteno Services",
-      "url": "https://sipiteno.com/services",
-      "description": "AI consulting, business development, digital marketing, sales funnel optimization.",
-      "type": "services"
+      "id": "traffic_strategy",
+      "name": "Traffic Strategy",
+      "description": "Generate a prioritized traffic acquisition strategy based on current channels, budget, and competitive landscape.",
+      "tags": [
+        "traffic",
+        "seo",
+        "strategy",
+        "acquisition"
+      ],
+      "examples": [
+        "How do I get more traffic?",
+        "Create a traffic strategy"
+      ]
     }
   ]
 }
