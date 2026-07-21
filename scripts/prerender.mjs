@@ -139,14 +139,8 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
     return match.replace('<html', '<html lang="en"');
   });
 
-  // hreflang tags — expanded for all 28+ target languages so Google knows
-  // client-side translated versions exist. The x-default points at English.
-  const HREFLANG_LANGS = [
-    'en', 'en-US', 'x-default',
-    'sq', 'hy', 'az', 'bs', 'bg', 'hr', 'cs', 'et', 'ka', 'el', 'hu',
-    'kk', 'ky', 'lv', 'lt', 'mk', 'pl', 'ro', 'ru', 'sr', 'sk', 'sl',
-    'es', 'de', 'fr', 'it', 'tr', 'uk', 'uz',
-  ];
+  // hreflang tags — self-referencing pair, site serves one URL per page
+  const HREFLANG_LANGS = ['en', 'x-default'];
   const hreflangTags = HREFLANG_LANGS
     .map(l => `    <link rel="alternate" hreflang="${l}" href="${canonicalUrl}" />`)
     .join('\n');
