@@ -1,8 +1,10 @@
 #!/bin/bash
 # Copy pSEO country×service combo pages into dist/
-for country in serbia kazakhstan azerbaijan ukraine poland georgia uzbekistan armenia romania bulgaria croatia montenegro greece indonesia portugal slovakia albania bosnia-and-herzegovina cyprus czech-republic estonia ethiopia hungary india kyrgyzstan latvia lithuania moldova north-macedonia slovenia; do
-  for svc in ai-consulting mvp-development digital-transformation market-entry b2b-partnerships tech-recruiting; do
-    test -f "$country/$svc/index.html" && mkdir -p "dist/$country/$svc" && cp "$country/$svc/index.html" "dist/$country/$svc/index.html"
+# Uses cp -n (no-clobber) to preserve richer pages already placed by
+# the pSEO static generator (_gen_country_services.py → public/ → dist/)
+for country in albania armenia azerbaijan bosnia-and-herzegovina bulgaria croatia cyprus czech-republic estonia ethiopia georgia greece hungary india kazakhstan kyrgyzstan latvia lithuania moldova montenegro north-macedonia poland romania serbia slovakia slovenia ukraine uzbekistan; do
+  for svc in ai-consulting business-development digital-marketing it-consulting project-management sales-funnel; do
+    test -f "$country/$svc/index.html" && mkdir -p "dist/$country/$svc" && cp -n "$country/$svc/index.html" "dist/$country/$svc/index.html" 2>/dev/null
   done
 done
 # Copy learn pages
