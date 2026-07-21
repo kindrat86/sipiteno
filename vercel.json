@@ -3,6 +3,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/google:hash([a-f0-9]+).html",
+      "destination": "/google:hash.html"
+    },
+    {
       "source": "/calculator",
       "destination": "/calculator.html"
     },
