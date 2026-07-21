@@ -80,6 +80,34 @@ const INDUSTRIES = [
 
 // --- HELPERS ---
 
+// Locales with translated content (from src/i18n/locales/)
+// Must be module-scoped so both buildPage() and writeLocaleVariants() can access them.
+const ACTIVE_LOCALES = [
+  { code: 'en', name: 'English' },
+  { code: 'de', name: 'Deutsch' },
+  { code: 'es', name: 'Español' },
+  { code: 'fr', name: 'Français' },
+  { code: 'it', name: 'Italiano' },
+  { code: 'ku', name: 'Kurdî' },
+  { code: 'lt', name: 'Lietuvių' },
+  { code: 'ro', name: 'Română' },
+];
+const NON_EN_LOCALES = ACTIVE_LOCALES.filter(l => l.code !== 'en');
+
+function buildHreflangTags(canonicalUrl) {
+  // Build hreflang tags for the English (root) URL.
+  // Each locale variant points to its /{locale}/ prefixed URL.
+  const lines = [];
+  for (const loc of ACTIVE_LOCALES) {
+    const locUrl = loc.code === 'en'
+      ? canonicalUrl
+      : canonicalUrl.replace('https://sipiteno.com/', `https://sipiteno.com/${loc.code}/`);
+    lines.push(`    <link rel="alternate" hreflang="${loc.code}" href="${locUrl}" />`);
+  }
+  lines.push(`    <link rel="alternate" hreflang="x-default" href="${canonicalUrl}" />`);
+  return lines.join('\n');
+}
+
 function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs, ogType = 'website', noindex = false, bodyContent = '' }) {
   // Always carry an Organization schema (with canonical disambiguation) on every
   // page — prepend orgSchema unless the caller already supplied an Organization.
@@ -139,39 +167,8 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
     return match.replace('<html', '<html lang="en"');
   });
 
-  // hreflang tags — all 8 locale variants + x-default
-  // Locales with translated content (from src/i18n/locales/)
-  const ACTIVE_LOCALES = [
-    { code: 'en', name: 'English' },
-    { code: 'de', name: 'Deutsch' },
-    { code: 'es', name: 'Español' },
-    { code: 'fr', name: 'Français' },
-    { code: 'it', name: 'Italiano' },
-    { code: 'ku', name: 'Kurdî' },
-    { code: 'lt', name: 'Lietuvių' },
-    { code: 'ro', name: 'Română' },
-  ];
-  const NON_EN_LOCALES = ACTIVE_LOCALES.filter(l => l.code !== 'en');
-
-  function buildHreflangTags(canonicalUrl, locale) {
-    // When locale is 'en', the root URL is canonical; locale variants are /{code}/
-    // When locale is non-en, all variants self-reference their locale-prefixed URLs
-    const lines = [];
-    for (const loc of ACTIVE_LOCALES) {
-      const locUrl = loc.code === 'en'
-        ? canonicalUrl  // English: no prefix
-        : canonicalUrl.replace('https://sipiteno.com/', `https://sipiteno.com/${loc.code}/`);
-      lines.push(`    <link rel="alternate" hreflang="${loc.code}" href="${locUrl}" />`);
-    }
-    // x-default points to English
-    lines.push(`    <link rel="alternate" hreflang="x-default" href="${canonicalUrl.replace('https://sipiteno.com/', 'https://sipiteno.com/')}" />`);
-    return lines.join('\n');
-  }
-
-  // Legacy hook: the old HREFLANG_LANGS var is used inside buildPage() -> buildHreflangTags() 
-  // Keep HREFLANG_LANGS for backward compat (used in buildPage below)
-  const HREFLANG_LANGS = ACTIVE_LOCALES.map(l => l.code).concat(['x-default']);
-  const hreflangTags = buildHreflangTags(canonicalUrl, 'en');
+  // hreflang tags — all 8 locale variants + x-default (uses module-scoped ACTIVE_LOCALES)
+  const hreflangTags = buildHreflangTags(canonicalUrl);
   // Remove any existing hreflang to avoid duplicates, then inject after canonical
   html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\s*/g, '\n    ');
   html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n' + hreflangTags);
@@ -1037,6 +1034,15 @@ for (const page of corePages) {
     writeLocaleVariants(page.path, page.canonicalUrl, page.title, page.description);
     count += NON_EN_LOCALES.length;
   }
+}
+
+// 4d. Generate locale variants for the homepage (path: [] was skipped in the loop)
+{
+  const HOME_TITLE = "Sipiteno — AI Consulting & Business Development Across 28 Countries";
+  const HOME_DESC = "Business development and AI consulting for startups expanding across 28 countries. 15+ years experience, 50+ projects. MicroSaaS MVPs delivered in 4-8 weeks.";
+  const HOME_CANONICAL = "https://sipiteno.com/";
+  writeLocaleVariants([], HOME_CANONICAL, HOME_TITLE, HOME_DESC);
+  count += NON_EN_LOCALES.length;
 }
 
 // 5. Country pages (28)
