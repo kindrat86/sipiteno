@@ -1,6 +1,10 @@
+/* eslint-disable */
 // Marketing pixels that fire ONLY after consent is granted.
 // Called from the CookieConsent banner's accept flow.
 // These are ad-network retargeting pixels, not product analytics.
+// NOTE: eslint is disabled for this file — the code is vendor-provided
+// pixel loader IIFEs (Meta/Reddit/LinkedIn) that intentionally use
+// `var`, `arguments`, `.apply()`, and `any` types.
 
 let fired = false;
 
