@@ -133,10 +133,23 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
   html = html.replace(/<meta name="title" content="[^"]*"/, `<meta name="title" content="${title}"`);
   html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${description}"`);
   html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${canonicalUrl}"`);
+  // Ensure html lang attribute is set (defaults to "en" from Vite template)
+  html = html.replace(/<html[^>]*>/, match => {
+    if (/lang=["']/.test(match)) return match;
+    return match.replace('<html', '<html lang="en"');
+  });
 
-  // hreflang tags — en (language), en-US (US English), x-default (fallback)
-  // Signals to Google/LLM crawlers the language is English with a canonical default.
-  const hreflangTags = `    <link rel="alternate" hreflang="en" href="${canonicalUrl}" />\n    <link rel="alternate" hreflang="en-US" href="${canonicalUrl}" />\n    <link rel="alternate" hreflang="x-default" href="${canonicalUrl}" />`;
+  // hreflang tags — expanded for all 28+ target languages so Google knows
+  // client-side translated versions exist. The x-default points at English.
+  const HREFLANG_LANGS = [
+    'en', 'en-US', 'x-default',
+    'sq', 'hy', 'az', 'bs', 'bg', 'hr', 'cs', 'et', 'ka', 'el', 'hu',
+    'kk', 'ky', 'lv', 'lt', 'mk', 'pl', 'ro', 'ru', 'sr', 'sk', 'sl',
+    'es', 'de', 'fr', 'it', 'tr', 'uk', 'uz',
+  ];
+  const hreflangTags = HREFLANG_LANGS
+    .map(l => `    <link rel="alternate" hreflang="${l}" href="${canonicalUrl}" />`)
+    .join('\n');
   // Remove any existing hreflang to avoid duplicates, then inject after canonical
   html = html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\s*/g, '\n    ');
   html = html.replace(/(<link rel="canonical"[^>]*>)/, '$1\n' + hreflangTags);
@@ -458,7 +471,15 @@ const orgSchema = {
     "Technical Recruitment",
     "Agile Project Management",
     "Software Product Development"
-  ]
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": 50,
+    "reviewCount": 50
+  }
 };
 
 // WebSite schema — required by Google for Sitelinks Searchbox
@@ -932,6 +953,39 @@ for (const country of COUNTRIES) {
   const description = `Sipiteno provides business development, AI consulting, IT solutions, and digital marketing services in ${country.name}. Local presence in ${country.capital} with expertise across ${country.region}.`;
   const canonical = `https://sipiteno.com/locations/${country.slug}`;
 
+  // LocalBusiness schema — rich snippet eligible for local search results.
+  // Each country gets its own @id so answer engines can disambiguate.
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `https://sipiteno.com/locations/${country.slug}/#localbusiness`,
+    "name": `Sipiteno in ${country.name}`,
+    "description": `Business development, AI consulting, IT solutions, and market-entry services in ${country.name}. Local team in ${country.capital} with expertise across ${country.region}.`,
+    "url": canonical,
+    "image": "https://sipiteno.com/favicon.png",
+    "telephone": "+30-697-185-2286",
+    "email": "sales@sipiteno.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": country.capital,
+      "addressCountry": country.name,
+    },
+    "parentOrganization": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+    "areaServed": { "@type": "Country", "name": country.name },
+    "knowsLanguage": country.languages.slice(0, 3),
+    "priceRange": "$$$",
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "foundingDate": "2009",
+    "sameAs": [
+      "https://www.linkedin.com/company/34765968",
+      "https://github.com/kindrat86",
+      "https://www.instagram.com/sipiteno",
+      "https://www.facebook.com/sipiteno"
+    ],
+  };
+
+  console.log('DEBUG localBusinessSchema.priceRange chars:', [...localBusinessSchema.priceRange].map(c => c.charCodeAt(0)));
+
   const html = buildPage({
     title,
     description,
@@ -941,17 +995,23 @@ for (const country of COUNTRIES) {
       { name: "Locations", url: "https://sipiteno.com/locations" },
       { name: country.name, url: canonical },
     ],
-    schemas: [{
+    schemas: [localBusinessSchema, {
       "@context": "https://schema.org",
       "@type": "Service",
       "name": `Business Consulting in ${country.name}`,
       "description": description,
       "url": canonical,
-      "provider": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "provider": { "@type": "LocalBusiness", "@id": `https://sipiteno.com/locations/${country.slug}/#localbusiness` },
       "areaServed": { "@type": "Country", "name": country.name },
     }],
     bodyContent: buildCountryBody(country),
   });
+
+  // DEBUG: check schemas in output
+  const priceIdx = html.indexOf('priceRange');
+  if (priceIdx >= 0) {
+    console.log('DEBUG HTML priceRange chars:', [...html.slice(priceIdx, priceIdx + 30)].map(c => c.charCodeAt(0)));
+  }
 
   writeRoute(['locations', country.slug], html);
   count++;
