@@ -223,6 +223,10 @@
       "destination": "/data/$1/index.html"
     },
     {
+      "source": "/:locale/:path*",
+      "destination": "/:locale/:path*/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
