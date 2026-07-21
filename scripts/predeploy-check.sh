@@ -24,3 +24,9 @@ test -n "$entry" || fail "no /assets/*.js reference in dist/index.html"
 test -f "dist/$entry" || fail "referenced entry bundle dist/$entry missing"
 
 echo "PREDEPLOY OK: dist sanity checks passed (entry: $entry)"
+
+# --- scaled-content-artifact guard (added by answer-engine task) ---
+if grep -rq "like Poland or India" dist; then
+  echo "PREDEPLOY FAIL: hardcoded 'Poland or India' artifact present in dist/"; exit 1; fi
+if grep -rqE "compares favorably to [A-Za-z]+'s [0-9]" dist; then
+  echo "PREDEPLOY FAIL: broken price self-comparison present in dist/"; exit 1; fi

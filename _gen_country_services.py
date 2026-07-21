@@ -431,8 +431,8 @@ def buildFAQs(svc, c):
             f"Sipiteno's {svcName} engagements in {countryName} typically range from {svc['typicalEngagement']}. The exact scope depends on your objectives, team size, and timeline. We provide a fixed-scope proposal after a free discovery call — no hidden costs, and pricing that reflects {countryName}'s market rates rather than Western European premiums."
         ),
         (
-            f"Why choose {countryName} for {svcName} over better-known tech destinations like Poland or India?",
-            f"{countryName} offers a specific combination that makes it the right choice for certain {svcName} projects: {c['opportunity'].split('.')[0]}. For companies targeting {region} markets, {countryName}'s time zone, {english} English proficiency, and proximity make it operationally simpler than an 8-hour time zone gap to India. For companies prioritizing cost without sacrificing quality, {devRate} compares favorably to Poland's { '40-70/hr' if devRate != '40-70/hr' else 'higher-end range'}. Sipiteno helps you weigh these trade-offs objectively for your specific project."
+            f"Why choose {countryName} for {svcName} over better-known, higher-cost tech destinations?",
+            f"{countryName} offers a specific combination that makes it the right choice for certain {svcName} projects: {c['opportunity'].split('.')[0]}. For companies targeting {region} markets, {countryName}'s time zone, {english} English proficiency, and proximity make it operationally simpler than an 8-hour time zone gap to India. For companies prioritizing cost without sacrificing quality, rates in {countryName} generally compare favorably to Western European and North American rates. Sipiteno helps you weigh these trade-offs objectively for your specific project."
         ),
     ]
 

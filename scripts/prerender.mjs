@@ -469,7 +469,7 @@ function writeRoute(pathSegments, html) {
  * Writes dist/{locale}/path/index.html with adjusted lang, canonical, hreflang, og/twitter URLs.
  * Body content stays English (SEO design: English body for B2B). 
  */
-function writeLocaleVariants(pathSegments, canonicalUrl, title, description) {
+function writeLocaleVariants(pathSegments, canonicalUrl, title, description, bodyContent = '', schemas = []) {
   for (const loc of NON_EN_LOCALES) {
     const localePrefix = loc.code;
     const localePath = [localePrefix, ...pathSegments];
@@ -516,6 +516,37 @@ function writeLocaleVariants(pathSegments, canonicalUrl, title, description) {
     // Inject schemas and body same as English (the body content + byline)
     // We reuse the same schema injection and body injection logic from buildPage()
     // but simplified since schemas/body are already English (SEO design)
+    const PUBLISHED = "2026-01-15";
+    const MODIFIED = new Date().toISOString().split("T")[0];
+
+    // E-E-A-T meta
+    const eeatMeta = `    <meta name="author" content="Sipiteno" />\n    <meta property="article:published_time" content="${PUBLISHED}T00:00:00Z" />\n    <meta property="article:modified_time" content="${MODIFIED}T00:00:00Z" />\n  `;
+    html = html.replace('</head>', eeatMeta + '</head>');
+
+    // Inject schemas before PostHog (or before </head>)
+    if (schemas.length > 0) {
+      // Prefix with orgSchema if not already present
+      const allSchemas = schemas.some(s => s && s['@type'] === 'Organization') ? [...schemas] : [orgSchema, ...schemas];
+      const schemaScripts = allSchemas
+        .map(s => `    <script type="application/ld+json">\n${JSON.stringify(s, null, 2).split('\n').map(l => '    ' + l).join('\n')}\n    </script>`)
+        .join('\n');
+      const insertPoint = html.indexOf('<!-- PostHog analytics -->');
+      if (insertPoint !== -1) {
+        html = html.slice(0, insertPoint) + '    <!-- Route-Specific Structured Data -->\n' + schemaScripts + '\n\n    ' + html.slice(insertPoint);
+      } else {
+        html = html.replace('</head>', schemaScripts + '\n  </head>');
+      }
+    }
+
+    // Inject body content for crawlers
+    if (bodyContent) {
+      const byline = `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="${MODIFIED}">Updated ${MODIFIED}</time> · Published ${PUBLISHED}</p>`;
+      const seoBlock = bodyContent + byline;
+      html = html.replace(
+        /<div id="root"><\/div>/,
+        `<div id="root"><div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap" aria-hidden="true">\n${seoBlock}\n      </div></div>`
+      );
+    }
 
     // Write the locale variant
     writeRoute(localePath, html);
@@ -1031,7 +1062,7 @@ for (const page of corePages) {
   // Generate locale-prefixed variants for SEO crawlability
   // Only for pages with a defined path — skip pages with empty path [] (homepage)
   if (page.path.length > 0 && page.canonicalUrl) {
-    writeLocaleVariants(page.path, page.canonicalUrl, page.title, page.description);
+    writeLocaleVariants(page.path, page.canonicalUrl, page.title, page.description, page.bodyContent || '', page.schemas || []);
     count += NON_EN_LOCALES.length;
   }
 }
@@ -1041,7 +1072,7 @@ for (const page of corePages) {
   const HOME_TITLE = "Sipiteno — AI Consulting & Business Development Across 28 Countries";
   const HOME_DESC = "Business development and AI consulting for startups expanding across 28 countries. 15+ years experience, 50+ projects. MicroSaaS MVPs delivered in 4-8 weeks.";
   const HOME_CANONICAL = "https://sipiteno.com/";
-  writeLocaleVariants([], HOME_CANONICAL, HOME_TITLE, HOME_DESC);
+  writeLocaleVariants([], HOME_CANONICAL, HOME_TITLE, HOME_DESC, buildHomepageBody(), [orgSchema, webSiteSchema, faqSchema]);
   count += NON_EN_LOCALES.length;
 }
 
@@ -1114,6 +1145,18 @@ for (const country of COUNTRIES) {
   writeRoute(['locations', country.slug], html);
   count++;
 
+  // Generate locale-prefixed variants for country pages
+  writeLocaleVariants(['locations', country.slug], canonical, title, description, buildCountryBody(country), [localBusinessSchema, {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `Business Consulting in ${country.name}`,
+      "description": description,
+      "url": canonical,
+      "provider": { "@type": "LocalBusiness", "@id": `https://sipiteno.com/locations/${country.slug}/#localbusiness` },
+      "areaServed": { "@type": "Country", "name": country.name },
+    }]);
+  count += NON_EN_LOCALES.length;
+
   // 6. Country + Service pages (28 × 6 = 168)
   for (const svc of SERVICES) {
     const svcTitle = `${svc.name} in ${country.name} | Sipiteno Consulting`;
@@ -1144,6 +1187,18 @@ for (const country of COUNTRIES) {
 
     writeRoute(['locations', country.slug, svc.slug], svcHtml);
     count++;
+
+    // Generate locale-prefixed variants for country+service pages
+    writeLocaleVariants(['locations', country.slug, svc.slug], svcCanonical, svcTitle, svcDescription, buildCountryServiceBody(country, svc), [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `${svc.name} in ${country.name}`,
+      "description": svcDescription,
+      "url": svcCanonical,
+      "provider": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
+      "areaServed": { "@type": "Country", "name": country.name },
+    }]);
+    count += NON_EN_LOCALES.length;
   }
 }
 
