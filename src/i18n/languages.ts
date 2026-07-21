@@ -65,6 +65,7 @@ export const LANGUAGES: LanguageMeta[] = [
   { code: "si", name: "Sinhala", nativeName: "සිංහල" },
   { code: "ps", name: "Pashto", nativeName: "پښتو", rtl: true },
   { code: "kk", name: "Kazakh", nativeName: "Қазақша" },
+  { code: "ky", name: "Kyrgyz", nativeName: "Кыргызча" },
   { code: "uz", name: "Uzbek", nativeName: "Oʻzbekcha" },
   { code: "az", name: "Azerbaijani", nativeName: "Azərbaycanca" },
   { code: "ka", name: "Georgian", nativeName: "ქართული" },

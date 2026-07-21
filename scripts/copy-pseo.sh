@@ -1,6 +1,6 @@
 #!/bin/bash
 # Copy pSEO country×service combo pages into dist/
-for country in serbia kazakhstan azerbaijan ukraine poland georgia uzbekistan armenia romania bulgaria croatia montenegro greece indonesia portugal slovakia; do
+for country in serbia kazakhstan azerbaijan ukraine poland georgia uzbekistan armenia romania bulgaria croatia montenegro greece indonesia portugal slovakia albania bosnia-and-herzegovina cyprus czech-republic estonia ethiopia hungary india kyrgyzstan latvia lithuania moldova north-macedonia slovenia; do
   for svc in ai-consulting mvp-development digital-transformation market-entry b2b-partnerships tech-recruiting; do
     test -f "$country/$svc/index.html" && mkdir -p "dist/$country/$svc" && cp "$country/$svc/index.html" "dist/$country/$svc/index.html"
   done

@@ -15,6 +15,13 @@ HTML_ROOT = "/Users/sipi/sipiteno"
 
 # ─── country data ───────────────────────────────────────────────────────────
 COUNTRY_DATA = {
+    "albania": {
+        "name": "Albania",
+        "regional_hub": "Tirana",
+        "focus": "IT outsourcing, tourism tech, and fintech development",
+        "why_local": "Albania has one of the fastest-growing ICT sectors in the Balkans, with a young, multilingual workforce and government incentives for tech companies including 0% tax on IT salaries for the first 5 years.",
+        "market_tip": "Tirana's ICT sector has grown over 30% annually since 2020, with 5,000+ IT professionals now serving a rapidly expanding digital economy.",
+    },
     "armenia": {
         "name": "Armenia",
         "regional_hub": "Yerevan",
@@ -120,6 +127,97 @@ COUNTRY_DATA = {
         "why_local": "Uzbekistan is undergoing rapid digital transformation under its 'Digital Uzbekistan 2030' strategy, creating massive demand for tech talent and services.",
         "market_tip": "Tashkent's IT Park hosts 500+ resident companies and has trained over 50,000 young professionals in programming since its launch.",
     },
+    "bosnia-and-herzegovina": {
+        "name": "Bosnia and Herzegovina",
+        "regional_hub": "Sarajevo",
+        "focus": "custom software development, fintech, and B2B SaaS",
+        "why_local": "Bosnia has a growing pool of skilled software engineers educated at strong technical universities, combined with competitive operational costs and increasing government support for IT sector development.",
+        "market_tip": "Sarajevo's technology parks and Mostar's growing startup ecosystem have produced over 50 locally-founded tech companies in fintech, enterprise software, and AI services.",
+    },
+    "cyprus": {
+        "name": "Cyprus",
+        "regional_hub": "Nicosia",
+        "focus": "fintech, fund administration, and payments infrastructure",
+        "why_local": "Cyprus has established itself as a European fintech hub with a favorable tax regime (12.5% corporate tax), a modern regulatory framework, and strong ties to both EU and Middle Eastern markets.",
+        "market_tip": "Cyprus has issued over 40 Electronic Money Institution (EMI) licenses and 30+ investment firm authorizations, making it one of Europe's most active fintech licensing jurisdictions.",
+    },
+    "czech-republic": {
+        "name": "Czech Republic",
+        "regional_hub": "Prague",
+        "focus": "enterprise SaaS, automotive tech, and deep-tech R&D",
+        "why_local": "The Czech Republic has a world-class engineering tradition with excellent math and CS education, producing 15,000+ STEM graduates yearly and hosting R&D centers for Microsoft, Google, and SAP.",
+        "market_tip": "Prague is consistently ranked among the top 20 European startup hubs, with over €500M in venture capital flowing into Czech tech companies in 2023 alone.",
+    },
+    "estonia": {
+        "name": "Estonia",
+        "regional_hub": "Tallinn",
+        "focus": "cybersecurity, e-government, and digital identity solutions",
+        "why_local": "Estonia is the world's most advanced digital society with over 99% of public services online, a thriving startup ecosystem (1 fintech unicorn per capita), and the birthplace of Skype, Bolt, and Wise.",
+        "market_tip": "Estonia's e-Residency program has attracted 100,000+ digital entrepreneurs globally, creating a unique regulatory sandbox for borderless digital businesses.",
+    },
+    "ethiopia": {
+        "name": "Ethiopia",
+        "regional_hub": "Addis Ababa",
+        "focus": "mobile money, agtech, and digital government infrastructure",
+        "why_local": "Ethiopia represents one of Africa's largest untapped digital markets — 120M+ population, rapidly growing mobile penetration, and a government prioritizing digital transformation as a national strategy.",
+        "market_tip": "Ethiopia's telecom liberalization in 2022 sparked a digital services boom, with mobile money transactions growing from $0 to $15B+ in two years across Safaricom's M-Pesa and local platforms.",
+    },
+    "hungary": {
+        "name": "Hungary",
+        "regional_hub": "Budapest",
+        "focus": "automotive software, cybersecurity, and enterprise SaaS",
+        "why_local": "Hungary combines Central European engineering excellence with one of the EU's lowest corporate tax rates (9%) and a strong government R&D incentive program that has attracted global tech R&D centers.",
+        "market_tip": "Budapest's tech sector employs 85,000+ IT professionals and has produced multiple unicorns including Prezi, LogMeIn, and GURU, with deep specialization in automotive software and cybersecurity.",
+    },
+    "india": {
+        "name": "India",
+        "regional_hub": "Bengaluru",
+        "focus": "enterprise SaaS, AI/ML, and digital product engineering",
+        "why_local": "India is the world's largest IT talent market with 3M+ software engineers and a startup ecosystem valued at $300B+, offering unmatched scale for product development, engineering talent, and market entry.",
+        "market_tip": "Bengaluru alone accounts for 40% of India's total tech exports and hosts R&D centers for 80% of Fortune 500 companies, with deep specialization in AI/ML, cloud infrastructure, and enterprise SaaS.",
+    },
+    "kyrgyzstan": {
+        "name": "Kyrgyzstan",
+        "regional_hub": "Bishkek",
+        "focus": "IT outsourcing, e-commerce infrastructure, and fintech",
+        "why_local": "Kyrgyzstan has a young, educated workforce with strong math and engineering foundations from its Soviet-era education system, plus a cost base that's among the lowest in Central Asia.",
+        "market_tip": "Bishkek's IT Park has registered 250+ tech companies and launched a coding education program that is training 10,000+ new developers as part of Kyrgyzstan's 'Digital CASA' initiative.",
+    },
+    "latvia": {
+        "name": "Latvia",
+        "regional_hub": "Riga",
+        "focus": "fintech, cybersecurity, and biomedical IT",
+        "why_local": "Latvia has one of the EU's fastest broadband speeds, a growing fintech ecosystem with a supportive regulatory approach, and a strong tradition in STEM education producing high-quality engineering talent.",
+        "market_tip": "Riga's fintech cluster has grown 40% year-over-year, with over 120 licensed fintech companies operating under Latvian regulatory framework, making it a regional gateway for Northern European markets.",
+    },
+    "lithuania": {
+        "name": "Lithuania",
+        "regional_hub": "Vilnius",
+        "focus": "fintech, game development, and enterprise software",
+        "why_local": "Lithuania has established itself as the fastest-growing fintech center in the EU with a progressive regulatory sandbox, deep tech talent pool in cybersecurity and AI, and a government that actively courts tech companies.",
+        "market_tip": "Vilnius has issued 250+ fintech licenses, hosts 1,500+ tech companies, and has been ranked #1 in Europe for fintech talent density outside of London — producing 14 fintech unicorns in the last five years.",
+    },
+    "moldova": {
+        "name": "Moldova",
+        "regional_hub": "Chisinau",
+        "focus": "IT outsourcing, software development, and business process automation",
+        "why_local": "Moldova is emerging as an attractive IT outsourcing destination with a competitive cost base, a young multilingual workforce (Romanian, Russian, English), and government IT park incentives including 7% single tax rate.",
+        "market_tip": "Moldova's IT Park MITP has attracted 1,000+ resident companies since 2018, with IT exports growing 25% annually and accounting for 5% of the country's total exports.",
+    },
+    "north-macedonia": {
+        "name": "North Macedonia",
+        "regional_hub": "Skopje",
+        "focus": "software development, automotive tech, and B2B SaaS",
+        "why_local": "North Macedonia offers competitive IT costs with strong English proficiency — ranked #1 in non-native English in Southeast Europe — and a growing pool of 20,000+ IT professionals serving European and US clients.",
+        "market_tip": "Skopje's tech cluster has attracted 200+ companies including R&D centers for Fortune 500 firms, with a special focus on automotive software development and enterprise B2B platforms.",
+    },
+    "slovenia": {
+        "name": "Slovenia",
+        "regional_hub": "Ljubljana",
+        "focus": "AI/ML, enterprise SaaS, and green tech",
+        "why_local": "Slovenia boasts the highest R&D investment per capita among Central European countries, excellent connectivity to Western European markets, and a strong engineering tradition fueled by the University of Ljubljana's technical faculties.",
+        "market_tip": "Ljubljana's technology park hosts 400+ companies with deep specialization in AI, green tech, and health IT, benefiting from Slovenia's position as a bridge between Western European markets and the Balkans.",
+    },
 }
 
 SERVICE_DATA = {
@@ -128,60 +226,90 @@ SERVICE_DATA = {
         "verb": "consult on AI strategy",
         "deliverable": "AI strategy, model selection, and deployment roadmaps",
         "why_work": "We help you identify where AI creates real ROI — not just hype — then build the infrastructure to deliver it.",
+        "services_list": "AI readiness assessment, strategic roadmap development, custom ML model building, LLM integration and fine-tuning, intelligent process automation, AI governance and ethics frameworks, and team upskilling programs",
+        "use_case": "A client in the logistics sector used our AI consulting to build a predictive demand forecasting system. Within 3 months, they reduced inventory carrying costs by 18% and improved order fulfillment accuracy from 82% to 96% — directly adding $2.3M to annual EBITDA.",
+        "approach_detail": "Our AI consulting engagements follow a four-phase methodology. Phase 1 (Opportunity Discovery): we map your data landscape, identify high-impact AI use cases, and build a prioritized opportunity backlog. Phase 2 (Feasibility Study): we run rapid PoCs on the top 2-3 opportunities to validate technical feasibility and business value. Phase 3 (Implementation): we build, test, and deploy production-grade AI solutions using your existing infrastructure. Phase 4 (Knowledge Transfer): we train your team to maintain and evolve the AI systems independently. This structure minimizes risk while maximizing speed-to-value.",
         "faq1_q": "How do I know if my business is ready for AI consulting?",
         "faq1_a": "If you have data you want to use more effectively or manual processes that could be automated, you're ready. We start with a free 30-minute scoping call to assess your AI readiness and identify quick wins.",
         "faq2_q": "What does Sipiteno's AI consulting engagement look like?",
         "faq2_a": "We begin with a discovery phase (1-2 weeks) mapping your data infrastructure and business goals, followed by a strategy deliverable with prioritized recommendations and a phased implementation plan. Typical engagements run 4-12 weeks.",
+        "faq3_q": "What types of AI solutions have you delivered?",
+        "faq3_a": "Our portfolio includes predictive analytics engines, natural language processing pipelines, computer vision systems, recommendation engines, intelligent document processing, and LLM-powered chatbots. We've deployed solutions across fintech, logistics, healthcare, and e-commerce verticals in 28 countries.",
     },
     "b2b-partnerships": {
         "service_name": "B2B Partnerships",
         "verb": "build B2B partner programs",
         "deliverable": "partner channel strategy, recruitment playbooks, and co-selling frameworks",
         "why_work": "We build the systems, collateral, and processes that turn your product into a partner-first revenue engine.",
+        "services_list": "Partner channel strategy and design, partner tier and incentive structuring, recruitment playbook creation, partner enablement and training, co-selling program design, partner portal and tracking infrastructure, and ongoing partnership management",
+        "use_case": "For a Series B fintech company, we designed and launched a B2B partnership program across Poland, Romania, and Bulgaria. Within 6 months, they had 47 active referral partners generating 210 qualified leads — 3.4x their direct sales pipeline — at a CAC that was 60% lower than outbound.",
+        "approach_detail": "Our B2B partnership engagements follow a five-stage process. Stage 1 (Strategy): we define partner tiers, incentive structures, and recruitment criteria aligned with your ideal customer profile. Stage 2 (Materials): we build partner-facing collateral including pitch decks, enablement guides, co-branded assets, and legal agreement templates. Stage 3 (Recruitment): we leverage our network of 200+ vetted partners across 28 countries to identify and recruit the right partners for your product. Stage 4 (Launch): we run a structured partner onboarding program and co-selling kickoff. Stage 5 (Optimization): we track partner performance, refine the program, and scale what works.",
         "faq1_q": "How long does it take to set up a B2B partnership channel?",
         "faq1_a": "Most partnership programs take 6-12 weeks to launch from scratch. We build the partner tier structure, recruitment materials, enablement playbooks, and tracking infrastructure during that period.",
         "faq2_q": "What's the ROI of B2B partnerships in emerging markets?",
         "faq2_a": "Companies with structured partnership programs in emerging markets see 30-50% faster market penetration compared to direct sales alone. Local partners provide trust, relationships, and market knowledge that take years to build internally.",
+        "faq3_q": "What types of partners do you typically recruit?",
+        "faq3_a": "We recruit implementation partners, resellers, technology alliance partners, referral partners, and strategic channel partners. The right mix depends on your product, market, and go-to-market motion — we design the partnership architecture before recruiting begins.",
     },
     "digital-transformation": {
         "service_name": "Digital Transformation",
         "verb": "lead digital transformation",
         "deliverable": "digital roadmaps, legacy modernization, and process automation",
         "why_work": "We help organizations reimagine their operations through technology — not just digitizing old processes but redesigning them for the digital age.",
+        "services_list": "Digital maturity assessment, technology stack evaluation and modernization, process automation (RPA and intelligent automation), cloud migration and infrastructure optimization, data strategy and analytics implementation, digital workplace design, and change management and training programs",
+        "use_case": "A manufacturing company in Serbia engaged us to lead their Industry 4.0 transformation. We digitized their supply chain operations, implemented IoT-based predictive maintenance across 3 factories, and deployed a real-time production dashboard. The result: 22% reduction in downtime, 15% increase in overall equipment effectiveness, and $1.8M in annual cost savings within the first year.",
+        "approach_detail": "Digital transformation is a journey, not a project. We start with a comprehensive digital maturity assessment covering five dimensions: technology infrastructure, team capabilities, operational processes, customer experience, and data maturity. This assessment produces a prioritized transformation roadmap with clear milestones, ROI estimates, and risk assessments. We then execute in phases, delivering measurable value at each stage before moving to the next — reducing risk and building organizational momentum.",
         "faq1_q": "What's the first step in a digital transformation project?",
         "faq1_a": "We start with a digital maturity assessment that evaluates your current technology stack, team capabilities, processes, and customer touchpoints. This 2-week audit produces a prioritized transformation roadmap.",
         "faq2_q": "How do you manage change resistance during digital transformation?",
         "faq2_a": "Change management is built into every phase. We run stakeholder workshops, create internal champions, and deliver training programs that ensures your team adopts new tools and processes — not just implements them.",
+        "faq3_q": "How long does a full digital transformation typically take?",
+        "faq3_a": "A complete digital transformation is a multi-year journey, but we deliver measurable value in every 90-day phase. Most organizations see their first significant ROI within 4-6 months of starting the program.",
     },
     "mvp-development": {
         "service_name": "MVP Development",
         "verb": "build MVPs",
         "deliverable": "functional prototypes, minimum viable products, and beta launches",
         "why_work": "We turn your concept into a shippable product in 7 weeks flat — with the engineering rigor to scale afterward.",
+        "services_list": "Product strategy and feature scoping, UI/UX design and prototyping, full-stack development (React, Next.js, NestJS, Python, PostgreSQL), API integration and third-party services, QA testing and user acceptance testing, CI/CD pipeline setup and deployment, and post-launch iteration and optimization",
+        "use_case": "An AI startup needed to validate their product idea before raising a seed round. We built a functional MVP in 6 weeks — including user authentication, a core recommendation engine, payment integration, and a responsive web app. The MVP helped them close $1.5M in seed funding within 3 months of launch, with real users validating product-market fit from day one.",
+        "approach_detail": "Our MVP development process is optimized for speed without sacrificing quality. Week 1: product strategy workshop and feature prioritization using the MoSCoW method. Week 2: UI/UX design with interactive prototypes for user testing. Weeks 3-6: agile development in 2-week sprints with daily standups, code reviews, and continuous integration. Week 7: QA, deployment, and launch. Post-launch, we provide a 30-day support window and a roadmap for v2 based on user feedback.",
         "faq1_q": "What's included in Sipiteno's MVP development process?",
         "faq1_a": "A complete build cycle: product strategy and scoping, UI/UX design, agile development in 2-week sprints, QA and testing, and a production deployment. You get a working product, not a prototype.",
         "faq2_q": "How is Sipiteno different from hiring freelance developers for MVP development?",
         "faq2_a": "We're a coordinated team with a product manager, designers, and engineers — not individual freelancers you need to manage. We handle architecture decisions, integrations, and deployment so you focus on the business, not the build.",
+        "faq3_q": "What tech stack do you use for MVP development?",
+        "faq3_a": "We typically build on modern, scalable stacks: React or Next.js for frontend, NestJS or FastAPI for backend, PostgreSQL for data, and AWS or Vercel for deployment. The exact stack is chosen based on your product requirements, team preferences, and long-term scalability needs.",
     },
     "tech-recruiting": {
         "service_name": "Tech Recruiting",
         "verb": "recruit technical talent",
         "deliverable": "sourced engineer pipelines, technical screening, and hiring playbooks",
         "why_work": "We find, vet, and deliver pre-qualified engineering talent from our network so you don't waste weeks on mismatched candidates.",
+        "services_list": "Talent sourcing and pipeline building, technical screening and skills assessment, culture and communication fit evaluation, reference verification and background checks, offer negotiation and acceptance support, relocation and onboarding assistance, and retained and contingency search options",
+        "use_case": "A Series A SaaS company needed to hire 12 engineers across 3 countries in 6 weeks. We sourced from our network across Poland, Ukraine, and Romania, screened 400+ candidates, and delivered a shortlist of 28 pre-vetted engineers. The client extended offers to 14 and closed 12 — all within 5 weeks, at a cost-per-hire 40% below their US-based recruiter.",
+        "approach_detail": "Our tech recruiting process is designed for quality, not volume. Phase 1 (Profile Definition): we work with your team to create detailed role profiles, success criteria, and compensation benchmarks. Phase 2 (Active Sourcing): we tap into our network of 10,000+ vetted engineers across 28 countries, using targeted outreach and referrals to build a pipeline. Phase 3 (Screening): every candidate passes a three-stage process — technical assessment (live coding or take-home depending on role), communication and culture fit interview, and professional reference verification. Phase 4 (Delivery): we present the top candidates with detailed assessment reports, fast-track interviews, and handle offer logistics.",
         "faq1_q": "What types of roles do you typically recruit for?",
         "faq1_a": "We specialize in product engineering roles: full-stack developers, frontend specialists, backend engineers, ML engineers, and technical leads. We source from our pre-vetted network across 28 emerging markets.",
         "faq2_q": "How does your screening process work?",
         "faq2_a": "Every candidate passes a three-stage vetting: technical skills assessment (live coding or take-home), communication and culture fit interview, and a reference check. Our pass-through rate is under 15%, ensuring you only meet top candidates.",
+        "faq3_q": "How quickly can you fill a technical role?",
+        "faq3_a": "Average time-to-offer is 18 days for active roles and 28 days for hard-to-fill specialized positions. We maintain a pre-vetted talent pool that can accelerate urgent hires to under 10 days.",
     },
     "market-entry": {
         "service_name": "Market Entry",
         "verb": "enter new markets",
         "deliverable": "market analysis, entry strategy, and local partnerships",
         "why_work": "We help you navigate new geographies with local intelligence, partner introductions, and a step-by-step market entry roadmap.",
+        "services_list": "Market assessment and opportunity scoring, competitive landscape analysis, regulatory and compliance mapping, partner identification and warm introductions, entity setup support (EOR or incorporation), localization strategy and execution, and post-entry operational setup",
+        "use_case": "A US-based B2B SaaS platform wanted to expand into Central Europe without a local entity. We executed a 4-market entry across Poland, Czech Republic, Hungary, and Romania in 10 weeks — handling market scoring, partner recruitment (7 signed partnerships), regulatory review, and a 50-person event with C-level prospects. The client generated $340K in pipeline from the first 90 days.",
+        "approach_detail": "The 3-Door Expansion System powers every market entry. Door 1 (Introductions): we tap into our network of 200+ vetted local partners, industry leaders, and government contacts to facilitate warm introductions — the fastest path to trusted relationships in any emerging market. Door 2 (Regulatory Map): we build a comprehensive regulatory playbook covering licensing requirements, data protection laws, employment regulations, tax structures, and sector-specific compliance needs. Door 3 (Execution Team): we deploy a bilingual local team that handles day-to-day market operations — from partnership meetings to regulatory filings — so your core team stays focused on product and strategy.",
         "faq1_q": "What does a market entry engagement typically cost?",
         "faq1_a": "Market entry engagements start at a fixed fee with milestone-based deliverables. We customize the scope based on your target market, industry, and entry mode (partnership, subsidiary, or acquisition).",
         "faq2_q": "How do you identify the right local partners?",
         "faq2_a": "We leverage our on-the-ground network of 200+ vetted partners across 28 countries to find the right fit for your product and go-to-market strategy. Each recommendation comes with a capability assessment and reference checks.",
+        "faq3_q": "How long does a typical market entry take?",
+        "faq3_a": "Most companies can establish an operational presence in 4-8 weeks through our 3-Door system. Regulatory-heavy industries like fintech and healthtech may take 8-12 weeks. The free 30-minute strategy call helps us estimate your specific timeline.",
     },
 }
 
@@ -252,7 +380,7 @@ def classify_page(url, path, words):
 
 
 def generate_geo_block(country, service):
-    """Generate ~400 words of country+service content."""
+    """Generate ~800+ words of country+service content."""
     cd = COUNTRY_DATA.get(country)
     sd = SERVICE_DATA.get(service)
     if not cd or not sd:
@@ -267,10 +395,42 @@ def generate_geo_block(country, service):
     verb = sd["verb"]
     deliverable = sd["deliverable"]
     why_work = sd["why_work"]
+    services_list = sd.get("services_list", sn.lower() + " services")
+    use_case = sd.get("use_case", "")
+    approach_detail = sd.get("approach_detail", "")
     faq1_q = sd["faq1_q"]
     faq1_a = sd["faq1_a"]
     faq2_q = sd["faq2_q"]
     faq2_a = sd["faq2_a"]
+    faq3_q = sd.get("faq3_q", "")
+    faq3_a = sd.get("faq3_a", "")
+
+    faq_section = f"""
+<h3>Frequently Asked Questions</h3>
+<p><strong>{faq1_q}</strong><br>{faq1_a}</p>
+<p><strong>{faq2_q}</strong><br>{faq2_a}</p>"""
+    if faq3_q and faq3_a:
+        faq_section += f"""
+<p><strong>{faq3_q}</strong><br>{faq3_a}</p>"""
+
+    services_list_section = f"""
+<h3>Our {sn} Services in {cn}</h3>
+<p>Our {sn.lower()} practice in {cn} covers a comprehensive range of capabilities tailored to local market needs:</p>
+<ul>{"".join(f"<li><strong>{s.strip().split(',')[0]}</strong>{' — ' + s.strip().split(',', 1)[1] if ',' in s else ''}</li>" for s in services_list.split(", ") if s.strip())}</ul>
+<p>Each service line is delivered by our bilingual team in {cn}, who bring deep knowledge of {cn}'s business culture and regulatory environment.</p>"""
+
+    use_case_section = ""
+    if use_case:
+        use_case_section = f"""
+<h3>Client Success Story: {sn} in Action</h3>
+<p>{use_case}</p>"""
+
+    approach_section = ""
+    if approach_detail:
+        approach_section = f"""
+<h3>Our Methodology for {sn} in {cn}</h3>
+<p>{approach_detail}</p>
+<p>This methodology has been refined across 50+ projects in 28 countries. Every engagement includes weekly progress reports, milestone-based deliverables, and transparent communication — so you always know exactly where your project stands.</p>"""
 
     return f"""<section class="enriched-content">
 <h2>{sn} in {cn}</h2>
@@ -283,14 +443,14 @@ def generate_geo_block(country, service):
 <h3>How We Deliver {sn} in {cn}</h3>
 <p>Every engagement begins with a thorough understanding of your specific context in {cn}. Whether you're a local company seeking to scale, an international firm entering the market, or a distributed team looking for specialized support, we tailor our approach accordingly.</p>
 <p>Our {sn.lower()} engagements in {cn} typically include: <strong>{deliverable}</strong>. We work in iterative sprints with weekly check-ins, transparent reporting, and milestone-based delivery so you always know where the project stands.</p>
-
+{services_list_section}
+{use_case_section}
+{approach_section}
 <h3>What Sets Sipiteno Apart</h3>
 <p>Unlike working with individual consultants or large generic agencies, Sipiteno provides a coordinated team with deep expertise across {sn.lower()} and emerging markets. We handle the end-to-end execution — from strategy through implementation — while keeping you closely involved in all key decisions. {why_work}</p>
 <p>With 50+ projects delivered across 28 countries and a 4.9/5 client satisfaction score, we bring proven methodology and local intelligence to every {sn.lower()} engagement in {cn}.</p>
-
-<h3>Frequently Asked Questions</h3>
-<p><strong>{faq1_q}</strong><br>{faq1_a}</p>
-<p><strong>{faq2_q}</strong><br>{faq2_a}</p>
+<p>Ready to discuss your {sn.lower()} needs in {cn}? <a href="https://sipiteno.com/#contact">Book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
+{faq_section}
 </section>"""
 
 

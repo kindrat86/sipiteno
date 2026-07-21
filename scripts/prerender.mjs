@@ -973,7 +973,7 @@ for (const country of COUNTRIES) {
     "parentOrganization": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
     "areaServed": { "@type": "Country", "name": country.name },
     "knowsLanguage": country.languages.slice(0, 3),
-    "priceRange": "$$$",
+    "priceRange": "Mid-Range",
     "openingHours": "Mo-Fr 09:00-18:00",
     "foundingDate": "2009",
     "sameAs": [
