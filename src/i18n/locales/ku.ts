@@ -527,7 +527,33 @@ const ku = {
   },
 
   // ===== EXIT INTENT =====
+  exitIntent: {
+    badde: "Bise — Daxistina Belave (47 rupel)",
+    title: "Bi destên vala neçe",
+    body: "Berî ku biçî Expansion Playbook-ê belaş bistîne — skorkartên welatan, rêbera rêziknameyê û bihayên bazarê ji bo 28 sûkan. Di 5 deqeyan de di posta xwe de.",
+    nameLabel: "Nav",
+    namePlaceholder: "Sipi",
+    emailLabel: "E-name",
+    emailPlaceholder: "tu@sirketa.com",
+    submit: "Playbook-ê ji min re bişîne →",
+    sending: "Tê şandin...",
+    privacy: "Ne spam. Di her demê de bibetal. Em tu carî daneyên te nafiroşin.",
+    close: "Bigre pencereyê",
+    noThanks: "Na spas, ezê paşê vegerim",
+    successTitle: "Posta xwe kontrol bike!",
+    successDesc: "Expansion Playbook di rê de ye. Eger tu nebînî, spam-ê kontrol bike.",
+    error: "Şandin têk çû. Ji kerema xwe rasterast ji sales@sipiteno.com re binivîse, emê bi destî bişînin.",
+  },
 
+
+  // ===== TRUST SIGNAL =====
+  trustSignal: {
+    badge: "Tevgera Bê-Rîsk",
+    item1: "Projeyên bi bihayê sabît û fatûreyên li gorî qonaxan",
+    item2: "Betalbûna 30-rojî li ser hemû retaineran",
+    item3: "Hemû IP, playbook û skorkart dimînin yên te — tevî ku em ji hev biqetin jî",
+    cta: "Li ser garantiya razîbûnê bipirse →",
+  },
 
 };
 

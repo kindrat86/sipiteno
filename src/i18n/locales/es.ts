@@ -524,7 +524,33 @@ const es = {
     title: "Seleccionar idioma",
   },
   // ===== EXIT INTENT =====
+  exitIntent: {
+    badde: "Espere — Descarga gratuita (47 páginas)",
+    title: "No se vaya con las manos vacías",
+    body: "Obtenga el Expansion Playbook gratuito — fichas técnicas por país, guía regulatoria y referencias de precios para los 28 mercados. Enviado a su bandeja de entrada en 5 minutos.",
+    nameLabel: "Nombre",
+    namePlaceholder: "Sipi",
+    emailLabel: "Correo electrónico",
+    emailPlaceholder: "usted@empresa.com",
+    submit: "Enviarme el Playbook →",
+    sending: "Enviando...",
+    privacy: "Sin spam. Puede darse de baja en cualquier momento. Nunca vendemos sus datos.",
+    close: "Cerrar ventana",
+    noThanks: "No, gracias, volveré más tarde",
+    successTitle: "¡Revise su bandeja de entrada!",
+    successDesc: "El Expansion Playbook está en camino. Si no lo ve, revise su carpeta de spam.",
+    error: "Error al enviar. Escriba directamente a sales@sipiteno.com y lo enviaremos manualmente.",
+  },
 
+
+  // ===== TRUST SIGNAL =====
+  trustSignal: {
+    badge: "Compromiso sin riesgo",
+    item1: "Proyectos a precio fijo con facturación por hitos",
+    item2: "Cancelación en 30 días en todos los retainers",
+    item3: "Usted conserva toda la propiedad intelectual, guías y fichas técnicas — incluso si nos separamos",
+    cta: "Pregunte por nuestra garantía de satisfacción →",
+  },
 
 };
 

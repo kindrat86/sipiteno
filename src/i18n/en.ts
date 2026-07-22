@@ -116,6 +116,18 @@ const en = {
     t4Location: "Kyiv",
     t4Metric: "4 deals from month one",
     disclaimer: "Testimonials anonymized per client request. Full references available on qualified request.",
+    // Testimonial slots for real references (owner to fill in)
+    realT1Name: "",
+    realT1Company: "",
+    realT1Role: "",
+    realT1LinkedIn: "",
+    realT1Quote: "",
+    realT2Name: "",
+    realT2Company: "",
+    realT2Role: "",
+    realT2LinkedIn: "",
+    realT2Quote: "",
+
   },
 
   // ===== DREAM 100 (Russell Brunson — Traffic Secrets: "Dream 100") =====
@@ -597,6 +609,35 @@ const en = {
     v3Desc: "We build your local capacity so you're never dependent on us. Knowledge transfer is part of every engagement — from day one.",
     ctaTitle: "Want the System for Free?",
     ctaBody: "I packed the entire three-part framework — Introductions, Regulatory Map, Execution Team — into a 47-page playbook. Download it, read it this weekend, and run it yourself. With or without us.",
+  },
+
+
+  // ===== EXIT INTENT =====
+  exitIntent: {
+    badge: "Wait — Free Download (47 Pages)",
+    title: "Don't Leave Empty-Handed",
+    body: "Grab the free Expansion Playbook before you go — country scorecards, regulatory playbook, and pricing benchmarks for all 28 markets. Sent to your inbox in 5 minutes.",
+    nameLabel: "First name",
+    namePlaceholder: "Sipi",
+    emailLabel: "Email",
+    emailPlaceholder: "you@company.com",
+    submit: "Send Me The Playbook →",
+    sending: "Sending...",
+    privacy: "No spam. Unsubscribe anytime. We never sell your data.",
+    close: "Close modal",
+    noThanks: "No thanks, I'll come back later",
+    successTitle: "Check your inbox!",
+    successDesc: "The Expansion Playbook is on its way. If you don't see it, check spam.",
+    error: "Failed to send. Please email sales@sipiteno.com directly and we'll send it manually.",
+  },
+
+  // ===== TRUST SIGNAL (Risk-Reversal Placeholder) =====
+  trustSignal: {
+    badge: "Zero-Risk Engagement",
+    item1: "Fixed-scope projects with milestone-based pricing",
+    item2: "30-day cancellation on all retainers",
+    item3: "You keep all IP, playbooks, and scorecards — even if we part ways",
+    cta: "Ask about our satisfaction guarantee →",
   },
 
   // ===== LANGUAGE SWITCHER =====

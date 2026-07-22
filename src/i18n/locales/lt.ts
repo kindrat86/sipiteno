@@ -526,7 +526,33 @@ const lt = {
     title: "Pasirinkite kalbą",
   },
   // ===== EXIT INTENT =====
+  exitIntent: {
+    badde: "Palaukite — Nemokamas atsisiuntimas (47 puslapiai)",
+    title: "Neišeikite tuščiomis rankomis",
+    body: "Gaukite nemokamą Expansion Playbook — šalių vertinimo korteles, reguliavimo gidą ir kainų palyginimus visoms 28 rinkoms. Gauta jūsų pašto dėžutėje per 5 minutes.",
+    nameLabel: "Vardas",
+    namePlaceholder: "Sipi",
+    emailLabel: "El. paštas",
+    emailPlaceholder: "jūs@įmonė.lt",
+    submit: "Siųsti man Playbook →",
+    sending: "Siunčiama...",
+    privacy: "Jokio šlamšto. Atsisakyti galima bet kada. Niekada neparduodame jūsų duomenų.",
+    close: "Uždaryti langą",
+    noThanks: "Ne ačiū, grįšiu vėliau",
+    successTitle: "Patikrinkite savo pašto dėžutę!",
+    successDesc: "Expansion Playbook jau pakeliui. Jei nematote, patikrinkite šlamštą.",
+    error: "Nepavyko išsiųsti. Rašykite tiesiogiai sales@sipiteno.com ir mes išsiųsime rankiniu būdu.",
+  },
 
+
+  // ===== TRUST SIGNAL =====
+  trustSignal: {
+    badge: "Rizikos neturintis įsipareigojimas",
+    item1: "Fiksuotos kainos projektai su atsiskaitymu pagal etapus",
+    item2: "30 dienų atsisakymo galimybė visiems retaineriams",
+    item3: "Jūs pasiliekate visą intelektinę nuosavybę, strategijas ir korteles — net jei išsiskiriame",
+    cta: "Paklauskite apie mūsų pasitenkinimo garantiją →",
+  },
 
 };
 

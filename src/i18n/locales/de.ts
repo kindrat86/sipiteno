@@ -527,7 +527,33 @@ const de = {
   },
 
   // ===== EXIT INTENT =====
+  exitIntent: {
+    badde: "Warten Sie — Kostenloser Download (47 Seiten)",
+    title: "Gehen Sie nicht mit leeren Händen",
+    body: "Sichern Sie sich das kostenlose Expansion-Playbook — Länder-Scorecards, regulatorischer Leitfaden und Preisvergleiche für alle 28 Märkte. In 5 Minuten in Ihrem Posteingang.",
+    nameLabel: "Vorname",
+    namePlaceholder: "Sipi",
+    emailLabel: "E-Mail",
+    emailPlaceholder: "sie@unternehmen.de",
+    submit: "Playbook senden →",
+    sending: "Wird gesendet...",
+    privacy: "Kein Spam. Jederzeit abbestellbar. Wir geben Ihre Daten nie weiter.",
+    close: "Modal schließen",
+    noThanks: "Nein danke, ich komme später wieder",
+    successTitle: "Prüfen Sie Ihren Posteingang!",
+    successDesc: "Das Expansion-Playbook ist unterwegs. Wenn Sie es nicht sehen, prüfen Sie den Spam-Ordner.",
+    error: "Fehler beim Senden. Bitte schreiben Sie direkt an sales@sipiteno.com — wir senden es manuell.",
+  },
 
+
+  // ===== TRUST SIGNAL =====
+  trustSignal: {
+    badge: "Risikofreies Engagement",
+    item1: "Festpreis-Projekte mit meilensteinbasierter Abrechnung",
+    item2: "30-tägige Kündigung bei allen Retainern",
+    item3: "Sie behalten alle IPs, Playbooks und Scorecards — auch wenn wir getrennte Wege gehen",
+    cta: "Fragen Sie nach unserer Zufriedenheitsgarantie →",
+  },
 };
 
 export default de;

@@ -526,7 +526,33 @@ const it = {
     title: "Seleziona Lingua",
   },
   // ===== EXIT INTENT =====
+  exitIntent: {
+    badde: "Aspetta — Download gratuito (47 pagine)",
+    title: "Non andare via a mani vuote",
+    body: "Ottieni gratuitamente il Expansion Playbook — schede paese, guida normativa e benchmark dei prezzi per tutti i 28 mercati. Inviato alla tua casella di posta in 5 minuti.",
+    nameLabel: "Nome",
+    namePlaceholder: "Sipi",
+    emailLabel: "Email",
+    emailPlaceholder: "tuo@azienda.it",
+    submit: "Inviarmi il Playbook →",
+    sending: "Invio in corso...",
+    privacy: "Niente spam. Annulla l'iscrizione in qualsiasi momento. Non vendiamo mai i tuoi dati.",
+    close: "Chiudi finestra",
+    noThanks: "No grazie, tornerò più tardi",
+    successTitle: "Controlla la tua casella di posta!",
+    successDesc: "Il Expansion Playbook è in arrivo. Se non lo vedi, controlla lo spam.",
+    error: "Invio fallito. Scrivi a sales@sipiteno.com e lo invieremo manualmente.",
+  },
 
+
+  // ===== TRUST SIGNAL =====
+  trustSignal: {
+    badge: "Impegno senza rischi",
+    item1: "Progetti a prezzo fisso con fatturazione per tappe",
+    item2: "Cancellazione in 30 giorni su tutti i contratti",
+    item3: "Mantieni tutta la proprietà intellettuale, le guide e le schede — anche se ci separiamo",
+    cta: "Chiedi informazioni sulla nostra garanzia di soddisfazione →",
+  },
 
 };
 

@@ -104,6 +104,12 @@ const Hero = () => {
             </span>
           </div>
 
+          {/* Trust signal bar */}
+          <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 backdrop-blur-sm">
+            <span className="text-green-400 text-xs font-semibold">{t("trustSignal.badge")}</span>
+            <span className="text-green-400/40 hidden sm:inline">·</span>
+            <span className="text-green-400/80 text-xs">{t("trustSignal.item1")}</span>
+          </div>
           {/* Stats */}
           <div className="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto">
             <div className="text-center" itemProp="areaServed" itemScope itemType="https://schema.org/Place">

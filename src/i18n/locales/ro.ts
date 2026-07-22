@@ -527,7 +527,33 @@ const ro = {
   },
 
   // ===== EXIT INTENT =====
+  exitIntent: {
+    badde: "Așteaptă — Descărcare gratuită (47 pagini)",
+    title: "Nu pleca cu mâinile goale",
+    body: "Primește gratuit Expansion Playbook — fișe de țară, ghid de reglementare și referințe de preț pentru toate cele 28 de piețe. Trimis în căsuța ta poștală în 5 minute.",
+    nameLabel: "Prenume",
+    namePlaceholder: "Sipi",
+    emailLabel: "Email",
+    emailPlaceholder: "tu@companie.ro",
+    submit: "Trimite-mi Playbook-ul →",
+    sending: "Se trimite...",
+    privacy: "Fără spam. Te poți dezabona oricând. Nu vindem niciodată datele tale.",
+    close: "Închide fereastra",
+    noThanks: "Nu, mulțumesc, revin mai târziu",
+    successTitle: "Verifică-ți căsuța poștală!",
+    successDesc: "Expansion Playbook este pe drum. Dacă nu îl vezi, verifică spam-ul.",
+    error: "Trimiterea a eșuat. Scrie direct la sales@sipiteno.com și îl vom trimite manual.",
+  },
 
+
+  // ===== TRUST SIGNAL =====
+  trustSignal: {
+    badge: "Angajament fără risc",
+    item1: "Proiecte cu preț fix și facturare pe etape",
+    item2: "Anulare în 30 de zile pentru toate retainer-ele",
+    item3: "Tu păstrezi toată proprietatea intelectuală, ghidurile și fișele — chiar dacă ne despărțim",
+    cta: "Întreabă despre garanția noastră de satisfacție →",
+  },
 
 };
 
