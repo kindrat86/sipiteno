@@ -525,6 +525,25 @@ const lt = {
     searchPlaceholder: "Ieškoti kalbų...",
     title: "Pasirinkite kalbą",
   },
+  // ===== EXIT INTENT =====
+  exitIntent: {
+    badge: "Palauk — Neišeik tuščiomis rankomis",
+    title: "Plėtros Sistema — Nemokamai",
+    body: "47 puslapių knyga: šalių balų lentelės, reguliavimo žemėlapiai ir kainų palyginimai visoms 28 besivystančioms rinkoms. Išsiųsta į jūsų pašto dėžutę per 5 minutes.",
+    firstName: "Vardas",
+    firstNamePlaceholder: "Sipi",
+    email: "Darbo el. paštas",
+    emailPlaceholder: "you@company.com",
+    submit: "Siųsti knygą →",
+    sending: "Siunčiama...",
+    privacy: "Jokio šlamšto. Atsisakykite bet kada.",
+    close: "Uždaryti",
+    successTitle: "Patikrinkite savo pašto dėžutę!",
+    successDesc: "Plėtros knyga jau pakeliui. Jei nematote, patikrinkite šlamštą.",
+    errorTitle: "Kažkas nutiko ne taip",
+    errorDesc: "Siųskite el. laišką sales@sipiteno.com ir mes išsiųsime rankiniu būdu.",
+  },
+
 };
 
 export default lt;

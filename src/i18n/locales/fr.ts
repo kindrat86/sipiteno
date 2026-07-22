@@ -523,6 +523,25 @@ const fr = {
     searchPlaceholder: "Rechercher des langues...",
     title: "Sélectionner la langue",
   },
+  // ===== EXIT INTENT =====
+  exitIntent: {
+    badge: "Attendez — Ne partez pas les mains vides",
+    title: "Le Système d'Expansion — Gratuit",
+    body: "Playbook de 47 pages : fiches pays, cartes réglementaires et benchmarks de prix pour les 28 marchés émergents. Envoyé par e-mail en 5 minutes.",
+    firstName: "Prénom",
+    firstNamePlaceholder: "Sipi",
+    email: "E-mail professionnel",
+    emailPlaceholder: "you@company.com",
+    submit: "Envoyer le Playbook →",
+    sending: "Envoi en cours...",
+    privacy: "Pas de spam. Désabonnez-vous à tout moment.",
+    close: "Fermer",
+    successTitle: "Vérifiez votre boîte de réception !",
+    successDesc: "L'Expansion Playbook est en route. Si vous ne le voyez pas, vérifiez les spams.",
+    errorTitle: "Quelque chose s'est mal passé",
+    errorDesc: "Veuillez envoyer un e-mail à sales@sipiteno.com et nous l'enverrons manuellement.",
+  },
+
 };
 
 export default fr;

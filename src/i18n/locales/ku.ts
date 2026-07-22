@@ -525,6 +525,26 @@ const ku = {
     searchPlaceholder: "Zimanan bigere...",
     title: "Ziman Hilbijêre",
   },
+
+  // ===== EXIT INTENT =====
+  exitIntent: {
+    badge: "Bisekine — Bi destên vala neçe",
+    title: "Pergala Berferehiyê — Belas",
+    body: "47 rûpel playbook: skorkartên welatan, nexşeyên birêkûpêk û benchmarkên bihayê ji bo 28 bazarên derketî. Di 5 deqeyan de di posta xwe de.",
+    firstName: "Nav",
+    firstNamePlaceholder: "Sipi",
+    email: "E-nameya kar",
+    emailPlaceholder: "you@company.com",
+    submit: "Playbookê bişîne →",
+    sending: "Tê şandin...",
+    privacy: "Ne spam. Di her kêlîkê de betal bike.",
+    close: "Bigre",
+    successTitle: "Posta xwe kontrol bike!",
+    successDesc: "Playbookê Berferehiyê li rê ye. Ger tu nebînî, spama xwe kontrol bike.",
+    errorTitle: "Tiştek xelet çû",
+    errorDesc: "Ji kerema xwe e-nameyekê bişîne sales@sipiteno.com û em ê wê bi destan bişînin.",
+  },
+
 };
 
 export default ku;

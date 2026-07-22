@@ -525,6 +525,26 @@ const ro = {
     searchPlaceholder: "Caută limbi...",
     title: "Selectează Limba",
   },
+
+  // ===== EXIT INTENT =====
+  exitIntent: {
+    badge: "Așteaptă — Nu pleca cu mâinile goale",
+    title: "Sistemul de Expansiune — Gratuit",
+    body: "Playbook de 47 de pagini: fișe de țară, hărți de reglementare și repere de preț pentru toate cele 28 de piețe emergente. Trimis în căsuța ta poștală în 5 minute.",
+    firstName: "Prenume",
+    firstNamePlaceholder: "Sipi",
+    email: "Email profesional",
+    emailPlaceholder: "you@company.com",
+    submit: "Trimite Playbook-ul →",
+    sending: "Se trimite...",
+    privacy: "Fără spam. Dezabonează-te oricând.",
+    close: "Închide",
+    successTitle: "Verifică-ți căsuța poștală!",
+    successDesc: "Expansion Playbook-ul este pe drum. Dacă nu-l vezi, verifică spam-ul.",
+    errorTitle: "Ceva nu a mers bine",
+    errorDesc: "Trimite un email la sales@sipiteno.com și îl vom trimite manual.",
+  },
+
 };
 
 export default ro;

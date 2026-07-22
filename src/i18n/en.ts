@@ -605,6 +605,25 @@ const en = {
     searchPlaceholder: "Search languages...",
     title: "Select Language",
   },
+
+  // ===== EXIT INTENT =====
+  exitIntent: {
+    badge: "Wait — Don't Leave Empty-Handed",
+    title: "Keep the Expansion System — Free",
+    body: "47-page playbook: country scorecards, regulatory maps, and pricing benchmarks for all 28 emerging markets. Sent to your inbox in 5 minutes.",
+    firstName: "First name",
+    firstNamePlaceholder: "Sipi",
+    email: "Work email",
+    emailPlaceholder: "you@company.com",
+    submit: "Send The Playbook →",
+    sending: "Sending...",
+    privacy: "No spam. Unsubscribe anytime.",
+    close: "Close",
+    successTitle: "Check your inbox!",
+    successDesc: "The Expansion Playbook is on its way. If you don't see it, check spam.",
+    errorTitle: "Something went wrong",
+    errorDesc: "Please email sales@sipiteno.com and we'll send it manually.",
+  },
 };
 
 export default en;
