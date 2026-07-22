@@ -376,6 +376,17 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.sipiteno.com"
+        }
+      ],
+      "destination": "https://sipiteno.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/blank-1",
       "destination": "/about",
       "permanent": true
