@@ -527,21 +527,7 @@ const de = {
   },
 
   // ===== EXIT INTENT =====
-  exitIntent: {
-    badge: "Warte — geh nicht mit leeren Händen",
-    title: "Sichere dir das Expansion System — kostenlos",
-    body: "47-Seiten-Playbook: Länder-Scorecards, Regulierungsübersichten und Preisvergleiche für alle 28 Emerging Markets. In 5 Minuten in deinem Postfach.",
-    namePlaceholder: "Max",
-    emailPlaceholder: "max@firma.de",
-    submit: "Playbook anfordern →",
-    sending: "Wird gesendet...",
-    privacy: "Kein Spam. Jederzeit abbestellbar.",
-    close: "Schließen",
-    noThanks: "Nein danke, ich gehe",
-    successTitle: "Prüfe dein Postfach!",
-    successBody: "Das Expansion Playbook ist unterwegs.",
-    error: "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
-  },
+
 };
 
 export default de;

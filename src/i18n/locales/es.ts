@@ -524,21 +524,7 @@ const es = {
     title: "Seleccionar idioma",
   },
   // ===== EXIT INTENT =====
-  exitIntent: {
-    badge: "Espera — no te vayas con las manos vacías",
-    title: "Consigue el Expansion System — Gratis",
-    body: "Playbook de 47 páginas: Scorecards por país, mapas regulatorios y benchmarks de precios para los 28 mercados emergentes. En tu bandeja de entrada en 5 minutos.",
-    namePlaceholder: "Carlos",
-    emailPlaceholder: "carlos@empresa.es",
-    submit: "Enviar Playbook →",
-    sending: "Enviando...",
-    privacy: "Sin spam. Cancela cuando quieras.",
-    close: "Cerrar",
-    noThanks: "No gracias, me voy",
-    successTitle: "¡Revisa tu bandeja de entrada!",
-    successBody: "El Expansion Playbook está en camino.",
-    error: "Algo salió mal. Inténtalo de nuevo.",
-  },
+
 
 };
 

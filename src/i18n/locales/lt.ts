@@ -526,21 +526,7 @@ const lt = {
     title: "Pasirinkite kalbą",
   },
   // ===== EXIT INTENT =====
-  exitIntent: {
-    badge: "Palauk — neišeik tuščiomis rankomis",
-    title: "Gaukite „Expansion System“ — Nemokamai",
-    body: "47 puslapių planas: šalių kortelės, reguliavimo žemėlapiai ir kainų palyginimai visoms 28 augančioms rinkoms. Gauta per 5 minutes.",
-    namePlaceholder: "Lukas",
-    emailPlaceholder: "lukas@imone.lt",
-    submit: "Siųsti planą →",
-    sending: "Siunčiama...",
-    privacy: "Jokio šlamšto. Atsisakyti bet kada.",
-    close: "Uždaryti",
-    noThanks: "Ne, ačiū, išeinu",
-    successTitle: "Patikrinkite savo pašto dėžutę!",
-    successBody: "„Expansion Playbook“ jau pakeliui.",
-    error: "Kažkas nutiko ne taip. Bandykite dar kartą.",
-  },
+
 
 };
 

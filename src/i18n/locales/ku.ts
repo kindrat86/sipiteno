@@ -527,21 +527,7 @@ const ku = {
   },
 
   // ===== EXIT INTENT =====
-  exitIntent: {
-    badge: "Bisekine — bi destên vala dernekeve",
-    title: "Pergala Expansion — Belaş bistîne",
-    body: "Playbooka 47-rûpelî: kartên welat, nexşeyên rêziknameyê û bihayên ji bo 28 bazarên derketî. Di 5 deqeyan de di posta xwe de.",
-    namePlaceholder: "Dilovan",
-    emailPlaceholder: "dilovan@sirket.ku",
-    submit: "Playbookê bişîne →",
-    sending: "Tê şandin...",
-    privacy: "Ne spam. Her dem betal bike.",
-    close: "Bigire",
-    noThanks: "Na spas, ez diçim",
-    successTitle: "Posta xwe kontrol bike!",
-    successBody: "Playbooka Expansion rê de ye.",
-    error: "Tiştek xelet çû. Dîsa biceribîne.",
-  },
+
 
 };
 

@@ -527,21 +527,7 @@ const ro = {
   },
 
   // ===== EXIT INTENT =====
-  exitIntent: {
-    badge: "Stai — nu pleca cu mâinile goale",
-    title: "Obține Expansion System — Gratuit",
-    body: "Playbook de 47 de pagini: fișe de țară, hărți de reglementare și repere de preț pentru toate cele 28 de piețe emergente. Primite în 5 minute.",
-    namePlaceholder: "Andrei",
-    emailPlaceholder: "andrei@firma.ro",
-    submit: "Trimite Playbook →",
-    sending: "Se trimite...",
-    privacy: "Fără spam. Dezabonare oricând.",
-    close: "Închide",
-    noThanks: "Nu, mulțumesc, plec",
-    successTitle: "Verifică-ți căsuța poștală!",
-    successBody: "Expansion Playbook este pe drum.",
-    error: "Ceva nu a funcționat. Încearcă din nou.",
-  },
+
 
 };
 

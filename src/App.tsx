@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import PostHogPageviewTracker from "@/components/PostHogPageviewTracker";
 import CookieConsent from "@/components/CookieConsent";
-import ExitIntentOverlay from "@/components/ExitIntentOverlay";
 import Index from "./pages/Index";
 
 // Lazy load non-critical routes
@@ -60,7 +59,6 @@ const App = () => (
       <BrowserRouter>
         <PostHogPageviewTracker />
         <CookieConsent />
-        <ExitIntentOverlay />
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
             {/* Locale-prefixed routes: /:locale/ + English routes below */}

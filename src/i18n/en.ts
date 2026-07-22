@@ -606,22 +606,6 @@ const en = {
     title: "Select Language",
   },
 
-  // ===== EXIT INTENT =====
-  exitIntent: {
-    badge: "Wait — Don't Leave Empty-Handed",
-    title: "Keep the Expansion System — Free",
-    body: "47-page playbook: country scorecards, regulatory maps, and pricing benchmarks for all 28 emerging markets. Sent to your inbox in 5 minutes.",
-    namePlaceholder: "Sipi",
-    emailPlaceholder: "you@company.com",
-    submit: "Send The Playbook →",
-    sending: "Sending...",
-    privacy: "No spam. Unsubscribe anytime.",
-    close: "Close",
-    noThanks: "No thanks, I'll leave",
-    successTitle: "Check your inbox!",
-    successBody: "The Expansion Playbook is on its way.",
-    error: "Something went wrong. Please try again or email us.",
-  },
 };
 
 export default en;
