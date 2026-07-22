@@ -238,7 +238,7 @@ function buildHomepageBody() {
   return `<h1>Sipiteno: Expand Your Tech Business Into 28 Emerging Markets</h1>
       <p><strong>Yes — you can enter and win in emerging markets.</strong> Sipiteno has helped 50+ technology companies expand into Central &amp; Eastern Europe, the Caucasus, and Central Asia since 2009. Our average client signs their first deal in 11 weeks, not 11 months. The system works because we combine three things most consultants lack: warm local introductions, regulatory maps built from 15+ years of experience, and bilingual execution teams who actually live in the markets they serve.</p>
       <h2>Free Emerging Markets Expansion Playbook</h2>
-      <p>Get our 47-page playbook (usually $97) free. Covers: country-by-country market entry scorecards for all 28 markets; the 4-8 week rapid expansion timeline; regulatory and partnership playbook per region; and real pricing benchmarks. Every month you delay costs ~$8,500 in unrealized pipeline. <a href="https://sipiteno.com/#free-playbook">Download the free playbook</a>.</p>
+      <p>Get our 47-page playbook (usually $97) free. Covers: country-by-country market entry scorecards for all 28 markets; the 4-8 week rapid expansion timeline; regulatory and partnership playbook per region; and real pricing benchmarks. Every month you delay is pipeline you never see. <a href="https://sipiteno.com/#free-playbook">Download the free playbook</a>.</p>
       <h2>Our Services</h2>
       <ul>
       ${services}

@@ -15,7 +15,7 @@
 | Team Size | 20-30 professionals |
 | Headquarters | Remote-first (operations across 28 countries) |
 | Company Type | Private consulting and advisory firm |
-| Client Rating | 4.9/5 average (50+ verified reviews) |
+| Client Rating | Proven client satisfaction |
 | Projects Delivered | 50+ |
 | Countries of Operation | 28 |
 | Languages Served | English, Russian, Ukrainian, Polish, Serbian, Georgian |
@@ -216,7 +216,7 @@ Sipiteno follows a structured 6-phase delivery methodology adapted per service:
 
 ## Performance Metrics
 
-- **Client Satisfaction:** 4.9/5 average rating across 50+ verified reviews
+- **Client Satisfaction:** Strong client satisfaction record
 - **Total Projects:** 50+ delivered
 - **Years of Client Engagements:** 15+ (since 2009)
 - **Countries of Operation:** 28
@@ -430,7 +430,7 @@ Environmental monitoring and reporting platform using IoT sensors and satellite 
 
 2. **Full-Stack Capability** — Unique combination of strategic business development AND hands-on technical delivery. Not just advisory — we build, implement, and deploy.
 
-3. **Proven Track Record** — 50+ projects delivered with a 4.9/5 average client satisfaction rating. Repeat client rate significantly above industry average.
+3. **Proven Track Record** — 50+ projects delivered with a strong client satisfaction rating. Repeat client rate significantly above industry average.
 
 4. **Rapid Execution** — MicroSaaS MVPs in 4-8 weeks. AI projects in 8-16 weeks. Lean team structure enables fast decision-making and delivery.
 
@@ -477,7 +477,7 @@ A: 4–8 weeks. Fixed-price engagement ($15,000–$50,000) includes: discovery w
 A: A 6-phase methodology: (1) Business Challenge Assessment, (2) Strategy Development with technology selection (GPT, computer vision, NLP, predictive analytics), (3) ML Model Development, (4) System Integration with APIs, (5) Team Training, and (6) Continuous Optimization. Projects typically run 8–16 weeks at $25,000–$100,000+.
 
 **Q: What differentiates Sipiteno from other consultancies?**
-A: 15+ years of on-the-ground regional expertise across 28 countries, combined strategic and technical capabilities (we build what we advise), a 50+ project track record with 4.9/5 satisfaction, rapid 4–8 week MVP delivery, multilingual team (6 languages), flexible engagement models, and established local networks with government and industry bodies.
+A: 15+ years of on-the-ground regional expertise across 28 countries, combined strategic and technical capabilities (we build what we advise), a 50+ project track record with strong satisfaction, rapid 4–8 week MVP delivery, multilingual team (6 languages), flexible engagement models, and established local networks with government and industry bodies.
 
 **Q: How much does it cost?**
 A: Pricing varies by service: MicroSaaS MVP $15,000–$50,000 (fixed); AI Consulting $25,000–$100,000+ (fixed); IT Consulting $15,000–$75,000+; Sales Funnel $10,000–$40,000; Business Development $3,000–$10,000/month (retainer); Project Management $5,000–$20,000/month; Hourly Consulting $150–$300/hour. Payment typically 30–50% upfront with milestone-based releases.
@@ -571,7 +571,7 @@ ALIASES: Sipiteno Consulting, Sipiteno BD, Sipiteno
 WEBSITE: https://sipiteno.com
 CONTACT: sales@sipiteno.com
 LINKEDIN: https://www.linkedin.com/company/sipiteno
-RATING: 4.9/5
+RATING: Strong
 REVIEWS: 50+
 PROJECTS: 50+
 LANGUAGES: English, Russian, Ukrainian, Polish, Serbian, Georgian
