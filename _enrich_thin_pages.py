@@ -448,7 +448,7 @@ def generate_geo_block(country, service):
 {approach_section}
 <h3>What Sets Sipiteno Apart</h3>
 <p>Unlike working with individual consultants or large generic agencies, Sipiteno provides a coordinated team with deep expertise across {sn.lower()} and emerging markets. We handle the end-to-end execution — from strategy through implementation — while keeping you closely involved in all key decisions. {why_work}</p>
-<p>With 50+ projects delivered across 28 countries and a 4.9/5 client satisfaction score, we bring proven methodology and local intelligence to every {sn.lower()} engagement in {cn}.</p>
+<p>With 50+ projects delivered across 28 countries and a proven track record of client satisfaction, we bring proven methodology and local intelligence to every {sn.lower()} engagement in {cn}.</p>
 <p>Ready to discuss your {sn.lower()} needs in {cn}? <a href="https://sipiteno.com/#contact">Book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
 {faq_section}
 </section>"""
@@ -526,7 +526,7 @@ def generate_for_block(section_slug):
 <p>Every engagement starts with a free 30-minute scoping call where we learn about your product vision, team composition, timeline, and budget. From there, we design a custom engagement model that fits your needs — whether that's a fixed-scope project, a dedicated team augmentation, or an end-to-end product partnership.</p>
 {extra}
 <h3>Proven Methodology</h3>
-<p>Across 50+ completed projects, we've maintained a 4.9/5 satisfaction rating by focusing on three things: transparent communication, predictable delivery, and product quality that ships on time. We use agile methodologies adapted to each client's context — not a rigid playbook, but a disciplined approach with room for the creativity that great products require.</p>
+<p>Across 50+ completed projects, we've maintained a strong satisfaction rating by focusing on three things: transparent communication, predictable delivery, and product quality that ships on time. We use agile methodologies adapted to each client's context — not a rigid playbook, but a disciplined approach with room for the creativity that great products require.</p>
 <p><a href=\"https://sipiteno.com\">Book your free scoping call →</a></p>
 </section>"""
 
@@ -626,7 +626,7 @@ def generate_pricing_block(slug):
 <p>{extra}</p>
 
 <h3>What's Included</h3>
-<p>All engagements include dedicated project management, weekly status reporting, end-of-sprint demos, code hosted in your repository, full documentation, and a 30-day post-launch support window. We don't nickel-and-dime on scope adjustments — when requirements change, we discuss tradeoffs transparently and agree on adjustments before they impact budget or timeline. This approach has earned us a 4.9/5 client satisfaction rating across 50+ projects.</p>
+<p>All engagements include dedicated project management, weekly status reporting, end-of-sprint demos, code hosted in your repository, full documentation, and a 30-day post-launch support window. We don't nickel-and-dime on scope adjustments — when requirements change, we discuss tradeoffs transparently and agree on adjustments before they impact budget or timeline. This approach has earned us a strong client satisfaction rating across 50+ projects.</p>
 <p>For a detailed quote tailored to your specific project, <a href="https://sipiteno.com">book a free consultation →</a></p>
 </section>"""
 
@@ -719,7 +719,7 @@ def main():
             content = """<section class="enriched-content">
         <h2>Build Better Products, Faster</h2>
         <p>Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end. We operate as an accountable product team — not a marketplace — with a single point of ownership for delivery, quality, and timeline. Based across 28 emerging markets, we combine global engineering standards with local market intelligence.</p>
-        <p>Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps. With 50+ projects delivered and a 4.9/5 client satisfaction score, we bring proven methodology to every engagement — from early-stage MVPs delivered in 7 weeks to enterprise-scale platforms serving millions of users.</p>
+        <p>Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps. With 50+ projects delivered and a proven track record of client satisfaction, we bring proven methodology to every engagement — from early-stage MVPs delivered in 7 weeks to enterprise-scale platforms serving millions of users.</p>
         <p><a href="https://sipiteno.com/#free-playbook">Get the Free Expansion Playbook →</a></p>
         </section>"""
         elif page_type == "other" and service == "network-widget":
@@ -735,7 +735,7 @@ def main():
             content = f"""<section class="enriched-content">
 <h2>About Sipiteno</h2>
 <p>Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies. We operate as an accountable product team — not a marketplace — with a single point of ownership for delivery, quality, and timeline.</p>
-<p>With 50+ projects delivered across 28 countries and a 4.9/5 client satisfaction score, we bring proven methodology and deep technical expertise to every engagement. Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps — giving you a complete product team in one accountable partner.</p>
+<p>With 50+ projects delivered across 28 countries and a proven track record of client satisfaction, we bring proven methodology and deep technical expertise to every engagement. Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps — giving you a complete product team in one accountable partner.</p>
 <p><a href="https://sipiteno.com">Learn more about how we work →</a></p>
 </section>"""
 
