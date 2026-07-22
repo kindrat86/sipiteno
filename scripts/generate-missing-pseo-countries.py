@@ -99,7 +99,7 @@ TEMPLATE_BEFORE = '''<!DOCTYPE html>
     <main>
         <h1 style="font-size:2em;font-weight:800;margin-bottom:.5em;line-height:1.2">{service_name} in {country_name}</h1>
         <p style="font-size:1.1em;color:#555;margin-bottom:2em">Sipiteno provides {service_short} services in {country_name}. Strategic Business Development & AI Consulting across 28 emerging markets.</p>
-        <p>Looking for {service_short} in {country_name}? Sipiteno has delivered 50+ projects across 28 countries with a 4.9/5 rating. Local expertise, global standards.</p><p><a href="https://sipiteno.com" style="color:#0066cc">Contact Sipiteno about {service_short} in {country_name} →</a></p>
+        <p>Looking for {service_short} in {country_name}? Sipiteno has delivered 50+ projects across 28 countries with a proven track record. Local expertise, global standards.</p><p><a href="https://sipiteno.com" style="color:#0066cc">Contact Sipiteno about {service_short} in {country_name} →</a></p>
 '''
 
 TEMPLATE_AFTER = '''    </main>
@@ -115,7 +115,6 @@ TEMPLATE_AFTER = '''    </main>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:28px;margin-bottom:28px">
       <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">50+</span><br><span style="font-size:.82rem;color:#94a3b8">Projects delivered</span></div>
       <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">28</span><br><span style="font-size:.82rem;color:#94a3b8">Countries active</span></div>
-      <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">4.9/5</span><br><span style="font-size:.82rem;color:#94a3b8">Avg satisfaction</span></div>
       <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">7 wks</span><br><span style="font-size:.82rem;color:#94a3b8">Median MVP launch</span></div>
     </div>
     <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">Every quarter you wait costs you a whole market. Start with the free playbook.</p>

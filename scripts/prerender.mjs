@@ -248,7 +248,7 @@ function buildHomepageBody() {
       <h2>Value Ladder: How We Work Together</h2>
       <p>Five ways to engage Sipiteno, climbing in value: (1) Free Expansion Playbook PDF, (2) Free 30-minute strategy scoping call, (3) MicroSaaS MVP development ($15,000-$50,000 fixed), (4) Business Development retainer ($3,000-$10,000/month with 10-30 qualified leads/month), (5) AI implementation program ($25,000-$100,000+). Start free, scale when ready. <a href="https://sipiteno.com/pricing">See pricing</a>.</p>
       <h2>Why Choose Sipiteno</h2>
-      <p>Five differentiators: 15+ years regional expertise across 28 countries, combined strategic and hands-on technical implementation, 50+ successful projects with 4.9/5 client satisfaction, rapid 4-8 week delivery, and flexible engagement models.</p>
+      <p>Five differentiators: 15+ years regional expertise across 28 countries, combined strategic and hands-on technical implementation, 50+ successful projects with high client satisfaction, rapid 4-8 week delivery, and flexible engagement models.</p>
       <h2>Markets We Serve, by Region</h2>
       <p>Sipiteno operates across 28 emerging markets in four macro-regions — Central Europe, Southeast Europe, Northern &amp; Eastern Europe, the Caucasus, and Central Asia. Each has its own regulatory environment, tech ecosystem, and set of high-opportunity industries. We maintain warm introductions and bilingual execution teams in every one.</p>
       ${regionsBlock}
@@ -263,7 +263,7 @@ function buildHomepageBody() {
       <h3>What is Sipiteno's approach to AI consulting?</h3>
       <p>We combine strategy with hands-on implementation: an AI opportunity assessment, then MVP build and deployment by our own engineers rather than a slide deck handed to someone else. AI implementation programs run $25,000–$100,000+ depending on scope.</p>
       <h3>What differentiates Sipiteno from other consultancies?</h3>
-      <p>Three things most consultants lack: warm local introductions inside each market, regulatory maps built from 15+ years of on-the-ground experience, and bilingual execution teams who actually live where they work. 50+ successful projects at 4.9/5 client satisfaction, delivered in 4–8 weeks.</p>
+      <p>Three things most consultants lack: warm local introductions inside each market, regulatory maps built from 15+ years of on-the-ground experience, and bilingual execution teams who actually live where they work. 50+ successful projects with high client satisfaction, delivered in 4–8 weeks.</p>
       <h3>What industries does Sipiteno serve?</h3>
       <p>FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics — with particular depth in regulated sectors that require licensing and data-compliance work.</p>
       <h3>How much does it cost to work with Sipiteno?</h3>

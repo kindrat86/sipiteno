@@ -248,7 +248,7 @@ footer a{{color:var(--pri);text-decoration:none}}
 </div><!-- .wrap -->
 
 <footer>
-  Built by <a href="/">Sipiteno</a> — Digital product studio operating across 28 emerging markets. 50+ projects delivered. 4.9/5 client satisfaction.<br>
+  Built by <a href="/">Sipiteno</a> — Digital product studio operating across 28 emerging markets. 50+ projects delivered, high client satisfaction.<br>
   <a href="/contact">Book a free 30-min strategy call</a> · <a href="/market-entry-scorecard">Market Entry Scorecard</a> · <a href="/expand-to/">All Market Entry Guides</a>
 </footer>
 
