@@ -528,21 +528,19 @@ const ku = {
 
   // ===== EXIT INTENT =====
   exitIntent: {
-    badge: "Bisekine — Bi destên vala neçe",
-    title: "Pergala Berferehiyê — Belas",
-    body: "47 rûpel playbook: skorkartên welatan, nexşeyên birêkûpêk û benchmarkên bihayê ji bo 28 bazarên derketî. Di 5 deqeyan de di posta xwe de.",
-    firstName: "Nav",
-    firstNamePlaceholder: "Sipi",
-    email: "E-nameya kar",
-    emailPlaceholder: "you@company.com",
+    badge: "Bisekine — bi destên vala dernekeve",
+    title: "Pergala Expansion — Belaş bistîne",
+    body: "Playbooka 47-rûpelî: kartên welat, nexşeyên rêziknameyê û bihayên ji bo 28 bazarên derketî. Di 5 deqeyan de di posta xwe de.",
+    namePlaceholder: "Dilovan",
+    emailPlaceholder: "dilovan@sirket.ku",
     submit: "Playbookê bişîne →",
     sending: "Tê şandin...",
-    privacy: "Ne spam. Di her kêlîkê de betal bike.",
-    close: "Bigre",
+    privacy: "Ne spam. Her dem betal bike.",
+    close: "Bigire",
+    noThanks: "Na spas, ez diçim",
     successTitle: "Posta xwe kontrol bike!",
-    successDesc: "Playbookê Berferehiyê li rê ye. Ger tu nebînî, spama xwe kontrol bike.",
-    errorTitle: "Tiştek xelet çû",
-    errorDesc: "Ji kerema xwe e-nameyekê bişîne sales@sipiteno.com û em ê wê bi destan bişînin.",
+    successBody: "Playbooka Expansion rê de ye.",
+    error: "Tiştek xelet çû. Dîsa biceribîne.",
   },
 
 };

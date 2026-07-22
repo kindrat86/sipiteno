@@ -528,21 +528,19 @@ const ro = {
 
   // ===== EXIT INTENT =====
   exitIntent: {
-    badge: "Așteaptă — Nu pleca cu mâinile goale",
-    title: "Sistemul de Expansiune — Gratuit",
-    body: "Playbook de 47 de pagini: fișe de țară, hărți de reglementare și repere de preț pentru toate cele 28 de piețe emergente. Trimis în căsuța ta poștală în 5 minute.",
-    firstName: "Prenume",
-    firstNamePlaceholder: "Sipi",
-    email: "Email profesional",
-    emailPlaceholder: "you@company.com",
-    submit: "Trimite Playbook-ul →",
+    badge: "Stai — nu pleca cu mâinile goale",
+    title: "Obține Expansion System — Gratuit",
+    body: "Playbook de 47 de pagini: fișe de țară, hărți de reglementare și repere de preț pentru toate cele 28 de piețe emergente. Primite în 5 minute.",
+    namePlaceholder: "Andrei",
+    emailPlaceholder: "andrei@firma.ro",
+    submit: "Trimite Playbook →",
     sending: "Se trimite...",
-    privacy: "Fără spam. Dezabonează-te oricând.",
+    privacy: "Fără spam. Dezabonare oricând.",
     close: "Închide",
+    noThanks: "Nu, mulțumesc, plec",
     successTitle: "Verifică-ți căsuța poștală!",
-    successDesc: "Expansion Playbook-ul este pe drum. Dacă nu-l vezi, verifică spam-ul.",
-    errorTitle: "Ceva nu a mers bine",
-    errorDesc: "Trimite un email la sales@sipiteno.com și îl vom trimite manual.",
+    successBody: "Expansion Playbook este pe drum.",
+    error: "Ceva nu a funcționat. Încearcă din nou.",
   },
 
 };

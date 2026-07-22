@@ -60,6 +60,7 @@ const App = () => (
       <BrowserRouter>
         <PostHogPageviewTracker />
         <CookieConsent />
+        <ExitIntentOverlay />
         <Suspense fallback={<div className="min-h-screen bg-background" />}>
           <Routes>
             {/* Locale-prefixed routes: /:locale/ + English routes below */}
