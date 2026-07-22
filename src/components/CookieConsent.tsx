@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { hasConsented, setConsent } from "@/lib/consent";
+import { getConsent, hasConsented, setConsent } from "@/lib/consent";
 import { initPostHogDeferred } from "@/lib/posthog";
 import { initClarityDeferred } from "@/lib/clarity";
 import { trackAiReferral } from "@/lib/analytics";
@@ -12,7 +12,20 @@ export default function CookieConsent() {
   useEffect(() => {
     // Brief delay so the banner doesn't flash on every load
     const t = setTimeout(() => {
-      if (!hasConsented()) setVisible(true);
+      if (!hasConsented()) {
+        setVisible(true);
+      } else {
+        // Returning visitor with stored consent — init services immediately
+        const consent = getConsent();
+        if (consent?.analytics) {
+          initPostHogDeferred();
+          trackAiReferral();
+          initMarketingPixels();
+        }
+        if (consent?.experience) {
+          initClarityDeferred();
+        }
+      }
     }, 400);
     return () => clearTimeout(t);
   }, []);

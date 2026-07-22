@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Mail, CheckCircle2 } from "lucide-react";
+import { Loader2, Mail, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 const countries = [
@@ -23,6 +23,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   const validateForm = () => {
@@ -32,7 +33,6 @@ const Contact = () => {
     if (!formData.email.trim()) newErrors.email = t("contact.errorEmail");
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = t("contact.errorEmailFormat");
     if (!formData.message.trim()) newErrors.message = t("contact.errorMessage");
-    else if (formData.message.trim().length < 10) newErrors.message = t("contact.errorMessageShort");
     else if (formData.message.trim().length > 2000) newErrors.message = t("contact.errorMessageLong");
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -47,13 +47,14 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitError(false);
     try {
+      const payload = { ...formData, service: formData.service || "not_specified", country: formData.country || "not_specified" };
       const resp = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       if (!resp.ok) throw new Error(`contact api ${resp.status}`);
-      trackEvent("contact_form_submitted", { service: formData.service || "not_specified", country: formData.country || "not_specified", hear_about_us: formData.hearAboutUs || "not_specified" });
+      trackEvent("contact_form_submitted", { service: payload.service, country: payload.country, hear_about_us: formData.hearAboutUs || "not_specified" });
       setSubmitted(true);
       toast({ title: t("contact.successToast"), description: t("contact.successToastDesc") });
     } catch {
@@ -83,7 +84,7 @@ const Contact = () => {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("contact.successTitle")}</h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">{t("contact.successBody")}</p>
-              <Button variant="outline" size="lg" onClick={() => { setSubmitted(false); setFormData({ fullName: "", companyName: "", email: "", phone: "", country: "", service: "", message: "", hearAboutUs: "", honeypot: "" }); setErrors({}); }}>{t("contact.successButton")}</Button>
+              <Button variant="outline" size="lg" onClick={() => { setSubmitted(false); setFormData({ fullName: "", companyName: "", email: "", phone: "", country: "", service: "", message: "", hearAboutUs: "", honeypot: "" }); setErrors({}); setShowDetails(false); }}>{t("contact.successButton")}</Button>
             </div>
           </div>
         </div>
@@ -104,52 +105,16 @@ const Contact = () => {
         <div className="max-w-2xl mx-auto">
           <div className="bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm p-6 md:p-10 rounded-2xl md:rounded-3xl border-2 border-border shadow-xl md:shadow-2xl">
             <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-5 md:space-y-6">
+              {/* --- Core fields: name, email, message --- */}
               <div>
                 <Label htmlFor="fullName">{t("contact.fullName")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
                 <Input id="fullName" required aria-required="true" aria-invalid={!!errors.fullName} aria-describedby={errors.fullName ? "fullName-error" : undefined} value={formData.fullName} onChange={(e) => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} placeholder={t("contact.fullNamePlaceholder")} autoComplete="name" enterKeyHint="next" />
                 {errors.fullName && <p id="fullName-error" className="text-destructive text-sm mt-1">{errors.fullName}</p>}
               </div>
               <div>
-                <Label htmlFor="companyName">{t("contact.companyName")}</Label>
-                <Input id="companyName" value={formData.companyName} onChange={(e) => handleChange("companyName", e.target.value)} placeholder={t("contact.companyNamePlaceholder")} autoComplete="organization" enterKeyHint="next" />
-              </div>
-              <div>
                 <Label htmlFor="email">{t("contact.email")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
                 <Input id="email" type="email" required aria-required="true" aria-invalid={!!errors.email} aria-describedby={errors.email ? "email-error" : undefined} value={formData.email} onChange={(e) => handleChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} placeholder={t("contact.emailPlaceholder")} autoComplete="email" />
                 {errors.email && <p id="email-error" className="text-destructive text-sm mt-1">{errors.email}</p>}
-              </div>
-              <div>
-                <Label htmlFor="phone">{t("contact.phone")}</Label>
-                <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder={t("contact.phonePlaceholder")} autoComplete="tel" enterKeyHint="next" />
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
-                <div>
-                  <Label htmlFor="country">{t("contact.country")}</Label>
-                  <Select value={formData.country} onValueChange={(value) => handleChange("country", value)}>
-                    <SelectTrigger id="country"><SelectValue placeholder={t("contact.countryPlaceholder")} /></SelectTrigger>
-                    <SelectContent>
-                      {countries.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label htmlFor="service">{t("contact.service")}</Label>
-                  <Select value={formData.service} onValueChange={(value) => handleChange("service", value)}>
-                    <SelectTrigger id="service"><SelectValue placeholder={t("contact.servicePlaceholder")} /></SelectTrigger>
-                    <SelectContent>
-                      {["AI Consulting","Business Development B2B","Digital Marketing","IT Consulting","Marketing Sales Funnel Setup","Project Management"].map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="hearAboutUs">How did you hear about us?</Label>
-                <Select value={formData.hearAboutUs} onValueChange={(value) => handleChange("hearAboutUs", value)}>
-                  <SelectTrigger id="hearAboutUs"><SelectValue placeholder="Where did you find us?" /></SelectTrigger>
-                  <SelectContent>
-                    {["ChatGPT", "Google AI Overview / AI Mode", "Perplexity", "Gemini", "Copilot", "Google Search", "LinkedIn", "Reddit", "Referral", "Other"].map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
-                  </SelectContent>
-                </Select>
               </div>
               <div>
                 <Label htmlFor="message">{t("contact.message")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
@@ -159,10 +124,66 @@ const Contact = () => {
                 <div className="flex items-center justify-between mt-1">
                   {errors.message ? <p id="message-error" className="text-destructive text-sm">{errors.message}</p> : <span />}
                   <p id="message-charcount" aria-live="polite" className={`text-sm ml-auto ${isCharError ? "text-destructive" : isCharWarning ? "text-amber-500" : "text-muted-foreground"}`}>
-                    {charCount} {t("contact.charCount")}{charCount < 10 && ` ${t("contact.charMin")}`}{isCharError && t("contact.charTooLong")}
+                    {charCount} {t("contact.charCount")}{isCharError && t("contact.charTooLong")}
                   </p>
                 </div>
               </div>
+
+              {/* --- Progressive disclosure: optional project details --- */}
+              <div className="border-t border-border pt-4">
+                <button
+                  type="button"
+                  onClick={() => setShowDetails(!showDetails)}
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-full"
+                  aria-expanded={showDetails}
+                >
+                  {showDetails ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  Add project details (optional)
+                </button>
+                {showDetails && (
+                  <div className="space-y-4 mt-4 animate-in fade-in-0 slide-in-from-top-2">
+                    <div>
+                      <Label htmlFor="companyName">{t("contact.companyName")}</Label>
+                      <Input id="companyName" value={formData.companyName} onChange={(e) => handleChange("companyName", e.target.value)} placeholder={t("contact.companyNamePlaceholder")} autoComplete="organization" enterKeyHint="next" />
+                    </div>
+                    <div>
+                      <Label htmlFor="phone">{t("contact.phone")}</Label>
+                      <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder={t("contact.phonePlaceholder")} autoComplete="tel" enterKeyHint="next" />
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
+                      <div>
+                        <Label htmlFor="country">{t("contact.country")}</Label>
+                        <Select value={formData.country} onValueChange={(value) => handleChange("country", value)}>
+                          <SelectTrigger id="country"><SelectValue placeholder={t("contact.countryPlaceholder")} /></SelectTrigger>
+                          <SelectContent>
+                            {countries.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label htmlFor="service">{t("contact.service")}</Label>
+                        <Select value={formData.service} onValueChange={(value) => handleChange("service", value)}>
+                          <SelectTrigger id="service"><SelectValue placeholder={t("contact.servicePlaceholder")} /></SelectTrigger>
+                          <SelectContent>
+                            {["AI Consulting","Business Development B2B","Digital Marketing","IT Consulting","Marketing Sales Funnel Setup","Project Management"].map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                    <div>
+                      <Label htmlFor="hearAboutUs">How did you hear about us?</Label>
+                      <Select value={formData.hearAboutUs} onValueChange={(value) => handleChange("hearAboutUs", value)}>
+                        <SelectTrigger id="hearAboutUs"><SelectValue placeholder="Where did you find us?" /></SelectTrigger>
+                        <SelectContent>
+                          {["ChatGPT", "Google AI Overview / AI Mode", "Perplexity", "Gemini", "Copilot", "Google Search", "LinkedIn", "Reddit", "Referral", "Other"].map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* --- Honeypot (hidden, spam protection) --- */}
               <input type="text" name="honeypot" value={formData.honeypot} onChange={(e) => handleChange("honeypot", e.target.value)} style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
               {submitError && (
                 <p role="alert" className="text-destructive text-sm text-center bg-destructive/10 border border-destructive/30 rounded-lg py-2 px-3">
