@@ -16,24 +16,35 @@
 - Submit sitemap: `https://sipiteno.com/sitemap.xml`
 - The IndexNow key `36c569de4e73c7f56a67fa365be2f95f` is already deployed at https://sipiteno.com/36c569de4e73c7f56a67fa365be2f95f.txt
 
-## 3. WWW Redirect: Verify 308
+## 3. WWW Redirect: Action Required ⚠️
 
 After deploy (2026-07-23), the vercel.json now includes a permanent (308) redirect from www.sipiteno.com → sipiteno.com.
-Verify: `curl -s -o /dev/null -w "%{http_code}" https://www.sipiteno.com/` should return 308.
-If it still returns 307, the redirect is configured in the Vercel Dashboard instead:
-  - Go to https://vercel.com/sipiteno/sipiteno/settings/domains
-  - Find www.sipiteno.com
-  - Change from "Temporary Redirect (307)" to "Permanent Redirect (308)"
-  - Or remove the dashboard redirect and let vercel.json handle it
+**Live check shows 307 (temporary) still.** This means the Vercel Dashboard has a www redirect configured that overrides vercel.json.
 
-## 4. HSTS Preload Submission
+**Action required in Vercel Dashboard:**
+  - Go to https://vercel.com/sales-3429s-projects/sipiteno/settings/domains
+  - Find www.sipiteno.com in the domain list
+  - Either:
+    a) Change from "Temporary Redirect (307)" to "Permanent Redirect (308)", OR
+    b) Remove the dashboard redirect entirely and let vercel.json handle it (308 permanent).
 
-After the deploy ships the updated HSTS header (`max-age=63072000; includeSubDomains; preload`):
+## 4. HSTS Preload Submission — Dashboard Override ⚠️
+
+The built deployment (verified on preview URL) correctly serves:
+`Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
+
+But the production domain (sipiteno.com) currently shows only:
+`strict-transport-security: max-age=63072000`
+
+This indicates a Vercel Dashboard header override. Action:
+  - Go to https://vercel.com/sales-3429s-projects/sipiteno/settings/headers
+  - Check for any custom HSTS header that overrides vercel.json
+  - Remove the dashboard override to let vercel.json take effect
+
+After production domain shows `includeSubDomains; preload`:
   - Go to https://hstspreload.org/
   - Enter `sipiteno.com`
-  - Check that all requirements pass
   - Submit to the preload list
-  - Wait for acceptance (can take weeks/months)
 
 ## 5. Thin Page Analysis — No Action Needed
 
