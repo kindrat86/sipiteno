@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Validate JSON-LD (source pSEO pages)
+        run: python3 scripts/validate_jsonld.py .
       - uses: actions/setup-node@v4
         with:
           node-version: 22
