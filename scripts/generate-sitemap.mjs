@@ -9,9 +9,109 @@
 
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join, relative, dirname, basename } from 'path';
+import { execSync } from 'child_process';
 
 const DIST = join(process.cwd(), 'dist');
 const BASE = 'https://sipiteno.com';
+const LOCALES = ['de', 'es', 'fr', 'it', 'ku', 'lt', 'ro'];
+
+// Real per-page lastmod: instead of stamping every URL with "today" (which
+// changes on every deploy and teaches Google to distrust the signal), look
+// up the git commit date of whichever source file actually governs that
+// URL's content. Most of the fleet is generated from a handful of shared
+// data files / page templates, so this gives real, varied dates without
+// needing a 1:1 file per URL.
+const gitDateCache = new Map();
+function gitDate(file) {
+  if (gitDateCache.has(file)) return gitDateCache.get(file);
+  let date = null;
+  try {
+    const out = execSync(`git log -1 --format=%cs -- "${file}"`, { cwd: process.cwd(), encoding: 'utf8' }).trim();
+    date = out || null;
+  } catch {
+    date = null;
+  }
+  gitDateCache.set(file, date);
+  return date;
+}
+
+function maxDate(...dates) {
+  const valid = dates.filter(Boolean);
+  return valid.length ? valid.sort().pop() : null;
+}
+
+const SERVICE_FILES = {
+  'ai-consulting': 'src/pages/services/AIConsulting.tsx',
+  'business-development': 'src/pages/services/BusinessDevelopment.tsx',
+  'digital-marketing': 'src/pages/services/DigitalMarketing.tsx',
+  'it-consulting': 'src/pages/services/ITConsulting.tsx',
+  'project-management': 'src/pages/services/ProjectManagement.tsx',
+  'sales-funnel': 'src/pages/services/SalesFunnel.tsx',
+};
+
+const HUB_FILES = {
+  '': 'src/pages/Index.tsx',
+  'about': 'src/pages/About.tsx',
+  'alternatives': 'src/pages/Alternatives.tsx',
+  'blog': 'src/pages/Blog.tsx',
+  'case-studies': 'src/pages/CaseStudies.tsx',
+  'contact': 'src/pages/Contact.tsx',
+  'glossary': 'src/pages/Glossary.tsx',
+  'industries': 'src/pages/Industries.tsx',
+  'locations': 'src/pages/Locations.tsx',
+  'methodology': 'src/pages/Methodology.tsx',
+  'pricing': 'src/pages/Pricing.tsx',
+  'privacy': 'src/pages/Privacy.tsx',
+  'services': 'src/pages/Locations.tsx', // no dedicated hub file found; closest sibling
+  'terms': 'src/pages/Terms.tsx',
+};
+
+// Fallback for clusters with no locatable source file in this repo (vs/,
+// for/, alternatives-to/, learn/, dream100, expansion-system, free,
+// affiliates) — the pSEO build pipeline's own last-touched date, which is
+// still real and varies across deploys, just coarser than per-page.
+const FALLBACK_FILE = 'scripts/prerender.mjs';
+
+function lastmodFor(urlPath) {
+  // Strip locale prefix (e.g. /de/locations/x -> /locations/x)
+  let path = urlPath;
+  for (const loc of LOCALES) {
+    if (path === '/' + loc) { path = '/'; break; }
+    if (path.startsWith('/' + loc + '/')) { path = path.slice(loc.length + 1); break; }
+  }
+  const segs = path.split('/').filter(Boolean);
+
+  if (segs.length === 0) return gitDate(HUB_FILES['']) || gitDate(FALLBACK_FILE);
+
+  const [first, second] = segs;
+
+  if (first === 'services' && second && SERVICE_FILES[second]) {
+    return gitDate(SERVICE_FILES[second]) || gitDate(FALLBACK_FILE);
+  }
+  if (first === 'locations') {
+    return maxDate(
+      gitDate('src/data/countries.ts'),
+      gitDate('src/data/countryServices.ts'),
+      gitDate('src/pages/LocationService.tsx'),
+    ) || gitDate(FALLBACK_FILE);
+  }
+  if (first === 'industries' && second) {
+    return maxDate(gitDate('src/data/industries.ts'), gitDate('src/pages/Industries.tsx')) || gitDate(FALLBACK_FILE);
+  }
+  if (first === 'case-studies' && second) {
+    return maxDate(gitDate('src/data/projects.ts'), gitDate('src/pages/CaseStudyDetail.tsx')) || gitDate(FALLBACK_FILE);
+  }
+  if (first === 'blog' && second) {
+    return maxDate(gitDate('src/data/blogTopics.ts'), gitDate('src/pages/BlogPost.tsx')) || gitDate(FALLBACK_FILE);
+  }
+  if (segs.length === 1 && HUB_FILES[first]) {
+    return gitDate(HUB_FILES[first]) || gitDate(FALLBACK_FILE);
+  }
+
+  // Unmapped clusters (vs/, for/, alternatives-to/, glossary/{term}, learn/,
+  // dream100, expansion-system, free, affiliates, etc.)
+  return gitDate(FALLBACK_FILE);
+}
 
 if (!existsSync(DIST)) {
   console.error('dist/ not found. Run build first.');
@@ -80,6 +180,8 @@ const sortedUrls = Array.from(urls).sort();
 const today = new Date().toISOString().split('T')[0];
 
 const urlEntries = sortedUrls.map(url => {
+  const urlPath = url.replace(BASE, '') || '/';
+  const lastmod = lastmodFor(urlPath) || today;
   // Determine priority based on page type
   let priority = '0.6';
   let changefreq = 'monthly';
@@ -123,7 +225,7 @@ const urlEntries = sortedUrls.map(url => {
 
   return `  <url>
     <loc>${url}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`;
