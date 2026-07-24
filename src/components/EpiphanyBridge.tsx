@@ -52,7 +52,7 @@ const EpiphanyBridge = () => {
             <p className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight max-w-3xl mx-auto">
               {t("epiphanyBridge.bigDomino")}
             </p>
-            <p className="text-white/70 mt-4 md:mt-6 max-w-2xl mx-auto text-base md:text-lg">{t("epiphanyBridge.bigDominoBody")}</p>
+            <p className="text-white/85 mt-4 md:mt-6 max-w-2xl mx-auto text-base md:text-lg">{t("epiphanyBridge.bigDominoBody")}</p>
           </div>
           <div className="mt-8 md:mt-10 bg-card rounded-2xl md:rounded-3xl p-6 md:p-10 border-2 border-primary/20 text-center">
             <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">{t("epiphanyBridge.ctaTitle")}</h3>

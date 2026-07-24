@@ -70,7 +70,7 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                    className="inline-block py-1.5 text-white/85 hover:text-white text-sm transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -89,7 +89,7 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                    className="inline-block py-1.5 text-white/85 hover:text-white text-sm transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -107,7 +107,7 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:sales@sipiteno.com"
-                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                  className="inline-block py-1.5 text-white/85 hover:text-white text-sm transition-colors"
                 >
                   sales@sipiteno.com
                 </a>
@@ -117,7 +117,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/company/34765968"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                  className="inline-block py-1.5 text-white/85 hover:text-white text-sm transition-colors"
                 >
                   {t("footer.linkedin")}
                 </a>
@@ -127,7 +127,7 @@ const Footer = () => {
                   href="https://x.com/sipiteno"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                  className="inline-block py-1.5 text-white/85 hover:text-white text-sm transition-colors"
                 >
                   X / Twitter
                 </a>
@@ -143,7 +143,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/terms"
-                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                  className="inline-block py-1.5 text-white/85 hover:text-white text-sm transition-colors"
                 >
                   {t("footer.terms")}
                 </Link>
@@ -151,7 +151,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/privacy"
-                  className="inline-block py-1.5 text-white/60 hover:text-white text-sm transition-colors"
+                  className="inline-block py-1.5 text-white/85 hover:text-white text-sm transition-colors"
                 >
                   {t("footer.privacy")}
                 </Link>
@@ -160,7 +160,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/15 pt-6 text-center text-sm text-white/50">
+        <div className="border-t border-white/15 pt-6 text-center text-sm text-white/75">
           <p>&copy; {year} {t("footer.copyright")}</p>
         </div>
       </div>

@@ -77,7 +77,7 @@ const LeadMagnet = () => {
                 <p className="text-white font-medium">{t("leadMagnet.inaction3")}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-xs md:text-sm text-white/60">
+            <div className="flex items-center gap-2 text-xs md:text-sm text-white/85">
               <Lock className="w-3.5 h-3.5 md:w-4 md:h-4" /><span>{t("leadMagnet.noSpam")}</span>
             </div>
           </div>

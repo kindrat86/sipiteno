@@ -32,7 +32,7 @@ const Hero = () => {
               {t("hero.eyebrow")}
             </span>
             <span className="hidden sm:inline text-white/30">·</span>
-            <span className="hidden sm:inline text-white/50 font-medium tracking-wide uppercase text-xs">
+            <span className="hidden sm:inline text-white/75 font-medium tracking-wide uppercase text-xs">
               {t("hero.eyebrowSub")}
             </span>
           </div>
@@ -86,13 +86,13 @@ const Hero = () => {
             </Button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-white/70 hover:text-white underline underline-offset-4 text-sm font-medium py-3 min-h-[44px] flex items-center transition-colors"
+              className="text-white/90 hover:text-white underline underline-offset-4 text-sm font-medium py-3 min-h-[44px] flex items-center transition-colors"
             >
               {t("hero.ctaSecondary")}
             </button>
           </div>
 
-          <p className="text-white/60 text-xs md:text-sm mt-3 md:mt-4">
+          <p className="text-white/80 text-xs md:text-sm mt-3 md:mt-4">
             {t("hero.noCreditCard")}
           </p>
 
@@ -108,7 +108,7 @@ const Hero = () => {
           <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 backdrop-blur-sm">
             <span className="text-green-400 text-xs font-semibold">{t("trustSignal.badge")}</span>
             <span className="text-green-400/40 hidden sm:inline">·</span>
-            <span className="text-green-400/80 text-xs">{t("trustSignal.item1")}</span>
+            <span className="text-green-300 text-xs">{t("trustSignal.item1")}</span>
           </div>
           {/* Stats */}
           <div className="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto">
@@ -116,15 +116,15 @@ const Hero = () => {
               <div className="text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2" itemProp="name">
                 {t("hero.stat1")}
               </div>
-              <div className="text-white/70 text-sm md:text-base">{t("hero.stat1Label")}</div>
+              <div className="text-white/85 text-sm md:text-base">{t("hero.stat1Label")}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2">{t("hero.stat2")}</div>
-              <div className="text-white/70 text-sm md:text-base">{t("hero.stat2Label")}</div>
+              <div className="text-white/85 text-sm md:text-base">{t("hero.stat2Label")}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2">{t("hero.stat3")}</div>
-              <div className="text-white/70 text-sm md:text-base">{t("hero.stat3Label")}</div>
+              <div className="text-white/85 text-sm md:text-base">{t("hero.stat3Label")}</div>
             </div>
           </div>
         </header>
