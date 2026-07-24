@@ -401,13 +401,8 @@ const en = {
 
   // ===== ORDER BUMP =====
   orderBump: {
-    urgencyBadge: "Urgency Alert — 4 of 8 Spots Remain This Month",
-    spotsFilled: "4 spots filled",
-    spotsRemaining: "4 remaining",
     title: "Book Your Free Expansion Strategy Session",
     body: "Here's everything you get on the call — and after it. Total value below. Your cost: zero.",
-    slotCounter: "",
-    firstCall: "— first call booked in 2 days",
     item1Title: "30-Minute Strategy Call",
     item1Sub: "with a senior partner (15+ yrs in-region)",
     item1Value: "$500",

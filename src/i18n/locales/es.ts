@@ -307,13 +307,8 @@ const es = {
 
   // ===== ORDER BUMP =====
   orderBump: {
-    urgencyBadge: "Alerta de urgencia — quedan 4 de 8 plazas este mes",
-    spotsFilled: "4 plazas cubiertas",
-    spotsRemaining: "4 restantes",
     title: "Reserva tu sesión gratuita de estrategia de expansión",
     body: "Esto es todo lo que recibes en la llamada y después de ella. Valor total más abajo. Tu coste: cero.",
-    slotCounter: "",
-    firstCall: "— primera llamada reservada hace 2 días",
     item1Title: "Llamada de estrategia de 30 minutos",
     item1Sub: "con un socio senior (15+ años en la región)",
     item1Value: "$500",

@@ -309,13 +309,8 @@ const ro = {
 
   // ===== ORDER BUMP =====
   orderBump: {
-    urgencyBadge: "Alertă de Urgență — 4 din 8 Locuri Rămase Luna Aceasta",
-    spotsFilled: "4 locuri ocupate",
-    spotsRemaining: "4 rămase",
     title: "Programează-ți Sesiunea Gratuită de Strategie de Expansiune",
     body: "Iată tot ce primești la call — și după. Valoarea totală mai jos. Costul tău: zero.",
-    slotCounter: "",
-    firstCall: "— primul call programat în 2 zile",
     item1Title: "Call de Strategie de 30 de Minute",
     item1Sub: "cu un partener senior (15+ ani în regiune)",
     item1Value: "$500",

@@ -309,13 +309,8 @@ const ku = {
 
   // ===== ORDER BUMP =====
   orderBump: {
-    urgencyBadge: "Hişyariya Lezgîn — 4 Ji 8 Şûnên Vê Mehê Mane",
-    spotsFilled: "4 şûn tijî bûn",
-    spotsRemaining: "4 mane",
     title: "Rûniştina Stratejiya Firehkirina Belabeda Xwe Bigire",
     body: "Li vir her tiştê ku tu li ser bangawaziyê û piştî wê distînî. Nirxa tevahî li jêr. Bihaya te: sifir.",
-    slotCounter: "",
-    firstCall: "— bangawaziya yekem di 2 rojan de hatî girtin",
     item1Title: "Bangawaziya Stratejiyê ya 30-Deqeyî",
     item1Sub: "bi hevparek payebilind (15+ sal li herêmê)",
     item1Value: "$500",

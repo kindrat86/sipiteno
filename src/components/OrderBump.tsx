@@ -12,27 +12,10 @@ const OrderBump = () => {
         <div className="max-w-5xl mx-auto">
           <div className="bg-card rounded-2xl md:rounded-3xl border-2 border-primary/20 shadow-xl md:shadow-2xl overflow-hidden">
             <div className="bg-primary text-white px-6 md:px-12 py-5 md:py-6 text-center">
-              <div className="inline-flex items-center gap-2 mb-2 px-3 md:px-4 py-1.5 rounded-full bg-white/10 border border-white/20">
-                <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-secondary" />
-                <span className="text-secondary font-semibold text-xs md:text-xs uppercase tracking-wide">{t("orderBump.urgencyBadge")}</span>
-              </div>
-              <div className="max-w-xs mx-auto mt-2 md:mt-3">
-                <div className="flex justify-between text-xs md:text-xs text-white/70 mb-1">
-                  <span>{t("orderBump.spotsFilled")}</span><span>{t("orderBump.spotsRemaining")}</span>
-                </div>
-                <div className="w-full h-1.5 md:h-2 bg-white/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-secondary rounded-full transition-all duration-500" style={{ width: "50%" }}></div>
-                </div>
-              </div>
-              <h2 className="text-xl md:text-2xl lg:text-4xl font-bold leading-tight mt-3 md:mt-4">{t("orderBump.title")}</h2>
+              <h2 className="text-xl md:text-2xl lg:text-4xl font-bold leading-tight">{t("orderBump.title")}</h2>
             </div>
             <div className="p-6 md:p-12">
               <p className="text-sm md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed text-center max-w-3xl mx-auto">{t("orderBump.body")}</p>
-              <div className="flex items-center justify-center gap-1.5 text-xs md:text-sm mb-6 md:mb-8">
-                <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-500" />
-                <span className="text-amber-600 font-semibold">{t("orderBump.slotCounter")}</span>
-                <span className="text-muted-foreground hidden sm:inline">{t("orderBump.firstCall")}</span>
-              </div>
               <div className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                 {[1,2,3,4,5].map((i) => (
                   <div key={i} className="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-xl bg-background border border-border hover:border-primary/30 transition-colors">

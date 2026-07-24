@@ -309,13 +309,8 @@ const de = {
 
   // ===== ORDER BUMP =====
   orderBump: {
-    urgencyBadge: "Dringlichkeit — 4 von 8 Plätzen in diesem Monat verbleibend",
-    spotsFilled: "4 Plätze belegt",
-    spotsRemaining: "4 verbleibend",
     title: "Buchen Sie Ihre kostenlose Expansions-Strategiesitzung",
     body: "Hier ist alles, was Sie im Call — und danach — bekommen. Gesamtwert siehe unten. Ihre Kosten: null.",
-    slotCounter: "",
-    firstCall: "— erster Call in 2 Tagen gebucht",
     item1Title: "30-Minuten-Strategie-Call",
     item1Sub: "mit einem Senior Partner (15+ Jahre in der Region)",
     item1Value: "$500",

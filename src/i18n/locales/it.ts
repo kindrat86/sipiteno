@@ -309,13 +309,8 @@ const it = {
 
   // ===== ORDER BUMP =====
   orderBump: {
-    urgencyBadge: "Allarme Urgenza — 4 di 8 Posti Rimasti Questo Mese",
-    spotsFilled: "4 posti riempiti",
-    spotsRemaining: "4 rimanenti",
     title: "Prenota la Tua Sessione Strategica di Espansione Gratuita",
     body: "Ecco tutto ciò che ottieni sulla chiamata — e dopo. Valore totale qui sotto. Il tuo costo: zero.",
-    slotCounter: "",
-    firstCall: "— prima chiamata prenotata in 2 giorni",
     item1Title: "Chiamata Strategica di 30 Minuti",
     item1Sub: "con un partner senior (15+ anni in-regione)",
     item1Value: "$500",

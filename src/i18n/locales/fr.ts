@@ -307,13 +307,8 @@ const fr = {
 
   // ===== ORDER BUMP =====
   orderBump: {
-    urgencyBadge: "Alerte d'urgence — 4 places restantes ce mois-ci sur 8",
-    spotsFilled: "4 places prises",
-    spotsRemaining: "4 restantes",
     title: "Réservez votre session gratuite de stratégie d'expansion",
     body: "Voici tout ce que vous obtenez pendant l'appel et après. Valeur totale ci-dessous. Votre coût : zéro.",
-    slotCounter: "",
-    firstCall: "— premier appel réservé il y a 2 jours",
     item1Title: "Appel stratégique de 30 minutes",
     item1Sub: "avec un associé senior (15+ ans dans la région)",
     item1Value: "$500",

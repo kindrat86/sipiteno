@@ -309,13 +309,8 @@ const lt = {
 
   // ===== ORDER BUMP =====
   orderBump: {
-    urgencyBadge: "Skubos perspėjimas — šį mėnesį liko 4 iš 8 vietų",
-    spotsFilled: "4 vietos užimtos",
-    spotsRemaining: "4 liko",
     title: "Užsakykite nemokamą plėtros strategijos sesiją",
     body: "Štai ką gausite pokalbio metu ir po jo. Bendra vertė žemiau. Jūsų kaina: nulis.",
-    slotCounter: "",
-    firstCall: "— pirmas pokalbis užsakytas per 2 dienas",
     item1Title: "30 minučių strateginis pokalbis",
     item1Sub: "su vyresniuoju partneriu (15+ metų regione)",
     item1Value: "500 USD",
