@@ -405,6 +405,26 @@
       "source": "/referral",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/alternatives-to",
+      "destination": "/alternatives",
+      "permanent": true
+    },
+    {
+      "source": "/vs",
+      "destination": "/alternatives",
+      "permanent": true
+    },
+    {
+      "source": "/for",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/answers",
+      "destination": "/blog",
+      "permanent": true
     }
   ]
 }
