@@ -52,7 +52,7 @@ const en = {
     bullet3: "15+ years of repeatable wins",
     cta: "Get the Free Expansion Playbook",
     ctaSecondary: "or book a free 30-min strategy call →",
-    noCreditCard: "No credit card. No spam. 47-page PDF sent to your inbox in 5 minutes.",
+    noCreditCard: "No credit card. No spam. The expansion notes land in your inbox straight away, and a reply from me if you name a market.",
     costDelay: "Every month you delay is pipeline you never see.",
     stat1: "",
     stat1Label: "",
@@ -233,7 +233,7 @@ const en = {
     bigDomino: "Your product is not the problem. Your market entry system is.",
     bigDominoBody: "Great technology fails in emerging markets every day — not because the product is weak, but because the founder is knocking on doors when they should be getting introduced. Fix the system, and the product sells itself.",
     ctaTitle: "Want the system for free?",
-    ctaBody: "I packed the entire three-part framework into a 47-page playbook. Download it, read it this weekend, and run it yourself — with or without us.",
+    ctaBody: "Ask and I will send you the whole three-part framework by email — why entries stall in month three, the three assumptions that do not travel, and the order that works. Run it yourself, with or without us.",
     ctaButton: "Get the Free Playbook",
   },
 
