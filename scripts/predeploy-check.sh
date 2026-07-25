@@ -30,3 +30,11 @@ if grep -rq "like Poland or India" dist; then
   echo "PREDEPLOY FAIL: hardcoded 'Poland or India' artifact present in dist/"; exit 1; fi
 if grep -rqE "compares favorably to [A-Za-z]+'s [0-9]" dist; then
   echo "PREDEPLOY FAIL: broken price self-comparison present in dist/"; exit 1; fi
+
+# --- structured-data gate (~/.growth-engine/GUARDRAILS.md rule 3) ---
+# Broken JSON-LD in dist/ is a landmine of exactly the kind this script exists
+# to catch: it is introduced by the pSEO copy + inject-disambiguation steps, so
+# the source-only lint in CI (validate_jsonld.py, runs at checkout) cannot see
+# it. That is how "Unparsable structured data" reached Search Console on
+# voicelogpro.com. verify-jsonld.mjs exits non-zero on any bad block.
+node scripts/verify-jsonld.mjs dist || fail "dist/ contains invalid JSON-LD (see verify-jsonld output above)"
