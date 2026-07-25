@@ -49,12 +49,17 @@ const Testimonials = () => {
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16 max-w-5xl mx-auto">
-            {stats.map((s, i) => (
-              <div key={i} className="text-center p-3">
-                <div className="text-3xl md:text-5xl font-bold text-primary mb-1 md:mb-2">{t(s.valueKey)}</div>
-                <div className="text-xs md:text-sm text-muted-foreground">{t(s.labelKey)}</div>
-              </div>
-            ))}
+            {stats
+              // A stat with an empty value is intentionally omitted, not broken:
+              // this is how an unsubstantiated figure is retired without leaving
+              // a hole in the grid (and without inventing a replacement number).
+              .filter((s) => t(s.valueKey).trim() !== "")
+              .map((s, i) => (
+                <div key={i} className="text-center p-3">
+                  <div className="text-3xl md:text-5xl font-bold text-primary mb-1 md:mb-2">{t(s.valueKey)}</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">{t(s.labelKey)}</div>
+                </div>
+              ))}
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-6">

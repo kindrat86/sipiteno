@@ -83,14 +83,9 @@ export const organizationSchema = {
       "name": "15+ years in emerging tech markets"
     },
     {
-      "@type": "EducationalOccupationalCredential", 
-      "credentialCategory": "Portfolio",
-      "name": "50+ successful projects delivered"
-    },
-    {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "Coverage",
-      "name": "Operations across 28 countries"
+      "name": "Market-entry research published for 28 countries"
     }
   ]
 };
@@ -210,7 +205,7 @@ export const faqSchema = {
       "name": "What differentiates Sipiteno from other consultancies?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Five differentiators define Sipiteno: (1) 15+ years regional expertise across 28 countries, (2) combined strategic and technical implementation capabilities, (3) 50+ successful project track record, (4) 4-8 week delivery timelines, and (5) flexible engagement models from fixed-price to retainers. Unlike traditional consultancies, Sipiteno implements rather than just advises."
+        "text": "Four differentiators define Sipiteno: (1) 15+ years regional expertise across 28 countries, (2) combined strategic and technical implementation capabilities, (3) 4-8 week delivery timelines, and (4) flexible engagement models from fixed-price to retainers. Unlike traditional consultancies, Sipiteno implements rather than just advises."
       }
     },
     {

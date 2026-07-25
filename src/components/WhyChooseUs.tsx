@@ -56,12 +56,15 @@ const WhyChooseUs = () => {
           <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-10 border-2 border-primary/20">
             <h3 className="text-xl md:text-2xl font-bold text-center mb-6 md:mb-8">{t("whyChooseUs.statsTitle")}</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
-              {stats.map((s, i) => (
-                <div key={i}>
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{t(`whyChooseUs.${s.key}`)}</div>
-                  <div className="text-xs md:text-sm text-muted-foreground">{t(s.labelKey)}</div>
-                </div>
-              ))}
+              {stats
+                // Empty value = intentionally retired stat, not a bug. See Hero.tsx.
+                .filter((s) => t(`whyChooseUs.${s.key}`).trim() !== "")
+                .map((s, i) => (
+                  <div key={i}>
+                    <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{t(`whyChooseUs.${s.key}`)}</div>
+                    <div className="text-xs md:text-sm text-muted-foreground">{t(s.labelKey)}</div>
+                  </div>
+                ))}
             </div>
           </div>
         </div>

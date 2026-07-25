@@ -99,7 +99,7 @@ TEMPLATE_BEFORE = '''<!DOCTYPE html>
     <main>
         <h1 style="font-size:2em;font-weight:800;margin-bottom:.5em;line-height:1.2">{service_name} in {country_name}</h1>
         <p style="font-size:1.1em;color:#555;margin-bottom:2em">Sipiteno provides {service_short} services in {country_name}. Strategic Business Development & AI Consulting across 28 emerging markets.</p>
-        <p>Looking for {service_short} in {country_name}? Sipiteno has delivered 50+ projects across 28 countries with a proven track record. Local expertise, global standards.</p><p><a href="https://sipiteno.com" style="color:#0066cc">Contact Sipiteno about {service_short} in {country_name} →</a></p>
+        <p>Looking for {service_short} in {country_name}? Sipiteno combines strategic business development with hands-on technical delivery. Local expertise, global standards.</p><p><a href="https://sipiteno.com" style="color:#0066cc">Contact Sipiteno about {service_short} in {country_name} →</a></p>
 '''
 
 TEMPLATE_AFTER = '''    </main>
@@ -112,11 +112,12 @@ TEMPLATE_AFTER = '''    </main>
 <!-- BRUNSON TRUST BAR — idempotency:trust-bar-v1 -->
 <section class="brunson-trust-bar" style="background:linear-gradient(135deg, #0f172a, #1e293b);color:#e8eaed;padding:40px 24px;margin:60px 0 0;border-top:3px solid #00d4aa;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
   <div style="max-width:900px;margin:0 auto">
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:28px;margin-bottom:28px">
-      <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">50+</span><br><span style="font-size:.82rem;color:#94a3b8">Projects delivered</span></div>
-      <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">28</span><br><span style="font-size:.82rem;color:#94a3b8">Countries active</span></div>
-      <div><span style="font-size:1.6rem;font-weight:700;color:#00d4aa">7 wks</span><br><span style="font-size:.82rem;color:#94a3b8">Median MVP launch</span></div>
-    </div>
+    <!-- 2026-07-25: the three stat cards that stood here ("50+ Projects delivered",
+         "28 Countries active", "7 wks Median MVP launch") were removed as unverifiable.
+         "50+" was a day-one Lovable scaffold placeholder and is contradicted by the
+         site's own project registry; "7 wks" was one anonymous testimonial presented
+         as a measured median; "28 ... active" counts published country pages, not
+         operations. Do NOT reinstate a number here without a real, checkable source. -->
     <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">Every quarter you wait costs you a whole market. Start with the free playbook.</p>
     <a href="https://sipiteno.com/#free-playbook" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.95rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Get the Free Expansion Playbook →</a>
     <p style="margin-top:18px;font-size:.78rem;color:#6b7178">🛡️ Every engagement starts with a free 30-minute scoping call. No risk.</p>

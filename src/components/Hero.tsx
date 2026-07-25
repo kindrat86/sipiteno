@@ -110,23 +110,45 @@ const Hero = () => {
             <span className="text-green-400/40 hidden sm:inline">·</span>
             <span className="text-green-300 text-xs">{t("trustSignal.item1")}</span>
           </div>
-          {/* Stats */}
-          <div className="mt-10 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto">
-            <div className="text-center" itemProp="areaServed" itemScope itemType="https://schema.org/Place">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2" itemProp="name">
-                {t("hero.stat1")}
+          {/* Stats — a stat with an empty value is intentionally omitted, not
+              broken: this is how an unsubstantiated figure is retired without
+              leaving a hole in the row (and without inventing a replacement).
+              stat1 keeps the areaServed microdata, so it stays first. */}
+          {(() => {
+            const heroStats = [
+              { key: "hero.stat1", labelKey: "hero.stat1Label", areaServed: true },
+              { key: "hero.stat2", labelKey: "hero.stat2Label", areaServed: false },
+              { key: "hero.stat3", labelKey: "hero.stat3Label", areaServed: false },
+            ].filter((s) => t(s.key).trim() !== "");
+
+            if (heroStats.length === 0) return null;
+
+            return (
+              <div className="mt-10 md:mt-16 flex flex-wrap justify-center gap-6 md:gap-12 max-w-3xl mx-auto">
+                {heroStats.map((s) =>
+                  s.areaServed ? (
+                    <div
+                      key={s.key}
+                      className="text-center"
+                      itemProp="areaServed"
+                      itemScope
+                      itemType="https://schema.org/Place"
+                    >
+                      <div className="text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2" itemProp="name">
+                        {t(s.key)}
+                      </div>
+                      <div className="text-white/85 text-sm md:text-base">{t(s.labelKey)}</div>
+                    </div>
+                  ) : (
+                    <div key={s.key} className="text-center">
+                      <div className="text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2">{t(s.key)}</div>
+                      <div className="text-white/85 text-sm md:text-base">{t(s.labelKey)}</div>
+                    </div>
+                  )
+                )}
               </div>
-              <div className="text-white/85 text-sm md:text-base">{t("hero.stat1Label")}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2">{t("hero.stat2")}</div>
-              <div className="text-white/85 text-sm md:text-base">{t("hero.stat2Label")}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2">{t("hero.stat3")}</div>
-              <div className="text-white/85 text-sm md:text-base">{t("hero.stat3Label")}</div>
-            </div>
-          </div>
+            );
+          })()}
         </header>
       </div>
 

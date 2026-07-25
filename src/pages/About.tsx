@@ -58,12 +58,15 @@ const About = () => {
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{t("about.heroBody")}</p>
             </div>
             <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-              {stats.map((item, i) => (
-                <div key={i} className="bg-card/50 border border-border rounded-xl p-4 text-center">
-                  <div className="text-3xl font-bold text-primary">{t(item.statKey)}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{t(item.labelKey)}</div>
-                </div>
-              ))}
+              {stats
+                // Empty value = intentionally retired stat, not a bug. See Hero.tsx.
+                .filter((item) => t(item.statKey).trim() !== "")
+                .map((item, i) => (
+                  <div key={i} className="bg-card/50 border border-border rounded-xl p-4 text-center">
+                    <div className="text-3xl font-bold text-primary">{t(item.statKey)}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{t(item.labelKey)}</div>
+                  </div>
+                ))}
             </div>
           </section>
 
