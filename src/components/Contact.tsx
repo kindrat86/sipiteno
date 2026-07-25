@@ -108,17 +108,20 @@ const Contact = () => {
               {/* --- Core fields: name, email, message --- */}
               <div>
                 <Label htmlFor="fullName">{t("contact.fullName")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
-                <Input id="fullName" required aria-required="true" aria-invalid={!!errors.fullName} aria-describedby={errors.fullName ? "fullName-error" : undefined} value={formData.fullName} onChange={(e) => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} placeholder={t("contact.fullNamePlaceholder")} autoComplete="name" enterKeyHint="next" />
+                <Input id="fullName"
+                name="fullName" required aria-required="true" aria-invalid={!!errors.fullName} aria-describedby={errors.fullName ? "fullName-error" : undefined} value={formData.fullName} onChange={(e) => handleChange("fullName", e.target.value)} className={errors.fullName ? "border-destructive" : ""} placeholder={t("contact.fullNamePlaceholder")} autoComplete="name" enterKeyHint="next" />
                 {errors.fullName && <p id="fullName-error" className="text-destructive text-sm mt-1">{errors.fullName}</p>}
               </div>
               <div>
                 <Label htmlFor="email">{t("contact.email")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
-                <Input id="email" type="email" required aria-required="true" aria-invalid={!!errors.email} aria-describedby={errors.email ? "email-error" : undefined} value={formData.email} onChange={(e) => handleChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} placeholder={t("contact.emailPlaceholder")} autoComplete="email" />
+                <Input id="email"
+                name="email" type="email" required aria-required="true" aria-invalid={!!errors.email} aria-describedby={errors.email ? "email-error" : undefined} value={formData.email} onChange={(e) => handleChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} placeholder={t("contact.emailPlaceholder")} autoComplete="email" />
                 {errors.email && <p id="email-error" className="text-destructive text-sm mt-1">{errors.email}</p>}
               </div>
               <div>
                 <Label htmlFor="message">{t("contact.message")} <span className="text-destructive" aria-hidden="true">*</span><span className="sr-only"> required</span></Label>
-                <Textarea id="message" rows={5} required aria-required="true" aria-invalid={!!errors.message || isCharError} aria-describedby={errors.message ? "message-error" : "message-charcount"} value={formData.message} onChange={(e) => handleChange("message", e.target.value)}
+                <Textarea id="message"
+                name="message" rows={5} required aria-required="true" aria-invalid={!!errors.message || isCharError} aria-describedby={errors.message ? "message-error" : "message-charcount"} value={formData.message} onChange={(e) => handleChange("message", e.target.value)}
                   className={errors.message ? "border-destructive" : isCharError ? "border-destructive" : isCharWarning ? "border-amber-400" : ""}
                   placeholder={t("contact.messagePlaceholder")} />
                 <div className="flex items-center justify-between mt-1">
@@ -144,11 +147,13 @@ const Contact = () => {
                   <div className="space-y-4 mt-4 animate-in fade-in-0 slide-in-from-top-2">
                     <div>
                       <Label htmlFor="companyName">{t("contact.companyName")}</Label>
-                      <Input id="companyName" value={formData.companyName} onChange={(e) => handleChange("companyName", e.target.value)} placeholder={t("contact.companyNamePlaceholder")} autoComplete="organization" enterKeyHint="next" />
+                      <Input id="companyName"
+                name="companyName" value={formData.companyName} onChange={(e) => handleChange("companyName", e.target.value)} placeholder={t("contact.companyNamePlaceholder")} autoComplete="organization" enterKeyHint="next" />
                     </div>
                     <div>
                       <Label htmlFor="phone">{t("contact.phone")}</Label>
-                      <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder={t("contact.phonePlaceholder")} autoComplete="tel" enterKeyHint="next" />
+                      <Input id="phone"
+                name="phone" type="tel" value={formData.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder={t("contact.phonePlaceholder")} autoComplete="tel" enterKeyHint="next" />
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
                       <div>
@@ -184,7 +189,7 @@ const Contact = () => {
               </div>
 
               {/* --- Honeypot (hidden, spam protection) --- */}
-              <input type="text" name="honeypot" value={formData.honeypot} onChange={(e) => handleChange("honeypot", e.target.value)} style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+              <input type="text" name="honeypot" value={formData.honeypot} onChange={(e) => handleChange("honeypot", e.target.value)} style={{ display: "none" }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
               {submitError && (
                 <p role="alert" className="text-destructive text-sm text-center bg-destructive/10 border border-destructive/30 rounded-lg py-2 px-3">
                   {t("contact.errorDesc")}
