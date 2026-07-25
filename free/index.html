@@ -28,23 +28,23 @@
 <h2>Available Free Tools</h2>
 
 <div class="card-grid">
-  <div class="card">
-    <h3><a href="/free/ai-readiness-assessment">AI Readiness Assessment</a></h3>
-    <p>Evaluate your organization's readiness for AI implementation. Score your current capabilities across data infrastructure, team skills, and process maturity. Get a personalized report with actionable next steps.</p>
-    <a href="/free/ai-readiness-assessment" class="btn">Start Assessment →</a>
-  </div>
+ <div class="card">
+ <h3><a href="/free/ai-readiness-assessment">AI Readiness Assessment</a></h3>
+ <p>Evaluate your organization's readiness for AI implementation. Score your current capabilities across data infrastructure, team skills, and process maturity. Get a personalized report with actionable next steps.</p>
+ <a href="/free/ai-readiness-assessment" class="btn">Start Assessment →</a>
+ </div>
 
-  <div class="card">
-    <h3><a href="/free/automation-audit">Automation Audit</a></h3>
-    <p>Identify high-impact automation opportunities in your current workflows. Our audit framework maps your processes against proven automation patterns and estimates time savings.</p>
-    <a href="/free/automation-audit" class="btn">Start Audit →</a>
-  </div>
+ <div class="card">
+ <h3><a href="/free/automation-audit">Automation Audit</a></h3>
+ <p>Identify high-impact automation opportunities in your current workflows. Our audit framework maps your processes against proven automation patterns and estimates time savings.</p>
+ <a href="/free/automation-audit" class="btn">Start Audit →</a>
+ </div>
 
-  <div class="card">
-    <h3><a href="/free/roi-calculator">ROI Calculator</a></h3>
-    <p>Estimate the return on investment for business development and AI consulting engagements across different markets. Compare scenarios and build a business case for expansion.</p>
-    <a href="/free/roi-calculator" class="btn">Calculate ROI →</a>
-  </div>
+ <div class="card">
+ <h3><a href="/free/roi-calculator">ROI Calculator</a></h3>
+ <p>Estimate the return on investment for business development and AI consulting engagements across different markets. Compare scenarios and build a business case for expansion.</p>
+ <a href="/free/roi-calculator" class="btn">Calculate ROI →</a>
+ </div>
 </div>
 
 <h2>Ready to Go Further?</h2>
@@ -53,26 +53,26 @@
 <section class="enriched-content">
 <h2>About Sipiteno</h2>
 <p>Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies. We operate as an accountable product team — not a marketplace — with a single point of ownership for delivery, quality, and timeline.</p>
-<p>With 50+ projects delivered across 28 countries and a experience, we bring proven methodology and deep technical expertise to every engagement. Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps — giving you a complete product team in one accountable partner.</p>
+<p>With delivery experience across 28 countries, we bring proven methodology and deep technical expertise to every engagement. Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps — giving you a complete product team in one accountable partner.</p>
 <p><a href="https://sipiteno.com">Learn more about how we work →</a></p>
 </section>
 </main>
 
 <section data-sipiteno-fleet="capture" style="max-width:720px;margin:48px auto 32px;padding:28px 24px;border:1px solid #d8dee7;border-radius:12px;background:#f7f9fc;font-family:inherit">
-  <h2 style="margin:0 0 6px;font-size:1.25rem">Get the Free Expansion Playbook</h2>
-  <p style="margin:0 0 16px;color:#4a5568;font-size:.95rem">The Emerging Markets Expansion Playbook — 28 countries, 47 pages, sent to your inbox.</p>
-  <form data-fleet-capture onsubmit="return window.__fleetCapture(event)" style="display:flex;gap:8px;flex-wrap:wrap">
-    <input type="email" name="email" required placeholder="you@company.com" style="flex:1;min-width:220px;padding:12px 14px;border:1px solid #cbd5e0;border-radius:8px;font-size:1rem">
-    <input type="text" name="honeypot" value="" style="display:none" tabindex="-1" autocomplete="off">
-    <input type="hidden" name="source" value="/free">
-    <button type="submit" style="padding:12px 24px;background:#0066cc;color:#fff;border:0;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer">Get it</button>
-  </form>
-  <p data-fleet-msg style="display:none;margin:12px 0 0;font-size:.9rem"></p>
+ <h2 style="margin:0 0 6px;font-size:1.25rem">Get the Free Expansion Playbook</h2>
+ <p style="margin:0 0 16px;color:#4a5568;font-size:.95rem">The Emerging Markets Expansion Playbook — 28 countries, 47 pages, sent to your inbox.</p>
+ <form data-fleet-capture onsubmit="return window.__fleetCapture(event)" style="display:flex;gap:8px;flex-wrap:wrap">
+ <input type="email" name="email" required placeholder="you@company.com" style="flex:1;min-width:220px;padding:12px 14px;border:1px solid #cbd5e0;border-radius:8px;font-size:1rem">
+ <input type="text" name="honeypot" value="" style="display:none" tabindex="-1" autocomplete="off">
+ <input type="hidden" name="source" value="/free">
+ <button type="submit" style="padding:12px 24px;background:#0066cc;color:#fff;border:0;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer">Get it</button>
+ </form>
+ <p data-fleet-msg style="display:none;margin:12px 0 0;font-size:.9rem"></p>
 </section>
 <script data-sipiteno-fleet="capture-js">window.__fleetCapture=function(e){e.preventDefault();var f=e.target,m=f.parentNode.querySelector("[data-fleet-msg]"),b=f.querySelector("button");if(f.honeypot.value)return false;b.disabled=true;b.textContent="Sending…";fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fullName:"Playbook Subscriber",companyName:"(pSEO fleet)",email:f.email.value,phone:"",country:"",service:"Free Expansion Playbook (pSEO Fleet)",message:"FLEET PLAYBOOK REQUEST from "+f.source.value+" — send the Emerging Markets Expansion Playbook.",honeypot:""}}).then(function(r){if(!r.ok)throw new Error(r.status);while(m.firstChild)m.removeChild(m.firstChild);m.style.display="block";m.style.color="#276749";m.appendChild(document.createTextNode("Check your inbox — the playbook is on its way."));f.email.value="";if(window.__ph)window.__ph("playbook_requested",{source:f.source.value});}).catch(function(){while(m.firstChild)m.removeChild(m.firstChild);m.style.display="block";m.style.color="#c53030";m.appendChild(document.createTextNode("Something broke — email us directly at "));var a=document.createElement("a");a.href="mailto:sales@sipiteno.com?subject=Free%20Expansion%20Playbook";a.style.color="#c53030";a.style.fontWeight="700";a.textContent="sales@sipiteno.com";m.appendChild(a);}).finally(function(){b.disabled=false;b.textContent="Get it";});return false};</script>
 <footer>
-  <p><a href="/">Home</a> | <a href="/about">About</a> | <a href="/pricing">Pricing</a> | <a href="/contact">Contact</a> | <a href="/free">Free Tools</a></p>
-  <p>&copy; 2026 Sipiteno. All rights reserved.</p>
+ <p><a href="/">Home</a> | <a href="/about">About</a> | <a href="/pricing">Pricing</a> | <a href="/contact">Contact</a> | <a href="/free">Free Tools</a></p>
+ <p>&copy; 2026 Sipiteno. All rights reserved.</p>
 </footer>
 </body>
 </html>

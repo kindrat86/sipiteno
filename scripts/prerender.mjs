@@ -248,13 +248,13 @@ function buildHomepageBody() {
       <h2>Value Ladder: How We Work Together</h2>
       <p>Five ways to engage Sipiteno, climbing in value: (1) Free Expansion Playbook PDF, (2) Free 30-minute strategy scoping call, (3) MicroSaaS MVP development ($15,000-$50,000 fixed), (4) Business Development retainer ($3,000-$10,000/month with 10-30 qualified leads/month), (5) AI implementation program ($25,000-$100,000+). Start free, scale when ready. <a href="https://sipiteno.com/pricing">See pricing</a>.</p>
       <h2>Why Choose Sipiteno</h2>
-      <p>Five differentiators: 15+ years regional expertise across 28 countries, combined strategic and hands-on technical implementation, 50+ successful projects with high client satisfaction, rapid 4-8 week delivery, and flexible engagement models.</p>
+      <p>Five differentiators: 15+ years regional expertise across 28 countries, combined strategic and hands-on technical implementation, rapid 4-8 week delivery, and flexible engagement models.</p>
       <h2>Markets We Serve, by Region</h2>
       <p>Sipiteno operates across 28 emerging markets in four macro-regions — Central Europe, Southeast Europe, Northern &amp; Eastern Europe, the Caucasus, and Central Asia. Each has its own regulatory environment, tech ecosystem, and set of high-opportunity industries. We maintain warm introductions and bilingual execution teams in every one.</p>
       ${regionsBlock}
       <p>Full list: ${countries}.</p>
       <h2>Industries We Serve</h2>
-      <p>Sipiteno has delivered market-entry and product work across FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics. Our 50+ projects span regulated sectors (payments, health data) where getting licensing and compliance right is the difference between a launch and a lawsuit — which is why regulatory mapping is built into every engagement.</p>
+      <p>Sipiteno has delivered market-entry and product work across FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics. Our work spans regulated sectors (payments, health data) where getting licensing and compliance right is the difference between a launch and a lawsuit — which is why regulatory mapping is built into every engagement.</p>
       <h2>How We Deliver: A Structured Multi-Phase Framework</h2>
       <p>Every expansion follows a repeatable framework refined across 50+ market entries: discovery and goal-setting, market scoring for your top candidate countries, regulatory and compliance mapping, warm partnership introductions, hands-on execution by a local bilingual team, and a documented handover. Most clients sign their first in-market deal in about 11 weeks. <a href="https://sipiteno.com/methodology">See the full methodology</a>.</p>
       <h2>Frequently Asked Questions</h2>
@@ -263,7 +263,7 @@ function buildHomepageBody() {
       <h3>What is Sipiteno's approach to AI consulting?</h3>
       <p>We combine strategy with hands-on implementation: an AI opportunity assessment, then MVP build and deployment by our own engineers rather than a slide deck handed to someone else. AI implementation programs run $25,000–$100,000+ depending on scope.</p>
       <h3>What differentiates Sipiteno from other consultancies?</h3>
-      <p>Three things most consultants lack: warm local introductions inside each market, regulatory maps built from 15+ years of on-the-ground experience, and bilingual execution teams who actually live where they work. 50+ successful projects with high client satisfaction, delivered in 4–8 weeks.</p>
+      <p>Three things most consultants lack: warm local introductions inside each market, regulatory maps built from 15+ years of on-the-ground experience, and bilingual execution teams who actually live where they work. Delivery in 4–8 weeks.</p>
       <h3>What industries does Sipiteno serve?</h3>
       <p>FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics — with particular depth in regulated sectors that require licensing and data-compliance work.</p>
       <h3>How much does it cost to work with Sipiteno?</h3>
@@ -283,7 +283,7 @@ function buildServiceBody(svc) {
   const otherServices = SERVICES.filter(s => s.slug !== svc.slug).map(s => `<a href="https://sipiteno.com/services/${s.slug}">${s.name}</a>`).join(', ');
 
   return `<h1>${svc.name} Services: Strategy, Implementation &amp; Results</h1>
-      <p><strong>Sipiteno delivers ${svc.name.toLowerCase()} services that produce measurable outcomes — not strategy decks.</strong> ${svc.desc} We've completed 50+ projects across 28 countries with a 92% retention rate. Projects start at $15,000 and run 4-16 weeks depending on scope. Our approach combines strategic consulting with hands-on technical delivery, led by bilingual teams who understand both your industry and the local market context.</p>
+      <p><strong>Sipiteno delivers ${svc.name.toLowerCase()} services that produce measurable outcomes — not strategy decks.</strong> ${svc.desc} Projects start at $15,000 and run 4-16 weeks depending on scope. Our approach combines strategic consulting with hands-on technical delivery, led by bilingual teams who understand both your industry and the local market context.</p>
       <h2>What We Offer</h2>
       <p>Our ${svc.name.toLowerCase()} practice combines strategic consulting with hands-on technical delivery. We work with technology companies from early-stage startups to Fortune 500 enterprises, tailoring our approach to each client's market position, growth stage, and regional objectives.</p>
       <h2>Engagement Model</h2>
@@ -327,7 +327,7 @@ function buildCountryBody(country) {
       <h2>Who Should Consider ${country.name} for Expansion?</h2>
       <p>${country.name} is ideal for post-Series A B2B technology companies ($2M-$20M ARR) looking to enter their second or third geographic market. The combination of EU/regional market access, competitive talent costs, and growing technology adoption makes it particularly attractive for <a href="https://sipiteno.com/industries/saas-software">SaaS companies</a>, <a href="https://sipiteno.com/industries/fintech-financial-services">fintech firms</a>, and <a href="https://sipiteno.com/industries/manufacturing-industry-4">manufacturing technology</a> providers.</p>
       <h2>Our Track Record in ${country.region}</h2>
-      <p>Across ${country.region}, Sipiteno has delivered 50+ projects over 15+ years. Our average time-to-first-deal is 11 weeks. We maintain active teams in every country we serve, not fly-in consultants who leave after the strategy deck. <a href="https://sipiteno.com/case-studies">Read case studies</a> from clients who've expanded into similar markets.</p>
+      <p>Sipiteno has worked in ${country.region} for 15+ years. We maintain active teams in every country we serve, not fly-in consultants who leave after the strategy deck. <a href="https://sipiteno.com/case-studies">Read case studies</a> from clients who've expanded into similar markets.</p>
       <h2>Next Steps</h2>
       <p>Ready to explore ${country.name}? <a href="https://sipiteno.com/#contact">Book a free 30-minute strategy call</a>. You'll get a custom market scorecard for ${country.name}, a preliminary regulatory assessment, and an honest opinion on whether this market is right for your company right now.</p>
       <p><a href="https://sipiteno.com/locations">All locations</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/industries">Industries</a></p>`;
@@ -391,7 +391,7 @@ function buildIndustryBody(ind) {
       <h2>How Much Does ${ind.name} Market Entry Cost?</h2>
       <p>Engagements range from $15,000 for focused market assessments to $100,000+ for comprehensive multi-country expansion programs. Business development retainers start at $3,000/month with 10-30 qualified leads per month. See <a href="https://sipiteno.com/pricing">pricing details</a> or contact us for a custom quote.</p>
       <h2>Our ${ind.name} Track Record</h2>
-      <p>We've delivered 50+ projects across 28 countries over 15+ years. Our average time-to-first-deal is 11 weeks, with a 92% client retention rate. <a href="https://sipiteno.com/case-studies">Read case studies</a> from ${ind.name.toLowerCase()} clients who've successfully expanded with Sipiteno.</p>
+      <p><a href="https://sipiteno.com/case-studies">Read case studies</a> from ${ind.name.toLowerCase()} clients who've successfully expanded with Sipiteno.</p>
       <h2>Get Started</h2>
       <p>Email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> or <a href="https://sipiteno.com/#contact">book a free 30-minute strategy call</a>. We'll assess your ${ind.name.toLowerCase()} expansion readiness and recommend the right markets and approach.</p>
       <p><a href="https://sipiteno.com/industries">All industries</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/locations">Locations</a></p>`;
@@ -642,7 +642,7 @@ const corePages = [
   {
     path: [],
     title: "Sipiteno — AI Consulting & Business Development Across 28 Countries",
-    description: "Business development and AI consulting for startups expanding across 28 countries. 15+ years experience, 50+ projects. MicroSaaS MVPs delivered in 4-8 weeks.",
+    description: "Business development and AI consulting for startups expanding across 28 countries. 15+ years experience. MicroSaaS MVPs delivered in 4-8 weeks.",
     canonicalUrl: "https://sipiteno.com/",
     schemas: [orgSchema, webSiteSchema, faqSchema],
     breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }],
@@ -670,42 +670,27 @@ const corePages = [
       ${items}
       </ul>
       <h2>What you'll find here</h2>
-      <p>Three recurring themes: <strong>Speed to Market</strong> (how to ship an MVP in weeks, not quarters), <strong>Vertical &amp; Niche SaaS</strong> (why unglamorous industries are the best place to build), and <strong>AI &amp; Technical Strategy</strong> (how to integrate AI into real products without rebuilding everything). The posts draw from 50+ projects shipped across 28 emerging markets.</p>
+      <p>Three recurring themes: <strong>Speed to Market</strong> (how to ship an MVP in weeks, not quarters), <strong>Vertical &amp; Niche SaaS</strong> (why unglamorous industries are the best place to build), and <strong>AI &amp; Technical Strategy</strong> (how to integrate AI into real products without rebuilding everything). The posts draw from Delivery across 28 emerging markets.</p>
       <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a> | <a href="https://sipiteno.com/contact">Talk to us</a></p>`;
     })(),
   },
   {
     path: ['case-studies'],
-    title: "Case Studies | Sipiteno - 50+ Projects Across 28 Countries",
-    description: "Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, AI, and more in Eastern Europe, Caucasus, and Central Asia.",
+    title: "Case Studies | Sipiteno",
+    description: "Sipiteno publishes a case study only once a client has consented to be named. None are published yet.",
     canonicalUrl: "https://sipiteno.com/case-studies",
     breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Case Studies", url: "https://sipiteno.com/case-studies" }],
     bodyContent: (() => {
-      const cases = [
-        { id: 1, name: "FinanceFlow AI", industry: "FinTech", result: "500+ active users, 95% CSAT across 3 countries" },
-        { id: 2, name: "HealthConnect", industry: "HealthTech", result: "200+ clinicians onboarded, 6 languages" },
-        { id: 3, name: "RetailOptimize Pro", industry: "E-commerce", result: "15% profit lift, $2M+ monthly volume" },
-        { id: 4, name: "EduTrack System", industry: "EdTech", result: "10,000+ students, 40% engagement lift" },
-        { id: 5, name: "AgriTech Monitor", industry: "AgriTech", result: "50 pilot farms, 20% water reduction" },
-        { id: 6, name: "LogiChain Pro", industry: "Logistics", result: "30% faster customs clearance" },
-        { id: 7, name: "TalentMatch AI", industry: "HR Tech", result: "1,000+ placements, 80% match satisfaction" },
-        { id: 8, name: "CyberShield Suite", industry: "Cybersecurity", result: "150+ businesses protected" },
-        { id: 9, name: "PropertyPulse", industry: "PropTech", result: "$100M+ property values tracked" },
-        { id: 10, name: "EventHub Connect", industry: "Event Management", result: "50,000+ attendees, 4.8/5 rating" },
-        { id: 11, name: "ContentCreator Studio", industry: "Marketing Tech", result: "60% time savings with AI" },
-        { id: 12, name: "GreenEnergy Dashboard", industry: "CleanTech", result: "18% energy cost reduction" },
-      ];
+      // 2026-07-25: fabricated case-study list removed (see CASE_STUDIES below).
+      const cases = [];
       const cards = cases.map(c => `<li><a href="https://sipiteno.com/case-studies/${c.id}"><strong>${c.name}</strong> (${c.industry})</a> — ${c.result}</li>`).join('\n      ');
       return `<h1>Case Studies | Sipiteno</h1>
-      <p>Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, AI, and more in Eastern Europe, Caucasus, and Central Asia. Each case study covers the challenge, the solution shipped, and the measurable result — what was actually built and what it achieved.</p>
-      <h2>How to read these case studies</h2>
-      <p>Every engagement follows the same model: one accountable product team that ships end-to-end, not a marketplace of individual contractors. The metrics below are what shipped to production, not projections. Where a product is marked "In Progress," it is live in beta with the metrics shown.</p>
-      <h2>Selected work</h2>
-      <ul>
+      <p>We publish a case study only once a client has agreed to have their engagement named. None are published yet — so rather than show illustrative examples, we show nothing. Client work to date has been under terms that don't allow us to name it.</p>
+      <h2>What will appear here</h2>
+      <p>When an engagement can be published with the client's consent, it will carry the actual scope, timeline, and outcome — what was built and what it achieved, not projections.</p>
       ${cards}
-      </ul>
-      <h2>Engagement models behind these builds</h2>
-      <p>These projects were delivered under three commercial models: <strong>fixed-scope MVP</strong> ($15k–$50k, 4–8 weeks), <strong>AI implementation program</strong> ($25k–$100k+, 8–24 weeks), and <strong>market-entry project</strong> ($25k–$75k, 12–16 weeks). See <a href="https://sipiteno.com/pricing">pricing</a> for detail. If you have a comparable build, <a href="https://sipiteno.com/contact">book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
+      <h2>Engagement models we work under</h2>
+      <p>Engagements are delivered under three commercial models: <strong>fixed-scope MVP</strong> ($15k–$50k, 4–8 weeks), <strong>AI implementation program</strong> ($25k–$100k+, 8–24 weeks), and <strong>market-entry project</strong> ($25k–$75k, 12–16 weeks). See <a href="https://sipiteno.com/pricing">pricing</a> for detail. If you have a comparable build, <a href="https://sipiteno.com/contact">book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
       <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/methodology">Methodology</a></p>`;
     })(),
   },
@@ -804,7 +789,7 @@ const corePages = [
   {
     path: ['about'],
     title: "About | Sipiteno - Founder Story & 28-Country Expansion System",
-    description: "How a failed 2009 market entry in Eastern Europe became a 28-country expansion system. Read the Sipiteno founder story — from one brutal lesson to 50+ successful projects.",
+    description: "How a failed 2009 market entry in Eastern Europe became a 28-country expansion system. Read the Sipiteno founder story — from one brutal lesson to a repeatable market-entry system.",
     canonicalUrl: "https://sipiteno.com/about",
     breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "About", url: "https://sipiteno.com/about" }],
     schemas: [{
@@ -847,12 +832,12 @@ const corePages = [
       ]
     }],
     bodyContent: `<h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
-      <p><strong>Sipiteno helps technology companies expand into 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, Central Asia, South Asia, and East Africa.</strong> Founded in 2009, we've delivered 50+ projects with a 92% client retention rate and an average time-to-first-deal of 11 weeks. This page explains who we are, how the system works, and why a failed market entry became the foundation of everything we do.</p>
+      <p><strong>Sipiteno helps technology companies expand into 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, Central Asia, South Asia, and East Africa.</strong> Founded in 2009. This page explains who we are, how the system works, and why a failed market entry became the foundation of everything we do.</p>
       <h2>Our Track Record</h2>
       <p>Over 15+ years of operating across emerging markets, the numbers that matter to us:</p>
       <ul>
-        <li><strong>50+ projects delivered</strong> across 28 countries since 2009</li>
-        <li><strong>92% client retention</strong> — measured across multi-month engagements in 2024-2025</li>
+        
+        
         <li><strong>11 weeks average time-to-first-signed-deal</strong> — from kickoff to first contract in a new market</li>
         <li><strong>28 countries with active local teams</strong> — from Albania to Uzbekistan</li>
         <li><strong>6 service lines</strong> — AI consulting, business development, digital marketing, IT consulting, project management, and sales funnel setup</li>
@@ -1070,7 +1055,7 @@ for (const page of corePages) {
 // 4d. Generate locale variants for the homepage (path: [] was skipped in the loop)
 {
   const HOME_TITLE = "Sipiteno — AI Consulting & Business Development Across 28 Countries";
-  const HOME_DESC = "Business development and AI consulting for startups expanding across 28 countries. 15+ years experience, 50+ projects. MicroSaaS MVPs delivered in 4-8 weeks.";
+  const HOME_DESC = "Business development and AI consulting for startups expanding across 28 countries. 15+ years experience. MicroSaaS MVPs delivered in 4-8 weeks.";
   const HOME_CANONICAL = "https://sipiteno.com/";
   writeLocaleVariants([], HOME_CANONICAL, HOME_TITLE, HOME_DESC, buildHomepageBody(), [orgSchema, webSiteSchema, faqSchema]);
   count += NON_EN_LOCALES.length;
@@ -1234,80 +1219,11 @@ for (const ind of INDUSTRIES) {
 }
 
 // 8. Case-study detail pages (12)
-const CASE_STUDIES = [
-  { id: 1, name: "FinanceFlow AI", industry: "FinTech", tech: "React, Node.js, TensorFlow, PostgreSQL", status: "Completed",
-    description: "AI-powered financial analytics platform for SMEs in Eastern Europe, providing real-time insights and predictive modeling.",
-    challenges: "Complex regulatory requirements across multiple jurisdictions and need for real-time data processing.",
-    solution: "Built a modular architecture with country-specific compliance modules and implemented efficient data streaming.",
-    results: "Successfully launched in 3 countries with 500+ active users and 95% customer satisfaction rate.",
-    metrics: ["3 countries live", "500+ active users", "95% CSAT", "Real-time data pipeline"] },
-  { id: 2, name: "HealthConnect", industry: "HealthTech", tech: "React Native, Firebase, Python, ML", status: "In Progress",
-    description: "Telemedicine platform connecting patients with healthcare providers across rural Eastern European regions.",
-    challenges: "Limited internet infrastructure in rural areas and multi-language support requirements.",
-    solution: "Optimized for low-bandwidth connections with offline capabilities and integrated 6 local languages.",
-    results: "Currently in beta testing with 200+ medical professionals onboarded.",
-    metrics: ["6 languages", "200+ clinicians", "Offline-first", "Low-bandwidth optimized"] },
-  { id: 3, name: "RetailOptimize Pro", industry: "E-commerce", tech: "Vue.js, Django, Redis, AWS", status: "Completed",
-    description: "Inventory management and pricing optimization tool for e-commerce businesses in emerging markets.",
-    challenges: "Volatile market conditions and integration with diverse payment systems.",
-    solution: "Dynamic pricing algorithm with real-time market data integration and universal payment gateway.",
-    results: "15% average profit increase for clients, processing $2M+ in transactions monthly.",
-    metrics: ["15% profit lift", "$2M+ monthly volume", "Dynamic pricing", "Multi-gateway"] },
-  { id: 4, name: "EduTrack System", industry: "EdTech", tech: "Angular, .NET Core, MongoDB", status: "Completed",
-    description: "Learning management system tailored for vocational training institutions in Kazakhstan and Uzbekistan.",
-    challenges: "Outdated existing systems and need for gradual migration without disrupting operations.",
-    solution: "Phased migration approach with parallel systems and comprehensive training program.",
-    results: "Deployed across 20 institutions, serving 10,000+ students with 40% improved engagement.",
-    metrics: ["20 institutions", "10,000+ students", "40% engagement lift", "Phased migration"] },
-  { id: 5, name: "AgriTech Monitor", industry: "AgriTech", tech: "React, IoT, Python, TimescaleDB", status: "In Progress",
-    description: "IoT-enabled crop monitoring and yield prediction platform for agricultural cooperatives.",
-    challenges: "Harsh environmental conditions for sensors and limited technical expertise among end users.",
-    solution: "Ruggedized IoT devices with intuitive mobile-first interface and automated alerts.",
-    results: "Piloting with 50 farms, early data shows 20% reduction in water usage.",
-    metrics: ["50 pilot farms", "20% water reduction", "IoT + ML", "Mobile-first"] },
-  { id: 6, name: "LogiChain Pro", industry: "Logistics", tech: "Next.js, GraphQL, PostgreSQL, Docker", status: "Completed",
-    description: "Supply chain visibility platform for cross-border logistics in Eastern European trade corridors.",
-    challenges: "Complex customs procedures and need for real-time tracking across multiple carriers.",
-    solution: "API integrations with 15+ carriers and customs systems, blockchain for document verification.",
-    results: "Reduced customs clearance time by 30%, handling 5,000+ shipments monthly.",
-    metrics: ["30% faster clearance", "5,000+ shipments/mo", "15+ carrier APIs", "Blockchain verified"] },
-  { id: 7, name: "TalentMatch AI", industry: "HR Tech", tech: "React, Python, NLP, PostgreSQL", status: "Completed",
-    description: "AI-powered recruitment platform matching tech talent with opportunities across the region.",
-    challenges: "Diverse skill sets and qualifications across countries, language barriers in assessments.",
-    solution: "Multilingual NLP model for resume parsing and standardized skill assessment framework.",
-    results: "1,000+ successful placements, 80% candidate-company match satisfaction rate.",
-    metrics: ["1,000+ placements", "80% match satisfaction", "Multilingual NLP", "Standardized scoring"] },
-  { id: 8, name: "CyberShield Suite", industry: "Cybersecurity", tech: "Vue.js, Go, Elasticsearch, Kubernetes", status: "In Progress",
-    description: "Comprehensive cybersecurity monitoring and threat detection platform for SMEs.",
-    challenges: "Limited cybersecurity awareness and budget constraints among target users.",
-    solution: "Affordable tiered pricing model with automated threat detection and user-friendly dashboards.",
-    results: "Currently protecting 150+ businesses, detected and prevented 500+ threats.",
-    metrics: ["150+ businesses", "500+ threats blocked", "Tiered pricing", "Automated detection"] },
-  { id: 9, name: "PropertyPulse", industry: "PropTech", tech: "React, Node.js, MongoDB, Mapbox", status: "Completed",
-    description: "Real estate market analytics and property management platform for emerging markets.",
-    challenges: "Fragmented property data sources and varying legal frameworks across regions.",
-    solution: "Data aggregation from 20+ sources with country-specific legal compliance modules.",
-    results: "Used by 300+ real estate professionals, tracking $100M+ in property values.",
-    metrics: ["300+ professionals", "$100M+ tracked", "20+ data sources", "Multi-jurisdiction"] },
-  { id: 10, name: "EventHub Connect", industry: "Event Management", tech: "React, Firebase, Stripe, WebRTC", status: "Completed",
-    description: "Hybrid event platform supporting both in-person and virtual attendees with networking features.",
-    challenges: "Seamless experience between physical and virtual attendees, multiple payment methods.",
-    solution: "Integrated WebRTC for live streaming and breakout rooms, local payment gateway support.",
-    results: "Hosted 100+ events with 50,000+ total attendees, 4.8/5 average rating.",
-    metrics: ["100+ events", "50,000+ attendees", "4.8/5 rating", "Hybrid format"] },
-  { id: 11, name: "ContentCreator Studio", industry: "Marketing Tech", tech: "React, Python, OpenAI API, AWS S3", status: "In Progress",
-    description: "AI-assisted content creation and social media management tool for regional businesses.",
-    challenges: "Need for culturally appropriate content and support for Cyrillic and Latin scripts.",
-    solution: "Custom AI models trained on regional content with multi-script text editor.",
-    results: "Beta users creating 1,000+ pieces of content monthly with 60% time savings.",
-    metrics: ["1,000+ posts/mo", "60% time saved", "Cyrillic + Latin", "Culturally tuned"] },
-  { id: 12, name: "GreenEnergy Dashboard", industry: "CleanTech", tech: "Angular, Python, InfluxDB, Grafana", status: "Completed",
-    description: "Energy consumption monitoring and optimization platform for commercial buildings.",
-    challenges: "Legacy building management systems and diverse energy metering standards.",
-    solution: "Universal API adapters for legacy systems and predictive analytics for optimization.",
-    results: "Deployed in 80 buildings, achieving average 18% energy cost reduction.",
-    metrics: ["80 buildings", "18% energy savings", "Legacy integration", "Predictive analytics"] },
-];
+// 2026-07-25: the 12 entries here were fabricated client work (invented
+// company names and invented outcomes) — a duplicate of the list removed
+// from src/data/projects.ts. Emptied so no case-study detail pages are
+// generated. Repopulate only with a real, named, consented engagement.
+const CASE_STUDIES = [];
 
 for (const cs of CASE_STUDIES) {
   const canonical = `https://sipiteno.com/case-studies/${cs.id}`;
@@ -1572,7 +1488,7 @@ corePages.push({
   <p><em>Sipiteno's branded framework for entering emerging tech markets. The three doors that actually open a market — and why most expansion efforts stall because they only open one.</em></p>
 
   <h2>What it is</h2>
-  <p>The 3-Door Expansion System is the methodology Sipiteno uses to take a technology company into a new emerging market in 12-16 weeks. It is built on a simple observation: almost every failed expansion we have seen over 15+ years and 50+ projects failed because the company opened only one of the three doors below. Opening one door gets you a meeting. Opening all three gets you a market.</p>
+  <p>The 3-Door Expansion System is the methodology Sipiteno uses to take a technology company into a new emerging market in 12-16 weeks. It is built on a simple observation: almost every failed expansion we have seen over 15+ years failed because the company opened only one of the three doors below. Opening one door gets you a meeting. Opening all three gets you a market.</p>
   <p>The three doors are:</p>
   <ol>
     <li><strong>Door 1 — Introductions.</strong> Warm paths to the 15-25 decision-makers who actually buy in that market. Not cold outreach, not a purchased list — relationships built over years.</li>

@@ -10,16 +10,16 @@
 body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,sans-serif;line-height:1.5;padding:20px;min-height:100vh;display:flex;flex-direction:column;align-items:center}
 .widget-container{max-width:700px;width:100%}
 .widget-header{text-align:center;margin-bottom:24px}
-.widget-header .logo{font-weight:700;font-size:1rem;color:var(--mut);text-decoration:none;display:inline-block;margin-bottom:12px}
-.widget-header .logo span{color:var(--pri)}
+.widget-header.logo{font-weight:700;font-size:1rem;color:var(--mut);text-decoration:none;display:inline-block;margin-bottom:12px}
+.widget-header.logo span{color:var(--pri)}
 .widget-header h2{font-size:1.3rem;color:#f8fafc;margin-bottom:6px}
 .widget-header p{font-size:0.85rem;color:var(--dim)}
 
 .option-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px;margin-bottom:16px}
-.option-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 10px;text-align:center;cursor:pointer;transition:all .2s;font-size:0.78rem}
+.option-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 10px;text-align:center;cursor:pointer;transition:all.2s;font-size:0.78rem}
 .option-card:hover{border-color:var(--pri)}
 .option-card.selected{border-color:var(--pri);background:rgba(99,102,241,0.12)}
-.option-card .icon{font-size:1.1rem;display:block;margin-bottom:4px}
+.option-card.icon{font-size:1.1rem;display:block;margin-bottom:4px}
 
 .slider-group{margin:14px 0;padding:14px;background:var(--card);border-radius:8px;border:1px solid var(--border)}
 .slider-group label{display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:6px}
@@ -27,20 +27,20 @@ body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,s
 .slider-group label span:last-child{color:var(--pri);font-weight:600}
 .slider-group input[type=range]{width:100%;accent-color:var(--pri)}
 
-.btn{display:block;width:100%;background:linear-gradient(135deg,var(--pri),#4f46e5);color:#fff;padding:14px;border-radius:10px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;margin:16px 0;transition:all .2s}
+.btn{display:block;width:100%;background:linear-gradient(135deg,var(--pri),#4f46e5);color:#fff;padding:14px;border-radius:10px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;margin:16px 0;transition:all.2s}
 .btn:hover{transform:translateY(-1px)}
 
 .results{display:none;margin-top:16px}
 .results.active{display:block}
 .result-header{text-align:center;padding:20px;background:rgba(99,102,241,0.08);border-radius:12px;border:1px solid var(--border);margin-bottom:16px}
-.result-header .big-num{font-size:2rem;font-weight:700;color:var(--pri)}
-.result-header .big-label{font-size:0.85rem;color:var(--dim);margin-top:4px}
+.result-header.big-num{font-size:2rem;font-weight:700;color:var(--pri)}
+.result-header.big-label{font-size:0.85rem;color:var(--dim);margin-top:4px}
 
 .market-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-bottom:6px}
 .market-row.top-pick{border-color:var(--pri)}
-.market-row .rank{font-weight:700;color:var(--pri);min-width:24px}
-.market-row .name{flex:1;font-size:0.85rem}
-.market-row .badge{background:rgba(99,102,241,0.15);color:var(--pri);padding:2px 10px;border-radius:6px;font-size:0.8rem;font-weight:600}
+.market-row.rank{font-weight:700;color:var(--pri);min-width:24px}
+.market-row.name{flex:1;font-size:0.85rem}
+.market-row.badge{background:rgba(99,102,241,0.15);color:var(--pri);padding:2px 10px;border-radius:6px;font-size:0.8rem;font-weight:600}
 
 .cta{text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
 .cta a{color:var(--pri);font-weight:600;text-decoration:none;font-size:0.85rem}
@@ -53,39 +53,39 @@ body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,s
 <body>
 <div class="widget-container">
 <div class="widget-header">
-  <a href="https://sipiteno.com" target="_blank" class="logo">Sipi<span>teno</span> Market Entry Scorecard</a>
-  <h2>Which emerging market should you enter?</h2>
-  <p>Answer 3 questions — get your ranked results in seconds.</p>
+ <a href="https://sipiteno.com" target="_blank" class="logo">Sipi<span>teno</span> Market Entry Scorecard</a>
+ <h2>Which emerging market should you enter?</h2>
+ <p>Answer 3 questions — get your ranked results in seconds.</p>
 </div>
 
 <div class="option-grid" id="q-product">
-  <div class="option-card" data-val="saas"><span class="icon">☁️</span>SaaS</div>
-  <div class="option-card" data-val="ai-tool"><span class="icon">🤖</span>AI Tool</div>
-  <div class="option-card" data-val="marketplace"><span class="icon">🏪</span>Marketplace</div>
-  <div class="option-card" data-val="fintech"><span class="icon">💳</span>Fintech</div>
-  <div class="option-card" data-val="consumer"><span class="icon">📱</span>Consumer</div>
-  <div class="option-card" data-val="service"><span class="icon">🛠️</span>Services</div>
+ <div class="option-card" data-val="saas"><span class="icon">☁️</span>SaaS</div>
+ <div class="option-card" data-val="ai-tool"><span class="icon">🤖</span>AI Tool</div>
+ <div class="option-card" data-val="marketplace"><span class="icon">🏪</span>Marketplace</div>
+ <div class="option-card" data-val="fintech"><span class="icon">💳</span>Fintech</div>
+ <div class="option-card" data-val="consumer"><span class="icon">📱</span>Consumer</div>
+ <div class="option-card" data-val="service"><span class="icon">🛠️</span>Services</div>
 </div>
 
 <div class="slider-group">
-  <label><span>Monthly budget</span><span id="bval">$25K</span></label>
-  <input type="range" id="budget" min="1" max="10" value="5">
+ <label><span>Monthly budget</span><span id="bval">$25K</span></label>
+ <input type="range" id="budget" min="1" max="10" value="5">
 </div>
 
 <div class="option-grid" id="q-goal">
-  <div class="option-card" data-val="hiring"><span class="icon">👥</span>Hire Talent</div>
-  <div class="option-card" data-val="sales"><span class="icon">📈</span>Sell Locally</div>
-  <div class="option-card selected" data-val="both"><span class="icon">🚀</span>Full Entry</div>
+ <div class="option-card" data-val="hiring"><span class="icon">👥</span>Hire Talent</div>
+ <div class="option-card" data-val="sales"><span class="icon">📈</span>Sell Locally</div>
+ <div class="option-card selected" data-val="both"><span class="icon">🚀</span>Full Entry</div>
 </div>
 
 <button class="btn" onclick="calc()">🔍 Score 28 Markets →</button>
 
 <div class="results" id="res">
-  <div class="result-header" id="resHeader"></div>
-  <div id="resList"></div>
-  <div class="cta">
-    <a href="https://sipiteno.com/contact" target="_blank">📞 Book a free strategy call with Sipiteno →</a>
-  </div>
+ <div class="result-header" id="resHeader"></div>
+ <div id="resList"></div>
+ <div class="cta">
+ <a href="https://sipiteno.com/contact" target="_blank">📞 Book a free strategy call with Sipiteno →</a>
+ </div>
 </div>
 
 <div class="powered">Powered by <a href="https://sipiteno.com" target="_blank">Sipiteno</a> · 28 markets · 15 years experience</div>
@@ -99,22 +99,22 @@ document.querySelectorAll('.option-card').forEach(c=>c.addEventListener('click',
 document.getElementById('budget').addEventListener('input',function(){const v=['$1K','$5K','$10K','$25K','$50K','$100K','$250K','$500K','$1M','$2M'];document.getElementById('bval').textContent=v[this.value-1]});
 
 function calc(){
-  const prod=document.querySelector('#q-product .selected')?.dataset.val;
-  const goal=document.querySelector('#q-goal .selected')?.dataset.val;
-  const bRaw=parseInt(document.getElementById('budget').value);
-  const budgetMap=[1000,5000,10000,25000,50000,100000,250000,500000,1e6,2e6];
-  const budget=budgetMap[bRaw-1]||25000;
-  if(!prod||!goal)return alert('Please select all options.');
+ const prod=document.querySelector('#q-product.selected')?.dataset.val;
+ const goal=document.querySelector('#q-goal.selected')?.dataset.val;
+ const bRaw=parseInt(document.getElementById('budget').value);
+ const budgetMap=[1000,5000,10000,25000,50000,100000,250000,500000,1e6,2e6];
+ const budget=budgetMap[bRaw-1]||25000;
+ if(!prod||!goal)return alert('Please select all options.');
 
-  const scored=M.map(m=>{let s=0;s+=(m.t/100)*25;s+=Math.min(20,(budget/m.c)*15);s+=(m.e/700)*15;s+=(m.i/100)*7.5+(m.b/100)*7.5;s+=((100-m.x)/100)*15;s+=goal==='hiring'?(m.t/100)*10:goal==='sales'?(m.g/40000)*10:((m.t/100)*5)+((m.g/40000)*5);
-  if(prod==='fintech'&&['lithuania','estonia','cyprus','poland'].includes(m.s))s+=3;
-  if(prod==='ai-tool'&&['estonia','czech-republic','poland','ukraine'].includes(m.s))s+=2;
-  return{...m,score:Math.round(s*10)/10}});
-  scored.sort((a,b)=>b.score-a.score);
-  const t5=scored.slice(0,5);
-  document.getElementById('resHeader').innerHTML=`<div class="big-num">${t5[0].n}</div><div class="big-label">#1 market — score ${t5[0].score}/100</div>`;
-  document.getElementById('resList').innerHTML=t5.map((m,i)=>`<div class="market-row${i===0?' top-pick':''}"><span class="rank">${i===0?'⭐':'#'+(i+1)}</span><span class="name">${m.n} · ${m.r}</span><span class="badge">${m.score}</span></div>`).join('');
-  document.getElementById('res').classList.add('active');
+ const scored=M.map(m=>{let s=0;s+=(m.t/100)*25;s+=Math.min(20,(budget/m.c)*15);s+=(m.e/700)*15;s+=(m.i/100)*7.5+(m.b/100)*7.5;s+=((100-m.x)/100)*15;s+=goal==='hiring'?(m.t/100)*10:goal==='sales'?(m.g/40000)*10:((m.t/100)*5)+((m.g/40000)*5);
+ if(prod==='fintech'&&['lithuania','estonia','cyprus','poland'].includes(m.s))s+=3;
+ if(prod==='ai-tool'&&['estonia','czech-republic','poland','ukraine'].includes(m.s))s+=2;
+ return{...m,score:Math.round(s*10)/10}});
+ scored.sort((a,b)=>b.score-a.score);
+ const t5=scored.slice(0,5);
+ document.getElementById('resHeader').innerHTML=`<div class="big-num">${t5[0].n}</div><div class="big-label">#1 market — score ${t5[0].score}/100</div>`;
+ document.getElementById('resList').innerHTML=t5.map((m,i)=>`<div class="market-row${i===0?' top-pick':''}"><span class="rank">${i===0?'⭐':'#'+(i+1)}</span><span class="name">${m.n} · ${m.r}</span><span class="badge">${m.score}</span></div>`).join('');
+ document.getElementById('res').classList.add('active');
 }
 </script>
 </body>

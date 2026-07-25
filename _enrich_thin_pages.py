@@ -430,7 +430,7 @@ def generate_geo_block(country, service):
         approach_section = f"""
 <h3>Our Methodology for {sn} in {cn}</h3>
 <p>{approach_detail}</p>
-<p>This methodology has been refined across 50+ projects in 28 countries. Every engagement includes weekly progress reports, milestone-based deliverables, and transparent communication — so you always know exactly where your project stands.</p>"""
+<p>This methodology has been refined across 28 countries. Every engagement includes weekly progress reports, milestone-based deliverables, and transparent communication — so you always know exactly where your project stands.</p>"""
 
     return f"""<section class="enriched-content">
 <h2>{sn} in {cn}</h2>
@@ -448,7 +448,7 @@ def generate_geo_block(country, service):
 {approach_section}
 <h3>What Sets Sipiteno Apart</h3>
 <p>Unlike working with individual consultants or large generic agencies, Sipiteno provides a coordinated team with deep expertise across {sn.lower()} and emerging markets. We handle the end-to-end execution — from strategy through implementation — while keeping you closely involved in all key decisions. {why_work}</p>
-<p>With 50+ projects delivered across 28 countries and a proven track record of client satisfaction, we bring proven methodology and local intelligence to every {sn.lower()} engagement in {cn}.</p>
+<p>With delivery experience across 28 countries and a proven track record of client satisfaction, we bring proven methodology and local intelligence to every {sn.lower()} engagement in {cn}.</p>
 <p>Ready to discuss your {sn.lower()} needs in {cn}? <a href="https://sipiteno.com/#contact">Book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
 {faq_section}
 </section>"""
@@ -482,7 +482,7 @@ def generate_learn_block(topic_slug):
 
     return f"""<section class="enriched-content">
 <h2>Practical Insights for Product Leaders</h2>
-<p>Sipiteno's learn center provides actionable guidance for founders, CTOs, and product leaders navigating the complexities of building digital products in emerging markets. Each article draws from our real-world experience across 50+ projects and 28 countries.</p>
+<p>Sipiteno's learn center provides actionable guidance for founders, CTOs, and product leaders navigating the complexities of building digital products in emerging markets. Each article draws from our real-world experience across 28 countries.</p>
 <p>Whether you're evaluating AI readiness, planning a digital transformation, or deciding between build vs. buy for your next product initiative, these resources are designed to help you make informed decisions faster. We regularly update our content to reflect the latest market dynamics, technology trends, and proven methodologies from our client work.</p>
 {extra}
 <h3>Continuous Learning</h3>
@@ -592,11 +592,11 @@ def generate_use_cases_block(slug):
         "enterprise": "Enterprise organizations need product partners who understand compliance, security reviews, vendor procurement, and multi-stakeholder alignment. Sipiteno has navigated these processes with Fortune 500 companies. Our enterprise engagements include dedicated account management, SLA-backed support, security documentation for your compliance team, and the ability to integrate with your existing vendor ecosystem and procurement workflows.",
         "saas-companies": "SaaS companies at every stage — from pre-revenue to millions in ARR — use Sipiteno to accelerate product development. We bring battle-tested architectural patterns for multi-tenancy, metering and billing, feature flags, CI/CD, and scalable data infrastructure. Our SaaS experience spans B2B and B2C products across fintech, healthtech, enterprise software, and developer tools.",
     }
-    extra = extra_map.get(slug, "Sipiteno has delivered 50+ projects across 28 countries, each tailored to the client's specific industry, stage, and goals. Our use cases span fintech, healthtech, enterprise SaaS, developer tools, AI/ML platforms, and e-commerce — demonstrating our ability to adapt our methodology to diverse product challenges.")
+    extra = extra_map.get(slug, "Sipiteno has delivered projects across 28 countries, each tailored to the client's specific industry, stage, and goals. Our use cases span fintech, healthtech, enterprise SaaS, developer tools, AI/ML platforms, and e-commerce — demonstrating our ability to adapt our methodology to diverse product challenges.")
 
     return f"""<section class="enriched-content">
 <h2>Real-World Applications</h2>
-<p>This use case illustrates how Sipiteno's product development methodology applies to a specific industry or organizational context. Our team has delivered similar outcomes across 50+ projects in 28 countries — from early-stage MVPs to enterprise-scale platforms.</p>
+<p>This use case illustrates how Sipiteno's product development methodology applies to a specific industry or organizational context. Our team has delivered similar outcomes across 28 countries — from early-stage MVPs to enterprise-scale platforms.</p>
 <p>Each use case follows our core principles: start with the user, validate early, iterate fast, and ship with confidence. We combine product strategy, UX design, and engineering into a single accountable workflow — no handoff delays, no miscommunication between silos.</p>
 
 <h3>In Practice</h3>
@@ -626,7 +626,7 @@ def generate_pricing_block(slug):
 <p>{extra}</p>
 
 <h3>What's Included</h3>
-<p>All engagements include dedicated project management, weekly status reporting, end-of-sprint demos, code hosted in your repository, full documentation, and a 30-day post-launch support window. We don't nickel-and-dime on scope adjustments — when requirements change, we discuss tradeoffs transparently and agree on adjustments before they impact budget or timeline. This approach has earned us a strong client satisfaction rating across 50+ projects.</p>
+<p>All engagements include dedicated project management, weekly status reporting, end-of-sprint demos, code hosted in your repository, full documentation, and a 30-day post-launch support window. We don't nickel-and-dime on scope adjustments — when requirements change, we discuss tradeoffs transparently and agree on adjustments before they impact budget or timeline. This approach has earned us a strong client satisfaction rating.</p>
 <p>For a detailed quote tailored to your specific project, <a href="https://sipiteno.com">book a free consultation →</a></p>
 </section>"""
 
@@ -719,7 +719,7 @@ def main():
             content = """<section class="enriched-content">
         <h2>Build Better Products, Faster</h2>
         <p>Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end. We operate as an accountable product team — not a marketplace — with a single point of ownership for delivery, quality, and timeline. Based across 28 emerging markets, we combine global engineering standards with local market intelligence.</p>
-        <p>Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps. With 50+ projects delivered and a proven track record of client satisfaction, we bring proven methodology to every engagement — from early-stage MVPs delivered in 7 weeks to enterprise-scale platforms serving millions of users.</p>
+        <p>Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps. With a proven track record of client satisfaction, we bring proven methodology to every engagement — from early-stage MVPs delivered in 7 weeks to enterprise-scale platforms serving millions of users.</p>
         <p><a href="https://sipiteno.com/#free-playbook">Get the Free Expansion Playbook →</a></p>
         </section>"""
         elif page_type == "other" and service == "network-widget":
@@ -735,7 +735,7 @@ def main():
             content = f"""<section class="enriched-content">
 <h2>About Sipiteno</h2>
 <p>Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies. We operate as an accountable product team — not a marketplace — with a single point of ownership for delivery, quality, and timeline.</p>
-<p>With 50+ projects delivered across 28 countries and a proven track record of client satisfaction, we bring proven methodology and deep technical expertise to every engagement. Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps — giving you a complete product team in one accountable partner.</p>
+<p>With delivery experience across 28 countries and a proven track record of client satisfaction, we bring proven methodology and deep technical expertise to every engagement. Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps — giving you a complete product team in one accountable partner.</p>
 <p><a href="https://sipiteno.com">Learn more about how we work →</a></p>
 </section>"""
 

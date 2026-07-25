@@ -7,7 +7,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
 .code { font-size: clamp(4rem, 18vw, 7rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #2563eb; margin: 0; }
 h1 { font-size: 1.4rem; margin: 12px 0 8px; font-weight: 600; }
 .lede { color: #555; margin: 0 0 28px; font-size: 1.05rem; }
-@media (prefers-color-scheme: dark) { .lede { color: #9ca3af; } }
+@media (prefers-color-scheme: dark) {.lede { color: #9ca3af; } }
 h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6b7280; margin: 24px 0 10px; }
 @media (prefers-color-scheme: dark) { h2 { color: #9ca3af; } }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
@@ -15,51 +15,51 @@ a.card { display: block; padding: 12px 14px; border: 1px solid #e5e7eb; border-r
 a.card:hover { border-color: #2563eb; transform: translateY(-1px); }
 @media (prefers-color-scheme: dark) { a.card { border-color: #1f2937; } a.card:hover { border-color: #7dd3fc; } }
 .card strong { display: block; color: #2563eb; font-size: 0.95rem; }
-@media (prefers-color-scheme: dark) { .card strong { color: #7dd3fc; } }
+@media (prefers-color-scheme: dark) {.card strong { color: #7dd3fc; } }
 .card span { font-size: 0.85rem; color: #6b7280; }
-@media (prefers-color-scheme: dark) { .card span { color: #9ca3af; } }
+@media (prefers-color-scheme: dark) {.card span { color: #9ca3af; } }
 .home { display: inline-block; margin-top: 24px; padding: 10px 20px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; }
 .search { margin-top: 28px; padding: 16px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; }
-@media (prefers-color-scheme: dark) { .search { background: #111827; border-color: #1f2937; } }
+@media (prefers-color-scheme: dark) {.search { background: #111827; border-color: #1f2937; } }
 .search input { width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; color: inherit; }
-@media (prefers-color-scheme: dark) { .search input { background: #0a0a0a; border-color: #374151; color: #e5e5e5; } }
+@media (prefers-color-scheme: dark) {.search input { background: #0a0a0a; border-color: #374151; color: #e5e5e5; } }
 </style>
 <link rel="stylesheet" href="/ux.css">
-    <script src="/ux.js" defer></script>
-  </head><body>
+ <script src="/ux.js" defer></script>
+ </head><body>
 <p class="code">404</p>
 <h1>This page doesn't exist — but Sipiteno does.</h1>
 <p class="lede">The link may be broken or the page may have moved. Try one of these instead:</p>
 
 <h2>What most people are looking for</h2>
 <div class="grid">
-  <a class="card" href="/#services"><strong>Services</strong><span>AI consulting, MVP dev, market entry</span></a>
-  <a class="card" href="/pricing"><strong>Pricing</strong><span>Transparent rates, $3k-$100k+</span></a>
-  <a class="card" href="/case-studies"><strong>Case Studies</strong><span>12 real projects with metrics</span></a>
-  <a class="card" href="/answers"><strong>Answers / FAQ</strong><span>21 common questions, answered</span></a>
-  <a class="card" href="/alternatives"><strong>vs Competitors</strong><span>How we differ from Toptal, Upwork</span></a>
-  <a class="card" href="/blog"><strong>Blog</strong><span>MicroSaaS, AI, market entry</span></a>
-  <a class="card" href="/methodology"><strong>Methodology</strong><span>Our market-entry framework</span></a>
-  <a class="card" href="/contact"><strong>Contact</strong><span>Free 30-min strategy call</span></a>
+ <a class="card" href="/#services"><strong>Services</strong><span>AI consulting, MVP dev, market entry</span></a>
+ <a class="card" href="/pricing"><strong>Pricing</strong><span>Transparent rates, $3k-$100k+</span></a>
+ <a class="card" href="/case-studies"><strong>Case Studies</strong><span>12 real projects with metrics</span></a>
+ <a class="card" href="/answers"><strong>Answers / FAQ</strong><span>21 common questions, answered</span></a>
+ <a class="card" href="/alternatives"><strong>vs Competitors</strong><span>How we differ from Toptal, Upwork</span></a>
+ <a class="card" href="/blog"><strong>Blog</strong><span>MicroSaaS, AI, market entry</span></a>
+ <a class="card" href="/methodology"><strong>Methodology</strong><span>Our market-entry framework</span></a>
+ <a class="card" href="/contact"><strong>Contact</strong><span>Free 30-min strategy call</span></a>
 </div>
 
 <div class="search">
-  <form role="search" action="/locations" method="get">
-    <label for="q" style="display:block;font-size:0.85rem;color:#6b7280;margin-bottom:6px;">Search for a country or service:</label>
-    <input id="q" name="q" type="search" placeholder="e.g. Poland, AI consulting, MVP development">
-  </form>
+ <form role="search" action="/locations" method="get">
+ <label for="q" style="display:block;font-size:0.85rem;color:#6b7280;margin-bottom:6px;">Search for a country or service:</label>
+ <input id="q" name="q" type="search" placeholder="e.g. Poland, AI consulting, MVP development">
+ </form>
 </div>
 
 <a class="home" href="/">← Back to Home</a>
 
 <!-- BRUNSON TRUST BAR — idempotency:trust-bar-v1 -->
 <section class="brunson-trust-bar" style="background:linear-gradient(135deg, #0f172a, #1e293b);color:#e8eaed;padding:40px 24px;margin:60px 0 0;border-top:3px solid #00d4aa;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-  <div style="max-width:900px;margin:0 auto">
-    <!-- 2026-07-25: three unverifiable stat cards were removed from this row (a project count, a country count, and a median-launch figure). None had a checkable source. Do not reinstate a number here without one. -->
-    <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">Every quarter you wait costs you a whole market. Start with the free playbook.</p>
-    <a href="https://sipiteno.com/#free-playbook" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.95rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Get the Free Expansion Playbook →</a>
-    <p style="margin-top:18px;font-size:.78rem;color:#6b7178">🛡️ Every engagement starts with a free 30-minute scoping call. No risk.</p>
-  </div>
+ <div style="max-width:900px;margin:0 auto">
+ <!-- 2026-07-25: three unverifiable stat cards were removed from this row (a project count, a country count, and a median-launch figure). None had a checkable source. Do not reinstate a number here without one. -->
+ <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">Every quarter you wait costs you a whole market. Start with the free playbook.</p>
+ <a href="https://sipiteno.com/#free-playbook" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.95rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Get the Free Expansion Playbook →</a>
+ <p style="margin-top:18px;font-size:.78rem;color:#6b7178">🛡️ Every engagement starts with a free 30-minute scoping call. No risk.</p>
+ </div>
 </section>
 <!-- /BRUNSON TRUST BAR -->
 

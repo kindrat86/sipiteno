@@ -10,8 +10,8 @@ const CaseStudies = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Case Studies | Sipiteno - 50+ Projects Across Emerging Markets"
-        description="Explore Sipiteno's portfolio of 50+ successful projects across FinTech, HealthTech, E-commerce, and more in Europe, Caucasus, and Central Asia."
+        title="Case Studies | Sipiteno"
+        description="Published client case studies from Sipiteno's market-entry and technical delivery work across Europe, the Caucasus, and Central Asia."
         url="https://sipiteno.com/case-studies"
         breadcrumbs={[
           { name: "Home", url: "https://sipiteno.com/" },
@@ -32,11 +32,14 @@ const CaseStudies = () => {
               Case Studies
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Real projects, real results. See how we've helped technology companies scale across emerging markets.
+              {projects.length > 0
+                ? "Real projects, real results. See how we've helped technology companies scale across emerging markets."
+                : "We publish a case study only once a client has agreed to have their engagement named. None are published yet — so rather than show illustrative examples, we show nothing."}
             </p>
           </header>
 
-          {/* Projects Grid */}
+          {/* Projects Grid — renders nothing while `projects` is empty; the
+              honest empty state below takes its place. See src/data/projects.ts. */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {projects.map((project) => (
               <Link key={project.id} to={`/case-studies/${project.id}`}>
@@ -74,6 +77,19 @@ const CaseStudies = () => {
               </Link>
             ))}
           </div>
+
+          {projects.length === 0 && (
+            <div className="max-w-2xl mx-auto text-center border border-border rounded-2xl p-8 md:p-10 bg-card/40">
+              <h2 className="text-xl font-semibold text-foreground mb-3">
+                No published case studies yet
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Client work to date has been under terms that don't allow us to name it.
+                When an engagement can be published with the client's consent, it will
+                appear here — with the actual scope, timeline, and outcome.
+              </p>
+            </div>
+          )}
 
           {/* CTA */}
           <div className="mt-16 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 md:p-10 text-center max-w-3xl mx-auto">

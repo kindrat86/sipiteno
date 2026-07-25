@@ -16,23 +16,23 @@
 body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;line-height:1.6}
 .wrap{max-width:720px;margin:0 auto;padding:0 20px}
 nav{padding:16px 20px;border-bottom:1px solid var(--border)}
-nav .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--txt);text-decoration:none}
-nav .brand span{color:var(--pri)}
+nav.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--txt);text-decoration:none}
+nav.brand span{color:var(--pri)}
 .hero{padding:50px 0 30px;text-align:center}
 .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,5vw,34px);font-weight:700;color:#f8fafc;margin-bottom:12px}
 .hero p{color:var(--mut);font-size:1rem;max-width:520px;margin:0 auto 20px}
 
 .slider-group{margin:24px 0;padding:20px;background:var(--card);border-radius:12px;border:1px solid var(--border)}
 .slider-group h3{font-size:1rem;color:#f8fafc;margin-bottom:4px}
-.slider-group .desc{font-size:0.8rem;color:var(--dim);margin-bottom:12px}
+.slider-group.desc{font-size:0.8rem;color:var(--dim);margin-bottom:12px}
 .slider-row{display:flex;align-items:center;gap:12px}
 .slider-row input[type=range]{flex:1;accent-color:var(--pri)}
-.slider-row .val{min-width:60px;text-align:right;font-weight:700;font-size:1.1rem;color:var(--pri);font-variant-numeric:tabular-nums}
+.slider-row.val{min-width:60px;text-align:right;font-weight:700;font-size:1.1rem;color:var(--pri);font-variant-numeric:tabular-nums}
 
 .results{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:24px 0}
 .result-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
-.result-card .num{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);margin-bottom:4px}
-.result-card .label{font-size:0.78rem;color:var(--dim)}
+.result-card.num{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);margin-bottom:4px}
+.result-card.label{font-size:0.78rem;color:var(--dim)}
 .result-card.highlight{border:2px solid var(--pri);background:rgba(99,102,241,0.1)}
 
 .benchmarks{margin:24px 0;padding:20px;background:var(--card);border-radius:12px;border:1px solid var(--border)}

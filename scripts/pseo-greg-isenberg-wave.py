@@ -161,7 +161,7 @@ for svc in SERVICES:
 
         faqs = [
             (f"How much does {svc['name'].lower()} cost in {c['name']}?", f"Costs vary from $15,000 to $100,000+ depending on scope and duration. We offer a free 30-minute assessment to give you a precise quote based on your specific needs."),
-            (f"Why choose Sipiteno over other {svc['name'].lower()} firms in {c['name']}?", f"We have 15+ years of on-the-ground experience in {c['region']}, local teams in {c['capital']}, and 50+ successful projects across 28 countries. Our approach combines strategic consulting with hands-on technical delivery."),
+            (f"Why choose Sipiteno over other {svc['name'].lower()} firms in {c['name']}?", f"We have 15+ years of on-the-ground experience in {c['region']}, local teams in {c['capital']}, and delivery across 28 countries. Our approach combines strategic consulting with hands-on technical delivery."),
             (f"Can Sipiteno help if my company is not based in {c['name']}?", f"Yes. Most of our clients are technology companies expanding INTO {c['name']} from other countries. We handle market entry, local partnerships, regulatory navigation, and operational setup."),
         ]
 

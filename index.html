@@ -1,462 +1,462 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Register a Trusted Types default policy. The CSP enforces
-         require-trusted-types-for 'script' with no policy registered, which
-         makes any innerHTML/script.src assignment anywhere in the app (React
-         internals, third-party pixels) throw and crash the whole page. Must
-         be the very first script so it runs before anything else. -->
-    <script>
-      if (window.trustedTypes && window.trustedTypes.createPolicy) {
-        window.trustedTypes.createPolicy('default', {
-          createHTML: (s) => s,
-          createScript: (s) => s,
-          createScriptURL: (s) => s,
-        });
-      }
-    </script>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.png" type="image/png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <!-- Mark JS-capable browsers so static crawler-only content (footer nav,
-         trust bar) below #root never flashes before hydration. -->
-    <script>document.documentElement.classList.add('js')</script>
-    <style>.js .no-js-only{display:none}#root{min-height:100dvh;contain:layout}</style>
+ <head>
+ <!-- Register a Trusted Types default policy. The CSP enforces
+ require-trusted-types-for 'script' with no policy registered, which
+ makes any innerHTML/script.src assignment anywhere in the app (React
+ internals, third-party pixels) throw and crash the whole page. Must
+ be the very first script so it runs before anything else. -->
+ <script>
+ if (window.trustedTypes && window.trustedTypes.createPolicy) {
+ window.trustedTypes.createPolicy('default', {
+ createHTML: (s) => s,
+ createScript: (s) => s,
+ createScriptURL: (s) => s,
+ });
+ }
+ </script>
+ <meta charset="UTF-8" />
+ <link rel="icon" href="/favicon.png" type="image/png" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+ <meta name="theme-color" content="#0a0a0a" />
+ <!-- Mark JS-capable browsers so static crawler-only content (footer nav,
+ trust bar) below #root never flashes before hydration. -->
+ <script>document.documentElement.classList.add('js')</script>
+ <style>.js.no-js-only{display:none}#root{min-height:100dvh;contain:layout}</style>
 
-    <!-- Primary Meta Tags -->
-    <title>Sipiteno — Business Development & AI Consulting for Startups</title>
-    <!-- NOTE: never link /ux.css here. It's the stylesheet for the bare static
-         pSEO pages; linking it from the SPA makes Vite bundle its global
-         button/link/img rules into the app CSS and breaks the design system. -->
-    <meta name="title" content="Sipiteno — Business Development & AI Consulting for Startups" />
-    <meta name="description" content="Business development and AI consulting for startups expanding across 28 countries. 15+ years experience, 50+ projects. MicroSaaS MVPs delivered in 4-8 weeks." />
-    <meta name="keywords" content="AI consulting, business development, MicroSaaS MVP development, IT consulting, digital product studio, market entry strategy, B2B partnerships, digital transformation, SaaS development, tech startup consulting" />
-    <meta name="author" content="Sipiteno" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://sipiteno.com/" />
+ <!-- Primary Meta Tags -->
+ <title>Sipiteno — Business Development & AI Consulting for Startups</title>
+ <!-- NOTE: never link /ux.css here. It's the stylesheet for the bare static
+ pSEO pages; linking it from the SPA makes Vite bundle its global
+ button/link/img rules into the app CSS and breaks the design system. -->
+ <meta name="title" content="Sipiteno — Business Development & AI Consulting for Startups" />
+ <meta name="description" content="Business development and AI consulting for startups expanding across 28 countries. 15+ years experience. MicroSaaS MVPs delivered in 4-8 weeks." />
+ <meta name="keywords" content="AI consulting, business development, MicroSaaS MVP development, IT consulting, digital product studio, market entry strategy, B2B partnerships, digital transformation, SaaS development, tech startup consulting" />
+ <meta name="author" content="Sipiteno" />
+ <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+ <link rel="canonical" href="https://sipiteno.com/" />
 
-    <!-- Resource Hints for Core Web Vitals -->
-    <link rel="preconnect" href="https://eu.i.posthog.com" />
-    <link rel="dns-prefetch" href="https://eu.i.posthog.com" />
-    <link rel="preconnect" href="https://snap.licdn.com" />
-    <link rel="dns-prefetch" href="https://snap.licdn.com" />
-    <link rel="preconnect" href="https://www.clarity.ms" />
-    <link rel="dns-prefetch" href="https://www.clarity.ms" />
+ <!-- Resource Hints for Core Web Vitals -->
+ <link rel="preconnect" href="https://eu.i.posthog.com" />
+ <link rel="dns-prefetch" href="https://eu.i.posthog.com" />
+ <link rel="preconnect" href="https://snap.licdn.com" />
+ <link rel="dns-prefetch" href="https://snap.licdn.com" />
+ <link rel="preconnect" href="https://www.clarity.ms" />
+ <link rel="dns-prefetch" href="https://www.clarity.ms" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sipiteno.com/" />
-    <meta property="og:title" content="Sipiteno - Strategic Business Development & AI Consulting" />
-    <meta property="og:description" content="Expert business development, AI & IT consulting across 28 countries in Europe, Caucasus, and Central Asia. 15+ years experience, 50+ successful projects." />
-    <meta property="og:image" content="https://sipiteno.com/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Sipiteno - Strategic Business Development & AI Consulting across 28 countries" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Sipiteno" />
+ <!-- Open Graph / Facebook -->
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://sipiteno.com/" />
+ <meta property="og:title" content="Sipiteno - Strategic Business Development & AI Consulting" />
+ <meta property="og:description" content="Expert business development, AI & IT consulting across 28 countries in Europe, Caucasus, and Central Asia. 15+ years experience." />
+ <meta property="og:image" content="https://sipiteno.com/og-image.png" />
+ <meta property="og:image:width" content="1200" />
+ <meta property="og:image:height" content="630" />
+ <meta property="og:image:alt" content="Sipiteno - Strategic Business Development & AI Consulting across 28 countries" />
+ <meta property="og:locale" content="en_US" />
+ <meta property="og:site_name" content="Sipiteno" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://sipiteno.com/" />
-    <meta name="twitter:title" content="Sipiteno - Strategic Business Development & AI Consulting" />
-    <meta name="twitter:description" content="Expert business development, AI & IT consulting across 28 countries in Europe, Caucasus, and Central Asia." />
-    <meta name="twitter:image" content="https://sipiteno.com/og-image.png" />
+ <!-- Twitter -->
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:url" content="https://sipiteno.com/" />
+ <meta name="twitter:title" content="Sipiteno - Strategic Business Development & AI Consulting" />
+ <meta name="twitter:description" content="Expert business development, AI & IT consulting across 28 countries in Europe, Caucasus, and Central Asia." />
+ <meta name="twitter:image" content="https://sipiteno.com/og-image.png" />
 
-    <!-- Structured Data - Organization Schema with Entity Resolution -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://sipiteno.com/#organization",
-      "name": "Sipiteno",
-      "legalName": "Sipiteno Business Development",
-      "alternateName": ["Sipiteno Consulting", "Sipiteno BD"],
-      "description": "Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies — an accountable product team that ships, not a marketplace where you hire and manage individual freelancers.",
-      "disambiguatingDescription": "Sipiteno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.",
-      "url": "https://sipiteno.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://sipiteno.com/favicon.png",
-        "width": "512",
-        "height": "512"
-      },
-      "image": "https://sipiteno.com/favicon.png",
-      "foundingDate": "2009",
-      "slogan": "Transforming vision into market success across emerging tech markets",
-      "numberOfEmployees": {
-        "@type": "QuantitativeValue",
-        "minValue": 20,
-        "maxValue": 30
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/34765968",
-        "https://github.com/kindrat86",
-        "https://www.instagram.com/sipiteno",
-        "https://www.facebook.com/sipiteno"
-      ],
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "contactType": "Sales",
-        "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
-      }],
-      "areaServed": [
-        {"@type": "Country", "name": "Ukraine"},
-        {"@type": "Country", "name": "Kazakhstan"},
-        {"@type": "Country", "name": "Azerbaijan"},
-        {"@type": "Country", "name": "Uzbekistan"},
-        {"@type": "Country", "name": "Serbia"},
-        {"@type": "Country", "name": "Poland"},
-        {"@type": "Country", "name": "Georgia"},
-        {"@type": "Country", "name": "Armenia"},
-        {"@type": "Country", "name": "Estonia"},
-        {"@type": "Country", "name": "Latvia"},
-        {"@type": "Country", "name": "Lithuania"},
-        {"@type": "Country", "name": "Czech Republic"},
-        {"@type": "Country", "name": "Slovakia"},
-        {"@type": "Country", "name": "Hungary"},
-        {"@type": "Country", "name": "Romania"},
-        {"@type": "Country", "name": "Bulgaria"},
-        {"@type": "Country", "name": "Croatia"},
-        {"@type": "Country", "name": "Slovenia"},
-        {"@type": "Country", "name": "Bosnia and Herzegovina"},
-        {"@type": "Country", "name": "Montenegro"},
-        {"@type": "Country", "name": "North Macedonia"},
-        {"@type": "Country", "name": "Albania"},
-        {"@type": "Country", "name": "Moldova"},
-        {"@type": "Country", "name": "Kyrgyzstan"},
-        {"@type": "Country", "name": "Cyprus"},
-        {"@type": "Country", "name": "Greece"},
-        {"@type": "Country", "name": "India"},
-        {"@type": "Country", "name": "Ethiopia"}
-      ],
-      "knowsAbout": [
-        "Artificial Intelligence Implementation",
-        "Machine Learning Strategy",
-        "B2B Business Development",
-        "MicroSaaS MVP Development",
-        "Digital Transformation",
-        "IT Consulting",
-        "Technical Recruitment",
-        "Sales Funnel Optimization",
-        "Agile Project Management",
-        "Market Entry Strategy for Emerging Markets"
-      ],
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Experience",
-          "name": "15+ years in emerging tech markets"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Portfolio",
-          "name": "50+ successful projects delivered"
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "Coverage",
-          "name": "Operations across 28 countries"
-        }
-      ],
-      "founder": {
-        "@type": "Person",
-        "name": "Sipi Teno",
-        "jobTitle": "Founder & Principal Consultant"
-      }
+ <!-- Structured Data - Organization Schema with Entity Resolution -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "@id": "https://sipiteno.com/#organization",
+ "name": "Sipiteno",
+ "legalName": "Sipiteno Business Development",
+ "alternateName": ["Sipiteno Consulting", "Sipiteno BD"],
+ "description": "Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies — an accountable product team that ships, not a marketplace where you hire and manage individual freelancers.",
+ "disambiguatingDescription": "Sipiteno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.",
+ "url": "https://sipiteno.com",
+ "logo": {
+ "@type": "ImageObject",
+ "url": "https://sipiteno.com/favicon.png",
+ "width": "512",
+ "height": "512"
+ },
+ "image": "https://sipiteno.com/favicon.png",
+ "foundingDate": "2009",
+ "slogan": "Transforming vision into market success across emerging tech markets",
+ "numberOfEmployees": {
+ "@type": "QuantitativeValue",
+ "minValue": 20,
+ "maxValue": 30
+ },
+ "sameAs": [
+ "https://www.linkedin.com/company/34765968",
+ "https://github.com/kindrat86",
+ "https://www.instagram.com/sipiteno",
+ "https://www.facebook.com/sipiteno"
+ ],
+ "contactPoint": [{
+ "@type": "ContactPoint",
+ "contactType": "Sales",
+ "availableLanguage": ["English", "Russian", "Ukrainian", "Polish", "Serbian", "Georgian"]
+ }],
+ "areaServed": [
+ {"@type": "Country", "name": "Ukraine"},
+ {"@type": "Country", "name": "Kazakhstan"},
+ {"@type": "Country", "name": "Azerbaijan"},
+ {"@type": "Country", "name": "Uzbekistan"},
+ {"@type": "Country", "name": "Serbia"},
+ {"@type": "Country", "name": "Poland"},
+ {"@type": "Country", "name": "Georgia"},
+ {"@type": "Country", "name": "Armenia"},
+ {"@type": "Country", "name": "Estonia"},
+ {"@type": "Country", "name": "Latvia"},
+ {"@type": "Country", "name": "Lithuania"},
+ {"@type": "Country", "name": "Czech Republic"},
+ {"@type": "Country", "name": "Slovakia"},
+ {"@type": "Country", "name": "Hungary"},
+ {"@type": "Country", "name": "Romania"},
+ {"@type": "Country", "name": "Bulgaria"},
+ {"@type": "Country", "name": "Croatia"},
+ {"@type": "Country", "name": "Slovenia"},
+ {"@type": "Country", "name": "Bosnia and Herzegovina"},
+ {"@type": "Country", "name": "Montenegro"},
+ {"@type": "Country", "name": "North Macedonia"},
+ {"@type": "Country", "name": "Albania"},
+ {"@type": "Country", "name": "Moldova"},
+ {"@type": "Country", "name": "Kyrgyzstan"},
+ {"@type": "Country", "name": "Cyprus"},
+ {"@type": "Country", "name": "Greece"},
+ {"@type": "Country", "name": "India"},
+ {"@type": "Country", "name": "Ethiopia"}
+ ],
+ "knowsAbout": [
+ "Artificial Intelligence Implementation",
+ "Machine Learning Strategy",
+ "B2B Business Development",
+ "MicroSaaS MVP Development",
+ "Digital Transformation",
+ "IT Consulting",
+ "Technical Recruitment",
+ "Sales Funnel Optimization",
+ "Agile Project Management",
+ "Market Entry Strategy for Emerging Markets"
+ ],
+ "hasCredential": [
+ {
+ "@type": "EducationalOccupationalCredential",
+ "credentialCategory": "Experience",
+ "name": "15+ years in emerging tech markets"
+ },
+ {
+ "@type": "EducationalOccupationalCredential",
+ "credentialCategory": "Portfolio",
+ "name": "Delivery across 28 countries"
+ },
+ {
+ "@type": "EducationalOccupationalCredential",
+ "credentialCategory": "Coverage",
+ "name": "Operations across 28 countries"
+ }
+ ],
+ "founder": {
+ "@type": "Person",
+ "name": "Sipi Teno",
+ "jobTitle": "Founder & Principal Consultant"
+ }
 
-    }
-    </script>
+ }
+ </script>
 
-    <!-- Structured Data - WebSite Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "@id": "https://sipiteno.com/#website",
-      "url": "https://sipiteno.com",
-      "name": "Sipiteno",
-      "publisher": { "@id": "https://sipiteno.com/#organization" },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://sipiteno.com/locations?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
+ <!-- Structured Data - WebSite Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "@id": "https://sipiteno.com/#website",
+ "url": "https://sipiteno.com",
+ "name": "Sipiteno",
+ "publisher": { "@id": "https://sipiteno.com/#organization" },
+ "potentialAction": {
+ "@type": "SearchAction",
+ "target": "https://sipiteno.com/locations?q={search_term_string}",
+ "query-input": "required name=search_term_string"
+ }
+ }
+ </script>
 
-    <!-- Structured Data - Service Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Business Consulting",
-      "provider": {
-        "@type": "Organization",
-        "name": "Sipiteno"
-      },
-      "areaServed": {
-        "@type": "Place",
-        "name": "Europe, Caucasus, Central Asia"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Business Development & Technology Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "AI Consulting",
-              "description": "AI implementation, strategy development, machine learning, and intelligent automation solutions"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Business Development B2B",
-              "description": "Strategic B2B partnerships, lead generation, market entry strategy, and deal structuring"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "IT Consulting",
-              "description": "Digital transformation, technology assessment, and infrastructure optimization"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "MicroSaaS MVP Development",
-              "description": "Rapid prototyping, market validation, and scalable architecture for SaaS solutions"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Digital Marketing",
-              "description": "SEO, SEM, content marketing, and social media management"
-            }
-          }
-        ]
-      }
-    }
-    </script>
+ <!-- Structured Data - Service Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "serviceType": "Business Consulting",
+ "provider": {
+ "@type": "Organization",
+ "name": "Sipiteno"
+ },
+ "areaServed": {
+ "@type": "Place",
+ "name": "Europe, Caucasus, Central Asia"
+ },
+ "hasOfferCatalog": {
+ "@type": "OfferCatalog",
+ "name": "Business Development & Technology Services",
+ "itemListElement": [
+ {
+ "@type": "Offer",
+ "itemOffered": {
+ "@type": "Service",
+ "name": "AI Consulting",
+ "description": "AI implementation, strategy development, machine learning, and intelligent automation solutions"
+ }
+ },
+ {
+ "@type": "Offer",
+ "itemOffered": {
+ "@type": "Service",
+ "name": "Business Development B2B",
+ "description": "Strategic B2B partnerships, lead generation, market entry strategy, and deal structuring"
+ }
+ },
+ {
+ "@type": "Offer",
+ "itemOffered": {
+ "@type": "Service",
+ "name": "IT Consulting",
+ "description": "Digital transformation, technology assessment, and infrastructure optimization"
+ }
+ },
+ {
+ "@type": "Offer",
+ "itemOffered": {
+ "@type": "Service",
+ "name": "MicroSaaS MVP Development",
+ "description": "Rapid prototyping, market validation, and scalable architecture for SaaS solutions"
+ }
+ },
+ {
+ "@type": "Offer",
+ "itemOffered": {
+ "@type": "Service",
+ "name": "Digital Marketing",
+ "description": "SEO, SEM, content marketing, and social media management"
+ }
+ }
+ ]
+ }
+ }
+ </script>
 
-    <!-- Structured Data - WebApplication Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "@id": "https://sipiteno.com/#webapplication",
-      "name": "Sipiteno",
-      "url": "https://sipiteno.com",
-      "description": "Strategic business development and AI consulting platform serving 28 countries across Europe, Caucasus, and Central Asia. Offers MicroSaaS MVP development, AI implementation, and digital transformation consulting.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "browserRequirements": "Requires JavaScript. Requires HTML5.",
-      "offers": {
-        "@type": "Offer",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "priceCurrency": "USD",
-          "minPrice": "3000",
-          "maxPrice": "100000"
-        },
-        "description": "MicroSaaS MVP Development ($15,000-$50,000), Business Development Retainers ($3,000-$10,000/month), AI Consulting ($25,000-$100,000+)",
-        "url": "https://sipiteno.com/pricing",
-        "availability": "https://schema.org/InStock",
-        "seller": { "@id": "https://sipiteno.com/#organization" }
-      },
-      "publisher": {
-        "@id": "https://sipiteno.com/#organization",
-        "name": "Sipiteno",
-        "sameAs": [
-          "https://www.linkedin.com/company/34765968",
-          "https://github.com/kindrat86",
-          "https://www.instagram.com/sipiteno",
-          "https://www.facebook.com/sipiteno"
-        ]
-      },
-      "featureList": [
-        "MicroSaaS MVP development (4-8 weeks)",
-        "AI implementation consulting",
-        "Business development and B2B partnerships",
-        "IT consulting and digital transformation",
-        "Digital marketing services",
-        "Technical recruitment",
-        "Sales funnel optimization"
-      ],
-      "inLanguage": "en",
-      "isAccessibleForFree": false
-    }
-    </script>
+ <!-- Structured Data - WebApplication Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "@id": "https://sipiteno.com/#webapplication",
+ "name": "Sipiteno",
+ "url": "https://sipiteno.com",
+ "description": "Strategic business development and AI consulting platform serving 28 countries across Europe, Caucasus, and Central Asia. Offers MicroSaaS MVP development, AI implementation, and digital transformation consulting.",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Web",
+ "browserRequirements": "Requires JavaScript. Requires HTML5.",
+ "offers": {
+ "@type": "Offer",
+ "priceSpecification": {
+ "@type": "PriceSpecification",
+ "priceCurrency": "USD",
+ "minPrice": "3000",
+ "maxPrice": "100000"
+ },
+ "description": "MicroSaaS MVP Development ($15,000-$50,000), Business Development Retainers ($3,000-$10,000/month), AI Consulting ($25,000-$100,000+)",
+ "url": "https://sipiteno.com/pricing",
+ "availability": "https://schema.org/InStock",
+ "seller": { "@id": "https://sipiteno.com/#organization" }
+ },
+ "publisher": {
+ "@id": "https://sipiteno.com/#organization",
+ "name": "Sipiteno",
+ "sameAs": [
+ "https://www.linkedin.com/company/34765968",
+ "https://github.com/kindrat86",
+ "https://www.instagram.com/sipiteno",
+ "https://www.facebook.com/sipiteno"
+ ]
+ },
+ "featureList": [
+ "MicroSaaS MVP development (4-8 weeks)",
+ "AI implementation consulting",
+ "Business development and B2B partnerships",
+ "IT consulting and digital transformation",
+ "Digital marketing services",
+ "Technical recruitment",
+ "Sales funnel optimization"
+ ],
+ "inLanguage": "en",
+ "isAccessibleForFree": false
+ }
+ </script>
 
-    <!-- Structured Data - FAQPage Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://sipiteno.com/#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sipiteno.com/" }
-      ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://sipiteno.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What regions does Sipiteno serve for business development?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sipiteno operates across 28 countries with primary focus on Eastern Europe (Ukraine, Poland, Serbia, Czech Republic, Romania, Bulgaria), Caucasus (Georgia, Armenia, Azerbaijan), and Central Asia (Kazakhstan, Uzbekistan, Kyrgyzstan). The company has 15+ years of regional experience and maintains established networks with government agencies, technology associations, and venture capital firms in these markets."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does MicroSaaS MVP development take with Sipiteno?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sipiteno delivers market-ready MicroSaaS MVPs in 4-8 weeks. The fixed-price engagement ($15,000-$50,000) includes discovery workshops, rapid prototyping, agile development sprints with weekly reviews, user testing, production deployment, and post-launch monitoring."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is Sipiteno's approach to AI consulting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sipiteno's AI consulting follows a 6-phase methodology: business challenge assessment, strategy development, ML model development, system integration, team training, and continuous optimization. Projects range $25,000-$100,000 with 8-16 week timelines covering GPT models, computer vision, NLP, and predictive analytics."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What differentiates Sipiteno from other consultancies?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Five differentiators define Sipiteno: (1) 15+ years regional expertise across 28 countries, (2) combined strategic and technical implementation capabilities, (3) 50+ successful project track record with strong client satisfaction scores, (4) 4-8 week delivery timelines, and (5) flexible engagement models from $15,000 fixed-price to $10,000/month retainers."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does it cost to work with Sipiteno?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sipiteno pricing: MicroSaaS MVP Development $15,000-$50,000 (4-8 weeks), Business Development Retainers $3,000-$10,000/month, AI Consulting Projects $25,000-$100,000+, Hourly Consulting $150-$300/hour. Payment is typically 30-50% upfront with milestone-based releases."
-          }
-        }
-      ]
-    }
-    </script>
-    <!-- PostHog preconnect (actual init in src/main.tsx for proper React lifecycle) -->
-   <!-- Traffic-Readiness JSON-LD org+website schema -->
+ <!-- Structured Data - FAQPage Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "@id": "https://sipiteno.com/#breadcrumb",
+ "itemListElement": [
+ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sipiteno.com/" }
+ ]
+ }
+ </script>
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://sipiteno.com/#faq",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "What regions does Sipiteno serve for business development?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sipiteno operates across 28 countries with primary focus on Eastern Europe (Ukraine, Poland, Serbia, Czech Republic, Romania, Bulgaria), Caucasus (Georgia, Armenia, Azerbaijan), and Central Asia (Kazakhstan, Uzbekistan, Kyrgyzstan). The company has 15+ years of regional experience and maintains established networks with government agencies, technology associations, and venture capital firms in these markets."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "How long does MicroSaaS MVP development take with Sipiteno?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sipiteno delivers market-ready MicroSaaS MVPs in 4-8 weeks. The fixed-price engagement ($15,000-$50,000) includes discovery workshops, rapid prototyping, agile development sprints with weekly reviews, user testing, production deployment, and post-launch monitoring."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "What is Sipiteno's approach to AI consulting?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sipiteno's AI consulting follows a 6-phase methodology: business challenge assessment, strategy development, ML model development, system integration, team training, and continuous optimization. Projects range $25,000-$100,000 with 8-16 week timelines covering GPT models, computer vision, NLP, and predictive analytics."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "What differentiates Sipiteno from other consultancies?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Five differentiators define Sipiteno: (1) 15+ years regional expertise across 28 countries, (2) combined strategic and technical implementation capabilities, (3) 50+ successful project track record with strong client satisfaction scores, (4) 4-8 week delivery timelines, and (5) flexible engagement models from $15,000 fixed-price to $10,000/month retainers."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "How much does it cost to work with Sipiteno?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Sipiteno pricing: MicroSaaS MVP Development $15,000-$50,000 (4-8 weeks), Business Development Retainers $3,000-$10,000/month, AI Consulting Projects $25,000-$100,000+, Hourly Consulting $150-$300/hour. Payment is typically 30-50% upfront with milestone-based releases."
+ }
+ }
+ ]
+ }
+ </script>
+ <!-- PostHog preconnect (actual init in src/main.tsx for proper React lifecycle) -->
+ <!-- Traffic-Readiness JSON-LD org+website schema -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://sipiteno.com/#org",
-      "name": "Sipiteno",
-      "url": "https://sipiteno.com",
-      "description": "Digital Product Studio. Launches SaaS tools into 28 emerging markets. 200+ launches, 15+ years.",
-      "sameAs": [
-        "https://www.linkedin.com/company/34765968",
-        "https://github.com/kindrat86",
-        "https://www.instagram.com/sipiteno",
-        "https://www.facebook.com/sipiteno"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://sipiteno.com/#website",
-      "url": "https://sipiteno.com",
-      "name": "Sipiteno",
-      "publisher": {"@id": "https://sipiteno.com/#org"}
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "name": ["Home", "About", "Contact"],
-      "url": ["https://sipiteno.com/", "https://sipiteno.com/about", "https://sipiteno.com/contact"]
-    }
-  ]
+ "@context": "https://schema.org",
+ "@graph": [
+ {
+ "@type": "Organization",
+ "@id": "https://sipiteno.com/#org",
+ "name": "Sipiteno",
+ "url": "https://sipiteno.com",
+ "description": "Digital Product Studio. Launches SaaS tools into 28 emerging markets. 200+ launches, 15+ years.",
+ "sameAs": [
+ "https://www.linkedin.com/company/34765968",
+ "https://github.com/kindrat86",
+ "https://www.instagram.com/sipiteno",
+ "https://www.facebook.com/sipiteno"
+ ]
+ },
+ {
+ "@type": "WebSite",
+ "@id": "https://sipiteno.com/#website",
+ "url": "https://sipiteno.com",
+ "name": "Sipiteno",
+ "publisher": {"@id": "https://sipiteno.com/#org"}
+ },
+ {
+ "@type": "SiteNavigationElement",
+ "name": ["Home", "About", "Contact"],
+ "url": ["https://sipiteno.com/", "https://sipiteno.com/about", "https://sipiteno.com/contact"]
+ }
+ ]
 }
 </script>
 <!-- Traffic-Readiness JSON-LD org+website schema -->
-    <!-- Marketing pixels (Meta, Reddit, LinkedIn) are now consent-gated.
-         They fire only after user accepts in the CookieConsent banner.
-         See src/lib/marketing-pixels.ts + src/components/CookieConsent.tsx. -->
-  </head>
+ <!-- Marketing pixels (Meta, Reddit, LinkedIn) are now consent-gated.
+ They fire only after user accepts in the CookieConsent banner.
+ See src/lib/marketing-pixels.ts + src/components/CookieConsent.tsx. -->
+ </head>
 
-   <body>
-    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:rounded focus:outline-none">Skip to content</a>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    
+ <body>
+ <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:rounded focus:outline-none">Skip to content</a>
+ <div id="root"></div>
+ <script type="module" src="/src/main.tsx"></script>
+ 
 <!-- Static footer for crawlers (React renders Footer.tsx on hydration).
-     .no-js-only: hidden for JS users (pre-hydration flash/CLS fix); crawlers still see it. -->
+.no-js-only: hidden for JS users (pre-hydration flash/CLS fix); crawlers still see it. -->
 <div class="no-js-only">
 <section class="enriched-content">
-        <h2>Build Better Products, Faster</h2>
-        <p>Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end. We operate as an accountable product team — not a marketplace — with a single point of ownership for delivery, quality, and timeline. Based across 28 emerging markets, we combine global engineering standards with local market intelligence.</p>
-        <p>Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps. With 50+ projects delivered and a proven track record of client satisfaction, we bring proven methodology to every engagement — from early-stage MVPs delivered in 7 weeks to enterprise-scale platforms serving millions of users.</p>
-        <p><a href="https://sipiteno.com/#free-playbook">Get the Free Expansion Playbook →</a></p>
-        </section>
+ <h2>Build Better Products, Faster</h2>
+ <p>Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end. We operate as an accountable product team — not a marketplace — with a single point of ownership for delivery, quality, and timeline. Based across 28 emerging markets, we combine global engineering standards with local market intelligence.</p>
+ <p>Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps. With a proven track record of client satisfaction, we bring proven methodology to every engagement — from early-stage MVPs delivered in 7 weeks to enterprise-scale platforms serving millions of users.</p>
+ <p><a href="https://sipiteno.com/#free-playbook">Get the Free Expansion Playbook →</a></p>
+ </section>
 
 <!-- BRUNSON NAMED FRAMEWORK — Expert Secrets Ch.16 (idempotency:brunson-framework-v2) -->
 <section id="brunson-framework" style="padding:5rem 0;background:#0a0a0a;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-  <div style="max-width:1100px;margin:0 auto;padding:0 1.5rem">
-    <div style="text-align:center;max-width:760px;margin:0 auto 3rem">
-      <p style="color:#00d4aa;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin:0 0 .75rem">The 3-Door Expansion System™</p>
-      <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.15;margin:0 0 1rem;background:linear-gradient(135deg,#fff,#94a3b8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">The Only Expansion Method That Opens Doors Before You Knock</h2>
-      <p style="color:#94a3b8;font-size:1.05rem;margin:0">Great products don't sell themselves in emerging markets. Great <em>systems</em> do. This is the only framework that combines warm introductions, regulatory maps, and local execution teams into one repeatable expansion engine.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem">
-      <div style="background:#111317;border:1px solid #1f2937;border-radius:16px;padding:2rem">
-        <div style="font-size:2rem;margin-bottom:.5rem">①</div>
-        <h3 style="font-size:1.15rem;color:#fff;margin:0 0 .75rem">Door 1: Warm Introductions</h3>
-        <p style="color:#94a3b8;font-size:.95rem;margin:0;line-height:1.6">Not cold outreach. Warm handoffs from people already trusted inside the market. The difference between a 1% reply rate and a 47% reply rate.</p>
-      </div>
-      <div style="background:#111317;border:1px solid #1f2937;border-radius:16px;padding:2rem">
-        <div style="font-size:2rem;margin-bottom:.5rem">②</div>
-        <h3 style="font-size:1.15rem;color:#fff;margin:0 0 .75rem">Door 2: Regulatory Map</h3>
-        <p style="color:#94a3b8;font-size:.95rem;margin:0;line-height:1.6">Knowing which licenses, data rules, and compliance traps will kill a deal before it starts. 15 years of scar tissue, codified.</p>
-      </div>
-      <div style="background:#111317;border:1px solid #1f2937;border-radius:16px;padding:2rem">
-        <div style="font-size:2rem;margin-bottom:.5rem">③</div>
-        <h3 style="font-size:1.15rem;color:#fff;margin:0 0 .75rem">Door 3: Local Execution</h3>
-        <p style="color:#94a3b8;font-size:.95rem;margin:0;line-height:1.6">People who speak the language, literally and culturally. Close in weeks, not quarters. The team that shows up.</p>
-      </div>
-    </div>
-    <p style="text-align:center;color:#cbd5e1;font-size:1.1rem;margin-top:2.5rem;font-style:italic">All three doors open at once. That's when "impossible" deals close in three weeks.</p>
-  </div>
+ <div style="max-width:1100px;margin:0 auto;padding:0 1.5rem">
+ <div style="text-align:center;max-width:760px;margin:0 auto 3rem">
+ <p style="color:#00d4aa;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin:0 0.75rem">The 3-Door Expansion System™</p>
+ <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.15;margin:0 0 1rem;background:linear-gradient(135deg,#fff,#94a3b8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">The Only Expansion Method That Opens Doors Before You Knock</h2>
+ <p style="color:#94a3b8;font-size:1.05rem;margin:0">Great products don't sell themselves in emerging markets. Great <em>systems</em> do. This is the only framework that combines warm introductions, regulatory maps, and local execution teams into one repeatable expansion engine.</p>
+ </div>
+ <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem">
+ <div style="background:#111317;border:1px solid #1f2937;border-radius:16px;padding:2rem">
+ <div style="font-size:2rem;margin-bottom:.5rem">①</div>
+ <h3 style="font-size:1.15rem;color:#fff;margin:0 0.75rem">Door 1: Warm Introductions</h3>
+ <p style="color:#94a3b8;font-size:.95rem;margin:0;line-height:1.6">Not cold outreach. Warm handoffs from people already trusted inside the market. The difference between a 1% reply rate and a 47% reply rate.</p>
+ </div>
+ <div style="background:#111317;border:1px solid #1f2937;border-radius:16px;padding:2rem">
+ <div style="font-size:2rem;margin-bottom:.5rem">②</div>
+ <h3 style="font-size:1.15rem;color:#fff;margin:0 0.75rem">Door 2: Regulatory Map</h3>
+ <p style="color:#94a3b8;font-size:.95rem;margin:0;line-height:1.6">Knowing which licenses, data rules, and compliance traps will kill a deal before it starts. 15 years of scar tissue, codified.</p>
+ </div>
+ <div style="background:#111317;border:1px solid #1f2937;border-radius:16px;padding:2rem">
+ <div style="font-size:2rem;margin-bottom:.5rem">③</div>
+ <h3 style="font-size:1.15rem;color:#fff;margin:0 0.75rem">Door 3: Local Execution</h3>
+ <p style="color:#94a3b8;font-size:.95rem;margin:0;line-height:1.6">People who speak the language, literally and culturally. Close in weeks, not quarters. The team that shows up.</p>
+ </div>
+ </div>
+ <p style="text-align:center;color:#cbd5e1;font-size:1.1rem;margin-top:2.5rem;font-style:italic">All three doors open at once. That's when "impossible" deals close in three weeks.</p>
+ </div>
 </section>
 <!-- /BRUNSON NAMED FRAMEWORK -->
 
 <!-- BRUNSON GUARANTEE + RISK REVERSAL (Ch.7) — idempotency:guarantee-v1 -->
 <section id="brunson-guarantee" style="padding:4rem 0;background:linear-gradient(135deg,#0a0a0a,#0f172a);color:#fff;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-  <div style="max-width:800px;margin:0 auto;padding:0 1.5rem">
-    <div style="display:inline-block;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.3);border-radius:12px;padding:.6rem 1.2rem;margin-bottom:1.5rem">
-      <span style="color:#00d4aa;font-weight:700;font-size:.85rem;letter-spacing:.08em">🛡️ THE REVENUE GUARANTEE</span>
-    </div>
-    <h2 style="font-size:clamp(1.5rem,3.5vw,2.2rem);line-height:1.15;margin:0 0 1.5rem;color:#fff">Revenue in 90 Days — Or The Next Quarter Is Free</h2>
-    <p style="color:#94a3b8;font-size:1.05rem;line-height:1.7;margin:0 0 1.5rem">Every engagement starts with a free 30-minute scoping call. If we don't open at least one qualified market opportunity within 90 days of kickoff, the next quarter of work is on us. No questions. No paperwork. We earn the retainer or we don't charge it.</p>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:2rem;font-size:.9rem;color:#64748b">
-      <div><strong style="color:#00d4aa">✓</strong> Free 30-min scoping call first</div>
-      <div><strong style="color:#00d4aa">✓</strong> Fixed-price or retainer — your choice</div>
-      <div><strong style="color:#00d4aa">✓</strong> Cancel anytime after kickoff</div>
-    </div>
-    <p style="color:#475569;font-size:.8rem;margin-top:1.5rem;font-style:italic">15 years. 50+ projects. 28 countries. We've never had to invoke this guarantee. We structure engagements so it never comes up.</p>
-  </div>
+ <div style="max-width:800px;margin:0 auto;padding:0 1.5rem">
+ <div style="display:inline-block;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.3);border-radius:12px;padding:.6rem 1.2rem;margin-bottom:1.5rem">
+ <span style="color:#00d4aa;font-weight:700;font-size:.85rem;letter-spacing:.08em">🛡️ THE REVENUE GUARANTEE</span>
+ </div>
+ <h2 style="font-size:clamp(1.5rem,3.5vw,2.2rem);line-height:1.15;margin:0 0 1.5rem;color:#fff">Revenue in 90 Days — Or The Next Quarter Is Free</h2>
+ <p style="color:#94a3b8;font-size:1.05rem;line-height:1.7;margin:0 0 1.5rem">Every engagement starts with a free 30-minute scoping call. If we don't open at least one qualified market opportunity within 90 days of kickoff, the next quarter of work is on us. No questions. No paperwork. We earn the retainer or we don't charge it.</p>
+ <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:2rem;font-size:.9rem;color:#64748b">
+ <div><strong style="color:#00d4aa">✓</strong> Free 30-min scoping call first</div>
+ <div><strong style="color:#00d4aa">✓</strong> Fixed-price or retainer — your choice</div>
+ <div><strong style="color:#00d4aa">✓</strong> Cancel anytime after kickoff</div>
+ </div>
+ <p style="color:#475569;font-size:.8rem;margin-top:1.5rem;font-style:italic">15 years. 28 countries. We've never had to invoke this guarantee. We structure engagements so it never comes up.</p>
+ </div>
 </section>
 <!-- /BRUNSON GUARANTEE -->
 
@@ -472,47 +472,47 @@
 .pseo-footer-section a:hover { color: #4f46e5; text-decoration: underline; }
 </style>
 <nav class="pseo-footer" aria-label="Resources">
-  <div class="pseo-footer-grid">
-    <div class="pseo-footer-section">
-      <h3>Alternatives</h3>
-      <ul>
-      <li><a href="/alternatives-to/toptal">Toptal</a></li>
-      <li><a href="/alternatives-to/turing">Turing</a></li>
-      <li><a href="/alternatives-to/crew">Crew</a></li>
-      <li><a href="/alternatives-to/lemon-io">Lemon.io</a></li>
-        <li><a href="/alternatives-to">View all</a></li>
-      </ul>
-    </div>
-    <div class="pseo-footer-section">
-      <h3>Industries</h3>
-      <ul>
-      <li><a href="/for/startups">Startups</a></li>
-      <li><a href="/for/agencies">Agencies</a></li>
-      <li><a href="/for/enterprise">Enterprise</a></li>
-      <li><a href="/for/e-commerce">E-commerce</a></li>
-        <li><a href="/for">View all</a></li>
-      </ul>
-    </div>
-    <div class="pseo-footer-section">
-      <h3>Glossary</h3>
-      <ul>
-      <li><a href="/glossary/mvp">MVP</a></li>
-      <li><a href="/glossary/product-market-fit">Product-Market Fit</a></li>
-      <li><a href="/glossary/saas-development">SaaS Development</a></li>
-        <li><a href="/glossary">View all</a></li>
-      </ul>
-    </div>
-    <div class="pseo-footer-section">
-      <h3>Products</h3>
-      <ul>
-        <li><a href="https://sipi.bot/">sipi.bot — Spend Firewall</a></li>
-        <li><a href="https://unlocksaas.com/">UnlockSaaS</a></li>
-        <li><a href="https://churnlens.site/">ChurnLens</a></li>
-        <li><a href="https://gitdealflow.com/">GitDealFlow</a></li>
-        <li><a href="/affiliates">Affiliate Program</a></li>
-      </ul>
-    </div>
-  </div>
+ <div class="pseo-footer-grid">
+ <div class="pseo-footer-section">
+ <h3>Alternatives</h3>
+ <ul>
+ <li><a href="/alternatives-to/toptal">Toptal</a></li>
+ <li><a href="/alternatives-to/turing">Turing</a></li>
+ <li><a href="/alternatives-to/crew">Crew</a></li>
+ <li><a href="/alternatives-to/lemon-io">Lemon.io</a></li>
+ <li><a href="/alternatives-to">View all</a></li>
+ </ul>
+ </div>
+ <div class="pseo-footer-section">
+ <h3>Industries</h3>
+ <ul>
+ <li><a href="/for/startups">Startups</a></li>
+ <li><a href="/for/agencies">Agencies</a></li>
+ <li><a href="/for/enterprise">Enterprise</a></li>
+ <li><a href="/for/e-commerce">E-commerce</a></li>
+ <li><a href="/for">View all</a></li>
+ </ul>
+ </div>
+ <div class="pseo-footer-section">
+ <h3>Glossary</h3>
+ <ul>
+ <li><a href="/glossary/mvp">MVP</a></li>
+ <li><a href="/glossary/product-market-fit">Product-Market Fit</a></li>
+ <li><a href="/glossary/saas-development">SaaS Development</a></li>
+ <li><a href="/glossary">View all</a></li>
+ </ul>
+ </div>
+ <div class="pseo-footer-section">
+ <h3>Products</h3>
+ <ul>
+ <li><a href="https://sipi.bot/">sipi.bot — Spend Firewall</a></li>
+ <li><a href="https://unlocksaas.com/">UnlockSaaS</a></li>
+ <li><a href="https://churnlens.site/">ChurnLens</a></li>
+ <li><a href="https://gitdealflow.com/">GitDealFlow</a></li>
+ <li><a href="/affiliates">Affiliate Program</a></li>
+ </ul>
+ </div>
+ </div>
 </nav>
 </footer>
 </div>
@@ -521,176 +521,176 @@
 
 <!-- BRUNSON TRUST BAR — idempotency:trust-bar-v1 -->
 <section class="brunson-trust-bar" style="background:linear-gradient(135deg, #0f172a, #1e293b);color:#e8eaed;padding:40px 24px;margin:60px 0 0;border-top:3px solid #00d4aa;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-  <div style="max-width:900px;margin:0 auto">
-    <!-- 2026-07-25: three unverifiable stat cards were removed from this row (a project count, a country count, and a median-launch figure). None had a checkable source. Do not reinstate a number here without one. -->
-    <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">Every quarter you wait costs you a whole market. Start with the free playbook.</p>
-    <a href="https://sipiteno.com/#free-playbook" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.95rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Get the Free Expansion Playbook →</a>
-    <p style="margin-top:18px;font-size:.78rem;color:#6b7178">🛡️ Every engagement starts with a free 30-minute scoping call. No risk.</p>
-  </div>
+ <div style="max-width:900px;margin:0 auto">
+ <!-- 2026-07-25: three unverifiable stat cards were removed from this row (a project count, a country count, and a median-launch figure). None had a checkable source. Do not reinstate a number here without one. -->
+ <p style="font-size:1.05rem;margin-bottom:24px;color:#cbd5e1">Every quarter you wait costs you a whole market. Start with the free playbook.</p>
+ <a href="https://sipiteno.com/#free-playbook" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.95rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Get the Free Expansion Playbook →</a>
+ <p style="margin-top:18px;font-size:.78rem;color:#6b7178">🛡️ Every engagement starts with a free 30-minute scoping call. No risk.</p>
+ </div>
 </section>
 <!-- /BRUNSON TRUST BAR -->
 
 <!-- CROSS-PORTFOLIO NETWORK FOOTER — generated 2026-07-18 -->
 <style>
 .portfolio-network {
-    max-width: 1200px;
-    margin: 4rem auto 2rem;
-    padding: 2rem 1.5rem;
-    border-top: 1px solid #e5e7eb;
-    font-family: system-ui, -apple-system, sans-serif;
+ max-width: 1200px;
+ margin: 4rem auto 2rem;
+ padding: 2rem 1.5rem;
+ border-top: 1px solid #e5e7eb;
+ font-family: system-ui, -apple-system, sans-serif;
 }
 .portfolio-network h3 {
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #9ca3af;
-    margin: 0 0 1rem;
-    text-align: center;
+ font-size: 0.875rem;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ color: #9ca3af;
+ margin: 0 0 1rem;
+ text-align: center;
 }
 .network-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+ gap: 0.75rem;
 }
 .network-card {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.15s;
-    background: #f9fafb;
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ padding: 0.5rem 0.75rem;
+ border-radius: 8px;
+ text-decoration: none;
+ transition: background 0.15s;
+ background: #f9fafb;
 }
 .network-card:hover {
-    background: #f3f4f6;
+ background: #f3f4f6;
 }
 .network-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
+ width: 8px;
+ height: 8px;
+ border-radius: 50%;
+ flex-shrink: 0;
 }
 .network-name {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: #111827;
-    white-space: nowrap;
+ font-size: 0.8125rem;
+ font-weight: 600;
+ color: #111827;
+ white-space: nowrap;
 }
 .network-tagline {
-    font-size: 0.6875rem;
-    color: #9ca3af;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+ font-size: 0.6875rem;
+ color: #9ca3af;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
 }
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
-    .portfolio-network { border-top-color: #374151; }
-    .portfolio-network h3 { color: #6b7280; }
-    .network-card { background: #1f2937; }
-    .network-card:hover { background: #374151; }
-    .network-name { color: #f9fafb; }
-    .network-tagline { color: #6b7280; }
+.portfolio-network { border-top-color: #374151; }
+.portfolio-network h3 { color: #6b7280; }
+.network-card { background: #1f2937; }
+.network-card:hover { background: #374151; }
+.network-name { color: #f9fafb; }
+.network-tagline { color: #6b7280; }
 }
 </style>
 <section class="portfolio-network">
-    <h3>🚀 Explore Our Network</h3>
-    <nav class="network-grid" aria-label="Portfolio network">
-            <a href="https://gitdealflow.com" class="network-card" 
-               title="GitDealFlow: Track startup acquisitions & funding rounds">
-                <span class="network-dot" style="background:#10B981"></span>
-                <span class="network-name">GitDealFlow</span>
-                <span class="network-tagline">Data & Analytics</span>
-            </a>
-            <a href="https://signals.gitdealflow.com" class="network-card" 
-               title="Signals by GitDealFlow: AI-powered startup investment signals">
-                <span class="network-dot" style="background:#3B82F6"></span>
-                <span class="network-name">Signals by GitDealFlow</span>
-                <span class="network-tagline">AI & Investing</span>
-            </a>
-            <a href="https://invisibleexit.com" class="network-card" 
-               title="Invisible Exit: Acquisition readiness for bootstrapped SaaS">
-                <span class="network-dot" style="background:#8B5CF6"></span>
-                <span class="network-name">Invisible Exit</span>
-                <span class="network-tagline">SaaS & M&A</span>
-            </a>
-            <a href="https://sipiteno.com" class="network-card" 
-               title="SipiTeno: AI Agents for SaaS Operations">
-                <span class="network-dot" style="background:#F59E0B"></span>
-                <span class="network-name">SipiTeno</span>
-                <span class="network-tagline">AI Agents & Automation</span>
-            </a>
-            <a href="https://unlocksaas.com" class="network-card" 
-               title="UnlockSaaS: Launch your SaaS in 60 days">
-                <span class="network-dot" style="background:#EC4899"></span>
-                <span class="network-name">UnlockSaaS</span>
-                <span class="network-tagline">SaaS Building</span>
-            </a>
-            <a href="https://voicelogpro.com" class="network-card" 
-               title="VoiceLogPro: Voice-to-insight for field teams">
-                <span class="network-dot" style="background:#06B6D4"></span>
-                <span class="network-name">VoiceLogPro</span>
-                <span class="network-tagline">Voice AI & Field Ops</span>
-            </a>
-            <a href="https://carshake.online" class="network-card" 
-               title="CarShake: Valet-damage-proof vehicle handover">
-                <span class="network-dot" style="background:#EF4444"></span>
-                <span class="network-name">CarShake</span>
-                <span class="network-tagline">Automotive & Insurance</span>
-            </a>
-            <a href="https://churnlens.site" class="network-card" 
-               title="ChurnLens: Churn analytics that predict, not just report">
-                <span class="network-dot" style="background:#6366F1"></span>
-                <span class="network-name">ChurnLens</span>
-                <span class="network-tagline">SaaS Analytics</span>
-            </a>
-            <a href="https://sanctionsai.dev" class="network-card" 
-               title="SanctionsAI: AI agent payment compliance">
-                <span class="network-dot" style="background:#DC2626"></span>
-                <span class="network-name">SanctionsAI</span>
-                <span class="network-tagline">Compliance & Fintech</span>
-            </a>
-            <a href="https://sipi.bot" class="network-card" 
-               title="Sipi.bot: AI spend firewall for agent payments">
-                <span class="network-dot" style="background:#14B8A6"></span>
-                <span class="network-name">Sipi.bot</span>
-                <span class="network-tagline">AI Infrastructure</span>
-            </a>
-    </nav>
-    <p style="text-align:center;margin-top:1rem;font-size:0.8rem"><a href="https://gitdealflow.com/datasets" style="color:#9ca3af;text-decoration:none">📊 Free Open Datasets (CC BY 4.0)</a></p>
+ <h3>🚀 Explore Our Network</h3>
+ <nav class="network-grid" aria-label="Portfolio network">
+ <a href="https://gitdealflow.com" class="network-card" 
+ title="GitDealFlow: Track startup acquisitions & funding rounds">
+ <span class="network-dot" style="background:#10B981"></span>
+ <span class="network-name">GitDealFlow</span>
+ <span class="network-tagline">Data & Analytics</span>
+ </a>
+ <a href="https://signals.gitdealflow.com" class="network-card" 
+ title="Signals by GitDealFlow: AI-powered startup investment signals">
+ <span class="network-dot" style="background:#3B82F6"></span>
+ <span class="network-name">Signals by GitDealFlow</span>
+ <span class="network-tagline">AI & Investing</span>
+ </a>
+ <a href="https://invisibleexit.com" class="network-card" 
+ title="Invisible Exit: Acquisition readiness for bootstrapped SaaS">
+ <span class="network-dot" style="background:#8B5CF6"></span>
+ <span class="network-name">Invisible Exit</span>
+ <span class="network-tagline">SaaS & M&A</span>
+ </a>
+ <a href="https://sipiteno.com" class="network-card" 
+ title="SipiTeno: AI Agents for SaaS Operations">
+ <span class="network-dot" style="background:#F59E0B"></span>
+ <span class="network-name">SipiTeno</span>
+ <span class="network-tagline">AI Agents & Automation</span>
+ </a>
+ <a href="https://unlocksaas.com" class="network-card" 
+ title="UnlockSaaS: Launch your SaaS in 60 days">
+ <span class="network-dot" style="background:#EC4899"></span>
+ <span class="network-name">UnlockSaaS</span>
+ <span class="network-tagline">SaaS Building</span>
+ </a>
+ <a href="https://voicelogpro.com" class="network-card" 
+ title="VoiceLogPro: Voice-to-insight for field teams">
+ <span class="network-dot" style="background:#06B6D4"></span>
+ <span class="network-name">VoiceLogPro</span>
+ <span class="network-tagline">Voice AI & Field Ops</span>
+ </a>
+ <a href="https://carshake.online" class="network-card" 
+ title="CarShake: Valet-damage-proof vehicle handover">
+ <span class="network-dot" style="background:#EF4444"></span>
+ <span class="network-name">CarShake</span>
+ <span class="network-tagline">Automotive & Insurance</span>
+ </a>
+ <a href="https://churnlens.site" class="network-card" 
+ title="ChurnLens: Churn analytics that predict, not just report">
+ <span class="network-dot" style="background:#6366F1"></span>
+ <span class="network-name">ChurnLens</span>
+ <span class="network-tagline">SaaS Analytics</span>
+ </a>
+ <a href="https://sanctionsai.dev" class="network-card" 
+ title="SanctionsAI: AI agent payment compliance">
+ <span class="network-dot" style="background:#DC2626"></span>
+ <span class="network-name">SanctionsAI</span>
+ <span class="network-tagline">Compliance & Fintech</span>
+ </a>
+ <a href="https://sipi.bot" class="network-card" 
+ title="Sipi.bot: AI spend firewall for agent payments">
+ <span class="network-dot" style="background:#14B8A6"></span>
+ <span class="network-name">Sipi.bot</span>
+ <span class="network-tagline">AI Infrastructure</span>
+ </a>
+ </nav>
+ <p style="text-align:center;margin-top:1rem;font-size:0.8rem"><a href="https://gitdealflow.com/datasets" style="color:#9ca3af;text-decoration:none">📊 Free Open Datasets (CC BY 4.0)</a></p>
 </section>
 
 <!-- BRUNSON FUTURE-BASED CAUSE / MOVEMENT — Expert Secrets Ch.4 (idempotency:brunson-movement-v1) -->
 <section id="brunson-movement" style="padding:5rem 0;background:radial-gradient(ellipse at top,#0f172a 0%,#0a0a0a 70%);color:#fff;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-  <div style="max-width:920px;margin:0 auto;padding:0 1.5rem">
-    <p style="color:#00d4aa;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin:0 0 1.5rem">Our Movement</p>
-    <p style="font-size:clamp(1.25rem,3vw,1.85rem);line-height:1.45;font-weight:500;margin:0 0 1.75rem;color:#f1f5f9">
-      We believe the best tech products in the world are being built <span style="color:#00d4aa">outside Silicon Valley</span> — in Tbilisi, Yerevan, Almaty, Tashkent, Baku.
-    </p>
-    <p style="font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.7;color:#cbd5e1;margin:0 0 1.5rem">
-      <strong style="color:#fff">The next decade</strong> of software growth won't come from San Francisco. It'll come from the <strong style="color:#fff">28 markets the Valley ignores</strong> — and the <strong style="color:#00d4aa">900 million customers</strong> who are ready to buy.
-    </p>
-    <p style="font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.7;color:#cbd5e1;margin:0 0 2rem">
-      We're not a consulting firm. <span style="color:#00d4aa">We're building the bridge</span> between your product and 900 million customers who are ready to buy.
-    </p>
-    <div style="margin:2.5rem 0 1rem">
-      <a href="https://sipiteno.com/contact" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:16px 36px;border-radius:12px;font-weight:700;text-decoration:none;font-size:1.05rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Join the Movement →</a>
-    </div>
-    <p style="font-size:.82rem;color:#6b7178;margin:0">Built between the Valley and the 900 million. One bridge at a time.</p>
-  </div>
+ <div style="max-width:920px;margin:0 auto;padding:0 1.5rem">
+ <p style="color:#00d4aa;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin:0 0 1.5rem">Our Movement</p>
+ <p style="font-size:clamp(1.25rem,3vw,1.85rem);line-height:1.45;font-weight:500;margin:0 0 1.75rem;color:#f1f5f9">
+ We believe the best tech products in the world are being built <span style="color:#00d4aa">outside Silicon Valley</span> — in Tbilisi, Yerevan, Almaty, Tashkent, Baku.
+ </p>
+ <p style="font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.7;color:#cbd5e1;margin:0 0 1.5rem">
+ <strong style="color:#fff">The next decade</strong> of software growth won't come from San Francisco. It'll come from the <strong style="color:#fff">28 markets the Valley ignores</strong> — and the <strong style="color:#00d4aa">900 million customers</strong> who are ready to buy.
+ </p>
+ <p style="font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.7;color:#cbd5e1;margin:0 0 2rem">
+ We're not a consulting firm. <span style="color:#00d4aa">We're building the bridge</span> between your product and 900 million customers who are ready to buy.
+ </p>
+ <div style="margin:2.5rem 0 1rem">
+ <a href="https://sipiteno.com/contact" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:16px 36px;border-radius:12px;font-weight:700;text-decoration:none;font-size:1.05rem;box-shadow:0 8px 24px -10px rgba(0,212,170,.5)">Join the Movement →</a>
+ </div>
+ <p style="font-size:.82rem;color:#6b7178;margin:0">Built between the Valley and the 900 million. One bridge at a time.</p>
+ </div>
 </section>
 <!-- /BRUNSON MOVEMENT -->
 
 <!-- SIPITENO PRICING CTA (idempotency:pricing-cta-v1) -->
 <section style="padding:4rem 0;background:#04130e;color:#fff;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;border-top:2px solid #00d4aa">
-  <div style="max-width:700px;margin:0 auto;padding:0 1.5rem">
-    <p style="color:#00d4aa;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin:0 0 1rem">Get the Full Playbook</p>
-    <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin:0 0 1rem;color:#f1f5f9">The Emerging Markets Expansion Playbook: 28 Countries, Full Access</h2>
-    <p style="font-size:1.05rem;line-height:1.7;color:#cbd5e1;margin:0 0 1.5rem">Regulatory maps, local partner introductions, market-entry checklists, and monthly updates for all 28 markets. One payment, lifetime access.</p>
-    <a href="https://buy.stripe.com/5kQcN48oX5pe9sybQc0x20l" style="display:inline-block;background:#00d4aa;color:#04130e;padding:14px 32px;border-radius:10px;font-weight:700;text-decoration:none;font-size:1.05rem">Get Full Access — $47</a>
-    <p style="font-size:.78rem;color:#6b7178;margin:1rem 0 0">Secure checkout via Stripe. Instant access to the complete playbook.</p>
-  </div>
+ <div style="max-width:700px;margin:0 auto;padding:0 1.5rem">
+ <p style="color:#00d4aa;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.18em;margin:0 0 1rem">Get the Full Playbook</p>
+ <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin:0 0 1rem;color:#f1f5f9">The Emerging Markets Expansion Playbook: 28 Countries, Full Access</h2>
+ <p style="font-size:1.05rem;line-height:1.7;color:#cbd5e1;margin:0 0 1.5rem">Regulatory maps, local partner introductions, market-entry checklists, and monthly updates for all 28 markets. One payment, lifetime access.</p>
+ <a href="https://buy.stripe.com/5kQcN48oX5pe9sybQc0x20l" style="display:inline-block;background:#00d4aa;color:#04130e;padding:14px 32px;border-radius:10px;font-weight:700;text-decoration:none;font-size:1.05rem">Get Full Access — $47</a>
+ <p style="font-size:.78rem;color:#6b7178;margin:1rem 0 0">Secure checkout via Stripe. Instant access to the complete playbook.</p>
+ </div>
 </section>
 <!-- /PRICING CTA -->
 </body>

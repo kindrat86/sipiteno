@@ -68,7 +68,7 @@ lines.append(f"")
 lines.append(f"> Sipiteno is a digital product studio and business development consultancy")
 lines.append(f"> operating across 28 countries in Eastern Europe, Caucasus, and Central Asia.")
 lines.append(f"> Services: AI consulting, business development, IT consulting, digital marketing,")
-lines.append(f"> project management, sales funnel optimization. 15+ years, 50+ projects.")
+lines.append(f"> project management, sales funnel optimization. 15+ years in-region.")
 lines.append(f"> Generated: {TODAY} | Domain: {DOMAIN}")
 lines.append(f"")
 

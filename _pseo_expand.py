@@ -62,14 +62,14 @@ export const COMPARE_ITEMS: CompareItem[] = [
     sipitenoAdvantages: [
       "One accountable team that ships end-to-end — you don't manage individual freelancers",
       "Product strategy, architecture, and QA are built into every engagement",
-      "Institutional knowledge stays — Sipiteno has delivered 50+ projects with a 92% retention rate",
+      "Institutional knowledge stays — Sipiteno retains institutional knowledge across engagements",
       "Market-entry and BD capabilities across 28 countries — not just code, but customers",
       "Fixed-scope pricing ($15K-$50K) aligns incentives with shipping, not billing hours"
     ],
     startingCost: "$15,000+ (fixed-scope MVP) vs Toptal hourly rates",
     title: "Sipiteno vs Toptal | Product Studio vs Freelance Marketplace",
     description: "Should you hire a freelance marketplace or an accountable product studio? Sipiteno vs Toptal: team vs individuals, fixed-scope vs hourly, outcomes vs activity.",
-    metaDescription: "Sipiteno vs Toptal comparison: accountable product team that ships end-to-end vs hiring individual freelancers. Fixed-scope pricing, embedded strategy + QA, 50+ projects delivered."
+    metaDescription: "Sipiteno vs Toptal comparison: accountable product team that ships end-to-end vs hiring individual freelancers. Fixed-scope pricing, embedded strategy + QA."
   },
   {
     slug: "sipiteno-vs-upwork",
@@ -85,7 +85,7 @@ export const COMPARE_ITEMS: CompareItem[] = [
       "Payment disputes, scope creep, and freelancer ghosting are real risks"
     ],
     sipitenoAdvantages: [
-      "A pre-assembled, battle-tested team that has shipped together on 50+ projects",
+      "A pre-assembled, battle-tested team that has shipped together",
       "Zero coordination overhead for you — we own the outcome, you get the product",
       "Contractual IP ownership and production-grade code quality",
       "The same team can iterate on v2, v3, and beyond — zero ramp-up",
@@ -94,7 +94,7 @@ export const COMPARE_ITEMS: CompareItem[] = [
     startingCost: "$15,000+ (fixed-scope MVP) vs variable Upwork hourly costs",
     title: "Sipiteno vs Upwork | Product Team vs Freelancer Platform",
     description: "Sipiteno vs Upwork: a single accountable team that ships vs a platform where you hire and manage individual freelancers. Fixed price, integrated strategy, guaranteed delivery.",
-    metaDescription: "Sipiteno vs Upwork: why an accountable product team beats piecing together freelancers. Fixed pricing, embedded PM + QA, 92% client retention across 50+ projects."
+    metaDescription: "Sipiteno vs Upwork: why an accountable product team beats piecing together freelancers. Fixed pricing, embedded PM + QA, consistent client retention."
   },
   {
     slug: "sipiteno-vs-mckinsey",
@@ -193,7 +193,7 @@ export const BEST_ITEMS: BestItem[] = [
     shortTitle: "Market Entry Consultants",
     intro: "Market entry consultants help technology companies expand into new geographic markets — handling regulatory compliance, partner identification, and local business development. Here are the top firms for B2B expansion into emerging markets in 2026.",
     topPicks: [
-      { name: "Sipiteno", highlight: "Hands-on market entry execution across 28 emerging markets. 15+ year track record, 92% retention, 11-week avg to first deal. $25K-$75K per market entry project." },
+      { name: "Sipiteno", highlight: "Hands-on market entry execution across 28 emerging markets. 15+ year track record. $25K-$75K per market entry project." },
       { name: "McKinsey", highlight: "Strategic market assessment for Fortune 500 companies. Deep analytical rigor but no execution. $200K+ minimum engagement." },
       { name: "Dezan Shira & Associates", highlight: "Asia-focused market entry with strong regulatory and entity-setup expertise. Pan-Asia coverage. Mid-market pricing." },
       { name: "TMF Group", highlight: "Global entity management and compliance in 80+ countries. Best for companies that need legal entities, not BD execution." },
@@ -370,7 +370,7 @@ export const HOWTO_ITEMS: HowToItem[] = [
         content: "Every consultant has glowing testimonials. Ask references: 'What was the hardest part of the engagement and how did they handle it?' You're listening for honesty, problem-solving, and accountability — not perfection. A partner who can describe a difficult situation they navigated is more trustworthy than one who claims every project was flawless."
       },
     ],
-    conclusion: "Choosing a market entry partner is a high-stakes decision. The right partner accelerates your expansion by years; the wrong one burns runway and credibility. Apply these seven points rigorously — and if a partner can't answer them concretely, keep looking. Sipiteno welcomes this level of scrutiny: our 92% client retention rate and 11-week average time-to-first-deal are built on exactly the capabilities these seven points evaluate.",
+    conclusion: "Choosing a market entry partner is a high-stakes decision. The right partner accelerates your expansion by years; the wrong one burns runway and credibility. Apply these seven points rigorously — and if a partner can't answer them concretely, keep looking. Sipiteno welcomes this level of scrutiny: our track record is built on exactly the capabilities these seven points evaluate.",
     metaDescription: "How to choose a market entry partner: a 7-point framework covering execution capacity, local relationships, industry specialization, incentive-aligned pricing, local teams, handoff process, and reference checking."
   },
   {
@@ -1334,14 +1334,14 @@ const COMPARE_ITEMS = [
   {
     slug: "sipiteno-vs-toptal",
     title: "Sipiteno vs Toptal | Product Studio vs Freelance Marketplace",
-    description: "Sipiteno vs Toptal: accountable product team that ships end-to-end vs hiring individual freelancers. Fixed-scope pricing, embedded strategy + QA, 50+ projects delivered.",
-    metaDescription: "Sipiteno vs Toptal: accountable product team that ships end-to-end vs hiring individual freelancers. Fixed-scope pricing, embedded strategy + QA, 50+ projects delivered.",
+    description: "Sipiteno vs Toptal: accountable product team that ships end-to-end vs hiring individual freelancers. Fixed-scope pricing, embedded strategy + QA.",
+    metaDescription: "Sipiteno vs Toptal: accountable product team that ships end-to-end vs hiring individual freelancers. Fixed-scope pricing, embedded strategy + QA.",
   },
   {
     slug: "sipiteno-vs-upwork",
     title: "Sipiteno vs Upwork | Product Team vs Freelancer Platform",
-    description: "Sipiteno vs Upwork: why an accountable product team beats piecing together freelancers. Fixed pricing, embedded PM + QA, 92% client retention across 50+ projects.",
-    metaDescription: "Sipiteno vs Upwork: why an accountable product team beats piecing together freelancers. Fixed pricing, embedded PM + QA, 92% client retention across 50+ projects.",
+    description: "Sipiteno vs Upwork: why an accountable product team beats piecing together freelancers. Fixed pricing, embedded PM + QA, consistent client retention.",
+    metaDescription: "Sipiteno vs Upwork: why an accountable product team beats piecing together freelancers. Fixed pricing, embedded PM + QA, consistent client retention.",
   },
   {
     slug: "sipiteno-vs-mckinsey",
@@ -1436,7 +1436,7 @@ function buildPseoBody(slug, prefix, items) {
   const item = items.find(i => i.slug === slug);
   if (!item) return "";
   const title = item.shortTitle || item.title;
-  return `<h1>${title}</h1><p>${item.description}</p><p>Visit the interactive page at <a href="https://sipiteno.com/${prefix}/${slug}">https://sipiteno.com/${prefix}/${slug}</a> for the full content including detailed comparisons, rankings, and step-by-step guidance built from Sipiteno's 15+ years and 50+ projects across 28 emerging markets.</p><p><a href="https://sipiteno.com/${prefix}">All ${prefix} pages</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/#contact">Book a free call</a></p>`;
+  return `<h1>${title}</h1><p>${item.description}</p><p>Visit the interactive page at <a href="https://sipiteno.com/${prefix}/${slug}">https://sipiteno.com/${prefix}/${slug}</a> for the full content including detailed comparisons, rankings, and step-by-step guidance built from Sipiteno's 15+ years across 28 emerging markets.</p><p><a href="https://sipiteno.com/${prefix}">All ${prefix} pages</a> | <a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/#contact">Book a free call</a></p>`;
 }
 
 // Generate compare pages

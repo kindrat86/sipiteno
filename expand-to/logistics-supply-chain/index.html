@@ -16,18 +16,18 @@
 body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;line-height:1.7}
 .wrap{max-width:780px;margin:0 auto;padding:0 20px}
 nav{padding:16px 20px;border-bottom:1px solid var(--border)}
-nav .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--txt);text-decoration:none}
-nav .brand span{color:var(--pri)}
+nav.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--txt);text-decoration:none}
+nav.brand span{color:var(--pri)}
 .breadcrumbs{padding:16px 0;font-size:0.78rem;color:var(--dim)}
 .breadcrumbs a{color:var(--mut);text-decoration:none}
 .hero{padding:32px 0 24px}
 .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,4vw,32px);font-weight:700;color:#f8fafc;margin-bottom:8px}
 .hero p{font-size:1rem;color:var(--mut);max-width:640px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:28px 0}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;transition:all .2s;display:block}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;transition:all.2s;display:block}
 .card:hover{border-color:var(--pri)}
-.card .c-title{font-size:0.95rem;color:var(--txt);font-weight:700;margin-bottom:4px}
-.card .c-desc{font-size:0.72rem;color:var(--dim)}
+.card.c-title{font-size:0.95rem;color:var(--txt);font-weight:700;margin-bottom:4px}
+.card.c-desc{font-size:0.72rem;color:var(--dim)}
 footer{padding:30px 20px;border-top:1px solid var(--border);text-align:center;color:var(--dim);font-size:0.78rem}
 footer a{color:var(--pri);text-decoration:none}
 </style>
@@ -71,15 +71,15 @@ footer a{color:var(--pri);text-decoration:none}
 <a href="/expand-to/logistics-supply-chain/kyrgyzstan/" class="card"><span class="c-title">Kyrgyzstan</span><span class="c-desc">Central Asia · GDP $2,100 · Talent $3,500/yr · Tech 45/100</span></a></div>
 </div>
 <section data-sipiteno-fleet="capture" style="max-width:720px;margin:48px auto 32px;padding:28px 24px;border:1px solid #d8dee7;border-radius:12px;background:#f7f9fc;font-family:inherit">
-  <h2 style="margin:0 0 6px;font-size:1.25rem">Get the Free Expansion Playbook</h2>
-  <p style="margin:0 0 16px;color:#4a5568;font-size:.95rem">The Emerging Markets Expansion Playbook — 28 countries, 47 pages, sent to your inbox.</p>
-  <form data-fleet-capture onsubmit="return window.__fleetCapture(event)" style="display:flex;gap:8px;flex-wrap:wrap">
-    <input type="email" name="email" required placeholder="you@company.com" style="flex:1;min-width:220px;padding:12px 14px;border:1px solid #cbd5e0;border-radius:8px;font-size:1rem">
-    <input type="text" name="honeypot" value="" style="display:none" tabindex="-1" autocomplete="off">
-    <input type="hidden" name="source" value="/expand-to/logistics-supply-chain">
-    <button type="submit" style="padding:12px 24px;background:#0066cc;color:#fff;border:0;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer">Get it</button>
-  </form>
-  <p data-fleet-msg style="display:none;margin:12px 0 0;font-size:.9rem"></p>
+ <h2 style="margin:0 0 6px;font-size:1.25rem">Get the Free Expansion Playbook</h2>
+ <p style="margin:0 0 16px;color:#4a5568;font-size:.95rem">The Emerging Markets Expansion Playbook — 28 countries, 47 pages, sent to your inbox.</p>
+ <form data-fleet-capture onsubmit="return window.__fleetCapture(event)" style="display:flex;gap:8px;flex-wrap:wrap">
+ <input type="email" name="email" required placeholder="you@company.com" style="flex:1;min-width:220px;padding:12px 14px;border:1px solid #cbd5e0;border-radius:8px;font-size:1rem">
+ <input type="text" name="honeypot" value="" style="display:none" tabindex="-1" autocomplete="off">
+ <input type="hidden" name="source" value="/expand-to/logistics-supply-chain">
+ <button type="submit" style="padding:12px 24px;background:#0066cc;color:#fff;border:0;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer">Get it</button>
+ </form>
+ <p data-fleet-msg style="display:none;margin:12px 0 0;font-size:.9rem"></p>
 </section>
 <script data-sipiteno-fleet="capture-js">window.__fleetCapture=function(e){e.preventDefault();var f=e.target,m=f.parentNode.querySelector("[data-fleet-msg]"),b=f.querySelector("button");if(f.honeypot.value)return false;b.disabled=true;b.textContent="Sending…";fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fullName:"Playbook Subscriber",companyName:"(pSEO fleet)",email:f.email.value,phone:"",country:"",service:"Free Expansion Playbook (pSEO Fleet)",message:"FLEET PLAYBOOK REQUEST from "+f.source.value+" — send the Emerging Markets Expansion Playbook.",honeypot:""}}).then(function(r){if(!r.ok)throw new Error(r.status);while(m.firstChild)m.removeChild(m.firstChild);m.style.display="block";m.style.color="#276749";m.appendChild(document.createTextNode("Check your inbox — the playbook is on its way."));f.email.value="";if(window.__ph)window.__ph("playbook_requested",{source:f.source.value});}).catch(function(){while(m.firstChild)m.removeChild(m.firstChild);m.style.display="block";m.style.color="#c53030";m.appendChild(document.createTextNode("Something broke — email us directly at "));var a=document.createElement("a");a.href="mailto:sales@sipiteno.com?subject=Free%20Expansion%20Playbook";a.style.color="#c53030";a.style.fontWeight="700";a.textContent="sales@sipiteno.com";m.appendChild(a);}).finally(function(){b.disabled=false;b.textContent="Get it";});return false};</script>
 <footer>Built by <a href="/">Sipiteno</a> · 28 markets · <a href="/market-entry-scorecard">Market Entry Scorecard</a></footer>
