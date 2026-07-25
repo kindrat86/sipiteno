@@ -4,7 +4,10 @@ import { getConsent, hasConsented, setConsent } from "@/lib/consent";
 import { initPostHogDeferred } from "@/lib/posthog";
 import { initClarityDeferred } from "@/lib/clarity";
 import { trackAiReferral } from "@/lib/analytics";
-import { initMarketingPixels } from "@/lib/marketing-pixels";
+
+// No ad/retargeting pixels are loaded here — see the note in acceptAll(). The
+// former "@/lib/marketing-pixels" module (Meta/Reddit/LinkedIn) was deleted
+// 2026-07-25; do not reintroduce it into either consent category.
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -20,7 +23,6 @@ export default function CookieConsent() {
         if (consent?.analytics) {
           initPostHogDeferred();
           trackAiReferral();
-          initMarketingPixels();
         }
         if (consent?.experience) {
           initClarityDeferred();
@@ -32,12 +34,17 @@ export default function CookieConsent() {
 
   if (!visible) return null;
 
+  // "Accept All" grants exactly what the banner text names: PostHog (analytics)
+  // and Microsoft Clarity (experience). It used to also fire the Meta, Reddit and
+  // LinkedIn pixels, which the banner never mentioned — consent that doesn't name
+  // advertising is neither specific nor informed, so it wasn't valid consent for
+  // them. They were removed portfolio-wide on 2026-07-25 rather than added to the
+  // banner text, because 180 days of PostHog showed no ad campaign has ever run.
   function acceptAll() {
     setConsent({ analytics: true, experience: true });
     initPostHogDeferred();
     initClarityDeferred();
     trackAiReferral();
-    initMarketingPixels();
     setVisible(false);
   }
 

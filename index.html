@@ -39,11 +39,6 @@
  <!-- Resource Hints for Core Web Vitals -->
  <link rel="preconnect" href="https://eu.i.posthog.com" />
  <link rel="dns-prefetch" href="https://eu.i.posthog.com" />
- <link rel="preconnect" href="https://snap.licdn.com" />
- <link rel="dns-prefetch" href="https://snap.licdn.com" />
- <link rel="preconnect" href="https://www.clarity.ms" />
- <link rel="dns-prefetch" href="https://www.clarity.ms" />
-
  <!-- Open Graph / Facebook -->
  <meta property="og:type" content="website" />
  <meta property="og:url" content="https://sipiteno.com/" />
@@ -392,9 +387,15 @@
 }
 </script>
 <!-- Traffic-Readiness JSON-LD org+website schema -->
- <!-- Marketing pixels (Meta, Reddit, LinkedIn) are now consent-gated.
- They fire only after user accepts in the CookieConsent banner.
- See src/lib/marketing-pixels.ts + src/components/CookieConsent.tsx. -->
+ <!-- NO marketing/retargeting pixels. Meta, Reddit and LinkedIn were removed on
+ 2026-07-25 along with src/lib/marketing-pixels.ts. They had been consent-gated,
+ but under the "experience" category, which the banner describes only as
+ "user experience improvement (Microsoft Clarity)" — consent that never names
+ advertising is not specific or informed, so it was not valid consent for them.
+ Rather than reword the banner, they were dropped: 180 days of PostHog across the
+ portfolio show 0 gclid, 0 rdt_cid and 0 cpc traffic, so no campaign has ever run.
+ The consent gate itself stays and still covers PostHog + Clarity.
+ See src/components/CookieConsent.tsx and src/lib/consent.ts. -->
  </head>
 
  <body>
