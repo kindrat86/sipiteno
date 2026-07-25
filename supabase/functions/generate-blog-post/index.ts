@@ -20,7 +20,7 @@ const getCorsHeaders = (origin: string | null) => {
 const SYSTEM_PROMPT = `You are an autonomous content agent for Sipiteno, a strategic business development and technology consulting firm.
 
 # Context
-Sipiteno operates across 28 countries in Europe, Caucasus, and Central Asia, helping technology companies:
+Sipiteno publishes market-entry research for 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets, helping technology companies:
 - Enter and expand in emerging tech markets
 - Implement AI and IT solutions that drive measurable business results
 - Build high-performing teams and strategic partnerships

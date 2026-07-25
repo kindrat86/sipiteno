@@ -36,7 +36,7 @@ const Contact = () => {
   const channels = [
     { icon: Mail, title: "Email", body: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
     { icon: MessageSquare, title: "Book a call", body: "Free 30-minute strategy session", href: "#contact" },
-    { icon: Globe, title: "Coverage", body: "28 countries across Europe, Caucasus & Central Asia", href: null },
+    { icon: Globe, title: "Coverage", body: "28 countries across Europe, the Caucasus, Central Asia & selected emerging markets", href: null },
     { icon: Clock, title: "Response time", body: "Within 1 business day", href: null },
   ];
 

@@ -208,7 +208,7 @@ const LocationsListing = () => {
 
   const title = "Locations | Sipiteno - Business Services Across 28 Countries";
   const canonicalUrl = "https://sipiteno.com/locations";
-  const description = "Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.";
+  const description = "Sipiteno publishes market-entry research for 28 countries in Europe, the Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.";
 
   return (
     <>

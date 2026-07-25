@@ -44,7 +44,7 @@ Full list: Albania , Armenia , Azerbaijan , Bosnia and Herzegovina , Bulgaria , 
 Industries We Serve
 Sipiteno has delivered market-entry and product work across FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics. Our work spans regulated sectors (payments, health data) where getting licensing and compliance right is the difference between a launch and a lawsuit — which is why regulatory mapping is built into every engagement.
 How We Deliver: A Structured Multi-Phase Framework
-Every expansion follows a repeatable framework refined across 50+ market entries: discovery and goal-setting, market scoring for your top candidate countries, regulatory and compliance mapping, warm partnership introductions, hands-on execution by a local bilingual team, and a documented handover. Most clients sign their first in-market deal in about 11 weeks. See the full methodology .
+Every expansion follows a repeatable framework refined across our market-entry engagements: discovery and goal-setting, market scoring for your top candidate countries, regulatory and compliance mapping, warm partnership introductions, hands-on execution by a local bilingual team, and a documented handover. We aim for a first in-market deal inside a quarter; actual timelines vary by market and sector. See the full methodology .
 Frequently Asked Questions
 What regions does Sipiteno serve for business development?
 Sipiteno serves 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, and Central Asia — including Poland, Ukraine, Romania, Serbia, Bulgaria, Georgia, Armenia, Azerbaijan, Kazakhstan, and Uzbekistan. Each market has a dedicated location scorecard.
@@ -87,7 +87,7 @@ Every engagement starts with a free 30-minute scoping call. If we don't open at 
 ✓ Free 30-min scoping call first
 ✓ Fixed-price or retainer — your choice
 ✓ Cancel anytime after kickoff
-15 years. 28 countries. We've never had to invoke this guarantee. We structure engagements so it never comes up.
+15 years. We've never had to invoke this guarantee. We structure engagements so it never comes up.
 Alternatives
 Toptal
 Turing
@@ -168,7 +168,7 @@ In 2009, Sipiteno's founder moved a SaaS product into Eastern Europe believing "
 The winning companies in Tbilisi, Kyiv, and Almaty all had three things the founder didn't: the right introductions, a regulatory map, and a local team that executes fast. That three-part system became Sipiteno.
 The Sipiteno System: Three Pillars
 1. Introductions — Warm Handoffs, Not Cold Outreach
-In emerging markets, warm introductions from trusted local partners outperform cold outreach by 10:1. Our network includes C-level contacts at banks, telcos, manufacturers, and tech hubs across all 28 countries. When we open a conversation, the prospect already knows who we are and why we're calling.
+In emerging markets, warm introductions from trusted local partners outperform cold outreach by 10:1. Our network includes C-level contacts at banks, telcos, manufacturers, and tech hubs across the region. When we open a conversation, the prospect already knows who we are and why we're calling.
 2. Regulatory Map — Compliance Before Code
 Every market has traps: data residency rules in Russia and Kazakhstan, GDPR compliance in EU members like Poland and Romania, licensing requirements for fintech in Georgia and Lithuania, and sector-specific regulations in healthcare and energy. We map these before any code ships, so deals don't die at the legal review.
 3. Execution Team — Local, Bilingual, Fast
@@ -206,7 +206,7 @@ Every engagement starts with a free 30-minute scoping call. If we don't open at 
 ✓ Free 30-min scoping call first
 ✓ Fixed-price or retainer — your choice
 ✓ Cancel anytime after kickoff
-15 years. 28 countries. We've never had to invoke this guarantee. We structure engagements so it never comes up.
+15 years. We've never had to invoke this guarantee. We structure engagements so it never comes up.
 Alternatives
 Toptal
 Turing

@@ -10,7 +10,7 @@ import { servicePageSchema } from "@/lib/seo/schemas";
 const BusinessDevelopment = () => {
   const schema = servicePageSchema({
     name: "B2B Business Development Services",
-    description: "Sipiteno provides B2B business development services including strategic partnerships, lead generation, and market entry across 28 countries in Europe, Caucasus, and Central Asia.",
+    description: "Sipiteno provides B2B business development services including strategic partnerships, lead generation, and market entry across 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets.",
     url: "https://sipiteno.com/services/business-development",
     priceRange: "$3,000 - $10,000/month",
     duration: "Ongoing retainer"
@@ -61,7 +61,7 @@ const BusinessDevelopment = () => {
                 <ul className="space-y-2 text-muted-foreground">
                   <li><strong>Investment:</strong> $3,000 - $10,000/month retainer (scope dependent)</li>
                   <li><strong>Engagement Model:</strong> Monthly retainer with performance metrics</li>
-                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, Caucasus, Central Asia</li>
+                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, the Caucasus, Central Asia and selected emerging markets</li>
                   <li><strong>Key Services:</strong> Lead generation, partnership development, market entry</li>
                   <li><strong>Typical Results:</strong> 10-30 qualified leads/month depending on market</li>
                 </ul>

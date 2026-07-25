@@ -63,7 +63,7 @@ const ProjectManagement = () => {
                   <li><strong>Engagement Model:</strong> Dedicated PM or fractional PM arrangements</li>
                   <li><strong>Methodologies:</strong> Agile, Scrum, Kanban, hybrid approaches</li>
                   <li><strong>Tools:</strong> Jira, Asana, Monday.com, custom dashboards</li>
-                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, Caucasus, Central Asia</li>
+                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, the Caucasus, Central Asia and selected emerging markets</li>
                 </ul>
               </div>
             </div>

@@ -16,7 +16,7 @@ export const organizationSchema = {
     "height": "512"
   },
   "image": "https://sipiteno.com/favicon.png",
-  "description": "Sipiteno is a strategic business development and technology consulting firm founded in 2009, specializing in AI implementation and IT solutions across 28 countries in Europe, Caucasus, and Central Asia. The company combines deep regional expertise with hands-on technical capabilities to help technology companies expand into emerging markets.",
+  "description": "Sipiteno is a strategic business development and technology consulting firm founded in 2009, specializing in AI implementation and IT solutions across 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets. The company combines deep regional expertise with hands-on technical capabilities to help technology companies expand into emerging markets.",
   "foundingDate": "2009",
   "slogan": "Your product isn't the problem. Your expansion system is.",
   "numberOfEmployees": {
@@ -189,7 +189,7 @@ export const faqSchema = {
       "name": "What regions does Sipiteno serve for business development?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sipiteno operates across 28 countries with primary focus on Eastern Europe (Ukraine, Poland, Serbia, Czech Republic, Romania, Bulgaria), Caucasus (Georgia, Armenia, Azerbaijan), and Central Asia (Kazakhstan, Uzbekistan, Kyrgyzstan). The company has 15+ years of regional experience and maintains established networks with government agencies, technology associations, and venture capital firms in these markets."
+        "text": "Sipiteno publishes market-entry research for 28 countries with primary focus on Eastern Europe (Ukraine, Poland, Serbia, Czech Republic, Romania, Bulgaria), Caucasus (Georgia, Armenia, Azerbaijan), and Central Asia (Kazakhstan, Uzbekistan, Kyrgyzstan). The company has 15+ years of regional experience and maintains established networks with government agencies, technology associations, and venture capital firms in these markets."
       }
     },
     {
@@ -205,7 +205,7 @@ export const faqSchema = {
       "name": "What differentiates Sipiteno from other consultancies?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Four differentiators define Sipiteno: (1) 15+ years regional expertise across 28 countries, (2) combined strategic and technical implementation capabilities, (3) 4-8 week delivery timelines, and (4) flexible engagement models from fixed-price to retainers. Unlike traditional consultancies, Sipiteno implements rather than just advises."
+        "text": "Four differentiators define Sipiteno: (1) 15+ years regional expertise in Eastern Europe, the Caucasus, and Central Asia, (2) combined strategic and technical implementation capabilities, (3) 4-8 week delivery timelines, and (4) flexible engagement models from fixed-price to retainers. Unlike traditional consultancies, Sipiteno implements rather than just advises."
       }
     },
     {

@@ -63,7 +63,7 @@ const SalesFunnel = () => {
                   <li><strong>Typical Timeline:</strong> 4-8 weeks from strategy to launch</li>
                   <li><strong>Delivery Model:</strong> Fixed-price with milestone-based payments</li>
                   <li><strong>Components:</strong> Landing pages, email sequences, CRM setup, analytics</li>
-                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, Caucasus, Central Asia</li>
+                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, the Caucasus, Central Asia and selected emerging markets</li>
                 </ul>
               </div>
             </div>

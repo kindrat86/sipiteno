@@ -216,7 +216,7 @@ export const BEST_ITEMS: BestItem[] = [
       { name: "Martal Group", highlight: "Lead generation and sales outsourcing for B2B tech companies. Dedicated SDRs. $4K-$10K/mo." },
       { name: "UpLead", highlight: "Self-serve B2B contact database with verification. 95%+ data accuracy. From $99/mo." },
     ],
-    whySipiteno: "Most lead-gen services rely on cold outreach — email sequences and LinkedIn automation with sub-1% response rates. Sipiteno generates leads through warm introductions from a 15-year network across 28 countries, with in-market meeting facilitation and cultural guidance. Cold outreach gets ignored; warm introductions get meetings.",
+    whySipiteno: "Most lead-gen services rely on cold outreach — email sequences and LinkedIn automation with sub-1% response rates. Sipiteno generates leads through warm introductions from a 15-year regional network, with in-market meeting facilitation and cultural guidance. Cold outreach gets ignored; warm introductions get meetings.",
     bodyContent: "",
     metaDescription: "Best B2B lead generation services: Sipiteno (warm intros, 28 markets), CIENCE (SDR-as-a-service), Belkins (appointment setting), Martal (tech-focused), UpLead (self-serve database)."
   },
@@ -269,7 +269,7 @@ export const HOWTO_ITEMS: HowToItem[] = [
     title: "How to Expand Your SaaS Into Eastern Europe | Complete Guide 2026",
     category: "Market Expansion",
     shortTitle: "SaaS Expansion into Eastern Europe",
-    intro: "Eastern Europe is one of the fastest-growing SaaS markets globally — 400,000+ developers in Poland alone, EU single-market access, and customer acquisition costs 40-60% lower than in the US or Western Europe. But the market rewards local relationships, not cold outreach. Here is the step-by-step playbook we've used across 50+ market entries.",
+    intro: "Eastern Europe is one of the fastest-growing SaaS markets globally — 400,000+ developers in Poland alone, EU single-market access, and customer acquisition costs 40-60% lower than in the US or Western Europe. But the market rewards local relationships, not cold outreach. Here is the step-by-step playbook we use on market-entry engagements.",
     steps: [
       {
         heading: "Step 1: Score the markets, don't guess",
@@ -296,7 +296,7 @@ export const HOWTO_ITEMS: HowToItem[] = [
         content: "Eastern European B2B deals rarely close over Zoom. The signature meeting happens in person — often over coffee or a meal. Budget for quarterly trips to your target markets, or work with a partner who can facilitate in-person meetings. The cost of a flight is trivial compared to the cost of a deal lost because you never showed up."
       },
     ],
-    conclusion: "SaaS expansion into Eastern Europe is not about a better landing page — it's about relationships, regulatory clarity, and local presence. The companies that win are the ones that treat the market as a long-term investment and invest in the local network before they need it. Sipiteno has spent 15+ years building exactly that network across 28 countries — and we put it to work for our clients from week one.",
+    conclusion: "SaaS expansion into Eastern Europe is not about a better landing page — it's about relationships, regulatory clarity, and local presence. The companies that win are the ones that treat the market as a long-term investment and invest in the local network before they need it. Sipiteno has spent 15+ years building exactly that regional network — and we put it to work for our clients from week one.",
     metaDescription: "How to expand your SaaS into Eastern Europe in 2026: market scoring, regulatory mapping, local champion hiring, pricing localization, warm introductions, and in-person closing."
   },
   {
@@ -339,7 +339,7 @@ export const HOWTO_ITEMS: HowToItem[] = [
     title: "How to Choose a Market Entry Partner | 7-Point Evaluation Framework",
     category: "Business Strategy",
     shortTitle: "Choose Market Entry Partner",
-    intro: "Choosing the wrong market entry partner costs more than money — it costs time, credibility, and market opportunity. Most companies make the decision based on price or brand name, and most regret it. Here is a 7-point framework for evaluating market entry partners, built from seeing both successful and failed engagements across 50+ market entries.",
+    intro: "Choosing the wrong market entry partner costs more than money — it costs time, credibility, and market opportunity. Most companies make the decision based on price or brand name, and most regret it. Here is a 7-point framework for evaluating market entry partners, built from seeing both successful and failed engagements across our market-entry engagements.",
     steps: [
       {
         heading: "Point 1: Do they execute, or just advise?",
@@ -431,7 +431,7 @@ export const TEMPLATE_ITEMS: TemplateItem[] = [
     title: "Market Entry Checklist | Free 28-Point Expansion Readiness Template",
     category: "Market Expansion",
     shortTitle: "Market Entry Checklist",
-    intro: "Expanding into a new market without a checklist is how you miss the detail that kills the deal. This 28-point checklist covers every stage of a B2B market entry: regulatory readiness, competitive landscape, partner identification, operational setup, and go-to-market execution. Based on 50+ market entries across 28 countries.",
+    intro: "Expanding into a new market without a checklist is how you miss the detail that kills the deal. This 28-point checklist covers every stage of a B2B market entry: regulatory readiness, competitive landscape, partner identification, operational setup, and go-to-market execution. Based on our market-entry engagements.",
     sections: [
       {
         heading: "Phase 1: Pre-Entry Assessment (8 points)",
@@ -1215,7 +1215,7 @@ const TemplatesListing = () => (
   <>
     <SEOHead
       title="Free Templates & Frameworks | Sipiteno — Market Entry, Sales Funnel, B2B Partnerships"
-      description="Free B2B expansion templates: market entry checklist, sales funnel setup framework, and B2B partnership proposal template. Downloadable resources based on 50+ market entries."
+      description="Free B2B expansion templates: market entry checklist, sales funnel setup framework, and B2B partnership proposal template. Downloadable resources based on our market-entry engagements."
       url="https://sipiteno.com/templates"
       breadcrumbs={[
         { name: "Home", url: "https://sipiteno.com/" },
@@ -1546,7 +1546,7 @@ const SECTION_INDEXES = [
   {
     path: ["templates"],
     title: "Free Templates & Frameworks | Market Entry, Sales Funnel, Partnerships",
-    description: "Free, battle-tested templates for B2B expansion: market entry checklist, sales funnel setup framework, and B2B partnership proposal template. Based on 50+ market entries.",
+    description: "Free, battle-tested templates for B2B expansion: market entry checklist, sales funnel setup framework, and B2B partnership proposal template. Based on our market-entry engagements.",
     canonical: "https://sipiteno.com/templates",
     bodyContent: buildSectionIndex("templates", "Templates & Frameworks", "Free, downloadable templates for B2B market entry and expansion.", TEMPLATE_ITEMS, "shortTitle"),
   },

@@ -430,7 +430,7 @@ def generate_geo_block(country, service):
         approach_section = f"""
 <h3>Our Methodology for {sn} in {cn}</h3>
 <p>{approach_detail}</p>
-<p>This methodology has been refined across 28 countries. Every engagement includes weekly progress reports, milestone-based deliverables, and transparent communication — so you always know exactly where your project stands.</p>"""
+<p>This methodology draws on market-entry research covering 28 countries. Every engagement includes weekly progress reports, milestone-based deliverables, and transparent communication — so you always know exactly where your project stands.</p>"""
 
     return f"""<section class="enriched-content">
 <h2>{sn} in {cn}</h2>
@@ -448,7 +448,7 @@ def generate_geo_block(country, service):
 {approach_section}
 <h3>What Sets Sipiteno Apart</h3>
 <p>Unlike working with individual consultants or large generic agencies, Sipiteno provides a coordinated team with deep expertise across {sn.lower()} and emerging markets. We handle the end-to-end execution — from strategy through implementation — while keeping you closely involved in all key decisions. {why_work}</p>
-<p>With delivery experience across 28 countries and a proven track record of client satisfaction, we bring proven methodology and local intelligence to every {sn.lower()} engagement in {cn}.</p>
+<p>With published market-entry research covering 28 countries and a proven track record of client satisfaction, we bring proven methodology and local intelligence to every {sn.lower()} engagement in {cn}.</p>
 <p>Ready to discuss your {sn.lower()} needs in {cn}? <a href="https://sipiteno.com/#contact">Book a free 30-minute strategy call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
 {faq_section}
 </section>"""
@@ -735,7 +735,7 @@ def main():
             content = f"""<section class="enriched-content">
 <h2>About Sipiteno</h2>
 <p>Sipiteno is a digital product studio that designs and builds SaaS tools, web apps, and AI-powered products end-to-end for founders and companies. We operate as an accountable product team — not a marketplace — with a single point of ownership for delivery, quality, and timeline.</p>
-<p>With delivery experience across 28 countries and a proven track record of client satisfaction, we bring proven methodology and deep technical expertise to every engagement. Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps — giving you a complete product team in one accountable partner.</p>
+<p>With published market-entry research covering 28 countries and a proven track record of client satisfaction, we bring proven methodology and deep technical expertise to every engagement. Our team covers product strategy, UI/UX design, full-stack engineering, AI/ML, and DevOps — giving you a complete product team in one accountable partner.</p>
 <p><a href="https://sipiteno.com">Learn more about how we work →</a></p>
 </section>"""
 

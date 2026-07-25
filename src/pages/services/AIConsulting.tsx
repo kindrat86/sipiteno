@@ -63,7 +63,7 @@ const AIConsulting = () => {
                   <li><strong>Typical Timeline:</strong> 8-16 weeks from assessment to deployment</li>
                   <li><strong>Delivery Model:</strong> Fixed-price projects or retainer arrangements</li>
                   <li><strong>Technologies:</strong> GPT models, computer vision, NLP, predictive analytics</li>
-                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, Caucasus, Central Asia</li>
+                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, the Caucasus, Central Asia and selected emerging markets</li>
                 </ul>
               </div>
             </div>

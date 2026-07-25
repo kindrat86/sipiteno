@@ -63,7 +63,7 @@ const ITConsulting = () => {
                   <li><strong>Typical Timeline:</strong> 4-12 weeks from assessment to implementation</li>
                   <li><strong>Delivery Model:</strong> Fixed-price assessments or ongoing advisory</li>
                   <li><strong>Focus Areas:</strong> Cloud migration, architecture review, DevOps, security</li>
-                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, Caucasus, Central Asia</li>
+                  <li><strong>Geographic Coverage:</strong> 28 countries across Europe, the Caucasus, Central Asia and selected emerging markets</li>
                 </ul>
               </div>
             </div>

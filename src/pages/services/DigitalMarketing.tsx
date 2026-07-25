@@ -62,7 +62,7 @@ const DigitalMarketing = () => {
                   <li><strong>Investment:</strong> Custom pricing based on scope and market coverage</li>
                   <li><strong>Engagement Model:</strong> Monthly retainer with performance reporting</li>
                   <li><strong>Key Services:</strong> SEO, SEM, content marketing, social media, email marketing</li>
-                  <li><strong>Markets:</strong> 28 countries across Europe, Caucasus, Central Asia</li>
+                  <li><strong>Markets:</strong> 28 countries across Europe, the Caucasus, Central Asia and selected emerging markets</li>
                   <li><strong>Languages:</strong> Content in English, Russian, and 4+ regional languages</li>
                 </ul>
               </div>

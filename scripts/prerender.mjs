@@ -248,7 +248,7 @@ function buildHomepageBody() {
       <h2>Value Ladder: How We Work Together</h2>
       <p>Five ways to engage Sipiteno, climbing in value: (1) Free Expansion Playbook PDF, (2) Free 30-minute strategy scoping call, (3) MicroSaaS MVP development ($15,000-$50,000 fixed), (4) Business Development retainer ($3,000-$10,000/month with 10-30 qualified leads/month), (5) AI implementation program ($25,000-$100,000+). Start free, scale when ready. <a href="https://sipiteno.com/pricing">See pricing</a>.</p>
       <h2>Why Choose Sipiteno</h2>
-      <p>Five differentiators: 15+ years regional expertise across 28 countries, combined strategic and hands-on technical implementation, rapid 4-8 week delivery, and flexible engagement models.</p>
+      <p>Five differentiators: 15+ years regional expertise in Eastern Europe, the Caucasus, and Central Asia, combined strategic and hands-on technical implementation, rapid 4-8 week delivery, and flexible engagement models.</p>
       <h2>Markets We Serve, by Region</h2>
       <p>Sipiteno operates across 28 emerging markets in four macro-regions — Central Europe, Southeast Europe, Northern &amp; Eastern Europe, the Caucasus, and Central Asia. Each has its own regulatory environment, tech ecosystem, and set of high-opportunity industries. We maintain warm introductions and bilingual execution teams in every one.</p>
       ${regionsBlock}
@@ -256,7 +256,7 @@ function buildHomepageBody() {
       <h2>Industries We Serve</h2>
       <p>Sipiteno has delivered market-entry and product work across FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics. Our work spans regulated sectors (payments, health data) where getting licensing and compliance right is the difference between a launch and a lawsuit — which is why regulatory mapping is built into every engagement.</p>
       <h2>How We Deliver: A Structured Multi-Phase Framework</h2>
-      <p>Every expansion follows a repeatable framework refined across 50+ market entries: discovery and goal-setting, market scoring for your top candidate countries, regulatory and compliance mapping, warm partnership introductions, hands-on execution by a local bilingual team, and a documented handover. Most clients sign their first in-market deal in about 11 weeks. <a href="https://sipiteno.com/methodology">See the full methodology</a>.</p>
+      <p>Every expansion follows a repeatable framework refined across our market-entry engagements: discovery and goal-setting, market scoring for your top candidate countries, regulatory and compliance mapping, warm partnership introductions, hands-on execution by a local bilingual team, and a documented handover. We aim for a first in-market deal inside a quarter; actual timelines vary by market and sector. <a href="https://sipiteno.com/methodology">See the full methodology</a>.</p>
       <h2>Frequently Asked Questions</h2>
       <h3>What regions does Sipiteno serve for business development?</h3>
       <p>Sipiteno serves 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, and Central Asia — including Poland, Ukraine, Romania, Serbia, Bulgaria, Georgia, Armenia, Azerbaijan, Kazakhstan, and Uzbekistan. Each market has a dedicated location scorecard.</p>
@@ -618,7 +618,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "What regions does Sipiteno serve?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sipiteno operates across 28 countries in Eastern Europe, Caucasus, Central Asia, Northern Europe, and beyond. Primary focus markets include Ukraine, Poland, Kazakhstan, Georgia, and Serbia." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Sipiteno publishes market-entry research for 28 countries in Eastern Europe, Caucasus, Central Asia, Northern Europe, and beyond. Primary focus markets include Ukraine, Poland, Kazakhstan, Georgia, and Serbia." }
     },
     {
       "@type": "Question",
@@ -728,7 +728,7 @@ const corePages = [
       <h2>Do You Offer Performance-Based Pricing?</h2>
       <p>Yes. For business development engagements, we can structure a portion of our fee around outcomes: deals signed, pipeline generated, or revenue attributed. This aligns our incentives with yours — we win when you win. Talk to us about <a href="https://sipiteno.com/#contact">performance-based arrangements</a>.</p>
       <h2>Which Markets Are Included?</h2>
-      <p>All engagements include access to our network across 28 countries: <a href="https://sipiteno.com/locations/poland">Poland</a>, <a href="https://sipiteno.com/locations/romania">Romania</a>, <a href="https://sipiteno.com/locations/serbia">Serbia</a>, <a href="https://sipiteno.com/locations/ukraine">Ukraine</a>, <a href="https://sipiteno.com/locations/georgia">Georgia</a>, <a href="https://sipiteno.com/locations/kazakhstan">Kazakhstan</a>, and 22 more. See all <a href="https://sipiteno.com/locations">locations</a>.</p>
+      <p>All engagements include access to our regional network: <a href="https://sipiteno.com/locations/poland">Poland</a>, <a href="https://sipiteno.com/locations/romania">Romania</a>, <a href="https://sipiteno.com/locations/serbia">Serbia</a>, <a href="https://sipiteno.com/locations/ukraine">Ukraine</a>, <a href="https://sipiteno.com/locations/georgia">Georgia</a>, <a href="https://sipiteno.com/locations/kazakhstan">Kazakhstan</a>, and 22 more. See all <a href="https://sipiteno.com/locations">locations</a>.</p>
       <h2>Ready to Get a Custom Quote?</h2>
       <p>The fastest way to get pricing for your specific situation is a free 30-minute strategy call. We'll assess your needs, recommend the right engagement model, and give you a transparent price range. <a href="https://sipiteno.com/#contact">Book your free call</a> or email <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a>.</p>
       <p><a href="https://sipiteno.com/">Home</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/services/ai-consulting">AI Consulting</a> | <a href="https://sipiteno.com/alternatives">Compare alternatives</a> | <a href="https://sipiteno.com/methodology">Our methodology</a></p>`,
@@ -927,7 +927,7 @@ for (const svc of SERVICES) {
   corePages.push({
     path: ['services', svc.slug],
     title: `${svc.name} Services | Sipiteno - Expert Consulting Across 28 Countries`,
-    description: `${svc.desc}. Sipiteno delivers ${svc.name.toLowerCase()} services across 28 countries in Europe, Caucasus, and Central Asia. 15+ years experience, proven results.`,
+    description: `${svc.desc}. Sipiteno delivers ${svc.name.toLowerCase()} services across 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets. 15+ years experience, proven results.`,
     canonicalUrl: `https://sipiteno.com/services/${svc.slug}`,
     schemas: [{
       "@context": "https://schema.org",
@@ -951,7 +951,7 @@ for (const svc of SERVICES) {
 corePages.push({
   path: ['locations'],
   title: "Locations | Sipiteno - Business Services Across 28 Countries",
-  description: "Sipiteno operates across 28 countries in Europe, Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.",
+  description: "Sipiteno publishes market-entry research for 28 countries in Europe, the Caucasus, Central Asia, and beyond. Local presence in each market for business development, AI consulting, IT, and digital marketing services.",
   canonicalUrl: "https://sipiteno.com/locations",
   breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "Locations", url: "https://sipiteno.com/locations" }],
   bodyContent: buildLocationsHubBody(),
@@ -1190,7 +1190,7 @@ for (const country of COUNTRIES) {
 // 7. Industry pages (9)
 for (const ind of INDUSTRIES) {
   const title = `${ind.name} Consulting | Sipiteno`;
-  const description = `${ind.desc}. Sipiteno provides specialized ${ind.name.toLowerCase()} consulting services across 28 countries in Europe, Caucasus, and Central Asia.`;
+  const description = `${ind.desc}. Sipiteno provides specialized ${ind.name.toLowerCase()} consulting services across 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets.`;
   const canonical = `https://sipiteno.com/industries/${ind.slug}`;
 
   const html = buildPage({

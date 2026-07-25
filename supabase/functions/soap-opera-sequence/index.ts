@@ -124,7 +124,7 @@ Tomorrow: the offer. And why I can only take 5 new strategy calls this month.
     subject: "5 strategy call slots left this month (book yours)",
     body: (name: string) => `Hi ${name},
 
-Over the past 4 days, I've shared the system behind 50+ market entries across 28 countries.
+Over the past 4 days, I've shared the system behind our market-entry work.
 
 The 3-door system. The playbook. The case study.
 
