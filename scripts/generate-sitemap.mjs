@@ -15,6 +15,9 @@ const DIST = join(process.cwd(), 'dist');
 const BASE = 'https://sipiteno.com';
 const LOCALES = ['de', 'es', 'fr', 'it', 'ku', 'lt', 'ro'];
 
+// Pages with noindex that should never appear in the sitemap
+const NOINDEX_PAGES = ['terms', 'privacy'];
+
 // Real per-page lastmod: instead of stamping every URL with "today" (which
 // changes on every deploy and teaches Google to distrust the signal), look
 // up the git commit date of whichever source file actually governs that
@@ -146,6 +149,18 @@ for (const filePath of htmlFiles) {
   // Skip files we don't want in sitemap
   if (relPath.startsWith('admin') || relPath.startsWith('auth')) continue;
   if (relPath === '404.html') continue;
+
+  // Skip locale-prefixed pages (de/, es/, fr/, etc.) — they duplicate English
+  // content under locale prefixes with self-referencing canonicals, and Google
+  // correctly flags them as "Alternative page with proper canonical tag."
+  // Google discovers them via hreflang tags on the English canonical pages.
+  if (LOCALES.some(loc => relPath.startsWith(loc + '/'))) continue;
+
+  // Skip locale root pages (de.html, es.html, etc.) — same content issue
+  if (LOCALES.some(loc => relPath === loc + '.html' || relPath === loc + '/index.html')) continue;
+
+  // Skip noindex pages (terms, privacy) — they must never appear in the sitemap
+  if (NOINDEX_PAGES.some(np => relPath === np + '.html' || relPath === np + '/index.html')) continue;
 
   let urlPath;
 
