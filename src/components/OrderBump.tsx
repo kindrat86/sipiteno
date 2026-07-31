@@ -39,8 +39,8 @@ const OrderBump = () => {
                 </div>
                 <div className="text-xs md:text-xs text-muted-foreground uppercase tracking-wide font-semibold mb-1">{t("orderBump.totalValueLabel")}</div>
                 <div className="text-3xl md:text-4xl font-bold mb-1">
-                  <span className="line-through text-muted-foreground/50 text-xl md:text-2xl">$1,497</span>{" "}
-                  <span className="text-secondary">{t("common.free")}</span>
+                  <span className="line-through text-muted-foreground text-xl md:text-2xl">$1,497</span>{" "}
+                  <span className="text-amber-600">{t("common.free")}</span>
                 </div>
                 <p className="text-xs md:text-sm text-muted-foreground">{t("orderBump.noCreditCard")}</p>
               </div>

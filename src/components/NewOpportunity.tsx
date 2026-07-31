@@ -17,7 +17,7 @@ const NewOpportunity = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
           <div className="inline-block mb-4 md:mb-6 px-4 md:px-6 py-2 md:py-3 rounded-full bg-secondary/10 border border-secondary/20">
-            <span className="text-secondary font-semibold text-xs md:text-sm tracking-wide uppercase">{t("newOpportunity.eyebrow")}</span>
+            <span className="text-amber-700 font-semibold text-xs md:text-sm tracking-wide uppercase">{t("newOpportunity.eyebrow")}</span>
           </div>
           <h2 className="text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
             {t("newOpportunity.title1")}<br />

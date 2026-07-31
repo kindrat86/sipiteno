@@ -21,13 +21,13 @@ const Dream100 = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-block mb-4 md:mb-6 px-4 md:px-6 py-2 md:py-3 rounded-full bg-secondary/10 border border-secondary/20">
-              <span className="text-secondary font-semibold text-xs md:text-sm tracking-wide uppercase">
+              <span className="text-amber-700 font-semibold text-xs md:text-sm tracking-wide uppercase">
                 {t("dream100.eyebrow")}
               </span>
             </div>
             <h2 className="text-[clamp(1.75rem,4vw+0.5rem,3.5rem)] md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
               {t("dream100.title1")}{" "}
-              <span className="text-secondary">{t("dream100.title2")}</span>
+              <span className="text-amber-600">{t("dream100.title2")}</span>
             </h2>
             <p className="text-base md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
               {t("dream100.subtitle")}

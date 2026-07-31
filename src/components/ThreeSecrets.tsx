@@ -83,7 +83,7 @@ const ThreeSecrets = () => {
                     <Brain className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-xs md:text-xs font-bold text-secondary uppercase tracking-widest">
+                    <span className="text-xs md:text-xs font-bold text-amber-700 uppercase tracking-widest">
                       {t("threeSecrets.secret2Label")}
                     </span>
                     <h3 className="text-lg md:text-2xl font-bold leading-tight">

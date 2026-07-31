@@ -48,7 +48,7 @@ const EpiphanyBridge = () => {
             </div>
           </div>
           <div className="mt-10 md:mt-14 p-6 md:p-10 rounded-2xl md:rounded-3xl bg-gradient-to-br from-primary to-[hsl(var(--hero-gradient-to))] text-center text-white">
-            <p className="text-xs md:text-xs font-bold text-secondary uppercase tracking-widest mb-3 md:mb-4">{t("epiphanyBridge.bigDominoLabel")}</p>
+            <p className="text-xs md:text-xs font-bold text-amber-700 uppercase tracking-widest mb-3 md:mb-4">{t("epiphanyBridge.bigDominoLabel")}</p>
             <p className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight max-w-3xl mx-auto">
               {t("epiphanyBridge.bigDomino")}
             </p>

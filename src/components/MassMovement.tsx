@@ -30,7 +30,7 @@ const MassMovement = () => {
               <div className="text-destructive font-bold text-xs md:text-xs uppercase tracking-wide mb-3 md:mb-4">{t("massMovement.notForYou")}</div>
               <ul className="space-y-2 md:space-y-3 text-background/60 text-sm md:text-base">
                 {[1,2,3,4].map((i) => (
-                  <li key={i} className="flex items-start gap-2"><span className="text-destructive/70 flex-shrink-0">&#10005;</span><span>{t(`massMovement.notForYou${i}`)}</span></li>
+                  <li key={i} className="flex items-start gap-2"><span className="text-red-400 flex-shrink-0">&#10005;</span><span>{t(`massMovement.notForYou${i}`)}</span></li>
                 ))}
               </ul>
             </div>
