@@ -18,7 +18,9 @@ export default function CookieConsent() {
       if (!hasConsented()) {
         setVisible(true);
       } else {
-        // Returning visitor with stored consent — init services immediately
+        // Returning visitor with stored consent — init services immediately.
+        // (Visitors without analytics consent already run cookieless PostHog
+        // from main.tsx; nothing extra to start here.)
         const consent = getConsent();
         if (consent?.analytics) {
           initPostHogDeferred();

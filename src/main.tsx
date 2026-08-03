@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { initPostHogDeferred } from "./lib/posthog";
+import { initPostHogDeferred, initPostHogCookieless } from "./lib/posthog";
 import { initClarityDeferred } from "./lib/clarity";
 import { trackAiReferral } from "./lib/analytics";
 import { hasConsented, getConsent } from "./lib/consent";
@@ -25,15 +25,17 @@ detectLocaleFromUrl();
 
 createRoot(document.getElementById("root")!).render(<App />);
 
-// Only fire trackers if consent was previously given.
-// The CookieConsent banner handles first-time consent + re-init.
-if (hasConsented()) {
-  const consent = getConsent()!;
-  if (consent.analytics) {
-    initPostHogDeferred();
-    trackAiReferral();
-  }
-  if (consent.experience) {
-    initClarityDeferred();
-  }
+// Consent gates FULL tracking (cookies, cross-visit identity, Clarity).
+// Without analytics consent we still count anonymous pageviews via PostHog's
+// cookieless mode (in-memory persistence, no identifiers) — see lib/posthog.ts.
+// The CookieConsent banner handles first-time consent + upgrade.
+const consent = getConsent();
+if (consent?.analytics) {
+  initPostHogDeferred();
+  trackAiReferral();
+} else {
+  initPostHogCookieless();
+}
+if (hasConsented() && consent?.experience) {
+  initClarityDeferred();
 }
