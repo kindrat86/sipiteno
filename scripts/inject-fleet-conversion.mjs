@@ -31,7 +31,18 @@ const SKIP_DIRS = new Set([
 const PH_KEY = "phc_lyZCgvTpicjLzAO3rY2GhxuX5WUc5jQjP8ZVwwJqauX";
 const PH_HOST = "https://eu.i.posthog.com";
 
-const POSTHOG_SNIPPET = `<script data-sipiteno-fleet="posthog">window.__ph=function(ev,props){try{var did=localStorage.getItem("ph_fleet_did");if(!did){did=Math.random().toString(36).slice(2)+"-"+Date.now();localStorage.setItem("ph_fleet_did",did)}var p={$current_url:location.href,$pathname:location.pathname,$referrer:document.referrer,$lib:"fleet-lite"};if(props)for(var k in props)p[k]=props[k];fetch("${PH_HOST}/i/v0/e/",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({api_key:"${PH_KEY}",event:ev,distinct_id:did,properties:p,timestamp:new Date().toISOString()})}).catch(function(){})}catch(e){}};window.__ph("$pageview");</script>`;
+// NOTE: $host, $browser and $viewport_* are REQUIRED, not cosmetic. Every
+// portfolio traffic dashboard filters on `$host IN (...)`, `$browser IS NOT
+// NULL AND != 'Bot'` and `$viewport_height > 0`. Until 2026-08-07 this snippet
+// sent none of them, so ~46 pSEO pageviews/3wk were ingested but invisible to
+// every count — sipiteno looked emptier than it was. posthog-js sets these
+// itself; a hand-rolled sender has to.
+const POSTHOG_SNIPPET = `<script data-sipiteno-fleet="posthog">window.__ph=function(ev,props){try{var did=localStorage.getItem("ph_fleet_did");if(!did){did=Math.random().toString(36).slice(2)+"-"+Date.now();localStorage.setItem("ph_fleet_did",did)}var u=navigator.userAgent,b=u.indexOf("Edg/")>-1?"Microsoft Edge":u.indexOf("OPR/")>-1?"Opera":u.indexOf("Firefox/")>-1?"Firefox":u.indexOf("Chrome/")>-1?"Chrome":u.indexOf("Safari/")>-1?"Safari":"Other",w=window.innerWidth||0,h=window.innerHeight||0;var p={$host:location.host,$current_url:location.href,$pathname:location.pathname,$referrer:document.referrer,$browser:b,$raw_user_agent:u,$viewport_width:w,$viewport_height:h,$device_type:w&&w<768?"Mobile":"Desktop",$lib:"fleet-lite"};if(props)for(var k in props)p[k]=props[k];fetch("${PH_HOST}/i/v0/e/",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({api_key:"${PH_KEY}",event:ev,distinct_id:did,properties:p,timestamp:new Date().toISOString()})}).catch(function(){})}catch(e){}};window.__ph("$pageview");</script>`;
+
+// Matches any previously-injected snippet so fixes propagate to pages that
+// already carry one (the old logic only ever inserted when absent, which meant
+// a snippet bug froze permanently into every page already shipped).
+const POSTHOG_TAG_RE = /<script data-sipiteno-fleet="posthog">[\s\S]*?<\/script>/i;
 
 function captureBlock(pagePath) {
   return `<section data-sipiteno-fleet="capture" style="max-width:720px;margin:48px auto 32px;padding:28px 24px;border:1px solid #d8dee7;border-radius:12px;background:#f7f9fc;font-family:inherit">
@@ -69,7 +80,7 @@ function pageUrlPath(file) {
   return rel || "/";
 }
 
-let scanned = 0, uxjsDropped = 0, phAdded = 0, captureAdded = 0, changed = 0;
+let scanned = 0, uxjsDropped = 0, phAdded = 0, phUpdated = 0, captureAdded = 0, changed = 0;
 for (const file of walk(ROOT)) {
   scanned++;
   let html = readFileSync(file, "utf8");
@@ -80,8 +91,14 @@ for (const file of walk(ROOT)) {
   html = html.replace(/[ \t]*<script[^>]*src=["']\/ux\.js["'][^>]*>\s*<\/script>\n?/gi, "");
   if (html !== before) uxjsDropped++;
 
-  // 2. PostHog snippet
-  if (!html.includes('data-sipiteno-fleet="posthog"') && !html.includes(PH_KEY)) {
+  // 2. PostHog snippet — refresh in place if present, else insert
+  if (POSTHOG_TAG_RE.test(html)) {
+    const refreshed = html.replace(POSTHOG_TAG_RE, POSTHOG_SNIPPET);
+    if (refreshed !== html) {
+      html = refreshed;
+      phUpdated++;
+    }
+  } else if (!html.includes(PH_KEY)) {
     if (/<\/head>/i.test(html)) {
       html = html.replace(/<\/head>/i, POSTHOG_SNIPPET + "\n</head>");
       phAdded++;
@@ -105,4 +122,4 @@ for (const file of walk(ROOT)) {
     changed++;
   }
 }
-console.log(`fleet-inject: scanned=${scanned} changed=${changed} uxjsDropped=${uxjsDropped} posthogAdded=${phAdded} captureAdded=${captureAdded}`);
+console.log(`fleet-inject: scanned=${scanned} changed=${changed} uxjsDropped=${uxjsDropped} posthogAdded=${phAdded} posthogUpdated=${phUpdated} captureAdded=${captureAdded}`);
