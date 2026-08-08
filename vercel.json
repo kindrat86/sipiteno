@@ -47,6 +47,10 @@
       "destination": "/learn/:slug/index.html"
     },
     {
+      "source": "/guides/:slug",
+      "destination": "/guides/:slug/index.html"
+    },
+    {
       "source": "/use-cases/:slug",
       "destination": "/use-cases/:slug/index.html"
     },

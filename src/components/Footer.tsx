@@ -40,6 +40,7 @@ const Footer = () => {
     { label: t("footer.caseStudies"), to: "/case-studies" },
     { label: t("footer.pricing"), to: "/pricing" },
     { label: t("footer.methodology"), to: "/methodology" },
+    { label: "Market entry checklist", to: "/guides/market-entry-readiness-checklist" },
     { label: t("nav.glossary"), to: "/glossary" },
     { label: t("nav.alternatives"), to: "/alternatives" },
     { label: t("footer.blog"), to: "/blog" },

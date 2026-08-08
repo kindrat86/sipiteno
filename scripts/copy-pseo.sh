@@ -7,8 +7,9 @@ for country in albania armenia azerbaijan bosnia-and-herzegovina bulgaria croati
     test -f "$country/$svc/index.html" && mkdir -p "dist/$country/$svc" && cp -n "$country/$svc/index.html" "dist/$country/$svc/index.html" 2>/dev/null
   done
 done
-# Copy learn pages
-for d in learn; do
+# Copy editorial guides and learn pages. These are intentionally small,
+# curated content clusters rather than another generated location matrix.
+for d in guides learn; do
   for html in "$d"/*/index.html; do
     test -f "$html" || continue
     slug=$(basename $(dirname "$html"))
