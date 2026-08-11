@@ -41,9 +41,17 @@ if grep -rqE "compares favorably to [A-Za-z]+'s [0-9]" dist; then
 # "fine" — the violation is only visible in the markup. This gate makes the fix
 # self-enforcing: any future change that re-hides the prerendered block fails
 # the build instead of reaching production.
-if grep -rqE 'clip:rect\(0 0 0 0\)|clip-path:inset\(50%\)|width:1px;height:1px;overflow:hidden' dist; then
-  echo "PREDEPLOY FAIL: hidden-text/cloaking CSS present in dist/ — see scripts/prerender.mjs" >&2
-  grep -rlE 'clip:rect\(0 0 0 0\)|clip-path:inset\(50%\)|width:1px;height:1px;overflow:hidden' dist | head -5 >&2
+#
+# Scope: INLINE styles in HTML only. Deliberately NOT the compiled CSS, because
+# Tailwind's `sr-only` utility uses the same declarations legitimately — the
+# skip-link and "required" form labels on this site are sr-only and must keep
+# working. Screen-reader-only text is explicitly permitted; hiding the page's
+# own body content is not. A gate that false-positives on a11y utilities gets
+# switched off by the next person who hits it, so it only scans what matters.
+CLOAK_RE='style="[^"]*(clip:rect\(0 0 0 0\)|clip-path:inset\(50%\)|width:1px;height:1px;overflow:hidden)'
+if grep -rlIE --include='*.html' "$CLOAK_RE" dist >/dev/null 2>&1; then
+  echo "PREDEPLOY FAIL: hidden-text/cloaking inline style in dist/ HTML — see scripts/prerender.mjs" >&2
+  grep -rlIE --include='*.html' "$CLOAK_RE" dist | head -5 >&2
   exit 1
 fi
 # The same injector emitted a fabricated E-E-A-T byline ("By The Data Nerd,
