@@ -31,6 +31,30 @@ if grep -rq "like Poland or India" dist; then
 if grep -rqE "compares favorably to [A-Za-z]+'s [0-9]" dist; then
   echo "PREDEPLOY FAIL: broken price self-comparison present in dist/"; exit 1; fi
 
+# --- hidden-text / cloaking gate (spam policy) ---
+# On 2026-08-11 prerender.mjs was found wrapping the ENTIRE prerendered body —
+# h1, content, everything — in
+#   position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)
+# with aria-hidden="true", on 230 of 446 URLs including the homepage. That is
+# hidden text under Google's spam policies, and it shipped for months because
+# nothing checked the built bytes. curl and a browser both render the page
+# "fine" — the violation is only visible in the markup. This gate makes the fix
+# self-enforcing: any future change that re-hides the prerendered block fails
+# the build instead of reaching production.
+if grep -rqE 'clip:rect\(0 0 0 0\)|clip-path:inset\(50%\)|width:1px;height:1px;overflow:hidden' dist; then
+  echo "PREDEPLOY FAIL: hidden-text/cloaking CSS present in dist/ — see scripts/prerender.mjs" >&2
+  grep -rlE 'clip:rect\(0 0 0 0\)|clip-path:inset\(50%\)|width:1px;height:1px;overflow:hidden' dist | head -5 >&2
+  exit 1
+fi
+# The same injector emitted a fabricated E-E-A-T byline ("By The Data Nerd,
+# Sipiteno Research") on every prerendered page and inside llms-full.txt, which
+# is the file served to AI assistants. There is no such author. Never re-add it.
+if grep -rq "The Data Nerd" dist; then
+  echo "PREDEPLOY FAIL: fabricated author byline present in dist/" >&2
+  grep -rl "The Data Nerd" dist | head -5 >&2
+  exit 1
+fi
+
 # --- structured-data gate (~/.growth-engine/GUARDRAILS.md rule 3) ---
 # Broken JSON-LD in dist/ is a landmine of exactly the kind this script exists
 # to catch: it is introduced by the pSEO copy + inject-disambiguation steps, so

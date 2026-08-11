@@ -84,13 +84,6 @@ const INDUSTRIES = [
 // Must be module-scoped so both buildPage() and writeLocaleVariants() can access them.
 const ACTIVE_LOCALES = [
   { code: 'en', name: 'English' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'es', name: 'Español' },
-  { code: 'fr', name: 'Français' },
-  { code: 'it', name: 'Italiano' },
-  { code: 'ku', name: 'Kurdî' },
-  { code: 'lt', name: 'Lietuvių' },
-  { code: 'ro', name: 'Română' },
 ];
 const NON_EN_LOCALES = ACTIVE_LOCALES.filter(l => l.code !== 'en');
 
@@ -201,19 +194,16 @@ function buildPage({ title, description, canonicalUrl, schemas = [], breadcrumbs
   }
 
   // INJECT BODY CONTENT — critical for crawlers that don't render JS.
-  // Place SEO content inside #root so React hydrates over it cleanly.
-  // Use <noscript> wrapper + hidden div so it doesn't flash visually on hydration.
-  // Always emit an E-E-A-T byline (rel="author" + class="author" + visible "Updated"
-  // date) so the growth-engine crawler's AUTHOR_RE + DATE_RE fire on every page,
-  // crediting C2 (E-E-A-T) and C7 (freshness). Uses the pseudonymous brand byline.
-  // Byline goes AFTER the body content: crawlers and answer engines judge the
-  // FIRST paragraph (C1 answer-first). Metadata-first openings fail that check;
-  // the author/date markup still credits C2/C7 wherever it appears on the page.
-  const byline = `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="${MODIFIED}">Updated ${MODIFIED}</time> · Published ${PUBLISHED}</p>`;
-  const seoBlock = (bodyContent || "") + byline;
+  // Place SEO content inside #root; React's createRoot().render() replaces it
+  // on hydration. The block is VISIBLE (plain prerendered HTML) until then —
+  // never hidden. Hiding it (clip/1px/aria-hidden) is hidden text under
+  // Google's spam policies and was live on 52% of URLs until 2026-08-11.
+  // NO author byline: the previous "By The Data Nerd, Sipiteno Research"
+  // byline was a fabricated E-E-A-T signal and must not be re-added.
+  const seoBlock = bodyContent || "";
   html = html.replace(
     /<div id="root"><\/div>/,
-    `<div id="root"><div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap" aria-hidden="true">\n${seoBlock}\n      </div></div>`
+    `<div id="root"><div class="prerender-content" style="max-width:72rem;margin:0 auto;padding:2rem 1.5rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.6">\n${seoBlock}\n      </div></div>`
   );
 
   return html;
@@ -538,13 +528,13 @@ function writeLocaleVariants(pathSegments, canonicalUrl, title, description, bod
       }
     }
 
-    // Inject body content for crawlers
+    // Inject body content for crawlers — VISIBLE until React hydration replaces
+    // it. Never hide (spam policy) and never add a fabricated author byline.
     if (bodyContent) {
-      const byline = `<p class="author-byline"><span class="author" rel="author">By The Data Nerd, Sipiteno Research</span> · <time datetime="${MODIFIED}">Updated ${MODIFIED}</time> · Published ${PUBLISHED}</p>`;
-      const seoBlock = bodyContent + byline;
+      const seoBlock = bodyContent;
       html = html.replace(
         /<div id="root"><\/div>/,
-        `<div id="root"><div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap" aria-hidden="true">\n${seoBlock}\n      </div></div>`
+        `<div id="root"><div class="prerender-content" style="max-width:72rem;margin:0 auto;padding:2rem 1.5rem;font-family:system-ui,-apple-system,sans-serif;line-height:1.6">\n${seoBlock}\n      </div></div>`
       );
     }
 
