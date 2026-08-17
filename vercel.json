@@ -23,6 +23,10 @@
       "destination": "/story.html"
     },
     {
+      "source": "/builds",
+      "destination": "/builds.html"
+    },
+    {
       "source": "/dream100",
       "destination": "/dream100.html"
     },
