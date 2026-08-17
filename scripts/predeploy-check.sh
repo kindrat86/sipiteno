@@ -23,6 +23,17 @@ entry=$(grep -o 'src="/assets/[^"]*\.js"' dist/index.html | head -1 | sed 's|src
 test -n "$entry" || fail "no /assets/*.js reference in dist/index.html"
 test -f "dist/$entry" || fail "referenced entry bundle dist/$entry missing"
 
+# --- standalone-page guard (added after /builds 404'd in production) -------
+# Root-level standalone pages are copied into dist/ by scripts/copy-pseo.sh
+# and routed to clean URLs by vercel.json rewrites. When a page drops out of
+# the copy list (or is untracked in git, so commit-export deploys never ship
+# it), every deploy "succeeds" while the clean URL 404s live — exactly what
+# happened to /builds (the X-profile link) on 2026-08-17. Fail the build.
+for page in builds calculator story market-entry-scorecard affiliates dream100; do
+  test -f "dist/$page.html" || fail "dist/$page.html missing — standalone page not copied (check copy-pseo.sh list + git tracking)"
+  grep -q "\"source\": \"/$page\"" vercel.json || fail "vercel.json has no /$page rewrite — clean URL would 404"
+done
+
 echo "PREDEPLOY OK: dist sanity checks passed (entry: $entry)"
 
 # --- scaled-content-artifact guard (added by answer-engine task) ---
