@@ -18,7 +18,6 @@
 - [Methodology](https://sipiteno.com/methodology)
 - [Blog (6 posts)](https://sipiteno.com/blog)
 - [Answers / FAQ (21 Q&As)](https://sipiteno.com/answers)
-- [FAQ](https://sipiteno.com/faq)
 - [Industries Overview](https://sipiteno.com/industries)
 - [All Locations](https://sipiteno.com/locations)
 - [AI Consulting](https://sipiteno.com/services/ai-consulting)
@@ -84,28 +83,19 @@ Educational content for expanding into emerging markets. Total: 8 pages.
 
 ## Free Interactive Tools
 
-- [Market Entry Scorecard](https://sipiteno.com/market-entry-scorecard): Score all 28 emerging markets for your product in 60 seconds. Free, no sign-up.
 - [Free Resources Hub](https://sipiteno.com/free/): AI readiness assessment, automation audit, ROI calculator.
 
 ## Market Entry Guides (Industry × Country)
 
 252 industry-specific market entry guides covering 9 industries across 28 countries:
 
-- [Expand SaaS to Poland](https://sipiteno.com/expand-to/saas-software/poland)
-- [Expand Fintech to Lithuania](https://sipiteno.com/expand-to/fintech-financial-services/lithuania)
-- [Expand AI/ML to Estonia](https://sipiteno.com/expand-to/ai-machine-learning/estonia)
-- [Expand to Georgia (SaaS)](https://sipiteno.com/expand-to/saas-software/georgia)
-- [Expand E-Commerce to Romania](https://sipiteno.com/expand-to/ecommerce-retail-tech/romania)
-- ...and 247 more at [All Market Entry Guides](https://sipiteno.com/expand-to/)
 
 ## Distribution & Reach
 
 - Sitemap: https://sipiteno.com/sitemap.xml (500+ total pages)
 - robots.txt: https://sipiteno.com/robots.txt
 - llms-full.txt: https://sipiteno.com/llms-full.txt
-- agents.md: https://sipiteno.com/agents.md
 - IndexNow key: https://sipiteno.com/36c569de4e73c7f56a67fa365be2f95f.txt
-- Bing WMT verification: https://sipiteno.com/BingSiteAuth.xml
 
 ## AI Agent Integration
 

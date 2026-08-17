@@ -137,9 +137,12 @@ lines.append(f"")
 lines.append(f"- Sitemap: {DOMAIN}/sitemap.xml ({count_dir('best')+count_dir('how-to')+count_dir('business')+count_dir('for')+count_dir('glossary')+count_dir('alternatives-to')+count_dir('locations')+count_dir('industries')+count_dir('services')+count_dir('vs')+count_dir('use-cases')+count_dir('learn')+count_dir('free')+count_dir('integrations')+count_dir('pricing-questions')} total pages)")
 lines.append(f"- robots.txt: {DOMAIN}/robots.txt")
 lines.append(f"- llms-full.txt: {DOMAIN}/llms-full.txt")
-lines.append(f"- agents.md: {DOMAIN}/agents.md")
+# Removed 2026-08-11: both 404. llms.txt is the file handed to AI crawlers;
+# advertising URLs that do not resolve wastes crawl budget and reads as a
+# broken site. Re-add only once the file actually ships.
+# lines.append(f"- agents.md: {DOMAIN}/agents.md")
 lines.append(f"- IndexNow key: {DOMAIN}/36c569de4e73c7f56a67fa365be2f95f.txt")
-lines.append(f"- Bing WMT verification: {DOMAIN}/BingSiteAuth.xml")
+# lines.append(f"- Bing WMT verification: {DOMAIN}/BingSiteAuth.xml")
 lines.append(f"")
 
 # AI agent integration

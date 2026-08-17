@@ -23,6 +23,10 @@
       "destination": "/story.html"
     },
     {
+      "source": "/builds",
+      "destination": "/builds.html"
+    },
+    {
       "source": "/dream100",
       "destination": "/dream100.html"
     },
@@ -61,6 +65,22 @@
     {
       "source": "/api/nlweb",
       "destination": "/api/nlweb"
+    },
+    {
+      "source": "/agent-hq",
+      "destination": "/agent-hq.html"
+    },
+    {
+      "source": "/agent-hq/approvals",
+      "destination": "/agent-hq/approvals.html"
+    },
+    {
+      "source": "/agent-hq/audit",
+      "destination": "/agent-hq/audit.html"
+    },
+    {
+      "source": "/agent-hq/detail",
+      "destination": "/agent-hq/detail.html"
     },
     {
       "source": "/alternatives-to/:slug",
@@ -225,14 +245,6 @@
     {
       "source": "/data/(.*)",
       "destination": "/data/$1/index.html"
-    },
-    {
-      "source": "/:locale(de|es|fr|it|ku|lt|ro)",
-      "destination": "/:locale/index.html"
-    },
-    {
-      "source": "/:locale(de|es|fr|it|ku|lt|ro)/:path*",
-      "destination": "/:locale/:path*/index.html"
     },
     {
       "source": "/(.*)",
@@ -424,6 +436,51 @@
     {
       "source": "/answers",
       "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/best/([^/]+)-in-([^/]+)",
+      "destination": "/$2/$1",
+      "permanent": true
+    },
+    {
+      "source": "/cost-analysis/([^/]+)-in-([^/]+)",
+      "destination": "/$2/$1",
+      "permanent": true
+    },
+    {
+      "source": "/hire/([^/]+)-in-([^/]+)",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/industries/([^/]+)-in-([^/]+)",
+      "destination": "/industries/$1",
+      "permanent": true
+    },
+    {
+      "source": "/integrations/:slug",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/business/:slug",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/how-to/:slug",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|es|fr|it|ku|lt|ro)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(de|es|fr|it|ku|lt|ro)/:path*",
+      "destination": "/:path*",
       "permanent": true
     }
   ]
