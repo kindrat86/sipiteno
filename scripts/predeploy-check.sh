@@ -34,6 +34,8 @@ for page in builds calculator story market-entry-scorecard affiliates dream100; 
   grep -q "\"source\": \"/$page\"" vercel.json || fail "vercel.json has no /$page rewrite — clean URL would 404"
 done
 
+node scripts/verify-footer-crosspromo.mjs || fail "dist/index.html has an invalid portfolio footer"
+
 echo "PREDEPLOY OK: dist sanity checks passed (entry: $entry)"
 
 # --- scaled-content-artifact guard (added by answer-engine task) ---
