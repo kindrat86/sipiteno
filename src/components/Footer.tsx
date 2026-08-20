@@ -3,6 +3,18 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useState, useEffect } from "react";
 
+const PORTFOLIO_LINKS = [
+  { label: "GitDealFlow", href: "https://gitdealflow.com/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+  { label: "VC Deal Flow Signal", href: "https://signals.gitdealflow.com/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+  { label: "Invisible Exit", href: "https://invisibleexit.com/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+  { label: "UnlockSaaS", href: "https://unlocksaas.com/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+  { label: "VoiceLogPro", href: "https://voicelogpro.com/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+  { label: "CarShake", href: "https://carshake.online/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+  { label: "ChurnLens", href: "https://churnlens.site/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+  { label: "SanctionsAI", href: "https://sanctionsai.dev/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+  { label: "sipi.bot", href: "https://sipi.bot/?utm_source=sipiteno.com&utm_medium=referral&utm_campaign=portfolio_crosspromo&utm_content=footer" },
+] as const;
+
 const Footer = () => {
   const { t } = useTranslation();
   const year = new Date().getFullYear();
@@ -158,6 +170,30 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className="border-t border-white/15 py-6">
+          <p className="mb-2 text-center text-xs font-semibold uppercase tracking-wider text-white/70">
+            More from Sipiteno
+          </p>
+          <nav
+            aria-label="More products from Sipiteno"
+            data-portfolio-cross-promo="v1"
+            data-portfolio-origin="sipiteno.com"
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1"
+          >
+            {PORTFOLIO_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] items-center px-1 py-2 text-xs text-white/70 transition-colors hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
 
         <div className="border-t border-white/15 pt-6 text-center text-sm text-white/75">
