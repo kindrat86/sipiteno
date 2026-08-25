@@ -26,7 +26,7 @@ const iconMap: Record<string, React.ElementType> = {
 const CountryServicePage = ({ country, service, serviceLabel }: CountryServicePageProps) => {
   const title = `${serviceLabel} in ${country.name} | Sipiteno - ${country.techHub}`;
   const canonicalUrl = `https://sipiteno.com/locations/${country.slug}/${service.serviceSlug}`;
-  const description = `Sipiteno provides ${service.serviceName.toLowerCase()} services in ${country.name}. ${country.opportunity.substring(0, 120)}. Based in ${country.capital} with local teams across ${country.region}.`;
+  const description = `Sipiteno provides ${service.serviceName.toLowerCase()} services in ${country.name} through remote delivery. ${country.opportunity.substring(0, 120)}.`;
 
   const schema = servicePageSchema({
     name: `${serviceLabel} in ${country.name}`,

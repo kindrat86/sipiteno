@@ -56,7 +56,7 @@ const CountryServicePage = () => {
 
   const title = `${serviceLabel} in ${country.name} | Sipiteno Consulting`;
   const canonicalUrl = `https://sipiteno.com/locations/${country.slug}/${service.serviceSlug}`;
-  const description = `Sipiteno provides ${service.serviceName.toLowerCase()} in ${country.name}. ${country.opportunity.substring(0, 100)} Local team in ${country.capital}.`;
+  const description = `Sipiteno provides ${service.serviceName.toLowerCase()} in ${country.name} through remote delivery. ${country.opportunity.substring(0, 100)}`;
 
   const schema = servicePageSchema({
     name: `${serviceLabel} in ${country.name}`,
