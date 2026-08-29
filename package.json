@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/guard-positioning.mjs && vite build && node scripts/prerender.mjs && bash scripts/copy-pseo.sh && node scripts/generate-sitemap.mjs && node scripts/inject-disambiguation.mjs && node scripts/answer-engine.mjs && bash scripts/predeploy-check.sh && bash scripts/sync-vercel-prebuilt.sh",
+    "build": "node scripts/guard-positioning.mjs && vite build && node scripts/prerender.mjs && bash scripts/copy-pseo.sh && node scripts/consolidate-location-service-family.mjs && node scripts/generate-sitemap.mjs && node scripts/inject-disambiguation.mjs && node scripts/answer-engine.mjs && bash scripts/predeploy-check.sh && bash scripts/sync-vercel-prebuilt.sh",
     "guard:positioning": "node scripts/guard-positioning.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",

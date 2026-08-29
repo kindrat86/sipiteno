@@ -388,6 +388,11 @@
   ],
   "redirects": [
     {
+      "source": "/locations/:country(albania|armenia|azerbaijan|bosnia-and-herzegovina|bulgaria|croatia|cyprus|czech-republic|estonia|ethiopia|georgia|greece|hungary|india|kazakhstan|kyrgyzstan|latvia|lithuania|moldova|montenegro|north-macedonia|poland|romania|serbia|slovakia|slovenia|ukraine|uzbekistan)/:service(ai-consulting|business-development|digital-marketing|it-consulting|project-management|sales-funnel)",
+      "destination": "/:country/:service",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

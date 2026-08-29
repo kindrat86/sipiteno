@@ -110,7 +110,7 @@ const LocationPage = () => {
               {ALL_SERVICE_SLUGS.map(s => {
                 const label = serviceLabels[s] || s.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase());
                 return (
-                  <Link key={s} to={`/locations/${country.slug}/${s}`}>
+                  <Link key={s} to={`/${country.slug}/${s}`}>
                     <Card className="h-full border-2 hover:border-primary/30 transition-colors group">
                       <CardHeader>
                         <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
