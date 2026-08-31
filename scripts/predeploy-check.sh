@@ -83,3 +83,6 @@ fi
 # it. That is how "Unparsable structured data" reached Search Console on
 # voicelogpro.com. verify-jsonld.mjs exits non-zero on any bad block.
 node scripts/verify-jsonld.mjs dist || fail "dist/ contains invalid JSON-LD (see verify-jsonld output above)"
+
+# --- directive-scoped analytics CSP gate ---
+node scripts/check-csp.mjs || fail "vercel.json has an invalid analytics CSP (see check-csp output above)"
