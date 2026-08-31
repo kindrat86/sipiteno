@@ -12,15 +12,18 @@ const checker = resolve(scriptsDir, 'check-csp.mjs');
 
 const restrictiveEmbedPolicy = "default-src 'none'; style-src 'unsafe-inline'; img-src https: data:; frame-ancestors *";
 
-function appPolicy({ includeScriptAssets = true } = {}) {
+function appPolicy({ includeScriptAssets = true, includeClarityWildcard = true } = {}) {
   const scriptAssets = includeScriptAssets
     ? ' https://eu-assets.i.posthog.com https://us-assets.i.posthog.com'
     : '';
+  const clarityCollector = includeClarityWildcard
+    ? 'https://*.clarity.ms'
+    : 'https://t.clarity.ms';
 
   return [
     "default-src 'self'",
     `script-src 'self' 'unsafe-inline' https://eu.i.posthog.com https://us.i.posthog.com${scriptAssets}`,
-    "connect-src 'self' https://eu.i.posthog.com https://us.i.posthog.com https://eu-assets.i.posthog.com https://us-assets.i.posthog.com https://t.clarity.ms",
+    `connect-src 'self' https://eu.i.posthog.com https://us.i.posthog.com https://eu-assets.i.posthog.com https://us-assets.i.posthog.com ${clarityCollector}`,
     "frame-ancestors 'none'",
   ].join('; ');
 }
@@ -70,6 +73,13 @@ test('rejects PostHog asset hosts that appear only in connect-src', () => {
   assert.equal(result.status, 1, result.stderr || result.stdout);
   assert.match(result.stderr, /script-src is missing https:\/\/eu-assets\.i\.posthog\.com/);
   assert.match(result.stderr, /wrong directive/);
+});
+
+test('rejects fixed Clarity collector shards without the load-balancing wildcard', () => {
+  const result = runFixture({ policies: [appPolicy({ includeClarityWildcard: false })] });
+
+  assert.equal(result.status, 1, result.stderr || result.stdout);
+  assert.match(result.stderr, /connect-src is missing https:\/\/\*\.clarity\.ms/);
 });
 
 test('accepts a valid app policy', () => {

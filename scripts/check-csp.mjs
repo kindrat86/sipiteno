@@ -27,7 +27,7 @@ const REQUIRED = {
   'connect-src': {
     'https://eu-assets.i.posthog.com': 'posthog-js remote config fetch',
     'https://us-assets.i.posthog.com': 'posthog-js remote config fetch',
-    'https://t.clarity.ms': 'Clarity /collect session beacons',
+    'https://*.clarity.ms': 'Clarity load-balanced /collect session beacons',
   },
 };
 
