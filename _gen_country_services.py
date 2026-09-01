@@ -539,8 +539,6 @@ def buildPage(svc, c):
 <script type="application/ld+json">{json.dumps(breadcrumb_json, ensure_ascii=False)}</script>
 <script type="application/ld+json">{json.dumps(faq_json, ensure_ascii=False)}</script>
 <script type="application/ld+json">{json.dumps(service_json, ensure_ascii=False)}</script>
-<link rel="stylesheet" href="/ux.css">
-<script src="/ux.js" defer></script>
 <style>
 body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.65;color:#0a0a0a;max-width:760px;margin:0 auto;padding:2rem 1.25rem}}
 h1{{font-size:2.1rem;line-height:1.2;margin:.3em 0}}

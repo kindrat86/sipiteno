@@ -15,8 +15,17 @@
 //      that POSTs to /api/contact with a hidden `source` = page path, fires
 //      `playbook_requested` on success, and shows a mailto fallback on error
 //      (DOM-built, no innerHTML — Trusted Types safe).
+//   4. Drop the dead `<link rel="stylesheet" href="/ux.css">` tag — /ux.css
+//      was never shipped (no public/ux.css). It 404s and, because the 404
+//      body is HTML, Chrome rejects it with a strict-MIME console error on
+//      every fleet page. Same class as the /ux.js landmine in (1).
 //
 // Idempotent: guarded by data-sipiteno-fleet markers — safe to re-run.
+// The posthog AND capture-js snippets are REFRESHED IN PLACE when found, not
+// only inserted when absent: an insert-only guard froze a broken capture-js
+// (unbalanced parens from JSON.stringify -> "missing ) after argument list")
+// into all 345 fleet pages and it shipped to production. Never reintroduce an
+// insert-only guard for either snippet.
 // Run from repo root: node scripts/inject-fleet-conversion.mjs
 
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
@@ -43,6 +52,13 @@ const POSTHOG_SNIPPET = `<script data-sipiteno-fleet="posthog">window.__ph=funct
 // already carry one (the old logic only ever inserted when absent, which meant
 // a snippet bug froze permanently into every page already shipped).
 const POSTHOG_TAG_RE = /<script data-sipiteno-fleet="posthog">[\s\S]*?<\/script>/i;
+// Same freeze-trap, second instance: capture-js must refresh too. The stale
+// version shipped with `honeypot:""}})` — one closing paren short — throwing
+// "missing ) after argument list" in every visitor's console.
+const CAPTURE_JS_TAG_RE = /<script data-sipiteno-fleet="capture-js">[\s\S]*?<\/script>/i;
+// The capture BLOCK (section + form) is page-independent, so if the script is
+// present the block is too; refresh both by regenerating from the template.
+const CAPTURE_BLOCK_RE = /<section data-sipiteno-fleet="capture"[\s\S]*?<\/section>\s*<script data-sipiteno-fleet="capture-js">[\s\S]*?<\/script>/i;
 
 function captureBlock(pagePath) {
   return `<section data-sipiteno-fleet="capture" style="max-width:720px;margin:48px auto 32px;padding:28px 24px;border:1px solid #d8dee7;border-radius:12px;background:#f7f9fc;font-family:inherit">
@@ -56,7 +72,7 @@ function captureBlock(pagePath) {
   </form>
   <p data-fleet-msg style="display:none;margin:12px 0 0;font-size:.9rem"></p>
 </section>
-<script data-sipiteno-fleet="capture-js">window.__fleetCapture=function(e){e.preventDefault();var f=e.target,m=f.parentNode.querySelector("[data-fleet-msg]"),b=f.querySelector("button");if(f.honeypot.value)return false;b.disabled=true;b.textContent="Sending…";fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fullName:"Playbook Subscriber",companyName:"(pSEO fleet)",email:f.email.value,phone:"",country:"",service:"Free Expansion Playbook (pSEO Fleet)",message:"FLEET PLAYBOOK REQUEST from "+f.source.value+" — send the Emerging Markets Expansion Playbook.",honeypot:""}}).then(function(r){if(!r.ok)throw new Error(r.status);while(m.firstChild)m.removeChild(m.firstChild);m.style.display="block";m.style.color="#276749";m.appendChild(document.createTextNode("Check your inbox — the playbook is on its way."));f.email.value="";if(window.__ph)window.__ph("playbook_requested",{source:f.source.value});}).catch(function(){while(m.firstChild)m.removeChild(m.firstChild);m.style.display="block";m.style.color="#c53030";m.appendChild(document.createTextNode("Something broke — email us directly at "));var a=document.createElement("a");a.href="mailto:sales@sipiteno.com?subject=Free%20Expansion%20Playbook";a.style.color="#c53030";a.style.fontWeight="700";a.textContent="sales@sipiteno.com";m.appendChild(a);}).finally(function(){b.disabled=false;b.textContent="Get it";});return false};</script>`;
+<script data-sipiteno-fleet="capture-js">window.__fleetCapture=function(e){e.preventDefault();var f=e.target,m=f.parentNode.querySelector("[data-fleet-msg]"),b=f.querySelector("button");if(f.honeypot.value)return false;b.disabled=true;b.textContent="Sending…";fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({fullName:"Playbook Subscriber",companyName:"(pSEO fleet)",email:f.email.value,phone:"",country:"",service:"Free Expansion Playbook (pSEO Fleet)",message:"FLEET PLAYBOOK REQUEST from "+f.source.value+" — send the Emerging Markets Expansion Playbook.",honeypot:""})}).then(function(r){if(!r.ok)throw new Error(r.status);while(m.firstChild)m.removeChild(m.firstChild);m.style.display="block";m.style.color="#276749";m.appendChild(document.createTextNode("Check your inbox — the playbook is on its way."));f.email.value="";if(window.__ph)window.__ph("playbook_requested",{source:f.source.value});}).catch(function(){while(m.firstChild)m.removeChild(m.firstChild);m.style.display="block";m.style.color="#c53030";m.appendChild(document.createTextNode("Something broke — email us directly at "));var a=document.createElement("a");a.href="mailto:sales@sipiteno.com?subject=Free%20Expansion%20Playbook";a.style.color="#c53030";a.style.fontWeight="700";a.textContent="sales@sipiteno.com";m.appendChild(a);}).finally(function(){b.disabled=false;b.textContent="Get it";});return false};</script>`;
 }
 
 function* walk(dir) {
@@ -80,7 +96,7 @@ function pageUrlPath(file) {
   return rel || "/";
 }
 
-let scanned = 0, uxjsDropped = 0, phAdded = 0, phUpdated = 0, captureAdded = 0, changed = 0;
+let scanned = 0, uxjsDropped = 0, uxcssDropped = 0, phAdded = 0, phUpdated = 0, captureAdded = 0, captureUpdated = 0, changed = 0;
 for (const file of walk(ROOT)) {
   scanned++;
   let html = readFileSync(file, "utf8");
@@ -90,6 +106,12 @@ for (const file of walk(ROOT)) {
   const before = html;
   html = html.replace(/[ \t]*<script[^>]*src=["']\/ux\.js["'][^>]*>\s*<\/script>\n?/gi, "");
   if (html !== before) uxjsDropped++;
+
+  // 1b. drop dead /ux.css links — the file 404s and the HTML 404 body trips
+  // strict MIME checking in every browser console (CLAUDE.md: never /ux.css)
+  const beforeCss = html;
+  html = html.replace(/[ \t]*<link[^>]*href=["']\/ux\.css["'][^>]*>\n?/gi, "");
+  if (html !== beforeCss) uxcssDropped++;
 
   // 2. PostHog snippet — refresh in place if present, else insert
   if (POSTHOG_TAG_RE.test(html)) {
@@ -106,7 +128,15 @@ for (const file of walk(ROOT)) {
   }
 
   // 3. capture block above footer (fallback: before </body>)
-  if (!html.includes('data-sipiteno-fleet="capture"')) {
+  if (CAPTURE_BLOCK_RE.test(html)) {
+    // refresh in place — repairs pages carrying a stale/broken snippet
+    const pagePath = pageUrlPath(file);
+    const refreshed = html.replace(CAPTURE_BLOCK_RE, () => captureBlock(pagePath));
+    if (refreshed !== html) {
+      html = refreshed;
+      captureUpdated++;
+    }
+  } else if (!html.includes('data-sipiteno-fleet="capture"')) {
     const block = captureBlock(pageUrlPath(file));
     if (/<footer[\s>]/i.test(html)) {
       html = html.replace(/<footer[\s>]/i, (m) => block + "\n" + m);
@@ -122,4 +152,4 @@ for (const file of walk(ROOT)) {
     changed++;
   }
 }
-console.log(`fleet-inject: scanned=${scanned} changed=${changed} uxjsDropped=${uxjsDropped} posthogAdded=${phAdded} posthogUpdated=${phUpdated} captureAdded=${captureAdded}`);
+console.log(`fleet-inject: scanned=${scanned} changed=${changed} uxjsDropped=${uxjsDropped} uxcssDropped=${uxcssDropped} posthogAdded=${phAdded} posthogUpdated=${phUpdated} captureAdded=${captureAdded} captureUpdated=${captureUpdated}`);
