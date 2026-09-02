@@ -18,6 +18,7 @@ if grep -Eq '<link[^>]*href="[^"]*ux\.css"' dist/index.html; then fail "dist/ind
 if grep -v '^\s*//' vite.config.ts | grep -q "manualChunks"; then fail "vite.config.ts contains manualChunks — known white-screen landmine"; fi
 test -f dist/404.html || fail "dist/404.html missing — branded 404 not copied"
 test -f dist/sitemap.xml || fail "dist/sitemap.xml missing"
+node scripts/check-dropped-service-redirects.mjs || fail "dropped service redirects are incomplete"
 # Entry JS bundle referenced by index.html must exist on disk
 entry=$(grep -o 'src="/assets/[^"]*\.js"' dist/index.html | head -1 | sed 's|src="/||;s|"||')
 test -n "$entry" || fail "no /assets/*.js reference in dist/index.html"

@@ -444,6 +444,26 @@
       "permanent": true
     },
     {
+      "source": "/:country(albania|armenia|azerbaijan|bosnia-and-herzegovina|bulgaria|croatia|cyprus|czech-republic|estonia|ethiopia|georgia|greece|hungary|india|kazakhstan|kyrgyzstan|latvia|lithuania|moldova|montenegro|north-macedonia|poland|romania|serbia|slovakia|slovenia|ukraine|uzbekistan)/b2b-partnerships",
+      "destination": "/:country/business-development",
+      "permanent": true
+    },
+    {
+      "source": "/:country(albania|armenia|azerbaijan|bosnia-and-herzegovina|bulgaria|croatia|cyprus|czech-republic|estonia|ethiopia|georgia|greece|hungary|india|kazakhstan|kyrgyzstan|latvia|lithuania|moldova|montenegro|north-macedonia|poland|romania|serbia|slovakia|slovenia|ukraine|uzbekistan)/market-entry",
+      "destination": "/:country/business-development",
+      "permanent": true
+    },
+    {
+      "source": "/portugal/b2b-partnerships",
+      "destination": "/services/business-development",
+      "permanent": true
+    },
+    {
+      "source": "/portugal/market-entry",
+      "destination": "/services/business-development",
+      "permanent": true
+    },
+    {
       "source": "/best/([^/]+)-in-([^/]+)",
       "destination": "/$2/$1",
       "permanent": true
