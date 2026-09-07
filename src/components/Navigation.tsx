@@ -151,7 +151,6 @@ const Navigation = () => {
           <div
             ref={navRef}
             className="hidden md:flex items-center gap-1"
-            role="menubar"
           >
             {navItems.map((group) => {
               const isOpen = openGroup === group.groupKey;
@@ -185,7 +184,6 @@ const Navigation = () => {
                           key={item.labelKey}
                           onClick={() => handleNavAction(item)}
                           className="w-full text-left px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
-                          role="menuitem"
                         >
                           {t(item.labelKey)}
                         </button>
@@ -237,7 +235,6 @@ const Navigation = () => {
             id="mobile-menu"
             ref={menuRef}
             className="fixed inset-x-0 top-16 bottom-0 md:hidden bg-background z-40 animate-slide-in-right overflow-y-auto overscroll-contain"
-            role="menu"
           >
             <div className="container mx-auto py-8 px-4 space-y-6 pb-[calc(env(safe-area-inset-bottom)+2rem)]">
               {navItems.map((group) => (
@@ -251,7 +248,6 @@ const Navigation = () => {
                         key={item.labelKey}
                         onClick={() => handleNavAction(item)}
                         className="w-full text-left px-4 py-4 text-base font-medium text-foreground hover:text-primary hover:bg-muted/50 rounded-xl transition-colors min-h-[48px] flex items-center"
-                        role="menuitem"
                       >
                         {t(item.labelKey)}
                       </button>
