@@ -62,6 +62,7 @@ TEMPLATE_BEFORE = '''<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f97316'/%3E%3Ctext x='32' y='44' font-size='38' text-anchor='middle' fill='white'%3ES%3C/text%3E%3C/svg%3E">
     <title>{service_name} in {country_name} — Sipiteno</title>
     <meta name="description" content="Sipiteno: {service_short} services in {country_name}. Strategic Business Development & AI Consulting across 28 emerging markets.">
     <link rel="canonical" href="https://sipiteno.com/{country_slug}/{service_slug}">

@@ -48,6 +48,7 @@ const POSTHOG_SNIPPET = `<script data-sipiteno-fleet="posthog">window.__ph=funct
 // a snippet bug froze permanently into every page already shipped).
 const POSTHOG_TAG_RE = /<script data-sipiteno-fleet="posthog">[\s\S]*?<\/script>/i;
 const CAPTURE_BLOCK_RE = /<section data-sipiteno-fleet="capture"[\s\S]*?<\/section>\s*<script data-sipiteno-fleet="capture-js">[\s\S]*?<\/script>/i;
+const FAVICON_TAG = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f97316'/%3E%3Ctext x='32' y='44' font-size='38' text-anchor='middle' fill='white'%3ES%3C/text%3E%3C/svg%3E">`;
 
 function captureBlock(pagePath) {
   return `<section data-sipiteno-fleet="capture" style="max-width:720px;margin:48px auto 32px;padding:28px 24px;border:1px solid #d8dee7;border-radius:12px;background:#f7f9fc;font-family:inherit">
@@ -85,7 +86,7 @@ function pageUrlPath(file, root = ROOT) {
   return rel || "/";
 }
 
-let scanned = 0, uxjsDropped = 0, uxcssDropped = 0, phUpdated = 0, captureUpdated = 0, changed = 0;
+let scanned = 0, uxjsDropped = 0, uxcssDropped = 0, faviconAdded = 0, phUpdated = 0, captureUpdated = 0, changed = 0;
 
 // copy-pseo.sh runs before this injector. Repair already-marked fleet pages in
 // dist without mutating committed source files or adding fleet UI to unrelated
@@ -103,6 +104,10 @@ if (existsSync(DIST)) for (const file of walk(DIST)) {
   const beforeCss = html;
   html = html.replace(/[ \t]*<link[^>]*href=["']\/ux\.css["'][^>]*>\n?/gi, "");
   if (html !== beforeCss) uxcssDropped++;
+  if (isFleetPage && !/<link[^>]*rel=["'](?:shortcut )?icon["']/i.test(html)) {
+    html = html.replace(/<\/head>/i, `${FAVICON_TAG}\n</head>`);
+    faviconAdded++;
+  }
 
   if (isFleetPage && POSTHOG_TAG_RE.test(html)) {
     const refreshed = html.replace(POSTHOG_TAG_RE, POSTHOG_SNIPPET);
@@ -124,4 +129,4 @@ if (existsSync(DIST)) for (const file of walk(DIST)) {
     changed++;
   }
 }
-console.log(`fleet-inject: scanned=${scanned} changed=${changed} uxjsDropped=${uxjsDropped} uxcssDropped=${uxcssDropped} posthogUpdated=${phUpdated} captureUpdated=${captureUpdated}`);
+console.log(`fleet-inject: scanned=${scanned} changed=${changed} uxjsDropped=${uxjsDropped} uxcssDropped=${uxcssDropped} faviconAdded=${faviconAdded} posthogUpdated=${phUpdated} captureUpdated=${captureUpdated}`);
