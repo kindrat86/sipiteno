@@ -63,7 +63,6 @@ TEMPLATE_BEFORE = '''<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>{service_name} in {country_name} — Sipiteno</title>
-<link rel="stylesheet" href="/ux.css">
     <meta name="description" content="Sipiteno: {service_short} services in {country_name}. Strategic Business Development & AI Consulting across 28 emerging markets.">
     <link rel="canonical" href="https://sipiteno.com/{country_slug}/{service_slug}">
     <link rel="alternate" hreflang="en" href="https://sipiteno.com/{country_slug}/{service_slug}" />
