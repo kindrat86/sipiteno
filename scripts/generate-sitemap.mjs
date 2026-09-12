@@ -16,7 +16,7 @@ const BASE = 'https://sipiteno.com';
 const LOCALES = ['de', 'es', 'fr', 'it', 'ku', 'lt', 'ro'];
 
 // Pages with noindex that should never appear in the sitemap
-const NOINDEX_PAGES = ['terms', 'privacy'];
+const NOINDEX_PAGES = ['terms', 'privacy', 'embed'];
 
 // Real per-page lastmod: instead of stamping every URL with "today" (which
 // changes on every deploy and teaches Google to distrust the signal), look
@@ -159,8 +159,8 @@ for (const filePath of htmlFiles) {
   // Skip locale root pages (de.html, es.html, etc.) — same content issue
   if (LOCALES.some(loc => relPath === loc + '.html' || relPath === loc + '/index.html')) continue;
 
-  // Skip noindex pages (terms, privacy) — they must never appear in the sitemap
-  if (NOINDEX_PAGES.some(np => relPath === np + '.html' || relPath === np + '/index.html')) continue;
+  // Skip noindex pages (terms, privacy, embed) — they must never appear in the sitemap
+  if (NOINDEX_PAGES.some(np => relPath === np + '.html' || relPath === np + '/index.html' || relPath.startsWith(np + '/'))) continue;
 
   let urlPath;
 
