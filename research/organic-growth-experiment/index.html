@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Organic Growth Experiment | Sipiteno</title>
+  <meta name="description" content="Sipiteno's public log of an organic growth experiment: what we measured, what failed, what we removed, and what happens next.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sipiteno.com/research/organic-growth-experiment">
+  <meta property="og:title" content="The Organic Growth Experiment | Sipiteno">
+  <meta property="og:description" content="Real search data, failed assumptions, pruning decisions, and monthly updates from Sipiteno.">
+  <meta property="og:url" content="https://sipiteno.com/research/organic-growth-experiment">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Sipiteno">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Organic Growth Experiment",
+    "description": "Sipiteno's public log of an organic growth experiment: what we measured, what failed, what we removed, and what happens next.",
+    "datePublished": "2026-09-15",
+    "dateModified": "2026-09-15",
+    "author": {"@type": "Organization", "name": "Sipiteno", "url": "https://sipiteno.com"},
+    "publisher": {"@type": "Organization", "name": "Sipiteno", "url": "https://sipiteno.com"},
+    "mainEntityOfPage": "https://sipiteno.com/research/organic-growth-experiment"
+  }
+  </script>
+  <style>
+    :root{color-scheme:dark;--bg:#08111f;--panel:#101d31;--line:#263752;--text:#e8eef8;--muted:#9aacbf;--accent:#8b9cff;--good:#63d6a6}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#132341 0,var(--bg) 38rem);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7}
+    a{color:#aeb9ff}.wrap{max-width:880px;margin:auto;padding:2rem 1.25rem 5rem}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5rem}.brand{font-weight:800;color:#fff;text-decoration:none}.back{font-size:.9rem;color:var(--muted)}
+    .eyebrow{color:var(--good);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2.5rem,8vw,5.5rem);line-height:1.02;letter-spacing:-.055em;margin:.7rem 0 1.5rem;max-width:13ch}h2{font-size:1.65rem;line-height:1.25;margin:3.5rem 0 1rem}h3{font-size:1.08rem;margin:0 0 .4rem}.lead{font-size:1.22rem;color:#c3cfdf;max-width:66ch}.meta{color:var(--muted);font-size:.9rem;margin-top:1.5rem}
+    .callout{border-left:3px solid var(--good);padding:1rem 1.25rem;background:rgba(99,214,166,.07);margin:2rem 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}.card{background:rgba(16,29,49,.88);border:1px solid var(--line);border-radius:14px;padding:1.2rem}.card p{margin:.3rem 0 0;color:var(--muted)}
+    table{border-collapse:collapse;width:100%;background:rgba(16,29,49,.88);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:table}th,td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}td:last-child{font-weight:750}tr:last-child td{border-bottom:0}.source{margin-top:1rem;font-size:.86rem;color:var(--muted)}footer{margin-top:5rem;padding-top:2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    @media(max-width:580px){header{margin-bottom:3rem}table{display:block;overflow-x:auto;white-space:nowrap}.wrap{padding-top:1.25rem}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header><a class="brand" href="/">Sipiteno</a><a class="back" href="/">Back to home</a></header>
+
+    <article>
+      <p class="eyebrow">Open experiment log</p>
+      <h1>The organic growth experiment</h1>
+      <p class="lead">We published far too many search pages, learned that ranking for weak queries is not growth, and started removing the machinery that created the problem. This is Sipiteno's public account of the baseline, the decisions, and the results.</p>
+      <p class="meta" data-source-id="publication">Published <time datetime="2026-09-15">15 September 2026</time>. Updated when the underlying measurements change.</p>
+
+      <div class="callout">
+        <strong>The uncomfortable finding:</strong> indexing was not the constraint. A page can rank and still be useless if it answers a query that no buyer asks. Our new operating metric is the number of pages that earn a click, not the number of pages that exist.
+      </div>
+
+      <h2>Where the experiment started</h2>
+      <p data-source-id="baseline">On <time datetime="2026-08-11">11 August 2026</time>, we measured the search performance of the portfolio that includes Sipiteno. The scale looked impressive until we compared it with actual traffic.</p>
+      <table aria-label="Portfolio search baseline" data-source-id="baseline">
+        <thead><tr><th>Baseline measure</th><th>Observed value</th></tr></thead>
+        <tbody>
+          <tr><td>Published URLs</td><td>16,691</td></tr>
+          <tr><td>Organic clicks in the trailing 28 days</td><td>134</td></tr>
+          <tr><td>Click-through rate</td><td>0.27%</td></tr>
+          <tr><td>URLs ranking in the top 10</td><td>2,921</td></tr>
+          <tr><td>Ranked URLs that earned a click</td><td>98</td></tr>
+          <tr><td>Published URLs that earned no click</td><td>99.4%</td></tr>
+        </tbody>
+      </table>
+      <p>The contradiction changed the strategy. Thousands of pages had achieved the technical outcome they were built for, but almost none had earned attention. Adding more pages would have multiplied the failure mode rather than solving it.</p>
+
+      <h2>What we stopped doing</h2>
+      <div class="grid">
+        <section class="card"><h3>Page count as progress</h3><p>A generated URL is now a liability until it demonstrates demand or carries unique data. Shipping volume is not reported as a win.</p></section>
+        <section class="card"><h3>Rank without demand</h3><p>Positions and impressions are diagnostic signals. They do not matter when the underlying query has no useful audience.</p></section>
+        <section class="card"><h3>Unsupported authority</h3><p>Fabricated bylines, office presence, and unsourced performance claims are being removed. Trust is harder to rebuild than a page.</p></section>
+      </div>
+
+      <h2>What changed on Sipiteno</h2>
+      <p>We removed hidden prerendered text, deleted a fabricated research byline, replaced false local-presence wording with remote-delivery language, consolidated duplicate country-service routes, and stopped advertising pages that did not exist. The work is deliberately subtractive.</p>
+      <p>The next phase is to publish fewer things that are independently useful: source manifests, downloadable evidence, decision tools, and honest postmortems. Every new indexable page must replace an existing weak page. This log replaces the old Dream list page.</p>
+
+      <h2>Latest measured state</h2>
+      <p data-source-id="latest">The current Sipiteno snapshot covers <time datetime="2026-08-16">16 August 2026</time> through <time datetime="2026-09-14">14 September 2026</time> and was measured on <time datetime="2026-09-15">15 September 2026</time>.</p>
+      <table aria-label="Latest Sipiteno search snapshot" data-source-id="latest">
+        <thead><tr><th>Measure</th><th>Observed value</th></tr></thead>
+        <tbody>
+          <tr><td>Sitemap URLs</td><td>280</td></tr>
+          <tr><td>Organic clicks</td><td>14</td></tr>
+          <tr><td>Search impressions</td><td>3,625</td></tr>
+          <tr><td>URLs earning a click</td><td>10</td></tr>
+          <tr><td>URLs ranking in the top 10</td><td>82</td></tr>
+          <tr><td>Indexed-and-impressed ratio</td><td>88.9%</td></tr>
+        </tbody>
+      </table>
+      <p>This is not a victory lap. Click volume remains small, and most top-ranked URLs still do not earn a click. The useful change is that the measurement now makes the failure visible and prevents us from hiding it behind page count.</p>
+
+      <h2>How to audit this log</h2>
+      <p>The measurements behind every number on this page are published as a machine-readable manifest. It records the observation window, value, source URL, and measurement time. When the data changes, the manifest and this page change together.</p>
+      <p class="source"><a href="/research/organic-growth-experiment/sources.json">Download the source manifest (JSON)</a></p>
+
+      <h2>What we expect to learn</h2>
+      <p>We are testing whether a smaller, more honest site can earn attention from a wider set of pages than a large templated site. Falling impressions can be healthy when low-value queries disappear. The signals that matter are clicked URLs, qualified demand, references from independent sites, and whether a useful artifact is downloaded or cited.</p>
+      <p>If those signals do not improve, the experiment should say so plainly. The point is not to make Sipiteno look right in retrospect. The point is to create evidence strong enough to change what we do next.</p>
+    </article>
+
+    <footer>Sipiteno publishes this log as an operational record, not as a promise of future search performance. <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a></footer>
+  </main>
+</body>
+</html>

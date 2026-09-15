@@ -107,6 +107,17 @@ function lastmodFor(urlPath) {
   if (first === 'blog' && second) {
     return maxDate(gitDate('src/data/blogTopics.ts'), gitDate('src/pages/BlogPost.tsx')) || gitDate(FALLBACK_FILE);
   }
+  if (first === 'research' && second === 'organic-growth-experiment') {
+    try {
+      const manifest = JSON.parse(readFileSync('research/organic-growth-experiment/sources.json', 'utf8'));
+      return manifest.published_at;
+    } catch {
+      return maxDate(
+        gitDate('research/organic-growth-experiment/index.html'),
+        gitDate('research/organic-growth-experiment/sources.json'),
+      ) || gitDate(FALLBACK_FILE);
+    }
+  }
   if (segs.length === 1 && HUB_FILES[first]) {
     return gitDate(HUB_FILES[first]) || gitDate(FALLBACK_FILE);
   }
