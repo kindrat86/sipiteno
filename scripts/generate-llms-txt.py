@@ -61,6 +61,21 @@ categories = [
 service_count = count_dir("services")
 industry_count = count_dir("industries")
 
+# 2026-09-19: llms.txt is now HAND-MAINTAINED from the live sitemap (all URLs
+# verified HTTP 200 on 2026-09-19). This generator predates the 2026-09-02
+# dropped-service redirects and the 2026-08-29 location-service consolidation,
+# so running it would reintroduce dead /best/*, /how-to/* and /business/* URLs
+# (23 URLs returning 308). Do NOT run it without first fixing:
+#   1. sections list still includes best/business/how-to families that now
+#      308-redirect (dropped service routes, vercel.json 1c7ccf71/7f5d4337)
+#   2. "plus 390+ pSEO pages below" hardcode (line ~95) counts families that
+#      no longer ship
+#   3. "Case Studies (12 detail pages)" / "Answers / FAQ (21 Q&As)" /
+#      "500+ total pages" claims predate the fabricated-case-study removal
+#      (da0ad634) and the 450->280 sitemap prune
+#   4. sitemap page-count sum (line ~137) still counts /use-cases, /integrations
+#      and /pricing-questions which no longer exist
+
 # Build llms.txt
 lines = []
 lines.append(f"# Sipiteno — AI Crawler Index")
