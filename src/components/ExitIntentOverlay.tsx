@@ -136,11 +136,12 @@ const ExitIntentOverlay = () => {
             <h3 className="text-2xl font-bold mb-2 leading-tight">{t("exitIntent.title")}</h3>
             <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{t("exitIntent.body")}</p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form method="post" onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label htmlFor="ei-name" className="text-sm">{t("exitIntent.nameLabel")}</Label>
                 <Input
                   id="ei-name"
+                name="ei-name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t("exitIntent.namePlaceholder")}
@@ -151,6 +152,7 @@ const ExitIntentOverlay = () => {
                 <Label htmlFor="ei-email" className="text-sm">{t("exitIntent.emailLabel")} <span className="text-destructive">*</span></Label>
                 <Input
                   id="ei-email"
+                name="ei-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -170,6 +172,7 @@ const ExitIntentOverlay = () => {
                 style={{ display: "none" }}
                 tabIndex={-1}
                 autoComplete="off"
+                aria-hidden="true"
               />
 
               {error && (
