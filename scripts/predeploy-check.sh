@@ -83,6 +83,17 @@ if grep -rq "The Data Nerd" dist; then
   exit 1
 fi
 
+# llms-full.txt integrity (2026-09-29): the July-vintage llms-full.txt was a raw
+# text-dump of stale prerendered pages that re-published the fabricated
+# "local teams in <capital>" claims truthified out of the real pages on 08-15
+# (8adc19e4) and 08-22 (6118b3a1). It is now a sitemap-derived, HTTP-200-verified
+# index (scripts/generate-llms-full-txt.py). This gate makes a regression fail
+# the build instead of reaching AI crawlers.
+if grep -rqE "local teams in|active local teams" dist/llms-full.txt dist/llms.txt 2>/dev/null; then
+  echo "PREDEPLOY FAIL: fabricated local-presence claims back in llms*.txt — see scripts/generate-llms-full-txt.py" >&2
+  exit 1
+fi
+
 # --- structured-data gate (~/.growth-engine/GUARDRAILS.md rule 3) ---
 # Broken JSON-LD in dist/ is a landmine of exactly the kind this script exists
 # to catch: it is introduced by the pSEO copy + inject-disambiguation steps, so
