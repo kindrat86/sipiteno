@@ -480,8 +480,53 @@
       "permanent": true
     },
     {
-      "source": "/industries/([^/]+)-in-([^/]+)",
-      "destination": "/industries/$1",
+      "source": "/industries/:slug(agtech|agritech)",
+      "destination": "/industries/agtech-agriculture",
+      "permanent": true
+    },
+    {
+      "source": "/industries/:slug(ecommerce|e-commerce)",
+      "destination": "/industries/ecommerce-retail-tech",
+      "permanent": true
+    },
+    {
+      "source": "/industries/:slug(energy|renewables|greentech)",
+      "destination": "/industries/energy-renewables",
+      "permanent": true
+    },
+    {
+      "source": "/industries/:slug(fintech)",
+      "destination": "/industries/fintech-financial-services",
+      "permanent": true
+    },
+    {
+      "source": "/industries/:slug(healthtech|health)",
+      "destination": "/industries/healthcare-medtech",
+      "permanent": true
+    },
+    {
+      "source": "/industries/:slug(logistics|supplychain)",
+      "destination": "/industries/logistics-supply-chain",
+      "permanent": true
+    },
+    {
+      "source": "/industries/:slug(telecommunications|telecom)",
+      "destination": "/industries/cybersecurity",
+      "permanent": true
+    },
+    {
+      "source": "/:country(albania|armenia|azerbaijan|bosnia-and-herzegovina|bulgaria|croatia|cyprus|czech-republic|estonia|ethiopia|georgia|greece|hungary|india|kazakhstan|kyrgyzstan|latvia|lithuania|moldova|montenegro|north-macedonia|poland|romania|serbia|slovakia|slovenia|ukraine|uzbekistan)/digital-transformation",
+      "destination": "/:country/it-consulting",
+      "permanent": true
+    },
+    {
+      "source": "/:country(albania|armenia|azerbaijan|bosnia-and-herzegovina|bulgaria|croatia|cyprus|czech-republic|estonia|ethiopia|georgia|greece|hungary|india|kazakhstan|kyrgyzstan|latvia|lithuania|moldova|montenegro|north-macedonia|poland|romania|serbia|slovakia|slovenia|ukraine|uzbekistan)/tech-recruiting",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/:n([0-9]+)",
+      "destination": "/case-studies",
       "permanent": true
     },
     {
