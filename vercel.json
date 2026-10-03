@@ -515,6 +515,21 @@
       "permanent": true
     },
     {
+      "source": "/industries/(saas|software)-in-([^/]+)",
+      "destination": "/industries/saas-software",
+      "permanent": true
+    },
+    {
+      "source": "/industries/(automotive|mobility)-in-([^/]+)",
+      "destination": "/industries/manufacturing-industry-4",
+      "permanent": true
+    },
+    {
+      "source": "/industries/(manufacturing|industry4|industry-4)-in-([^/]+)",
+      "destination": "/industries/manufacturing-industry-4",
+      "permanent": true
+    },
+    {
       "source": "/:country(albania|armenia|azerbaijan|bosnia-and-herzegovina|bulgaria|croatia|cyprus|czech-republic|estonia|ethiopia|georgia|greece|hungary|india|kazakhstan|kyrgyzstan|latvia|lithuania|moldova|montenegro|north-macedonia|poland|romania|serbia|slovakia|slovenia|ukraine|uzbekistan)/digital-transformation",
       "destination": "/:country/it-consulting",
       "permanent": true
