@@ -480,37 +480,37 @@
       "permanent": true
     },
     {
-      "source": "/industries/:slug(agtech|agritech)",
+      "source": "/industries/(agtech|agritech)-in-[^/]+",
       "destination": "/industries/agtech-agriculture",
       "permanent": true
     },
     {
-      "source": "/industries/:slug(ecommerce|e-commerce)",
+      "source": "/industries/(ecommerce|e-commerce)-in-[^/]+",
       "destination": "/industries/ecommerce-retail-tech",
       "permanent": true
     },
     {
-      "source": "/industries/:slug(energy|renewables|greentech)",
+      "source": "/industries/(energy|renewables|greentech)-in-[^/]+",
       "destination": "/industries/energy-renewables",
       "permanent": true
     },
     {
-      "source": "/industries/:slug(fintech)",
+      "source": "/industries/fintech-in-[^/]+",
       "destination": "/industries/fintech-financial-services",
       "permanent": true
     },
     {
-      "source": "/industries/:slug(healthtech|health)",
+      "source": "/industries/(healthtech|health)-in-[^/]+",
       "destination": "/industries/healthcare-medtech",
       "permanent": true
     },
     {
-      "source": "/industries/:slug(logistics|supplychain)",
+      "source": "/industries/(logistics|supplychain|supply-chain)-in-[^/]+",
       "destination": "/industries/logistics-supply-chain",
       "permanent": true
     },
     {
-      "source": "/industries/:slug(telecommunications|telecom)",
+      "source": "/industries/(telecommunications|telecom)-in-[^/]+",
       "destination": "/industries/cybersecurity",
       "permanent": true
     },
