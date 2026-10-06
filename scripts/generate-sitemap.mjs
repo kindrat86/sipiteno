@@ -7,7 +7,7 @@
  * and writes a complete sitemap.xml to dist/sitemap.xml.
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, realpathSync } from 'fs';
 import { join, relative, dirname, basename } from 'path';
 import { execSync } from 'child_process';
 
@@ -17,6 +17,40 @@ const LOCALES = ['de', 'es', 'fr', 'it', 'ku', 'lt', 'ro'];
 
 // Pages with noindex that should never appear in the sitemap
 const NOINDEX_PAGES = ['terms', 'privacy', 'embed'];
+
+// Deploy-context guard (2026-10-06): production deploys build inside `git
+// archive` exports that have no .git/, so every gitDate() lookup below fails
+// and the whole sitemap gets stamped with the build date. Live evidence:
+// 2026-09-29→10-03 a redirect-only change restamped 279/280 URLs, teaching
+// Google that sitemap lastmod is meaningless on this domain. In a git-less
+// context we therefore keep the COMMITTED public/sitemap.xml (generated in
+// the real repo, where git works) when its URL set matches this build, and
+// FAIL the build when it does not — a changed URL set must never ship with
+// build-date lastmods silently.
+// True only when git can answer for THIS repo: a .git must exist here AND
+// `git rev-parse --show-toplevel` must resolve to this exact directory.
+// Without the toplevel check, a git-less deploy export nested under any git
+// work tree (e.g. ~/.hermes, this Mac's config repo) silently borrows the
+// PARENT repo's dates — verified live in a git-archive export test.
+function gitWorksHere() {
+  if (!existsSync(join(process.cwd(), '.git'))) return false;
+  try {
+    // Constant command string, no interpolation (lint: exec-safety noted).
+    const top = execSync('git rev-parse --show-toplevel', { cwd: process.cwd(), encoding: 'utf8' }).trim();
+    if (!top) return false;
+    return realpathSync(top) === realpathSync(process.cwd());
+  } catch {
+    return false;
+  }
+}
+
+function readCommittedSitemap() {
+  const p = join(process.cwd(), 'public', 'sitemap.xml');
+  return existsSync(p) ? readFileSync(p, 'utf8') : null;
+}
+function locSet(xml) {
+  return new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]));
+}
 
 // Real per-page lastmod: instead of stamping every URL with "today" (which
 // changes on every deploy and teaches Google to distrust the signal), look
@@ -256,6 +290,34 @@ const urlEntries = sortedUrls.map(url => {
     <priority>${priority}</priority>
   </url>`;
 }).join('\n');
+
+// In git-archive deploy exports there is no .git/ at the export root, so
+// every gitDate() above returns null and urlEntries would carry `today` on
+// all 280 rows. Detect that context with the toplevel-anchored probe.
+const gitWorks = gitWorksHere();
+
+if (!gitWorks) {
+  const committedXml = readCommittedSitemap();
+  if (!committedXml) {
+    console.error('FATAL: git-less build context (deploy export?) and no committed public/sitemap.xml exists. Generate the sitemap inside the real repo, commit it, then deploy that commit.');
+    process.exit(1);
+  }
+  const committedSet = locSet(committedXml);
+  const generatedSet = new Set(sortedUrls);
+  const onlyInBuild = [...generatedSet].filter(u => !committedSet.has(u));
+  const onlyCommitted = [...committedSet].filter(u => !generatedSet.has(u));
+  if (onlyInBuild.length || onlyCommitted.length) {
+    console.error('FATAL: this build\'s URL set differs from committed public/sitemap.xml, and this git-less deploy context cannot generate truthful lastmods. Shipping build-date lastmods on a changed URL set would poison the signal.');
+    if (onlyInBuild.length) console.error(`  in build, not in committed sitemap (${onlyInBuild.length}): ${onlyInBuild.slice(0, 10).join(' ')}${onlyInBuild.length > 10 ? ' ...' : ''}`);
+    if (onlyCommitted.length) console.error(`  in committed sitemap, not in build (${onlyCommitted.length}): ${onlyCommitted.slice(0, 10).join(' ')}${onlyCommitted.length > 10 ? ' ...' : ''}`);
+    console.error('  Fix: run `npm run build` in the real repo, verify dist/sitemap.xml, commit public/sitemap.xml, deploy from that commit.');
+    process.exit(1);
+  }
+  // URL sets match: ship the committed sitemap with its truthful per-page lastmods.
+  writeFileSync(join(DIST, 'sitemap.xml'), committedXml);
+  console.log(`✓ sitemap.xml: ${sortedUrls.length} URLs — git-less build context: kept committed public/sitemap.xml (URL set verified identical, truthful lastmods preserved)`);
+  process.exit(0);
+}
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
