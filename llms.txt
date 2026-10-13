@@ -77,37 +77,8 @@ Each country hub links to six service pages: /{country}/ai-consulting,
   a public, sourced log of this site's own organic search numbers and fixes.
   Machine-readable sources at /research/organic-growth-experiment/sources.json.
 
-## Audience Pages
-
-- [For Agencies](https://sipiteno.com/for/agencies)
-- [For Agencies Scaling Up](https://sipiteno.com/for/agencies-scaling)
-- [For AI Startups Hiring](https://sipiteno.com/for/ai-startups-hiring)
-- [For Ecommerce](https://sipiteno.com/for/ecommerce)
-- [For Enterprise Teams](https://sipiteno.com/for/enterprise-teams)
-- [For Fintech Companies](https://sipiteno.com/for/fintech-companies)
-- [For Healthtech](https://sipiteno.com/for/healthtech)
-- [For SaaS Companies](https://sipiteno.com/for/saas-companies)
-- [For Scaleups](https://sipiteno.com/for/scaleups)
-- [For Series A Startups](https://sipiteno.com/for/series-a-startups)
-- [For Startups](https://sipiteno.com/for/startups)
-- ...and 3 more in the sitemap
-
-## Competitor Comparisons
-
-- [Sipiteno vs Arc.dev](https://sipiteno.com/vs/arc-dev)
-- [Sipiteno vs Crew](https://sipiteno.com/vs/crew)
-- [Sipiteno vs Deel](https://sipiteno.com/vs/deel)
-- [Sipiteno vs Gun.io](https://sipiteno.com/vs/gun-io)
-- [Sipiteno vs Lemon.io](https://sipiteno.com/vs/lemon-io)
-- [Sipiteno vs Toptal](https://sipiteno.com/vs/toptal)
-- [Sipiteno vs Turing](https://sipiteno.com/vs/turing)
-- [Sipiteno vs Upwork](https://sipiteno.com/vs/upwork)
-
 ## Alternatives
 
-- [Alternatives to Crew](https://sipiteno.com/alternatives-to/crew)
-- [Alternatives to Gun.io](https://sipiteno.com/alternatives-to/gun-io)
-- [Alternatives to Lemon.io](https://sipiteno.com/alternatives-to/lemon-io)
 - [Alternatives to Toptal](https://sipiteno.com/alternatives-to/toptal)
 - [Alternatives to Turing](https://sipiteno.com/alternatives-to/turing)
 - [All alternatives](https://sipiteno.com/alternatives)

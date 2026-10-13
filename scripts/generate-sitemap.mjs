@@ -16,7 +16,9 @@ const BASE = 'https://sipiteno.com';
 const LOCALES = ['de', 'es', 'fr', 'it', 'ku', 'lt', 'ro'];
 
 // Pages with noindex that should never appear in the sitemap
-const NOINDEX_PAGES = ['terms', 'privacy', 'embed'];
+// (2026-10-13): /vs/* and /for/* consolidated via 308 (zero impressions in
+// trailing 28d) — the families are redirects now, never sitemap entries.
+const NOINDEX_PAGES = ['terms', 'privacy', 'embed', 'vs', 'for'];
 
 // Deploy-context guard (2026-10-06): production deploys build inside `git
 // archive` exports that have no .git/, so every gitDate() lookup below fails

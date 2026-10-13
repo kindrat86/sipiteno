@@ -420,6 +420,21 @@
       "permanent": true
     },
     {
+      "source": "/vs/:slug",
+      "destination": "/alternatives-to/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/for",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/for/:slug(agencies|agencies-scaling|ai-startups-hiring|e-commerce|ecommerce|enterprise|enterprise-teams|fintech|fintech-companies|healthtech|saas-companies|scaleups|series-a-startups|startups)",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
       "source": "/referral",
       "destination": "/",
       "permanent": true
