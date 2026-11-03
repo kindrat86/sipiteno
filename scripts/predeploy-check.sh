@@ -104,3 +104,14 @@ node scripts/verify-jsonld.mjs dist || fail "dist/ contains invalid JSON-LD (see
 
 # --- directive-scoped analytics CSP gate ---
 node scripts/check-csp.mjs || fail "vercel.json has an invalid analytics CSP (see check-csp output above)"
+
+# --- unconfirmed-claims gate (directive sipiteno-claims, 2026-11-03) -------
+# Maryan did not confirm these claims; they were removed site-wide on
+# 2026-11-03. Any page, schema, or asset in dist/ that still carries one of
+# the banned variants fails the build so they can never ship again.
+if grep -rlnIE '50\+ (technology )?companies|50\+ (completed |real |B2B |market |successful )?(projects|products|entries|builds)|first deal in 11 weeks|average.{0,40}11 weeks|47[- ]pages?|47 pp\b|usually \$97|\$97 value|founded in 2009|since 2009|Gegründet 2009|gegründet 2009|Fondé en 2009|fondée en 2009|Fundada en 2009|fondata nel 2009|Fondata nel 2009|įkurta 2009|Fondată în 2009|Damezrandin.*2009|foundingDate"?: ?"2009' dist >/dev/null 2>&1; then
+  echo "PREDEPLOY FAIL: unconfirmed claim variant present in dist/ (50+/11-weeks/47-page/\$97/2009) — see directive sipiteno-claims 2026-11-03" >&2
+  grep -rlnIE '50\+ (technology )?companies|50\+ (completed |real |B2B |market |successful )?(projects|products|entries|builds)|first deal in 11 weeks|average.{0,40}11 weeks|47[- ]pages?|47 pp\b|usually \$97|\$97 value|founded in 2009|since 2009|foundingDate"?: ?"2009' dist | head -5 >&2
+  exit 1
+fi
+echo "PREDEPLOY OK: no unconfirmed claim variants (50+/11-weeks/47-page/\$97/2009) in dist/"

@@ -8,13 +8,18 @@ const MAX_LEN = { fullName: 200, companyName: 200, email: 320, phone: 50, countr
 
 // Sent to anyone who requests the expansion playbook from the pSEO fleet forms.
 // Content is the same market-entry material as the Sipiteno email sequence; every
-// claim here is drawn from sipiteno.com's own published positioning. Deliberately
-// NOT claimed: a "emailed PDF" — no such asset exists in this repo, so promising a
-// document rather than the notes themselves would repeat the original defect.
+// claim here is drawn from sipiteno.com's own published positioning. Since
+// 2026-11-03 the promised artifact is real: /playbook.pdf, generated from the
+// site's own 28 location scorecards (scripts/gen_playbook_pdf.py). The email
+// leads with the download link and keeps the essay as the belief-builder.
 const PLAYBOOK_HTML = `<div style="font-family:Inter,Arial,sans-serif;background:#0f172a;padding:24px 12px">
 <div style="max-width:560px;margin:0 auto;background:#1e293b;border:1px solid #334155;border-radius:12px;padding:26px">
-<h2 style="color:#f8fafc;font-size:1.25rem;margin:0 0 14px">Why expansion stalls in month three</h2>
-<p style="color:#cbd5e1;line-height:1.7;font-size:15px;margin:0 0 14px">Thanks for asking. Here are the notes I'd want you to have before you pick a market — the same material I'd open a paid engagement with.</p>
+<h2 style="color:#f8fafc;font-size:1.25rem;margin:0 0 14px">Your Expansion Playbook is ready</h2>
+<div style="text-align:center;margin:0 0 18px">
+<a href="https://sipiteno.com/playbook.pdf" style="display:inline-block;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 32px;border-radius:12px;font-weight:700;text-decoration:none;font-size:1rem">Download the Playbook (PDF, 14 pages)</a>
+<p style="color:#94a3b8;font-size:0.8rem;margin:10px 0 0">All 28 country scorecards, the 3-Door Expansion System, and the engagement ladder.</p>
+</div>
+<p style="color:#cbd5e1;line-height:1.7;font-size:15px;margin:0 0 14px">Thanks for asking. Before you open it, here are the notes I'd want you to have before you pick a market — the same material I'd open a paid engagement with.</p>
 <p style="color:#cbd5e1;line-height:1.7;font-size:15px;margin:0 0 14px">The usual pattern: a company researches, picks a country, translates the site, hires a local contractor, and waits. Three months later there's no pipeline and the conclusion is "that market isn't ready". The market was ready. The introduction was missing.</p>
 <p style="color:#cbd5e1;line-height:1.7;font-size:15px;margin:0 0 14px">Across Central &amp; Eastern Europe, the Caucasus and Central Asia, very little moves through cold outreach. Deals move through someone who already holds the relationship and will lend it to you. That's the actual distribution channel, and it's invisible from a spreadsheet in another country.</p>
 <h3 style="color:#f8fafc;font-size:1rem;margin:22px 0 10px">Three assumptions that don't travel</h3>
@@ -34,7 +39,7 @@ const PLAYBOOK_HTML = `<div style="font-family:Inter,Arial,sans-serif;background
 <p style="color:#cbd5e1;line-height:1.7;font-size:15px;margin:0 0 14px">If you tell me the country and what you sell, I'll reply with a straight answer on whether it's a good first move. Just reply to this email — it reaches me.</p>
 <hr style="border:0;border-top:1px solid #334155;margin:22px 0 14px">
 <p style="color:#94a3b8;font-size:0.8rem;line-height:1.6;margin:0">Maryan &middot; Sipiteno &middot; <a href="https://sipiteno.com" style="color:#38bdf8;text-decoration:none">sipiteno.com</a><br>
-Business development and AI consulting for expansion across 28 emerging markets. You're getting this because you requested the expansion notes at sipiteno.com.</p>
+Business development and AI consulting for expansion across 28 emerging markets. You're getting this because you requested the Expansion Playbook at sipiteno.com. If you'd rather not hear from us again, <a href="https://sipiteno.com/api/unsubscribe?email={{EMAIL}}&amp;audience=20e999c8-10ce-443b-b96a-70761bbdb607&amp;from=Sipiteno" style="color:#38bdf8">unsubscribe in one click</a>.</p>
 </div></div>`;
 
 export default async function handler(req, res) {
@@ -122,7 +127,14 @@ export default async function handler(req, res) {
     // NOTE: sipiteno.com is not a verified Resend sending domain (only the other 8
     // portfolio domains are), which is why this goes out from the already-verified
     // leads@gitdealflow.com address the site's own notification mail uses.
+    // 2026-11-03 (Expert Secrets audit): the playbook now actually exists — a real
+    // PDF generated from the site's own published location scorecards at
+    // /playbook.pdf — so the email links the artifact itself instead of only the
+    // notes. Every playbook opt-in is also added to the Resend "Sipiteno" audience
+    // (best-effort, never blocks the reply) so the list this funnel promises
+    // finally starts to exist.
     let requester_sent = false;
+    let subscribed = false;
     if (/playbook/i.test(String(service || "")) || /playbook/i.test(String(message || ""))) {
       try {
         const r2 = await fetch("https://api.resend.com/emails", {
@@ -132,8 +144,8 @@ export default async function handler(req, res) {
             from: process.env.CONTACT_FROM || "Sipiteno <leads@gitdealflow.com>",
             to: [email],
             reply_to: "sales@sipiteno.com",
-            subject: "Your emerging-markets expansion notes (and why entries stall in month three)",
-            html: PLAYBOOK_HTML,
+            subject: "Your Expansion Playbook (and why entries stall in month three)",
+            html: PLAYBOOK_HTML.replaceAll("{{EMAIL}}", encodeURIComponent(email)),
           }),
         });
         requester_sent = r2.ok;
@@ -141,8 +153,26 @@ export default async function handler(req, res) {
       } catch (e) {
         console.error("Playbook send threw", e.message);
       }
+      // Persist the opt-in to the owned list. The visitor explicitly requested
+      // the playbook ("Get the Playbook Now" / "Send Me The Playbook"), so this
+      // is a direct sign-up, not scraped or third-party data. Audience ID is the
+      // Resend "Sipiteno" audience; can be overridden without a redeploy.
+      try {
+        const audienceId = process.env.RESEND_SIPITENO_AUDIENCE_ID || "20e999c8-10ce-443b-b96a-70761bbdb607";
+        const r3 = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+          method: "POST",
+          headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+          body: JSON.stringify({ email, first_name: fullName || undefined, unsubscribed: false }),
+        });
+        // 201 = created, 200/409-class = already exists (Resend returns 422 on dupes
+        // with an audience_exists error) — both fine. Anything else: log, never fail.
+        subscribed = r3.ok || r3.status === 422;
+        if (!subscribed) console.error("Audience add failed", r3.status);
+      } catch (e) {
+        console.error("Audience add threw", e.message);
+      }
     }
-    res.status(200).json({ ok: true, requester_sent });
+    res.status(200).json({ ok: true, requester_sent, subscribed });
   } catch (err) {
     console.error("Contact send failed", err);
     res.status(502).json({ error: "Email delivery failed" });

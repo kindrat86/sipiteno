@@ -50,7 +50,7 @@ const ro = {
     bullet3: "15+ ani de succese repetabile",
     cta: "Descarcă Playbook-ul Gratuit de Expansiune",
     ctaSecondary: "sau programează un call strategic gratuit de 30 min →",
-    noCreditCard: "Fără card bancar. Fără spam. PDF de 47 de pagini trimis în inbox în 5 minute.",
+    noCreditCard: "Fără card bancar. Fără spam. PDF de 14 de pagini trimis în inbox în 5 minute.",
     costDelay: "Fiecare lună de amânare este pipeline pe care nu-l vei vedea niciodată.",
     stat1: "",
     stat1Label: "",
@@ -122,7 +122,7 @@ const ro = {
     title1: "Am Ars Șase Luni de Runway Ca Să Învăț",
     title2: "O Lecție Brutală",
     backstory: "Povestea de Fundal",
-    backstoryBody: "În 2009, am mutat un produs SaaS în Europa de Est cu o singură convingere: dacă produsul e grozav, piața va veni. Aveam ingineria. Aveam foaia de parcurs. Aveam pitch deck-ul. Ce nu aveam era un singur număr de telefon care conta.",
+    backstoryBody: "La început, am mutat un produs SaaS în Europa de Est cu o singură convingere: dacă produsul e grozav, piața va veni. Aveam ingineria. Aveam foaia de parcurs. Aveam pitch deck-ul. Ce nu aveam era un singur număr de telefon care conta.",
     theWall: "Zidul",
     wallBody: "Șase luni mai târziu, nu semnasem niciun contract. Runway-ul sângera. Echipa era frustrată. Și cea mai rea parte? Produsul nu era problema. Competitori locali cu produse inferioare câștigau fiecare ofertă. Mă uitam cum tehnologia de calitate a doua ne mănânca cina — și nu puteam înțelege de ce.",
     wallBody2: "Eram pe punctul de a închide totul. Apoi am făcut o ultimă călătorie.",
@@ -141,7 +141,7 @@ const ro = {
     bigDomino: "Produsul tău nu este problema. Sistemul tău de intrare pe piață este.",
     bigDominoBody: "Tehnologia grozavă eșuează pe piețele emergente în fiecare zi — nu pentru că produsul e slab, ci pentru că fondatorul bate la uși când ar trebui să fie recomandat. Rezolvă sistemul, iar produsul se vinde singur.",
     ctaTitle: "Vrei sistemul gratuit?",
-    ctaBody: "Am împachetat întregul cadru în trei părți într-un playbook de 47 de pagini. Descarcă-l, citește-l în weekend și implementează-l singur — cu sau fără noi.",
+    ctaBody: "Am împachetat întregul cadru în trei părți într-un playbook de 14 de pagini. Descarcă-l, citește-l în weekend și implementează-l singur — cu sau fără noi.",
     ctaButton: "Descarcă Playbook-ul Gratuit",
   },
 
@@ -190,8 +190,8 @@ const ro = {
     tier1: "Nivelul 1",
     tier1Title: "Playbook de Expansiune",
     tier1Price: "GRATUIT",
-    tier1Note: "valoare $97",
-    tier1Desc: "PDF de 47 de pagini care acoperă toate cele 28 de piețe, fișe de intrare și cronologia noastră de expansiune rapidă de 4-8 săptămâni.",
+    tier1Note: "toate cele 28 de piețe",
+    tier1Desc: "PDF de 14 de pagini care acoperă toate cele 28 de piețe, fișe de intrare și cronologia noastră de expansiune rapidă de 4-8 săptămâni.",
     tier1Cta: "Descarcă Gratuit",
     tier2: "Nivelul 2",
     tier2Title: "Call de Strategie",
@@ -248,7 +248,7 @@ const ro = {
 
   // ===== LEAD MAGNET =====
   leadMagnet: {
-    badge: "Descărcare Gratuită — 47 de Pagini",
+    badge: "Descărcare Gratuită — 14 Pagini",
     title1: "Sistemul Exact din Spatele",
     title2: "Intrărilor pe Piață",
     title3: "— Într-un Singur PDF",
@@ -262,7 +262,7 @@ const ro = {
     inaction2: "Vei regreta că nu ai descărcat acest playbook când ai avut ocazia — și ai fi avut un avans de 6 luni.",
     inaction3: "Costul amânării: 6 luni de poziție pe piață, pierdute.",
     noSpam: "Fără spam. Te poți dezabona oricând. Nu vindem niciodată datele tale.",
-    formBadge: "GRATUIT — De obicei $97",
+    formBadge: "GRATUIT — fără card",
     formTitle: "Primește Playbook-ul Acum",
     formBody: "Introdu emailul și îți vom trimite PDF-ul direct în inbox.",
     firstName: "Prenume",
@@ -315,9 +315,9 @@ const ro = {
     item1Sub: "cu un partener senior (15+ ani în regiune)",
     item1Value: "$500",
     item1Desc: "Mapăm obiectivele tale de expansiune, calificăm 2-3 piețe țintă live și testăm abordarea ta actuală. Nu e un call de vânzări — e o sesiune de lucru.",
-    item2Title: "Playbook-ul de Expansiune (47 pp)",
+    item2Title: "Playbook-ul de Expansiune (14 pp)",
     item2Sub: "livrat instantaneu",
-    item2Value: "$97",
+    item2Value: "Inclus",
     item2Desc: "Fișe de intrare țară cu țară pentru toate cele 28 de piețe, cronologia noastră de expansiune rapidă de 4-8 săptămâni și repere reale de prețuri.",
     item3Title: "Fișă Personalizată de Evaluare a Pieței",
     item3Sub: "construită pentru primele 2 piețe",
@@ -431,7 +431,7 @@ const ro = {
   // ===== FOOTER =====
   footer: {
     company: "Sipiteno",
-    companyDesc: "Consultanță strategică de business development și tehnologie în 28 de țări din Europa, Caucaz și Asia Centrală. Fondată în 2009.",
+    companyDesc: "Consultanță strategică de business development și tehnologie în 28 de țări din Europa, Caucaz și Asia Centrală.",
     services: "Servicii",
     companyLinks: "Companie",
     contact: "Contact",
@@ -443,6 +443,7 @@ const ro = {
     industries: "Industrii",
     markets: "Piețe",
     caseStudies: "Studii de Caz",
+    story: "Povestea noastră",
     pricing: "Prețuri",
     methodology: "Metodologie",
     blog: "Blog",
@@ -468,19 +469,19 @@ const ro = {
 
   // ===== ABOUT PAGE =====
   about: {
-    title: "Despre Sipiteno | Povestea din 2009 a Unui Sistem de Expansiune în 28 de Țări",
-    description: "Cum o intrare eșuată pe piață din 2009 în Europa de Est a devenit Sipiteno — un sistem de expansiune în 28 de țări. O lecție brutală, trei piloni. Citește întreaga poveste.",
+    title: "Despre Sipiteno | Povestea a Unui Sistem de Expansiune în 28 de Țări",
+    description: "Cum o intrare eșuată pe piață în Europa de Est a devenit Sipiteno — un sistem de expansiune în 28 de țări. O lecție brutală, trei piloni. Citește întreaga poveste.",
     eyebrow: "Povestea Sipiteno",
     heroTitle1: "De la o Intrare Eșuată pe Piață la un",
     heroTitle2: "Sistem de Expansiune în 28 de Țări",
-    heroBody: "În 2009, fondatorul nostru a mutat un produs SaaS în Europa de Est convins că „dacă produsul e grozav, piața va veni.” Șase luni mai târziu: zero oferte, runway care sângera și o lecție brutală care a devenit Sipiteno.",
+    heroBody: "La început, fondatorul nostru a mutat un produs SaaS în Europa de Est convins că „dacă produsul e grozav, piața va veni.” Șase luni mai târziu: zero oferte, runway care sângera și o lecție brutală care a devenit Sipiteno.",
     stat1: "", stat1Label: "",
     stat2: "", stat2Label: "",
     stat3: "15+", stat3Label: "Ani în Regiune",
     stat4: "", stat4Label: "Satisfacția Clienților",
-    backstoryLabel: "Povestea de Fundal — 2009",
+    backstoryLabel: "Povestea de Fundal",
     backstoryTitle: "Când Produsele Grozave Eșuează pe Piețe Noi",
-    backstory1: "În 2009, conduceam o companie SaaS. Aveam tracțiune puternică în Europa de Vest, iar următoarea mișcare logică era Estul — în economiile în rapidă digitalizare ale Europei de Est, Caucazului și Asiei Centrale. Aveam echipa de inginerie, o foaie de parcurs solidă pentru produs și un pitch deck care câștigase investitori occidentali.",
+    backstory1: "Atunci, conduceam o companie SaaS. Aveam tracțiune puternică în Europa de Vest, iar următoarea mișcare logică era Estul — în economiile în rapidă digitalizare ale Europei de Est, Caucazului și Asiei Centrale. Aveam echipa de inginerie, o foaie de parcurs solidă pentru produs și un pitch deck care câștigase investitori occidentali.",
     backstory2: "M-am înșelat complet în privința a ceea ce conta.",
     backstory3: "Șase luni mai târziu, nu închisesem niciun contract enterprise. Runway-ul nostru era redus la trei luni. Echipa era demoralizată. Și cea mai rea parte? Competitori locali cu produse inferioare câștigau fiecare ofertă. Mă uitam cum tehnologia de calitatea a doua ne mănânca cina — și nu puteam înțelege de ce.",
     backstory4: "Eram la câteva zile distanță de a închide totul când am făcut o ultimă călătorie: Tbilisi, Kiev, Almaty. Trei orașe. Trei piețe complet diferite. Același tipar.",
@@ -511,7 +512,7 @@ const ro = {
     v3Title: "Parteneriat Autentic",
     v3Desc: "Construim capacitatea ta locală astfel încât să nu fii niciodată dependent de noi. Transferul de cunoștințe face parte din fiecare angajament — din ziua întâi.",
     ctaTitle: "Vrei Sistemul Gratuit?",
-    ctaBody: "Am împachetat întregul cadru în trei părți — Recomandări, Hartă de Reglementare, Echipa de Execuție — într-un playbook de 47 de pagini. Descarcă-l, citește-l în weekend și implementează-l singur. Cu sau fără noi.",
+    ctaBody: "Am împachetat întregul cadru în trei părți — Recomandări, Hartă de Reglementare, Echipa de Execuție — într-un playbook de 14 de pagini. Descarcă-l, citește-l în weekend și implementează-l singur. Cu sau fără noi.",
   },
 
   // ===== LANGUAGE SWITCHER =====
@@ -523,7 +524,7 @@ const ro = {
 
   // ===== EXIT INTENT =====
   exitIntent: {
-    badde: "Așteaptă — Descărcare gratuită (47 pagini)",
+    badde: "Așteaptă — Descărcare gratuită (14 pagini)",
     title: "Nu pleca cu mâinile goale",
     body: "Primește gratuit Expansion Playbook — fișe de țară, ghid de reglementare și referințe de preț pentru toate cele 28 de piețe. Trimis în căsuța ta poștală în 5 minute.",
     nameLabel: "Prenume",

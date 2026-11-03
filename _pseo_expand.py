@@ -451,7 +451,7 @@ export const TEMPLATE_ITEMS: TemplateItem[] = [
       },
     ],
     callToAction: "Download the full editable checklist (Google Sheets) and the companion Expansion Playbook when you book a free 30-minute strategy call with Sipiteno. The call comes with a custom market scorecard for your top 2 markets, a preliminary regulatory assessment, and an honest recommendation on whether the market is right for you right now.",
-    metaDescription: "Free 28-point market entry checklist: pre-entry assessment, legal & regulatory setup, go-to-market foundation, and execution. Based on 50+ B2B market entries across 28 countries."
+    metaDescription: "Free 28-point market entry checklist: pre-entry assessment, legal & regulatory setup, go-to-market foundation, and execution. Built from hands-on B2B market-entry work across 28 countries."
   },
   {
     slug: "sales-funnel-setup-template",
@@ -1074,7 +1074,7 @@ const HowToListing = () => (
                 How-To <span className="text-emerald-500">Guides</span>
               </h1>
               <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Tactical, step-by-step guides for B2B expansion, sales automation, and product validation — based on 50+ real market entries.
+                Tactical, step-by-step guides for B2B expansion, sales automation, and product validation — drawn from real market-entry work.
               </p>
             </div>
           </section>
@@ -1239,7 +1239,7 @@ const TemplatesListing = () => (
                 Templates <span className="text-violet-500">& Frameworks</span>
               </h1>
               <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Free, battle-tested templates for B2B market entry and expansion. Based on 50+ real market entries across 28 countries.
+                Free, battle-tested templates for B2B market entry and expansion. Built from hands-on market-entry work across 28 countries.
               </p>
             </div>
           </section>
@@ -1416,7 +1416,7 @@ const TEMPLATE_ITEMS = [
     slug: "market-entry-checklist",
     shortTitle: "Market Entry Checklist",
     title: "Market Entry Checklist | Free 28-Point Expansion Readiness Template",
-    description: "Free 28-point market entry checklist: pre-entry assessment, legal & regulatory setup, go-to-market foundation, and execution. Based on 50+ B2B market entries across 28 countries.",
+    description: "Free 28-point market entry checklist: pre-entry assessment, legal & regulatory setup, go-to-market foundation, and execution. Built from hands-on B2B market-entry work across 28 countries.",
   },
   {
     slug: "sales-funnel-setup-template",
@@ -1541,7 +1541,7 @@ const SECTION_INDEXES = [
     title: "How-To Guides | SaaS Expansion, AI Automation & Market Entry",
     description: "Step-by-step tactical guides for B2B expansion: how to expand SaaS into Eastern Europe, build AI sales automation, choose a market entry partner, and validate SaaS ideas.",
     canonical: "https://sipiteno.com/how-to",
-    bodyContent: buildSectionIndex("how-to", "How-To Guides", "Tactical, step-by-step guides built from 50+ real market entries across 28 countries.", HOWTO_ITEMS, "shortTitle"),
+    bodyContent: buildSectionIndex("how-to", "How-To Guides", "Tactical, step-by-step guides built from market-entry work across 28 countries.", HOWTO_ITEMS, "shortTitle"),
   },
   {
     path: ["templates"],

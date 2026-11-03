@@ -526,7 +526,7 @@ def generate_for_block(section_slug):
 <p>Every engagement starts with a free 30-minute scoping call where we learn about your product vision, team composition, timeline, and budget. From there, we design a custom engagement model that fits your needs — whether that's a fixed-scope project, a dedicated team augmentation, or an end-to-end product partnership.</p>
 {extra}
 <h3>Proven Methodology</h3>
-<p>Across 50+ completed projects, we've maintained a strong satisfaction rating by focusing on three things: transparent communication, predictable delivery, and product quality that ships on time. We use agile methodologies adapted to each client's context — not a rigid playbook, but a disciplined approach with room for the creativity that great products require.</p>
+<p>We hold every engagement to three standards: transparent communication, predictable delivery, and product quality that ships on time. We use agile methodologies adapted to each client's context — not a rigid playbook, but a disciplined approach with room for the creativity that great products require.</p>
 <p><a href=\"https://sipiteno.com\">Book your free scoping call →</a></p>
 </section>"""
 
@@ -588,7 +588,7 @@ def generate_use_cases_block(slug):
     slug = slug or ""
     extra_map = {
         "agencies": "Agencies use Sipiteno to scale their delivery capacity on demand. When you win a project that exceeds your team's bandwidth, we become your white-label engineering arm — your brand, our execution. This model lets agencies take on larger clients and more complex projects without the overhead and risk of hiring full-time staff. We've helped agencies increase project throughput by 3x within the first quarter.",
-        "startups": "Startups face a unique challenge: building product fast enough to validate and iterate before runway runs out. Sipiteno's startup engagements are designed for speed — we typically deliver a functional MVP in 7 weeks. Our flat team structure means decisions happen in hours, not days, and our experience across 50+ products means we've already solved problems your startup hasn't encountered yet. The result: faster validation, lower burn rate, and a better product-market fit signal.",
+        "startups": "Startups face a unique challenge: building product fast enough to validate and iterate before runway runs out. Sipiteno's startup engagements are designed for speed — we typically deliver a functional MVP in 7 weeks. Our flat team structure means decisions happen in hours, not days, and we've already solved problems your startup hasn't encountered yet. The result: faster validation, lower burn rate, and a better product-market fit signal.",
         "enterprise": "Enterprise organizations need product partners who understand compliance, security reviews, vendor procurement, and multi-stakeholder alignment. Sipiteno has navigated these processes with Fortune 500 companies. Our enterprise engagements include dedicated account management, SLA-backed support, security documentation for your compliance team, and the ability to integrate with your existing vendor ecosystem and procurement workflows.",
         "saas-companies": "SaaS companies at every stage — from pre-revenue to millions in ARR — use Sipiteno to accelerate product development. We bring battle-tested architectural patterns for multi-tenancy, metering and billing, feature flags, CI/CD, and scalable data infrastructure. Our SaaS experience spans B2B and B2C products across fintech, healthtech, enterprise software, and developer tools.",
     }

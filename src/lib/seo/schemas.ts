@@ -16,8 +16,7 @@ export const organizationSchema = {
     "height": "512"
   },
   "image": "https://sipiteno.com/favicon.png",
-  "description": "Sipiteno is a strategic business development and technology consulting firm founded in 2009, specializing in AI implementation and IT solutions across 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets. The company combines deep regional expertise with hands-on technical capabilities to help technology companies expand into emerging markets.",
-  "foundingDate": "2009",
+  "description": "Sipiteno is a strategic business development and technology consulting firm specializing in AI implementation and IT solutions across 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets. The company combines deep regional expertise with hands-on technical capabilities to help technology companies expand into emerging markets.",
   "slogan": "Your product isn't the problem. Your expansion system is.",
   "numberOfEmployees": {
     "@type": "QuantitativeValue",

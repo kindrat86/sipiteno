@@ -145,7 +145,7 @@ for svc in SERVICES:
 </ul>
 
 <h2>How Sipiteno Compares</h2>
-<p>Sipiteno has been operating across {c['region']} since 2009, delivering {svc['name'].lower()} services through local teams who speak the language and understand the regulatory environment. Our {c['capital']} team works directly with technology companies expanding into {c['name']}, providing end-to-end {svc['name'].lower()} capabilities from strategy through implementation.</p>
+<p>Sipiteno has been operating across {c['region']}, delivering {svc['name'].lower()} services through local teams who speak the language and understand the regulatory environment. Our {c['capital']} team works directly with technology companies expanding into {c['name']}, providing end-to-end {svc['name'].lower()} capabilities from strategy through implementation.</p>
 <p>Pricing ranges from $15,000 for focused engagements to $100,000+ for comprehensive programs. Retainer-based relationships ($3,000-$10,000/month) are available for ongoing support.</p>
 
 <h2>How to Get Started</h2>
@@ -188,7 +188,7 @@ for topic in HOW_TO_TOPICS:
 
 <h2>Step-by-Step Process</h2>
 <ol>
-<li><strong>Research and validate:</strong> Before committing resources, validate that your target market has real demand. Use Google Trends, local competitor analysis, and the free 47-page Emerging Markets Expansion Playbook.</li>
+<li><strong>Research and validate:</strong> Before committing resources, validate that your target market has real demand. Use Google Trends, local competitor analysis, and the free Emerging Markets Expansion Playbook.</li>
 <li><strong>Find local partners:</strong> The fastest path is through local introductions. Warm handoffs from trusted regional partners accelerate everything — regulatory approvals, first customers, and team hiring.</li>
 <li><strong>Understand the regulatory map:</strong> Every country has different rules for company registration, data protection, IP, employment, and tax. Missing one can delay your launch by months.</li>
 <li><strong>Build or hire a local team:</strong> Whether you open an office or hire remote, you need people who speak the language, understand the culture, and can navigate the business environment.</li>
@@ -204,7 +204,7 @@ for topic in HOW_TO_TOPICS:
 </ul>
 
 <h2>How Sipiteno Helps</h2>
-<p>Sipiteno has helped 50+ technology companies expand into Eastern Europe, the Caucasus, and Central Asia since 2009. Our 3-Door Expansion System covers Introductions (warm handoffs to local partners), Regulatory Map (every license, data rule, and compliance trap), and Execution Team (bilingual local people who ship in 4-8 weeks).</p>
+<p>Sipiteno helps technology companies expand into Eastern Europe, the Caucasus, and Central Asia. Our 3-Door Expansion System covers Introductions (warm handoffs to local partners), Regulatory Map (every license, data rule, and compliance trap), and Execution Team (bilingual local people who ship in 4-8 weeks).</p>
 
 <p><a class="cta" href="https://sipiteno.com/contact">Get Free Strategy Call &rarr;</a></p>
 '''

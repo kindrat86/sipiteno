@@ -50,7 +50,7 @@ const it = {
     bullet3: "15+ anni di successi replicabili",
     cta: "Ottieni il Playbook di Espansione Gratuito",
     ctaSecondary: "o prenota una chiamata strategica gratuita di 30 min →",
-    noCreditCard: "Nessuna carta di credito. Nessuno spam. PDF di 47 pagine inviato alla tua casella in 5 minuti.",
+    noCreditCard: "Nessuna carta di credito. Nessuno spam. PDF di 14 pagine inviato alla tua casella in 5 minuti.",
     costDelay: "Ogni mese di ritardo è pipeline che non vedrai mai.",
     stat1: "",
     stat1Label: "",
@@ -122,7 +122,7 @@ const it = {
     title1: "Ho Bruciato Sei Mesi di Runway per Imparare",
     title2: "Una Lezione Brutale",
     backstory: "La Storia",
-    backstoryBody: "Nel 2009, ho introdotto un prodotto SaaS nell'Europa Orientale con una convinzione: se il prodotto è eccezionale, il mercato arriverà. Avevo l'ingegneria. Avevo la roadmap. Avevo il pitch deck. Quello che non avevo era un solo numero di telefono che contasse.",
+    backstoryBody: "All'inizio, ho introdotto un prodotto SaaS nell'Europa Orientale con una convinzione: se il prodotto è eccezionale, il mercato arriverà. Avevo l'ingegneria. Avevo la roadmap. Avevo il pitch deck. Quello che non avevo era un solo numero di telefono che contasse.",
     theWall: "Il Muro",
     wallBody: "Sei mesi dopo, avevamo zero contratti firmati. Il nostro runway stava sanguinando. Il team era frustrato. E la parte peggiore? Il prodotto non era il problema. I concorrenti locali con prodotti inferiori vincevano ogni deal. Stavo guardando una tecnologia di seconda scelta mangiarci il pranzo — e non capivo perché.",
     wallBody2: "Stavo per chiudere tutto. Poi ho fatto un ultimo viaggio.",
@@ -141,7 +141,7 @@ const it = {
     bigDomino: "Il tuo prodotto non è il problema. Il tuo sistema di ingresso nel mercato lo è.",
     bigDominoBody: "Ogni giorno, grandi tecnologie falliscono nei mercati emergenti — non perché il prodotto è debole, ma perché il fondatore bussa alle porte quando dovrebbe farsi presentare. Correggi il sistema, e il prodotto si venderà da solo.",
     ctaTitle: "Vuoi il sistema gratuitamente?",
-    ctaBody: "Ho racchiuso l'intero framework in tre parti in un playbook di 47 pagine. Scaricalo, leggilo questo weekend ed eseguilo tu stesso — con o senza di noi.",
+    ctaBody: "Ho racchiuso l'intero framework in tre parti in un playbook di 14 pagine. Scaricalo, leggilo questo weekend ed eseguilo tu stesso — con o senza di noi.",
     ctaButton: "Ottieni il Playbook Gratuito",
   },
 
@@ -190,8 +190,8 @@ const it = {
     tier1: "Livello 1",
     tier1Title: "Playbook di Espansione",
     tier1Price: "GRATIS",
-    tier1Note: "Valore $97",
-    tier1Desc: "PDF di 47 pagine che copre tutti i 28 mercati, scorecard di ingresso e la nostra timeline di espansione rapida di 4-8 settimane.",
+    tier1Note: "tutti i 28 mercati",
+    tier1Desc: "PDF di 14 pagine che copre tutti i 28 mercati, scorecard di ingresso e la nostra timeline di espansione rapida di 4-8 settimane.",
     tier1Cta: "Scarica Gratis",
     tier2: "Livello 2",
     tier2Title: "Chiamata di Scoping Strategico",
@@ -248,7 +248,7 @@ const it = {
 
   // ===== LEAD MAGNET =====
   leadMagnet: {
-    badge: "Download Gratuito — 47 Pagine",
+    badge: "Download Gratuito — 14 Pagine",
     title1: "Il Sistema Exact Dietro",
     title2: "I Nostri Ingressi di Mercato",
     title3: "— In Un Solo PDF",
@@ -262,7 +262,7 @@ const it = {
     inaction2: "Vorrai aver scaricato questo playbook quando ne avevi l'occasione — e avere avuto 6 mesi di vantaggio.",
     inaction3: "Costo del ritardo: 6 mesi di posizione di mercato, persi.",
     noSpam: "Nessuno spam. Disiscrizione in qualsiasi momento. Non vendiamo mai i tuoi dati.",
-    formBadge: "GRATIS — Di Solito $97",
+    formBadge: "GRATIS — senza carta",
     formTitle: "Ottieni il Playbook Ora",
     formBody: "Inserisci la tua email e ti invieremo il PDF direttamente nella tua casella.",
     firstName: "Nome",
@@ -315,9 +315,9 @@ const it = {
     item1Sub: "con un partner senior (15+ anni in-regione)",
     item1Value: "$500",
     item1Desc: "Mappiamo i tuoi obiettivi di espansione, qualifichiamo 2-3 mercati target dal vivo e mettiamo alla prova il tuo approccio attuale. Non una vendita — una sessione di lavoro.",
-    item2Title: "Il Playbook di Espansione (47 pp)",
+    item2Title: "Il Playbook di Espansione (14 pp)",
     item2Sub: "consegnato istantaneamente",
-    item2Value: "$97",
+    item2Value: "Incluso",
     item2Desc: "Scorecard di ingresso paese per paese per tutti i 28 mercati, la nostra timeline di espansione rapida di 4-8 settimane e benchmark di prezzo reali.",
     item3Title: "Scorecard di Mercato Personalizzata",
     item3Sub: "costruita per i tuoi top 2 mercati",
@@ -431,7 +431,7 @@ const it = {
   // ===== FOOTER =====
   footer: {
     company: "Sipiteno",
-    companyDesc: "Consulenza strategica di business development e tecnologia in 28 paesi in Europa, Caucaso e Asia Centrale. Fondata nel 2009.",
+    companyDesc: "Consulenza strategica di business development e tecnologia in 28 paesi in Europa, Caucaso e Asia Centrale.",
     services: "Servizi",
     companyLinks: "Azienda",
     contact: "Contatti",
@@ -443,6 +443,7 @@ const it = {
     industries: "Settori",
     markets: "Mercati",
     caseStudies: "Case Study",
+    story: "La nostra storia",
     pricing: "Prezzi",
     methodology: "Metodologia",
     blog: "Blog",
@@ -468,19 +469,19 @@ const it = {
 
   // ===== ABOUT PAGE =====
   about: {
-    title: "Su Sipiteno | La Storia del 2009 Dietro un Sistema di Espansione in 28 Paesi",
-    description: "Come un ingresso fallito nel mercato del 2009 in Europa Orientale è diventato Sipiteno — un sistema di espansione in 28 paesi. Una lezione brutale, tre pilastri. Leggi la storia completa.",
+    title: "Su Sipiteno | La Storia Dietro un Sistema di Espansione in 28 Paesi",
+    description: "Come un ingresso fallito nel mercato in Europa Orientale è diventato Sipiteno — un sistema di espansione in 28 paesi. Una lezione brutale, tre pilastri. Leggi la storia completa.",
     eyebrow: "La Sipiteno Story",
     heroTitle1: "Da un Ingresso Fallito a un",
     heroTitle2: "Sistema di Espansione in 28 Paesi",
-    heroBody: "Nel 2009, il nostro fondatore introdusse un prodotto SaaS in Europa Orientale convinto che \\\"se il prodotto è eccezionale, il mercato arriverà.\\\" Sei mesi dopo: zero deal, runway che sanguinava e una lezione brutale che divenne Sipiteno.",
+    heroBody: "All'inizio, il nostro fondatore introdusse un prodotto SaaS in Europa Orientale convinto che \\\"se il prodotto è eccezionale, il mercato arriverà.\\\" Sei mesi dopo: zero deal, runway che sanguinava e una lezione brutale che divenne Sipiteno.",
     stat1: "", stat1Label: "",
     stat2: "", stat2Label: "",
     stat3: "15+", stat3Label: "Anni In-Regione",
     stat4: "", stat4Label: "Soddisfazione Cliente",
-    backstoryLabel: "La Storia — 2009",
+    backstoryLabel: "La Storia",
     backstoryTitle: "Quando Grandi Prodotti Falliscono in Nuovi Mercati",
-    backstory1: "Nel 2009, gestivo una società SaaS. Avevamo una forte traction in Europa Occidentale, e la mossa logica successiva era verso Est — nelle economie in rapida digitalizzazione dell'Europa Orientale, del Caucaso e dell'Asia Centrale. Avevo il team di ingegneria, una roadmap di prodotto solida e un pitch deck che aveva conquistato gli investitori occidentali.",
+    backstory1: "All'epoca, gestivo una società SaaS. Avevamo una forte traction in Europa Occidentale, e la mossa logica successiva era verso Est — nelle economie in rapida digitalizzazione dell'Europa Orientale, del Caucaso e dell'Asia Centrale. Avevo il team di ingegneria, una roadmap di prodotto solida e un pitch deck che aveva conquistato gli investitori occidentali.",
     backstory2: "Mi sbagliavo completamente su ciò che contava.",
     backstory3: "Sei mesi dopo, avevamo chiuso zero deal enterprise. Il nostro runway era sceso a tre mesi. Il team era demoralizzato. E la parte peggiore? I concorrenti locali con prodotti inferiori vincevano ogni singolo deal. Stavo guardando una tecnologia di seconda scelta mangiarci il pranzo — e non capivo perché.",
     backstory4: "Ero a giorni dal chiudere tutto quando feci un ultimo viaggio: Tbilisi, Kyiv, Almaty. Tre città. Tre mercati completamente diversi. Stesso schema.",
@@ -511,7 +512,7 @@ const it = {
     v3Title: "Vera Partnership",
     v3Desc: "Costruiamo la tua capacità locale così non sei mai dipendente da noi. Il trasferimento di conoscenze fa parte di ogni collaborazione — dal primo giorno.",
     ctaTitle: "Vuoi il Sistema Gratuitamente?",
-    ctaBody: "Ho racchiuso l'intero framework in tre parti — Presentazioni, Mappa Normativa, Team di Esecuzione — in un playbook di 47 pagine. Scaricalo, leggilo questo weekend ed eseguilo tu stesso. Con o senza di noi.",
+    ctaBody: "Ho racchiuso l'intero framework in tre parti — Presentazioni, Mappa Normativa, Team di Esecuzione — in un playbook di 14 pagine. Scaricalo, leggilo questo weekend ed eseguilo tu stesso. Con o senza di noi.",
   },
 
   // ===== LANGUAGE SWITCHER =====
@@ -522,7 +523,7 @@ const it = {
   },
   // ===== EXIT INTENT =====
   exitIntent: {
-    badde: "Aspetta — Download gratuito (47 pagine)",
+    badde: "Aspetta — Download gratuito (14 pagine)",
     title: "Non andare via a mani vuote",
     body: "Ottieni gratuitamente il Expansion Playbook — schede paese, guida normativa e benchmark dei prezzi per tutti i 28 mercati. Inviato alla tua casella di posta in 5 minuti.",
     nameLabel: "Nome",

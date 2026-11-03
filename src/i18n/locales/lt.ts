@@ -50,7 +50,7 @@ const lt = {
     bullet3: "15+ metų pakartojamų sėkmių",
     cta: "Gauti nemokamą plėtros planą",
     ctaSecondary: "arba užsakykite nemokamą 30 min. strateginį pokalbį →",
-    noCreditCard: "Jokių kortelių. Jokio šlamšto. 47 puslapių PDF jūsų pašte per 5 minutes.",
+    noCreditCard: "Jokių kortelių. Jokio šlamšto. 14 puslapių PDF jūsų pašte per 5 minutes.",
     costDelay: "Kiekvienas atidėtas mėnuo yra pipeline, kurio niekada nepamatysite.",
     stat1: "",
     stat1Label: "",
@@ -122,7 +122,7 @@ const lt = {
     title1: "Aš sudeginau šešis mėnesius veiklos lėšų, kad išmokčiau",
     title2: "Vieną žiaurią pamoką",
     backstory: "Istorijos fonas",
-    backstoryBody: "2009 metais aš perkėliau SaaS produktą į Rytų Europą, būdamas įsitikinęs: jei produktas puikus, rinka ateis. Turėjau inžineriją. Turėjau planą. Turėjau pristatymą. Ko neturėjau — nė vieno reikšmingo telefono numerio.",
+    backstoryBody: "Anksčiau aš perkėliau SaaS produktą į Rytų Europą, būdamas įsitikinęs: jei produktas puikus, rinka ateis. Turėjau inžineriją. Turėjau planą. Turėjau pristatymą. Ko neturėjau — nė vieno reikšmingo telefono numerio.",
     theWall: "Siena",
     wallBody: "Po šešių mėnesių neturėjome nė vieno pasirašyto sandorio. Mūsų veiklos lėšos seko. Komanda buvo nusivylusi. O blogiausia? Produktas nebuvo problema. Vietiniai konkurentai su prastesniais produktais laimėjo kiekvieną sandorį. Aš žiūrėjau, kaip antros eilės technologijos mus lenkia — ir negalėjau suprasti kodėl.",
     wallBody2: "Buvau beuždarantis įmonę. Tada leidausi į paskutinę kelionę.",
@@ -141,7 +141,7 @@ const lt = {
     bigDomino: "Jūsų produktas nėra problema. Jūsų patekimo į rinką sistema yra.",
     bigDominoBody: "Puikios technologijos žlunga besiformuojančiose rinkose kasdien — ne todėl, kad produktas silpnas, o todėl, kad įkūrėjas beldžiasi į duris, kai turėtų būti pristatomas. Pataisykite sistemą, ir produktas parduos save pats.",
     ctaTitle: "Norite sistemos nemokamai?",
-    ctaBody: "Visą trijų dalių sistemą sudėjau į 47 puslapių planą. Atsisiųskite, perskaitykite šį savaitgalį ir įgyvendinkite patys — su mumis arba be mūsų.",
+    ctaBody: "Visą trijų dalių sistemą sudėjau į 14 puslapių planą. Atsisiųskite, perskaitykite šį savaitgalį ir įgyvendinkite patys — su mumis arba be mūsų.",
     ctaButton: "Gauti nemokamą planą",
   },
 
@@ -190,8 +190,8 @@ const lt = {
     tier1: "1 lygis",
     tier1Title: "Plėtros planas",
     tier1Price: "NEMOKAMAI",
-    tier1Note: "97 USD vertė",
-    tier1Desc: "47 puslapių PDF, apimantis visas 28 rinkas, įėjimo korteles ir mūsų 4–8 savaičių greitos plėtros planą.",
+    tier1Note: "visos 28 rinkos",
+    tier1Desc: "14 puslapių PDF, apimantis visas 28 rinkas, įėjimo korteles ir mūsų 4–8 savaičių greitos plėtros planą.",
     tier1Cta: "Atsisiųsti nemokamai",
     tier2: "2 lygis",
     tier2Title: "Strateginis pokalbis",
@@ -248,7 +248,7 @@ const lt = {
 
   // ===== LEAD MAGNET =====
   leadMagnet: {
-    badge: "Nemokamas atsisiuntimas — 47 puslapiai",
+    badge: "Nemokamas atsisiuntimas — 14 puslapiai",
     title1: "Tiksli sistema, kuri padėjo įvykdyti",
     title2: "patekimus į rinkas",
     title3: "— viename PDF",
@@ -262,7 +262,7 @@ const lt = {
     inaction2: "Gailėsitės, kad neatsisiuntėte šio plano, kai turėjote progą — ir turėjote 6 mėnesių pranašumą.",
     inaction3: "Vėlavimo kaina: 6 mėnesiai prarastos rinkos pozicijos.",
     noSpam: "Jokio šlamšto. Atsisakyti prenumeratos galite bet kada. Mes niekada neparduodame jūsų duomenų.",
-    formBadge: "NEMOKAMAI — Paprastai 97 USD",
+    formBadge: "NEMOKAMAI — be kortelės",
     formTitle: "Gauti planą dabar",
     formBody: "Įveskite savo el. paštą ir mes atsiųsime PDF tiesiai į jūsų pašto dėžutę.",
     firstName: "Vardas",
@@ -315,9 +315,9 @@ const lt = {
     item1Sub: "su vyresniuoju partneriu (15+ metų regione)",
     item1Value: "500 USD",
     item1Desc: "Aptarsime jūsų plėtros tikslus, įvertinsime 2–3 tikslines rinkas gyvai ir patikrinsime jūsų dabartinį požiūrį. Ne pardavimo skambutis — darbinis užsiėmimas.",
-    item2Title: "Plėtros planas (47 psl.)",
+    item2Title: "Plėtros planas (14 psl.)",
     item2Sub: "pristatomas akimirksniu",
-    item2Value: "97 USD",
+    item2Value: "Įskaičiuota",
     item2Desc: "Kiekvienos šalies patekimo į rinką kortelės visoms 28 rinkoms, mūsų 4–8 savaičių greitos plėtros planas ir realūs kainodaros etalonai.",
     item3Title: "Individuali rinkos kortelė",
     item3Sub: "sudaryta jūsų 2 pagrindinėms rinkoms",
@@ -431,7 +431,7 @@ const lt = {
   // ===== FOOTER =====
   footer: {
     company: "Sipiteno",
-    companyDesc: "Strateginė verslo plėtra ir technologijų konsultavimas 28 šalyse Europoje, Kaukaze ir Vidurinėje Azijoje. Įkurta 2009 m.",
+    companyDesc: "Strateginė verslo plėtra ir technologijų konsultavimas 28 šalyse Europoje, Kaukaze ir Vidurinėje Azijoje.",
     services: "Paslaugos",
     companyLinks: "Įmonė",
     contact: "Kontaktai",
@@ -443,6 +443,7 @@ const lt = {
     industries: "Pramonės šakos",
     markets: "Rinkos",
     caseStudies: "Atvejų analizės",
+    story: "Mūsų istorija",
     pricing: "Kainodara",
     methodology: "Metodika",
     blog: "Tinklaraštis",
@@ -468,19 +469,19 @@ const lt = {
 
   // ===== ABOUT PAGE =====
   about: {
-    title: "Apie Sipiteno | 2009 m. istorija, stovinti už 28 šalių plėtros sistemos",
-    description: "Kaip nesėkmingas 2009 m. patekimas į Rytų Europos rinką tapo Sipiteno — 28 šalių plėtros sistema. Viena žiauri pamoka, trys ramsčiai. Perskaitykite visą istoriją.",
+    title: "Apie Sipiteno | Istorija, stovinti už 28 šalių plėtros sistemos",
+    description: "Kaip nesėkmingas patekimas į Rytų Europos rinką tapo Sipiteno — 28 šalių plėtros sistema. Viena žiauri pamoka, trys ramsčiai. Perskaitykite visą istoriją.",
     eyebrow: "Sipiteno istorija",
     heroTitle1: "Nuo nesėkmingo patekimo į rinką iki",
     heroTitle2: "28 šalių plėtros sistemos",
-    heroBody: "2009 metais mūsų įkūrėjas perkėlė SaaS produktą į Rytų Europą, įsitikinęs, kad „jei produktas puikus, rinka ateis\". Po šešių mėnesių: nulis sandorių, senkančios lėšos ir viena žiauri pamoka, tapusi Sipiteno.",
+    heroBody: "Prieš kelerius metus mūsų įkūrėjas perkėlė SaaS produktą į Rytų Europą, įsitikinęs, kad „jei produktas puikus, rinka ateis\". Po šešių mėnesių: nulis sandorių, senkančios lėšos ir viena žiauri pamoka, tapusi Sipiteno.",
     stat1: "", stat1Label: "",
     stat2: "", stat2Label: "",
     stat3: "15+", stat3Label: "Metų regione",
     stat4: "", stat4Label: "Klientų pasitenkinimas",
-    backstoryLabel: "Istorijos fonas — 2009",
+    backstoryLabel: "Istorijos fonas",
     backstoryTitle: "Kai puikūs produktai žlunga naujose rinkose",
-    backstory1: "2009 metais aš vadovavau SaaS įmonei. Turėjome stiprų pagreitį Vakarų Europoje, o kitas logiškas žingsnis buvo į Rytus — į sparčiai skaitmenizuojančias Rytų Europos, Kaukazo ir Vidurinės Azijos ekonomikas. Turėjau inžinerijos komandą, tvirtą produkto planą ir pristatymą, kuris sužavėjo Vakarų investuotojus.",
+    backstory1: "Tuo metu aš vadovavau SaaS įmonei. Turėjome stiprų pagreitį Vakarų Europoje, o kitas logiškas žingsnis buvo į Rytus — į sparčiai skaitmenizuojančias Rytų Europos, Kaukazo ir Vidurinės Azijos ekonomikas. Turėjau inžinerijos komandą, tvirtą produkto planą ir pristatymą, kuris sužavėjo Vakarų investuotojus.",
     backstory2: "Aš visiškai klydau dėl to, kas iš tikrųjų svarbu.",
     backstory3: "Po šešių mėnesių neturėjome nė vieno uždaryto įmonės sandorio. Mūsų veiklos lėšos buvo sumažėjusios iki trijų mėnesių. Komanda buvo demoralizuota. O blogiausia? Vietiniai konkurentai su prastesniais produktais laimėjo kiekvieną sandorį. Aš žiūrėjau, kaip antros eilės technologijos mus lenkia — ir negalėjau suprasti kodėl.",
     backstory4: "Man liko kelios dienos iki visiško uždarymo, kai leidausi į paskutinę kelionę: Tbilisis, Kyivas, Almata. Trys miestai. Trys visiškai skirtingos rinkos. Tas pats modelis.",
@@ -511,7 +512,7 @@ const lt = {
     v3Title: "Tikra partnerystė",
     v3Desc: "Mes kuriame jūsų vietinius pajėgumus, kad niekada nebūtumėte nuo mūsų priklausomi. Žinių perdavimas yra kiekvieno bendradarbiavimo dalis — nuo pirmos dienos.",
     ctaTitle: "Norite sistemos nemokamai?",
-    ctaBody: "Visą trijų dalių sistemą — Rekomendacijos, Reguliavimo žemėlapis, Vykdymo komanda — sudėjau į 47 puslapių planą. Atsisiųskite, perskaitykite šį savaitgalį ir įgyvendinkite patys. Su mumis arba be mūsų.",
+    ctaBody: "Visą trijų dalių sistemą — Rekomendacijos, Reguliavimo žemėlapis, Vykdymo komanda — sudėjau į 14 puslapių planą. Atsisiųskite, perskaitykite šį savaitgalį ir įgyvendinkite patys. Su mumis arba be mūsų.",
   },
 
   // ===== LANGUAGE SWITCHER =====
@@ -522,7 +523,7 @@ const lt = {
   },
   // ===== EXIT INTENT =====
   exitIntent: {
-    badde: "Palaukite — Nemokamas atsisiuntimas (47 puslapiai)",
+    badde: "Palaukite — Nemokamas atsisiuntimas (14 puslapiai)",
     title: "Neišeikite tuščiomis rankomis",
     body: "Gaukite nemokamą Expansion Playbook — šalių vertinimo korteles, reguliavimo gidą ir kainų palyginimus visoms 28 rinkoms. Gauta jūsų pašto dėžutėje per 5 minutes.",
     nameLabel: "Vardas",
