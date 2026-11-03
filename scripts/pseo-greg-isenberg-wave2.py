@@ -181,7 +181,7 @@ for svc in SERVICES:
         OUT.mkdir(parents=True, exist_ok=True)
 
         body = f'''<h1>Cost of {svc['name']} in {c['name']}</h1>
-<section class="tldr"><p><strong>TL;DR:</strong> {svc['name']} in {c['name']} costs approximately <strong>${low:,} to ${high:,}</strong> for a standard engagement. This estimate is based on 50+ real projects and {c['name']}'s cost-of-living index of {c['cost_idx']}/100.</p></section>
+<section class="tldr"><p><strong>TL;DR:</strong> {svc['name']} in {c['name']} costs approximately <strong>${low:,} to ${high:,}</strong> for a standard engagement. This estimate is based on regional cost structures and {c['name']}'s cost-of-living index of {c['cost_idx']}/100.</p></section>
 
 <h2>Pricing Breakdown</h2>
 <table>

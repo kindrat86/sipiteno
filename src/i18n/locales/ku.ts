@@ -50,7 +50,7 @@ const ku = {
     bullet3: "15+ sal ji serketinên dubare",
     cta: "Pirtûka Firehkirina Belabeda Bistîne",
     ctaSecondary: "an bangawaziya stratejiyê ya 30-deqeyî ya belaş bigire →",
-    noCreditCard: "Ne qerta krediyê. Ne spam. PDF-ya 47-rûpelî di 5 deqeyan de dişe qutiya te.",
+    noCreditCard: "Ne qerta krediyê. Ne spam. PDF-ya 14-rûpelî di 5 deqeyan de dişe qutiya te.",
     costDelay: "Her mehek derengmayînê bernameya ku tu qet nabînî ye.",
     stat1: "",
     stat1Label: "",
@@ -122,7 +122,7 @@ const ku = {
     title1: "Min Şeş Mehên Pêşbirkê şewitandin Ku Fêr Bibim",
     title2: "Dersek Tenê û Hov",
     backstory: "Paşçîrok",
-    backstoryBody: "Di 2009-an de, min berhemek SaaS li Ewropaya Rojhilat bir, bi yek baweriyê: eger berhem xweş e, bazar wê were. Endezyariya min hebû. Rêbaza min hebû. Pêşkêşa min hebû. Ya min tunebû yek jimare telefonê girîng bû.",
+    backstoryBody: "Di destpêkê de, min berhemek SaaS li Ewropaya Rojhilat bir, bi yek baweriyê: eger berhem xweş e, bazar wê were. Endezyariya min hebû. Rêbaza min hebû. Pêşkêşa min hebû. Ya min tunebû yek jimare telefonê girîng bû.",
     theWall: "Dîwar",
     wallBody: "Şeş mehan şûnda, me sifir peyman îmze kiribû. Pêşbirka me xwînê dirijand. Tîma me bêhêvî bû. Û beşa herî xirab? Berhem ne pirsgirêk bû. Reqîbên herêmî yên bi berhemên kêmtir li her peymanê bi ser dikevin. Min temaşe dikir teknolojiya asta duyem nanê me bixwe — û min nedihat fêhm kirin çima.",
     wallBody2: "Ez nêzikî girtinê bûm. Wê gavê min seyareke dawiyê kir.",
@@ -141,7 +141,7 @@ const ku = {
     bigDomino: "Berhema te ne pirsgirêk e. Sîstema ketina bazarê ya te ye.",
     bigDominoBody: "Teknolojiya mezin her roj li bazarên derketî têk diçe — ne ji ber berhem qels e, lê ji ber damezrêner li deriyan dixist gava diviyabû bê nasîn. Sîstemê rast bike, berhem xwe difroşe.",
     ctaTitle: "Sîstema belaş dixwazî?",
-    ctaBody: "Min tevahiya çarçoveya sê-parçeyî di pirtûkeke 47-rûpelî de pak kir. Hilîne, vîkendê bixwîne, û bi xwe bikar bîne — bi me an bê me.",
+    ctaBody: "Min tevahiya çarçoveya sê-parçeyî di pirtûkeke 14-rûpelî de pak kir. Hilîne, vîkendê bixwîne, û bi xwe bikar bîne — bi me an bê me.",
     ctaButton: "Pirtûka Belabeda Bistîne",
   },
 
@@ -190,8 +190,8 @@ const ku = {
     tier1: "Tier 1",
     tier1Title: "Pirtûka Firehkirinê",
     tier1Price: "BELABE",
-    tier1Note: "$97 nirx",
-    tier1Desc: "PDF-ya 47-rûpelî ku hemî 28 bazar, kartolên ketinê, û xeta dema firehkirina lezgîn a 4-8 hefteyan vedigire.",
+    tier1Note: "hemû 28 bazar",
+    tier1Desc: "PDF-ya 14-rûpelî ku hemî 28 bazar, kartolên ketinê, û xeta dema firehkirina lezgîn a 4-8 hefteyan vedigire.",
     tier1Cta: "Belaş Hilîne",
     tier2: "Tier 2",
     tier2Title: "Bangawaziya Skopkirina Stratejiyê",
@@ -248,7 +248,7 @@ const ku = {
 
   // ===== LEAD MAGNET =====
   leadMagnet: {
-    badge: "Daxistina Belaş — 47 Rûpel",
+    badge: "Daxistina Belaş — 14 Rûpel",
     title1: "Sîstema Tam Li Pişt",
     title2: "Ketinên Bazarê",
     title3: "— Di Yek PDF-ê De",
@@ -262,7 +262,7 @@ const ku = {
     inaction2: "Tu wê bixwazî ku ev pirtûk hilaniya gava fersend hebû — û 6 meh pêşengî hebûya.",
     inaction3: "Bihaya derengmayînê: 6 meh ji pozîsyona bazarê, winda.",
     noSpam: "Ne spam. Her dem bibabet. Em tu carî daneyên te nafiroşin.",
-    formBadge: "BELABE — Bi gelemperî $97",
+    formBadge: "BELABE — bê kart",
     formTitle: "Pirtûkê Niha Bistîne",
     formBody: "Emaîla xwe têkeve û em ê PDF-ê rasterast bişînin qutiya te.",
     firstName: "Navê pêşîn",
@@ -315,9 +315,9 @@ const ku = {
     item1Sub: "bi hevparek payebilind (15+ sal li herêmê)",
     item1Value: "$500",
     item1Desc: "Em armancên firehkirina te nexşe dikin, 2-3 bazarên armanc bi zindî jêhatî dikin, û nêzîkatiya te ya niha diceribînin. Ne bangawaziyek firotanê ye — rûniştineke xebatê ye.",
-    item2Title: "Pirtûka Firehkirinê (47 rûpel)",
+    item2Title: "Pirtûka Firehkirinê (14 rûpel)",
     item2Sub: "tavilê tê radestkirin",
-    item2Value: "$97",
+    item2Value: "Tê de",
     item2Desc: "Kartolên ketina welat-bi-welat ji bo hemî 28 bazarê, xeta dema firehkirina lezgîn a 4-8 hefteyan, û bingehên bihayê rastîn.",
     item3Title: "Kartola Bazarê ya Xweser",
     item3Sub: "ji bo 2 bazarên te yên sereke hatî çêkirin",
@@ -431,7 +431,7 @@ const ku = {
   // ===== FOOTER =====
   footer: {
     company: "Sipiteno",
-    companyDesc: "Pêşkeftina karsaziya stratejîk û şêwirmendiya teknolojiyê li 28 welatan li Ewropa, Qefqasya, û Asyaya Navîn. Di 2009-an de hatiye damezrandin.",
+    companyDesc: "Pêşkeftina karsaziya stratejîk û şêwirmendiya teknolojiyê li 28 welatan li Ewropa, Qefqasya, û Asyaya Navîn.",
     services: "Xizmet",
     companyLinks: "Şirket",
     contact: "Têkilî",
@@ -443,6 +443,7 @@ const ku = {
     industries: "Pîşesazî",
     markets: "Bazar",
     caseStudies: "Lêkolînên Dozan",
+    story: "Çîroka Me",
     pricing: "Biha",
     methodology: "Metodolojî",
     blog: "Blog",
@@ -468,19 +469,19 @@ const ku = {
 
   // ===== ABOUT PAGE =====
   about: {
-    title: "Derbarê Sipiteno | Çîroka Li Pişt Sîstema Firehkirina 28-Welatan a 2009",
-    description: "Çawa ketina bazarê ya têkçûyî ya 2009 li Ewropaya Rojhilat bû Sipiteno — sîstemeke firehkirina 28 welatan. Dersek hov, sê stûn. Çîroka temam bixwîne.",
+    title: "Derbarê Sipiteno | Çîroka Li Pişt Sîstema Firehkirina 28-Welatan",
+    description: "Çawa ketina bazarê ya têkçûyî ya destpêkê li Ewropaya Rojhilat bû Sipiteno — sîstemeke firehkirina 28 welatan. Dersek hov, sê stûn. Çîroka temam bixwîne.",
     eyebrow: "Çîroka Sipiteno",
     heroTitle1: "Ji Ketina Bazarê ya Têkçûyî Berbi",
     heroTitle2: "Sîstema Firehkirina 28-Welatan",
-    heroBody: "Di 2009-an de, damezrênerê me berhemek SaaS bir Ewropaya Rojhilat bi baweriya ku \"eger berhem xweş e, bazar wê were.\" Şeş meh şûnda: sifir peyman, pêşbirka xwinê, û dersek hov ku bû Sipiteno.",
+    heroBody: "Di destpêkê de, damezrênerê me berhemek SaaS bir Ewropaya Rojhilat bi baweriya ku \"eger berhem xweş e, bazar wê were.\" Şeş meh şûnda: sifir peyman, pêşbirka xwinê, û dersek hov ku bû Sipiteno.",
     stat1: "", stat1Label: "",
     stat2: "", stat2Label: "",
     stat3: "15+", stat3Label: "Sal Li Herêmê",
     stat4: "", stat4Label: "Razîbûna Xerîdar",
-    backstoryLabel: "Paşçîrok — 2009",
+    backstoryLabel: "Paşçîrok",
     backstoryTitle: "Dema Berhemên Mezin Di Bazarên Nû de Têk Diçin",
-    backstory1: "Di 2009-an de, min pargîdaniyek SaaS-ê birêve dibir. Me li Ewropaya Rojava kişandinek xurt hebû, û tevgera mantiqî ya din Rojhilat bû — li aboriyên bi lez dîjîtal dibûn ên Ewropaya Rojhilat, Qefqasya, û Asyaya Navîn. Tîma endezyariyê, nexşeyek berhemê ya zexm, û pêşkêşek ku veberhênerên Rojavayî qanih kiribû hebûn.",
+    backstory1: "Wê demê, min pargîdaniyek SaaS-ê birêve dibir. Me li Ewropaya Rojava kişandinek xurt hebû, û tevgera mantiqî ya din Rojhilat bû — li aboriyên bi lez dîjîtal dibûn ên Ewropaya Rojhilat, Qefqasya, û Asyaya Navîn. Tîma endezyariyê, nexşeyek berhemê ya zexm, û pêşkêşek ku veberhênerên Rojavayî qanih kiribû hebûn.",
     backstory2: "Min bi temamî di derbarê tiştê girîng de xelet bûm.",
     backstory3: "Şeş mehan şûnda, me sifir peymanên pargîdanî girtibûn. Pêşbirka me daketi bû sê mehan. Tîm bêhêvî bû. Û beşa herî xirab? Reqîbên herêmî yên bi berhemên kêmtir li her peymanê bi ser dikevin. Min temaşe dikir teknolojiya asta duyem nanê me bixwe — û min nedihat fêhm kirin çima.",
     backstory4: "Ez rojan dûrî girtina tevahiya tiştî bûm gava min seyareke dawiyê kir: Tbilîsî, Kîev, Almatî. Sê bajar. Sê bazarên bi temamî cuda. Heman qalib.",
@@ -511,7 +512,7 @@ const ku = {
     v3Title: "Hevkarîya Rastîn",
     v3Desc: "Em kapasîteya herêmî ya te ava dikin da ku tu carî bi me re ne girêdayî. Veguhestina zanînê ji roja yekem ve beşek ji her peymanê ye.",
     ctaTitle: "Sîstema Belaş Dixwazî?",
-    ctaBody: "Min tevahiya çarçoveya sê-parçeyî — Danasîn, Nexşeya Rêkûpêk, Tîma Îcrayê — di pirtûkeke 47-rûpelî de pak kir. Hilîne, vîkendê bixwîne, û bi xwe bikar bîne. Bi me an bê me.",
+    ctaBody: "Min tevahiya çarçoveya sê-parçeyî — Danasîn, Nexşeya Rêkûpêk, Tîma Îcrayê — di pirtûkeke 14-rûpelî de pak kir. Hilîne, vîkendê bixwîne, û bi xwe bikar bîne. Bi me an bê me.",
   },
 
   // ===== LANGUAGE SWITCHER =====
@@ -523,7 +524,7 @@ const ku = {
 
   // ===== EXIT INTENT =====
   exitIntent: {
-    badde: "Bise — Daxistina Belave (47 rupel)",
+    badde: "Bise — Daxistina Belave (14 rupel)",
     title: "Bi destên vala neçe",
     body: "Berî ku biçî Expansion Playbook-ê belaş bistîne — skorkartên welatan, rêbera rêziknameyê û bihayên bazarê ji bo 28 sûkan. Di 5 deqeyan de di posta xwe de.",
     nameLabel: "Nav",

@@ -46,7 +46,7 @@ const Index = () => {
     <div className="min-h-screen">
       <SEOHead
         title={`Sipiteno | Expand Your Tech Business Into 28 Emerging Markets - ${lang.toUpperCase()}`}
-        description="Your product isn't the problem — your expansion system is. Sipiteno opens doors in Eastern Europe, the Caucasus, and Central Asia: introductions, regulatory maps, and local teams that ship in 4-8 weeks. Free 47-page playbook."
+        description="Your product isn't the problem — your expansion system is. Sipiteno opens doors in Eastern Europe, the Caucasus, and Central Asia: introductions, regulatory maps, and local teams that ship in 4-8 weeks. Free 14-page playbook."
         url={localizedUrl}
         ogImage="https://sipiteno.com/og-image.png"
         schemas={[organizationSchema, servicesSchema, faqSchema]}

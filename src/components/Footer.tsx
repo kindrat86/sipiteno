@@ -38,6 +38,7 @@ const Footer = () => {
     { label: t("footer.industries"), to: "/industries" },
     { label: t("footer.markets"), to: "/#markets" },
     { label: t("footer.caseStudies"), to: "/case-studies" },
+    { label: t("footer.story"), to: "/story" },
     { label: t("footer.pricing"), to: "/pricing" },
     { label: t("footer.methodology"), to: "/methodology" },
     { label: t("nav.glossary"), to: "/glossary" },

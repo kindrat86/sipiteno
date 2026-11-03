@@ -29,12 +29,12 @@ const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const SOAP_SEQUENCE = [
   {
     day: 0,
-    subject: "Your Expansion Playbook + the 3 things I wish I'd known in 2009",
+    subject: "Your Expansion Playbook + the 3 things I wish I'd known back then",
     body: (name: string) => `Hi ${name},
 
-Your 47-page Emerging Markets Expansion Playbook is attached. But before you open it, I want to tell you something.
+Your Emerging Markets Expansion Playbook is attached. But before you open it, I want to tell you something.
 
-In 2009, I moved a SaaS product into Eastern Europe believing one thing: "if the product is great, the market will come."
+Years ago, I moved a SaaS product into Eastern Europe believing one thing: "if the product is great, the market will come."
 
 Six months later: zero signed deals. Runway bleeding. I was about to shut it down.
 
@@ -88,7 +88,7 @@ Before spending a dollar, knowing exactly which licenses, data rules, and compli
 DOOR 3: The Execution Team.
 A bilingual, local team that ships. Product, BD, marketing — all operating in the language and culture of the target market. Fast.
 
-That's the system. Three doors. I've now used it to open 28 markets and launch 50+ products.
+That's the system. Three doors. I've now used it to open 28 markets.
 
 Tomorrow: how it works in practice — with a real case study (3 pilots in 90 days).
 

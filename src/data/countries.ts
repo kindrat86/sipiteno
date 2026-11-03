@@ -322,8 +322,8 @@ export const COUNTRIES: CountryInfo[] = [
     keyIndustries: ["IT Outsourcing", "Manufacturing", "Fintech", "Gaming", "Logistics"],
     businessCulture: "Formal business culture with hierarchical structure. Relationship-building over time is valued. Direct but polite communication.",
     challenge: "Rapidly rising labor costs in IT (wages up 15-20% annually). High competition for senior tech talent across all sectors.",
-    opportunity: "Largest IT talent pool in CEE (400,000+ developers). 50+ tech unicorns and 2,000+ SaaS companies. Strong VC ecosystem and EU funding availability.",
-    economicContext: "Corporate tax: 9% for small businesses, 19% standard. 400,000+ developers, 50+ tech unicorns. Warsaw and Krakow are top 20 European tech hubs."
+    opportunity: "Largest IT talent pool in CEE (400,000+ developers). A growing cohort of tech unicorns and 2,000+ SaaS companies. Strong VC ecosystem and EU funding availability.",
+    economicContext: "Corporate tax: 9% for small businesses, 19% standard. 400,000+ developers, a growing cohort of tech unicorns. Warsaw and Krakow are top 20 European tech hubs."
   },
   {
     name: "Romania",

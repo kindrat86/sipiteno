@@ -226,15 +226,15 @@ function buildHomepageBody() {
     .join('\n      ');
 
   return `<h1>Sipiteno: Expand Your Tech Business Into 28 Emerging Markets</h1>
-      <p><strong>Yes — you can enter and win in emerging markets.</strong> Sipiteno has helped 50+ technology companies expand into Central &amp; Eastern Europe, the Caucasus, and Central Asia since 2009. Our average client signs their first deal in 11 weeks, not 11 months. The system works because we combine three things most consultants lack: warm local introductions, regulatory maps built from 15+ years of experience, and bilingual execution teams who know the markets they serve.</p>
+      <p><strong>Yes — you can enter and win in emerging markets.</strong> Sipiteno helps technology companies expand into Central &amp; Eastern Europe, the Caucasus, and Central Asia. The system is built on three things most consultants lack: warm local introductions, regulatory maps built from 15+ years of in-region experience, and bilingual execution teams who know the markets they serve.</p>
       <h2>Free Emerging Markets Expansion Playbook</h2>
-      <p>Get our 47-page playbook (usually $97) free. Covers: country-by-country market entry scorecards for all 28 markets; the 4-8 week rapid expansion timeline; regulatory and partnership playbook per region; and real pricing benchmarks. Every month you delay is pipeline you never see. <a href="https://sipiteno.com/#free-playbook">Download the free playbook</a>.</p>
+      <p>Get our 14-page playbook free. Covers: country-by-country market entry scorecards for all 28 markets; the 4-8 week rapid expansion timeline; regulatory and partnership playbook per region; and real pricing benchmarks. Every month you delay is pipeline you never see. <a href="https://sipiteno.com/#free-playbook">Download the free playbook</a>.</p>
       <h2>Our Services</h2>
       <ul>
       ${services}
       </ul>
       <h2>The 3-Door Expansion System</h2>
-      <p>Three doors to every market: (1) The Introductions — warm handoffs from people already trusted inside the market. (2) The Regulatory Map — knowing which licenses, data rules, and compliance traps kill deals. (3) The Execution Team — bilingual, local people who ship in 4-8 weeks. This is the same system behind 50+ successful market entries.</p>
+      <p>Three doors to every market: (1) The Introductions — warm handoffs from people already trusted inside the market. (2) The Regulatory Map — knowing which licenses, data rules, and compliance traps kill deals. (3) The Execution Team — bilingual, local people who ship in 4-8 weeks. This is the system we run for every engagement.</p>
       <h2>Value Ladder: How We Work Together</h2>
       <p>Five ways to engage Sipiteno, climbing in value: (1) Free Expansion Playbook PDF, (2) Free 30-minute strategy scoping call, (3) MicroSaaS MVP development ($15,000-$50,000 fixed), (4) Business Development retainer ($3,000-$10,000/month with 10-30 qualified leads/month), (5) AI implementation program ($25,000-$100,000+). Start free, scale when ready. <a href="https://sipiteno.com/pricing">See pricing</a>.</p>
       <h2>Why Choose Sipiteno</h2>
@@ -257,13 +257,13 @@ function buildHomepageBody() {
       <h3>What industries does Sipiteno serve?</h3>
       <p>FinTech, HealthTech, E-commerce, AI/ML, SaaS, Manufacturing, and Logistics — with particular depth in regulated sectors that require licensing and data-compliance work.</p>
       <h3>How much does it cost to work with Sipiteno?</h3>
-      <p>Engagements climb a value ladder: a free 47-page Expansion Playbook, a free 30-minute scoping call, MicroSaaS MVP development ($15,000–$50,000 fixed), a business-development retainer ($3,000–$10,000/month for 10–30 qualified leads/month), and AI implementation ($25,000–$100,000+). Start free and scale when ready.</p>
+      <p>Engagements climb a value ladder: a free 14-page Expansion Playbook, a free 30-minute scoping call, MicroSaaS MVP development ($15,000–$50,000 fixed), a business-development retainer ($3,000–$10,000/month for 10–30 qualified leads/month), and AI implementation ($25,000–$100,000+). Start free and scale when ready.</p>
       <h3>Does Sipiteno help with regulatory compliance for international expansion?</h3>
       <p>Yes. Every engagement includes a regulatory map for your target markets covering licensing, data-protection rules, tax and entity setup, and the compliance traps that most often kill cross-border deals.</p>
       <h2>Countries We Serve</h2>
       <p>${countries}.</p>
       <h2>Book a Free Strategy Call</h2>
-      <p>Book a free 30-minute call with a senior partner. Walk away with a written action plan, a custom market scorecard for your top 2 markets, and the Expansion Playbook — total value $497, free. <a href="https://sipiteno.com/#contact">Book your free call</a>.</p>
+      <p>Book a free 30-minute call with a senior partner. Walk away with a written action plan, a custom market scorecard for your top 2 markets, and the Expansion Playbook. <a href="https://sipiteno.com/#contact">Book your free call</a>.</p>
       <h2>Contact</h2>
       <p>Email: <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> | <a href="https://sipiteno.com/locations">View all locations</a> | <a href="https://sipiteno.com/case-studies">Case studies</a> | <a href="https://sipiteno.com/pricing">Pricing</a> | <a href="https://sipiteno.com/answers">Quick answers</a></p>`;
 }
@@ -553,7 +553,6 @@ const orgSchema = {
   "disambiguatingDescription": "Sipiteno is a digital product studio that builds SaaS, web, and AI products end-to-end as an accountable team — not a freelance/talent marketplace (Toptal, Upwork, Turing) or a staff-augmentation body shop where you hire and manage individual contractors yourself.",
   "url": "https://sipiteno.com",
   "logo": "https://sipiteno.com/favicon.png",
-  "foundingDate": "2009",
   "sameAs": [
     "https://www.linkedin.com/company/34765968",
     "https://github.com/kindrat86",
@@ -779,7 +778,7 @@ const corePages = [
   {
     path: ['about'],
     title: "About | Sipiteno - Founder Story & 28-Country Expansion System",
-    description: "How a failed 2009 market entry in Eastern Europe became a 28-country expansion system. Read the Sipiteno founder story — from one brutal lesson to a repeatable market-entry system.",
+    description: "How a failed early market entry in Eastern Europe became a 28-country expansion system. Read the Sipiteno founder story — from one brutal lesson to a repeatable market-entry system.",
     canonicalUrl: "https://sipiteno.com/about",
     breadcrumbs: [{ name: "Home", url: "https://sipiteno.com/" }, { name: "About", url: "https://sipiteno.com/about" }],
     schemas: [{
@@ -799,7 +798,7 @@ const corePages = [
       "familyName": "Teno",
       "jobTitle": "Founder & Principal Consultant",
       "worksFor": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
-      "description": "Founder of Sipiteno, a digital product studio and business development consultancy operating across 28 emerging markets since 2009. 15+ years delivering AI consulting, MicroSaaS MVP development, and market entry strategy for technology companies.",
+      "description": "Founder of Sipiteno, a digital product studio and business development consultancy operating across 28 emerging markets. 15+ years delivering AI consulting, MicroSaaS MVP development, and market entry strategy for technology companies.",
       "knowsAbout": ["Market Entry Strategy", "AI Implementation", "MicroSaaS Development", "Business Development", "Digital Transformation", "Emerging Markets"],
       "sameAs": [
         "https://www.linkedin.com/company/34765968",
@@ -811,7 +810,7 @@ const corePages = [
       "@id": "https://sipiteno.com/about/#aboutpage",
       "url": "https://sipiteno.com/about",
       "name": "About Sipiteno — Our Story & Expansion System",
-      "description": "Sipiteno helps technology companies expand into emerging markets across Europe, Caucasus, and Central Asia. Founded in 2009, we deliver AI consulting, business development, and IT solutions across 28 countries.",
+      "description": "Sipiteno helps technology companies expand into emerging markets across Europe, Caucasus, and Central Asia. We deliver AI consulting, business development, and IT solutions across 28 countries.",
       "mainEntity": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" }
     }, {
       "@context": "https://schema.org",
@@ -822,19 +821,19 @@ const corePages = [
       ]
     }],
     bodyContent: `<h1>About Sipiteno — From a Failed Market Entry to a 28-Country Expansion System</h1>
-      <p><strong>Sipiteno helps technology companies expand into 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, Central Asia, South Asia, and East Africa.</strong> Founded in 2009. This page explains who we are, how the system works, and why a failed market entry became the foundation of everything we do.</p>
+      <p><strong>Sipiteno helps technology companies expand into 28 emerging markets across Central &amp; Eastern Europe, the Caucasus, Central Asia, South Asia, and East Africa.</strong> This page explains who we are, how the system works, and why a failed market entry became the foundation of everything we do.</p>
       <h2>Our Track Record</h2>
       <p>Over 15+ years of operating across emerging markets, the numbers that matter to us:</p>
       <ul>
         
         
-        <li><strong>11 weeks average time-to-first-signed-deal</strong> — from kickoff to first contract in a new market</li>
+        <li><strong>4-8 week entry timeline</strong> — from kickoff to active market development</li>
         <li><strong>28 countries covered</strong> — from Albania to Uzbekistan</li>
         <li><strong>6 service lines</strong> — AI consulting, business development, digital marketing, IT consulting, project management, and sales funnel setup</li>
         <li><strong>6 languages of operation</strong> — English, Russian, Ukrainian, Polish, Serbian, Georgian</li>
       </ul>
       <h2>The Failed Market Entry That Started Everything</h2>
-      <p>In 2009, Sipiteno's founder moved a SaaS product into Eastern Europe believing "if the product is great, the market will come." Six months later: zero signed deals, bleeding runway, and the brutal realization that the product was never the problem.</p>
+      <p>Early on, Sipiteno's founder moved a SaaS product into Eastern Europe believing "if the product is great, the market will come." Six months later: zero signed deals, bleeding runway, and the brutal realization that the product was never the problem.</p>
       <p>The winning companies in Tbilisi, Kyiv, and Almaty all had three things the founder didn't: the right introductions, a regulatory map, and a local team that executes fast. That three-part system became Sipiteno.</p>
       <h2>The Sipiteno System: Three Pillars</h2>
       <h3>1. Introductions — Warm Handoffs, Not Cold Outreach</h3>
@@ -1078,7 +1077,6 @@ for (const country of COUNTRIES) {
     "parentOrganization": { "@type": "Organization", "@id": "https://sipiteno.com/#organization" },
     "areaServed": { "@type": "Country", "name": country.name },
     "knowsLanguage": country.languages.slice(0, 3),
-    "foundingDate": "2009",
     "sameAs": [
       "https://www.linkedin.com/company/34765968",
       "https://github.com/kindrat86",
@@ -1273,7 +1271,7 @@ const BLOG_POSTS = [
     title: "From Napkin Sketch to First Paying Customer in 4 Weeks: The MicroSaaS Blueprint",
     category: "Speed to Market",
     date: "2026-06-02",
-    body: `<p>The fastest path from an idea to a paying customer is shorter than most founders believe — but only if you are ruthless about what does not ship in week one. This is the blueprint Sipiteno uses to take a MicroSaaS from napkin sketch to first paid user in roughly four weeks, based on 50+ builds.</p>
+    body: `<p>The fastest path from an idea to a paying customer is shorter than most founders believe — but only if you are ruthless about what does not ship in week one. This is the blueprint Sipiteno uses to take a MicroSaaS from napkin sketch to first paid user in roughly four weeks.</p>
 <h2>Week 1: Discovery and scope lock</h2>
 <p>Before any code, the team locks three things: the single pain point, the smallest feature set that resolves it, and the one number that proves it worked. Everything else is parked. The output of week one is a one-page scope document with a fixed feature list and a definition of done. No Gantt chart, no discovery deck — those are the artifacts of a slower model.</p>
 <p>The most common failure mode here is scope creep disguised as "just one more thing." Every additional feature added in week one is a feature that must be designed, built, tested, documented, and maintained. At four weeks, two extra features can be the difference between shipping and stalling.</p>

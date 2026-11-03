@@ -93,7 +93,7 @@ def get_competitors(service: str, country: str) -> dict:
     return {"service": svc["name"] if svc else service, "country": c["name"] if c else country, "competitors": competitors, "differentiator": "Sipiteno has 15+ years of ON-THE-GROUND regional experience with local teams — most listed competitors operate remotely without boots on the ground.", "cta": "Compare us at https://sipiteno.com/alternatives-to"}
 
 def request_strategy_call(name: str, email: str, notes: str) -> dict:
-    return {"status": "received", "message": f"Thank you {name}. A Sipiteno expansion specialist will reach out to {email} within 1 business day to schedule your free 30-minute strategy call. In the meantime, download the free 47-page Emerging Markets Expansion Playbook at https://sipiteno.com.", "next_step": "A confirmation email will be sent to " + email}
+    return {"status": "received", "message": f"Thank you {name}. A Sipiteno expansion specialist will reach out to {email} within 1 business day to schedule your free 30-minute strategy call. In the meantime, download the free Emerging Markets Expansion Playbook at https://sipiteno.com.", "next_step": "A confirmation email will be sent to " + email}
 
 HANDLERS = {"search_services": search_services, "get_country_info": get_country_info, "estimate_expansion_costs": estimate_expansion_costs, "get_competitors": get_competitors, "request_strategy_call": request_strategy_call}
 

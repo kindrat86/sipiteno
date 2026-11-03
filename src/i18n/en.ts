@@ -214,7 +214,7 @@ const en = {
     title1: "I Burned Six Months of Runway to Learn",
     title2: "One Brutal Lesson",
     backstory: "The Backstory",
-    backstoryBody: "In 2009, I moved a SaaS product into Eastern Europe with one conviction: if the product is great, the market will come. I had the engineering. I had the roadmap. I had the pitch deck. What I didn't have was a single phone number that mattered.",
+    backstoryBody: "Early on, I moved a SaaS product into Eastern Europe with one conviction: if the product is great, the market will come. I had the engineering. I had the roadmap. I had the pitch deck. What I didn't have was a single phone number that mattered.",
     theWall: "The Wall",
     wallBody: "Six months in, we had zero signed deals. Our runway was bleeding. Our team was frustrated. And the worst part? The product was not the problem. Local competitors with inferior products were winning every deal. I was watching second-rate technology eat our lunch — and I couldn't figure out why.",
     wallBody2: "I was about to shut it down. Then I took one last trip.",
@@ -282,8 +282,8 @@ const en = {
     tier1: "Tier 1",
     tier1Title: "Expansion Playbook",
     tier1Price: "FREE",
-    tier1Note: "$97 value",
-    tier1Desc: "47-page PDF covering all 28 markets, entry scorecards, and our 4-8 week rapid expansion timeline.",
+    tier1Note: "All 28 markets",
+    tier1Desc: "14-page PDF covering all 28 markets, entry scorecards, and our 4-8 week rapid expansion timeline.",
     tier1Cta: "Download Free",
     tier2: "Tier 2",
     tier2Title: "Strategy Scoping Call",
@@ -340,7 +340,7 @@ const en = {
 
   // ===== LEAD MAGNET =====
   leadMagnet: {
-    badge: "Free Download — 47 Pages",
+    badge: "Free Download — 14 Pages",
     title1: "The Exact System Behind",
     title2: "Market Entries",
     title3: "— In One PDF",
@@ -354,7 +354,7 @@ const en = {
     inaction2: "You'll wish you'd downloaded this playbook when you had the chance — and had a 6-month head start.",
     inaction3: "Cost of delay: 6 months of market position, gone.",
     noSpam: "No spam. Unsubscribe anytime. We never sell your data.",
-    formBadge: "FREE — Usually $97",
+    formBadge: "FREE — No Card Required",
     formTitle: "Get the Playbook Now",
     formBody: "Enter your email and we'll send the PDF straight to your inbox.",
     firstName: "First name",
@@ -407,9 +407,9 @@ const en = {
     item1Sub: "with a senior partner (15+ yrs in-region)",
     item1Value: "$500",
     item1Desc: "We map your expansion goals, qualify 2-3 target markets live, and pressure-test your current approach. Not a sales call — a working session.",
-    item2Title: "The Expansion Playbook (47 pp)",
+    item2Title: "The Expansion Playbook (14 pp)",
     item2Sub: "delivered instantly",
-    item2Value: "$97",
+    item2Value: "Included",
     item2Desc: "Country-by-country entry scorecards for all 28 markets, our 4-8 week rapid expansion timeline, and real pricing benchmarks.",
     item3Title: "Custom Market Scorecard",
     item3Sub: "built for your top 2 markets",
@@ -523,7 +523,7 @@ const en = {
   // ===== FOOTER =====
   footer: {
     company: "Sipiteno",
-    companyDesc: "Strategic business development and technology consulting across 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets. Founded in 2009.",
+    companyDesc: "Strategic business development and technology consulting across 28 countries in Europe, the Caucasus, Central Asia and selected emerging markets.",
     services: "Services",
     companyLinks: "Company",
     contact: "Contact",
@@ -535,6 +535,7 @@ const en = {
     industries: "Industries",
     markets: "Markets",
     caseStudies: "Case Studies",
+    story: "Our Story",
     pricing: "Pricing",
     methodology: "Methodology",
     blog: "Blog",
@@ -560,19 +561,19 @@ const en = {
 
   // ===== ABOUT PAGE =====
   about: {
-    title: "About Sipiteno | The 2009 Story Behind a 28-Country Expansion System",
-    description: "How a failed 2009 market entry in Eastern Europe became Sipiteno — a 28-country expansion system. One brutal lesson, three pillars. Read the full story.",
+    title: "About Sipiteno | The Story Behind a 28-Country Expansion System",
+    description: "How a failed early market entry in Eastern Europe became Sipiteno — a 28-country expansion system. One brutal lesson, three pillars. Read the full story.",
     eyebrow: "The Sipiteno Story",
     heroTitle1: "From a Failed Market Entry to a",
     heroTitle2: "28-Country Expansion System",
-    heroBody: "In 2009, our founder moved a SaaS product into Eastern Europe convinced that \"if the product is great, the market will come.\" Six months later: zero deals, bleeding runway, and one brutal lesson that became Sipiteno.",
+    heroBody: "Years back, our founder moved a SaaS product into Eastern Europe convinced that \"if the product is great, the market will come.\" Six months later: zero deals, bleeding runway, and one brutal lesson that became Sipiteno.",
     stat1: "", stat1Label: "",
     stat2: "", stat2Label: "",
     stat3: "15+", stat3Label: "Years In-Region",
     stat4: "", stat4Label: "",
-    backstoryLabel: "The Backstory — 2009",
+    backstoryLabel: "The Backstory",
     backstoryTitle: "When Great Products Fail in New Markets",
-    backstory1: "In 2009, I was running a SaaS company. We had strong traction in Western Europe, and the next logical move was East — into the rapidly digitizing economies of Eastern Europe, the Caucasus, and Central Asia. I had the engineering team, a solid product roadmap, and a pitch deck that had won over Western investors.",
+    backstory1: "At the time, I was running a SaaS company. We had strong traction in Western Europe, and the next logical move was East — into the rapidly digitizing economies of Eastern Europe, the Caucasus, and Central Asia. I had the engineering team, a solid product roadmap, and a pitch deck that had won over Western investors.",
     backstory2: "I was completely wrong about what mattered.",
     backstory3: "Six months in, we had closed zero enterprise deals. Our runway was down to three months. The team was demoralized. And the worst part? Local competitors with inferior products were winning every single deal. I was watching second-rate technology eat our lunch — and I couldn't figure out why.",
     backstory4: "I was days away from shutting the whole thing down when I took one last trip: Tbilisi, Kyiv, Almaty. Three cities. Three completely different markets. Same pattern.",
@@ -603,13 +604,13 @@ const en = {
     v3Title: "True Partnership",
     v3Desc: "We build your local capacity so you're never dependent on us. Knowledge transfer is part of every engagement — from day one.",
     ctaTitle: "Want the System for Free?",
-    ctaBody: "I packed the entire three-part framework — Introductions, Regulatory Map, Execution Team — into a 47-page playbook. Download it, read it this weekend, and run it yourself. With or without us.",
+    ctaBody: "I packed the entire three-part framework — Introductions, Regulatory Map, Execution Team — into a 14-page playbook. Download it, read it this weekend, and run it yourself. With or without us.",
   },
 
 
   // ===== EXIT INTENT =====
   exitIntent: {
-    badge: "Wait — Free Download (47 Pages)",
+    badge: "Wait — Free Download (14 Pages)",
     title: "Don't Leave Empty-Handed",
     body: "Grab the free Expansion Playbook before you go — country scorecards, regulatory playbook, and pricing benchmarks for all 28 markets. Sent to your inbox in 5 minutes.",
     nameLabel: "First name",

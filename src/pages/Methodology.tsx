@@ -158,7 +158,7 @@ const Methodology = () => {
               {[
                 { number: "4-8", label: "Weeks to ship", icon: Clock },
                 { number: "6", label: "Phases", icon: Brain },
-                { number: "50+", label: "Projects delivered", icon: CheckCircle },
+                { number: "28", label: "Markets covered", icon: CheckCircle },
                 { number: "100%", label: "Weekly transparency", icon: BarChart3 },
               ].map((stat, i) => (
                 <div key={i} className="bg-card/50 border border-border rounded-xl p-4 text-center">
