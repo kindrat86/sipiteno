@@ -53,8 +53,13 @@ function extractAnswer(html) {
   let text = unescapeJson(m[1]);
   if (!text || text.length < 40) return null;
   // Prefer first 2 sentences; hard-cap length.
-  const sentences = text.match(/[^.!?]+[.!?]+/g);
-  if (sentences && sentences.length >= 2) text = (sentences[0] + sentences[1]).trim();
+  // Sentence-split only on terminators followed by whitespace/EOS. A '.' glued
+  // between word chars (sales@sipiteno.com, 3.5) is NOT a sentence end: mask
+  // those dots first or the first two "sentences" truncate the email domain
+  // (this shipped as the visible "Email sales@sipiteno." bug on /contact).
+  const masked = text.replace(/(\w)\.(?=\w)/g, '$1\u0000');
+  const sentences = masked.match(/[^.!?]+[.!?]+(?=\s|$)/g);
+  if (sentences && sentences.length >= 2) text = (sentences[0] + sentences[1]).replace(/\u0000/g, '.').trim();
   const words = text.split(/\s+/);
   if (words.length > 55) text = words.slice(0, 55).join(' ').replace(/[,;:]$/, '') + '…';
   return text;
