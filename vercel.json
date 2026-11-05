@@ -15,6 +15,10 @@
       "destination": "/shopify-ip-allowlist.html"
     },
     {
+      "source": "/shopify-agent-ready",
+      "destination": "/shopify-agent-ready.html"
+    },
+    {
       "source": "/tripwire",
       "destination": "/tripwire.html"
     },

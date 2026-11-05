@@ -110,6 +110,7 @@ const HUB_FILES = {
   'story': 'story.html',
   'market-entry-scorecard': 'market-entry-scorecard.html',
   'shopify-ip-allowlist': 'shopify-ip-allowlist.html',
+  'shopify-agent-ready': 'shopify-agent-ready.html',
 };
 
 // Fallback for clusters with no locatable source file in this repo (vs/,

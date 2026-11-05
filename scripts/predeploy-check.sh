@@ -30,7 +30,7 @@ test -f "dist/$entry" || fail "referenced entry bundle dist/$entry missing"
 # the copy list (or is untracked in git, so commit-export deploys never ship
 # it), every deploy "succeeds" while the clean URL 404s live — exactly what
 # happened to /builds (the X-profile link) on 2026-08-17. Fail the build.
-for page in builds calculator story market-entry-scorecard affiliates shopify-ip-allowlist; do
+for page in builds calculator story market-entry-scorecard affiliates shopify-ip-allowlist shopify-agent-ready; do
   test -f "dist/$page.html" || fail "dist/$page.html missing — standalone page not copied (check copy-pseo.sh list + git tracking)"
   grep -q "\"source\": \"/$page\"" vercel.json || fail "vercel.json has no /$page rewrite — clean URL would 404"
 done
