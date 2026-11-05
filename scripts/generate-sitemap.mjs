@@ -103,6 +103,13 @@ const HUB_FILES = {
   'privacy': 'src/pages/Privacy.tsx',
   'services': 'src/pages/Locations.tsx', // no dedicated hub file found; closest sibling
   'terms': 'src/pages/Terms.tsx',
+  // Standalone root-level pages (served as .html via vercel.json rewrites)
+  'affiliates': 'affiliates.html',
+  'builds': 'builds.html',
+  'calculator': 'calculator.html',
+  'story': 'story.html',
+  'market-entry-scorecard': 'market-entry-scorecard.html',
+  'shopify-ip-allowlist': 'shopify-ip-allowlist.html',
 };
 
 // Fallback for clusters with no locatable source file in this repo (vs/,

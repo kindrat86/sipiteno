@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Shopify IP Allowlist Rescue for Public Apps | Sipiteno</title>
+<meta name="description" content="Shopify requires an IP allowlist for every public Admin API app by 20 Nov 2026 (bulk ops: 12 Nov). We map your egress IPs/ASNs, configure the allowlist and verify it in 48-72h. From EUR 490.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sipiteno.com/shopify-ip-allowlist">
+<meta property="og:title" content="Shopify IP Allowlist Rescue for Public Apps | Sipiteno">
+<meta property="og:description" content="Bulk ops break 12 Nov 2026; all public apps need an allowlist by 20 Nov or face delisting. Fixed-scope rescue from EUR 490, delivered in 48-72 hours.">
+<meta property="og:image" content="https://sipiteno.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sipiteno.com/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Shopify IP Allowlist Rescue for public app developers","description":"Shopify now requires an IP allowlist for every public Admin API app by 20 November 2026, and for bulk operations by 12 November 2026. Sipiteno maps your egress IPs or ASNs, configures the Dev Dashboard allowlist, and verifies it against your real traffic in 48 to 72 hours, from EUR 490.","author":{"@type":"Person","name":"Maryan K.","url":"https://sipiteno.com/story"},"datePublished":"2026-11-05","publisher":{"@type":"Organization","name":"Sipiteno","url":"https://sipiteno.com"},"mainEntityOfPage":"https://sipiteno.com/shopify-ip-allowlist"}
+</script>
+<style>
+:root{--bg:#0b1120;--card:#131c31;--card-hover:#1a2540;--border:#1e3150;--txt:#e2e8f0;--mut:#94a3b8;--dim:#64748b;--pri:#6366f1;--pri-glow:rgba(99,102,241,.25);--acc:#4ade80;--amber:#f59e0b;--red:#ef4444}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.65;min-height:100vh}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+nav{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:var(--txt);text-decoration:none}
+.brand span{color:var(--pri)}
+.nav-links{display:flex;gap:16px;font-size:.85rem}
+.nav-links a{color:var(--mut);text-decoration:none}
+.nav-links a:hover{color:var(--txt)}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.25}
+.hero{padding:52px 0 30px;text-align:center}
+.badge{display:inline-block;background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.35);font-size:.78rem;font-weight:700;letter-spacing:.04em;padding:6px 16px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(26px,5vw,40px);font-weight:700;color:#f8fafc;margin-bottom:14px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--pri),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:var(--mut);font-size:1.05rem;max-width:640px;margin:0 auto}
+.deadlines{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:36px 0 8px}
+.dl{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:left}
+.dl.red{border-color:rgba(239,68,68,.4)}
+.dl.amber{border-color:rgba(245,158,11,.4)}
+.dl .when{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;color:#f8fafc}
+.dl.red .when{color:#f87171}
+.dl.amber .when{color:var(--amber)}
+.dl .what{font-size:.85rem;color:var(--mut);margin-top:6px}
+.src{color:var(--dim);font-size:.8rem;text-align:center;margin:14px 0 6px}
+.src a{color:var(--dim);text-decoration:underline}
+section{padding:34px 0}
+section h2{font-size:clamp(20px,3.5vw,27px);color:#f8fafc;margin-bottom:14px}
+section p{color:var(--mut);max-width:720px;margin-bottom:12px}
+section p strong{color:var(--txt)}
+ul.plain{list-style:none;max-width:720px}
+ul.plain li{color:var(--mut);padding:7px 0 7px 26px;position:relative}
+ul.plain li::before{content:"✓";position:absolute;left:0;color:var(--acc);font-weight:700}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px}
+.step{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+.step .n{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--pri);font-size:.85rem;letter-spacing:.06em}
+.step h3{font-size:1rem;color:#f8fafc;margin:6px 0}
+.step p{font-size:.85rem;margin:0}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+.tier{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column}
+.tier.hot{border-color:var(--pri);box-shadow:0 0 32px -12px var(--pri-glow)}
+.tier .t-name{font-size:.8rem;font-weight:700;letter-spacing:.05em;color:var(--pri);text-transform:uppercase}
+.tier .t-price{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:#f8fafc;margin:8px 0 2px}
+.tier .t-fit{font-size:.82rem;color:var(--dim);margin-bottom:14px}
+.tier ul{list-style:none;margin:0 0 18px;flex:1}
+.tier li{font-size:.87rem;color:var(--mut);padding:5px 0 5px 20px;position:relative}
+.tier li::before{content:"✓";position:absolute;left:0;color:var(--acc);font-weight:700}
+.btn{display:block;text-align:center;background:linear-gradient(135deg,var(--pri),#818cf8);color:#fff;padding:13px 18px;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--txt)}
+.free{background:linear-gradient(135deg,rgba(74,222,128,.08),rgba(99,102,241,.08));border:1px solid rgba(74,222,128,.3);border-radius:14px;padding:28px;margin-top:8px}
+.free h2{margin-bottom:8px}
+.free p{margin-bottom:16px}
+.btn.green{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
+.faq{max-width:720px}
+.faq .q{color:#f8fafc;font-weight:600;margin:18px 0 4px}
+.faq .a{color:var(--mut);font-size:.92rem}
+footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 20px;text-align:center;color:var(--dim);font-size:.82rem}
+footer a{color:var(--mut);text-decoration:underline}
+.note{font-size:.8rem;color:var(--dim);margin-top:10px}
+</style>
+</head>
+<body>
+
+<nav>
+ <a href="/" class="brand">Sipi<span>teno</span></a>
+ <div class="nav-links">
+ <a href="/">Home</a>
+ <a href="/contact">Contact</a>
+ </div>
+</nav>
+
+<div class="wrap">
+ <div class="hero">
+  <span class="badge">SHOPIFY DEADLINE: 20 NOV 2026, 23:59 ET</span>
+  <h1>IP Allowlist Rescue for <em>Shopify public apps</em></h1>
+  <p>Shopify now requires an IP allowlist for every public app that calls the Admin API. If your tokens leak without one, anyone can use them from anywhere. We map your egress IPs or ASNs, configure the allowlist in your Dev Dashboard, and verify it against real traffic - in 48 to 72 hours, at a fixed price.</p>
+ </div>
+
+ <div class="deadlines">
+  <div class="dl red">
+   <div class="when">12 Nov 2026, 23:59 ET</div>
+   <div class="what">Bulk operations (bulk queries and mutations) from public apps without an IP allowlist are <strong>blocked</strong>.</div>
+  </div>
+  <div class="dl red">
+   <div class="when">20 Nov 2026, 23:59 ET</div>
+   <div class="what">All public Admin API apps must have the allowlist on. After that: <strong>App Store delisting, no new installs</strong>, and the app is flagged in merchant Settings &gt; Apps.</div>
+  </div>
+  <div class="dl amber">
+   <div class="when">15 Jan - 1 Apr 2027</div>
+   <div class="what">Merchants see a security warning in their admin (15 Jan); Admin API requests start failing outright (1 Apr 2027).</div>
+  </div>
+ </div>
+ <p class="src">Source: <a href="https://shopify.dev/changelog/blog/app-security-updates-ip-allowlist-is-now-required" rel="noopener">official Shopify developer changelog, 5 Nov 2026</a></p>
+
+ <section>
+  <h2>The problem</h2>
+  <p>Admin API tokens for public apps are long-lived secrets. Without an IP allowlist, a token stolen from a log file, a repo, or a client-side bundle works <strong>from any server on the internet</strong>. The allowlist changes that: your tokens only work from the addresses or networks you list.</p>
+  <p>Most app teams have drift between what the code does and what the allowlist says: background jobs on one platform, webhooks on another, a queue worker in a third region. Configure the allowlist wrong and you break your own app hours before the biggest sales weeks of the year. That is the engineering problem we solve - on a deadline you do not control.</p>
+  <p><strong>On serverless or dynamic IPs?</strong> A single static IP will not cut it. Shopify supports allowlisting by network (ASN) exactly for this case - that is the path we configure.</p>
+ </section>
+
+ <section>
+  <h2>Who this is for</h2>
+  <ul class="plain">
+   <li>You run a <strong>public app</strong> listed on the Shopify App Store that calls the Admin API.</li>
+   <li>You use <strong>bulk operations</strong> (bulk queries or mutations) - your deadline is 12 November, not 20 November.</li>
+   <li>Your infrastructure is <strong>serverless, multi-region or dynamic</strong> and you need ASN-based allowlisting.</li>
+   <li>You are a small partner team without a security engineer to pull off a production-critical config change this month.</li>
+  </ul>
+ </section>
+
+ <section>
+  <h2>What we do in 48-72 hours</h2>
+  <div class="steps">
+   <div class="step"><div class="n">STEP 1</div><h3>Map your egress</h3><p>Inventory every IP and ASN your app actually sends Admin API traffic from - jobs, webhooks, queues, all regions - before anything is switched on.</p></div>
+   <div class="step"><div class="n">STEP 2</div><h3>Configure the allowlist</h3><p>Enter the mapped IPs/ASNs in your Partner Dev Dashboard, using ASN network allowlisting for serverless hosting.</p></div>
+   <div class="step"><div class="n">STEP 3</div><h3>Test against real traffic</h3><p>Verify Admin API calls and bulk operations still succeed from every egress path, in staging and then production.</p></div>
+   <div class="step"><div class="n">STEP 4</div><h3>Before/after doc</h3><p>A short written record: what changed, what was tested, and how to add future infrastructure to the allowlist.</p></div>
+  </div>
+  <p class="note">You keep control: we work in your Partner Dashboard with your permission, or hand your engineer the exact configuration to apply.</p>
+ </section>
+
+ <section>
+  <h2>Fixed prices</h2>
+  <div class="tiers">
+   <div class="tier">
+    <div class="t-name">Simple</div>
+    <div class="t-price">EUR 490</div>
+    <div class="t-fit">Single static IP or one simple ASN</div>
+    <ul>
+     <li>Egress mapping for one hosting setup</li>
+     <li>Dev Dashboard allowlist configured</li>
+     <li>Traffic test + before/after doc</li>
+    </ul>
+    <a class="btn ghost" href="mailto:sales@sipiteno.com?subject=IP%20Allowlist%20Rescue%20-%20EUR%20490">Start - EUR 490</a>
+   </div>
+   <div class="tier hot">
+    <div class="t-name">Serverless</div>
+    <div class="t-price">EUR 990</div>
+    <div class="t-fit">Multi-region ASN + country filters</div>
+    <ul>
+     <li>Multi-region / serverless egress mapping</li>
+     <li>ASN allowlist + country filters</li>
+     <li>Staging test before production switch</li>
+     <li>Traffic test + before/after doc</li>
+    </ul>
+    <a class="btn" href="mailto:sales@sipiteno.com?subject=IP%20Allowlist%20Rescue%20-%20EUR%20990">Start - EUR 990</a>
+   </div>
+   <div class="tier">
+    <div class="t-name">Rush</div>
+    <div class="t-price">EUR 1,490</div>
+    <div class="t-fit">Under 48 hours, before the deadline</div>
+    <ul>
+     <li>Everything in Serverless</li>
+     <li>Priority slot, starts same day</li>
+     <li>Under 48h turnaround</li>
+    </ul>
+    <a class="btn ghost" href="mailto:sales@sipiteno.com?subject=IP%20Allowlist%20Rescue%20-%20EUR%201490">Start - EUR 1,490</a>
+   </div>
+  </div>
+  <p class="note">Fixed scope agreed in writing before we start. If we cannot get your allowlist passing, you do not pay.</p>
+ </section>
+
+ <section>
+  <div class="free">
+   <h2>Free readiness check</h2>
+   <p>Not sure which tier fits, or whether you are already compliant? Email us your hosting setup (static IP / serverless / multi-region) and your app's name in the Partner Dashboard. We reply with which tier applies and any blockers - no charge, no obligation.</p>
+   <a class="btn green" href="mailto:sales@sipiteno.com?subject=IP%20allowlist%20readiness%20check&body=Hosting%20type%3A%20%28static%20IP%20%2F%20serverless%20%2F%20multi-region%29%0AApp%20name%20in%20Partner%20Dashboard%3A%20%0ADo%20you%20use%20bulk%20operations%3F%20%28yes%20%2F%20no%29">Get the free readiness check</a>
+  </div>
+ </section>
+
+ <section>
+  <h2>FAQ</h2>
+  <div class="faq">
+   <p class="q">Is Sipiteno affiliated with Shopify?</p>
+   <p class="a">No. We are an independent engineering consultancy. Everything here follows Shopify's public developer changelog, linked above.</p>
+   <p class="q">What happens if we miss 12 November (bulk ops)?</p>
+   <p class="a">Bulk queries and mutations from your public app are blocked until an allowlist is configured. Regular Admin API calls keep working until the later deadlines. Apps using bulk operations get priority in our queue.</p>
+   <p class="q">We are on serverless with no stable IP. Is that a problem?</p>
+   <p class="a">No. Shopify supports allowlisting by network with ASN support, built for serverless hosting. That is the Serverless or Rush tier.</p>
+   <p class="q">Do you need access to merchant data or our stores?</p>
+   <p class="a">No. This is Partner Dashboard configuration and your own infrastructure. We never touch merchant data.</p>
+   <p class="q">How do payments work?</p>
+   <p class="a">Fixed scope, fixed price, invoiced. We agree the scope in writing first; payment terms are on the invoice.</p>
+  </div>
+ </section>
+</div>
+
+<footer>
+ <p>Sipiteno · <a href="mailto:sales@sipiteno.com">sales@sipiteno.com</a> · <a href="/">sipiteno.com</a></p>
+ <p>Independent service. Not affiliated with or endorsed by Shopify. Deadline dates from <a href="https://shopify.dev/changelog/blog/app-security-updates-ip-allowlist-is-now-required" rel="noopener">Shopify's developer changelog</a>.</p>
+</footer>
+
+</body>
+</html>

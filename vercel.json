@@ -11,6 +11,10 @@
       "destination": "/calculator.html"
     },
     {
+      "source": "/shopify-ip-allowlist",
+      "destination": "/shopify-ip-allowlist.html"
+    },
+    {
       "source": "/tripwire",
       "destination": "/tripwire.html"
     },
