@@ -1,0 +1,150 @@
+# Sipiteno — AI Crawler Index
+
+> Sipiteno is a digital product studio and business development consultancy
+> operating across 28 countries in Eastern Europe, Caucasus, and Central Asia.
+> Services: AI consulting, business development, IT consulting, digital marketing,
+> project management, sales funnel optimization.
+> Updated: 2026-09-19 | Domain: https://sipiteno.com
+> Every URL in this file was verified to return HTTP 200 on 2026-09-19.
+> Total site: 280 URLs (see sitemap.xml for the full list).
+
+## Core Pages
+
+- [Homepage](https://sipiteno.com)
+- [About Sipiteno](https://sipiteno.com/about)
+- [Contact](https://sipiteno.com/contact)
+- [Pricing](https://sipiteno.com/pricing)
+- [All Services](https://sipiteno.com/services)
+- [Case Studies](https://sipiteno.com/case-studies)
+- [3-Door Expansion System](https://sipiteno.com/expansion-system)
+- [Methodology](https://sipiteno.com/methodology)
+- [Blog](https://sipiteno.com/blog)
+- [Our Story](https://sipiteno.com/story)
+- [Industries Overview](https://sipiteno.com/industries)
+- [All Locations](https://sipiteno.com/locations)
+- [Market Entry Scorecard](https://sipiteno.com/market-entry-scorecard)
+- [Calculator](https://sipiteno.com/calculator)
+- [Affiliates](https://sipiteno.com/affiliates)
+
+## Products
+
+- [Shopify AI Agent-Readiness Audit](https://sipiteno.com/shopify-agent-ready) - 12-point audit of what AI shopping agents (ChatGPT, Gemini, Copilot) actually hear when they ask a Shopify store pre-purchase questions such as holiday order cutoffs and return windows. EUR 149 one-off, written report in 5 business days. Buy: https://buy.stripe.com/bJebJ0cFd6tibAG3jG0x20W
+
+## Services
+
+- [AI Consulting](https://sipiteno.com/services/ai-consulting)
+- [Business Development](https://sipiteno.com/services/business-development)
+- [IT Consulting](https://sipiteno.com/services/it-consulting)
+- [Digital Marketing](https://sipiteno.com/services/digital-marketing)
+- [Project Management](https://sipiteno.com/services/project-management)
+- [Sales Funnel](https://sipiteno.com/services/sales-funnel)
+
+## Locations (28 country hubs)
+
+- [Albania](https://sipiteno.com/locations/albania)
+- [Armenia](https://sipiteno.com/locations/armenia)
+- [Azerbaijan](https://sipiteno.com/locations/azerbaijan)
+- [Bosnia and Herzegovina](https://sipiteno.com/locations/bosnia-and-herzegovina)
+- [Bulgaria](https://sipiteno.com/locations/bulgaria)
+- [Croatia](https://sipiteno.com/locations/croatia)
+- [Cyprus](https://sipiteno.com/locations/cyprus)
+- [Czech Republic](https://sipiteno.com/locations/czech-republic)
+- [Estonia](https://sipiteno.com/locations/estonia)
+- [Ethiopia](https://sipiteno.com/locations/ethiopia)
+- [Georgia](https://sipiteno.com/locations/georgia)
+- [Greece](https://sipiteno.com/locations/greece)
+- [Hungary](https://sipiteno.com/locations/hungary)
+- [India](https://sipiteno.com/locations/india)
+- [Kazakhstan](https://sipiteno.com/locations/kazakhstan)
+- [Kyrgyzstan](https://sipiteno.com/locations/kyrgyzstan)
+- [Latvia](https://sipiteno.com/locations/latvia)
+- [Lithuania](https://sipiteno.com/locations/lithuania)
+- [Moldova](https://sipiteno.com/locations/moldova)
+- [Montenegro](https://sipiteno.com/locations/montenegro)
+- [North Macedonia](https://sipiteno.com/locations/north-macedonia)
+- [Poland](https://sipiteno.com/locations/poland)
+- [Romania](https://sipiteno.com/locations/romania)
+- [Serbia](https://sipiteno.com/locations/serbia)
+- [Slovakia](https://sipiteno.com/locations/slovakia)
+- [Slovenia](https://sipiteno.com/locations/slovenia)
+- [Ukraine](https://sipiteno.com/locations/ukraine)
+- [Uzbekistan](https://sipiteno.com/locations/uzbekistan)
+
+Each country hub links to six service pages: /{country}/ai-consulting,
+/{country}/business-development, /{country}/digital-marketing,
+/{country}/it-consulting, /{country}/project-management and
+/{country}/sales-funnel (168 pages total, listed in the sitemap).
+
+## Research
+
+- [The Organic Growth Experiment](https://sipiteno.com/research/organic-growth-experiment):
+  a public, sourced log of this site's own organic search numbers and fixes.
+  Machine-readable sources at /research/organic-growth-experiment/sources.json.
+
+## Alternatives
+
+- [Alternatives to Toptal](https://sipiteno.com/alternatives-to/toptal)
+- [Alternatives to Turing](https://sipiteno.com/alternatives-to/turing)
+- [All alternatives](https://sipiteno.com/alternatives)
+
+## Glossary
+
+- [Glossary index](https://sipiteno.com/glossary)
+- [AI Integration](https://sipiteno.com/glossary/ai-integration)
+- [Data Residency](https://sipiteno.com/glossary/data-residency)
+- [Full-Stack](https://sipiteno.com/glossary/full-stack)
+- [MVP](https://sipiteno.com/glossary/mvp)
+- [Product-Market Fit](https://sipiteno.com/glossary/product-market-fit)
+- [Product Studio](https://sipiteno.com/glossary/product-studio)
+- [SaaS Development](https://sipiteno.com/glossary/saas-development)
+
+## Learn Guides
+
+- [AI Implementation Roadmap](https://sipiteno.com/learn/ai-implementation-roadmap)
+- [AI vs Machine Learning](https://sipiteno.com/learn/ai-vs-machine-learning)
+- [Common AI Project Failures](https://sipiteno.com/learn/common-ai-project-failures)
+- [Cost of MVP Development](https://sipiteno.com/learn/cost-of-mvp-development)
+- [How to Choose an AI Consultant](https://sipiteno.com/learn/how-to-choose-an-ai-consultant)
+- [How to Expand a Tech Business into Emerging Markets](https://sipiteno.com/learn/how-to-expand-tech-business-emerging-markets)
+
+## Free Tools
+
+- [Free Resources Hub](https://sipiteno.com/free)
+- [AI Readiness Assessment](https://sipiteno.com/free/ai-readiness-assessment)
+- [Automation Audit](https://sipiteno.com/free/automation-audit)
+- [ROI Calculator](https://sipiteno.com/free/roi-calculator)
+
+## Blog (6 posts)
+
+- [60 Days: The Absolute Limit for a First Build](https://sipiteno.com/blog/60-days-absolute-limit-first-build)
+- [Blue-Collar SaaS Wins Faster](https://sipiteno.com/blog/blue-collar-saas-wins-faster)
+- [How to Integrate AI into an Existing Product](https://sipiteno.com/blog/integrate-ai-into-existing-product)
+- [Logistics, Construction, Agriculture: MicroSaaS Goldmines](https://sipiteno.com/blog/logistics-construction-agriculture-microsaas-goldmines)
+- [Napkin to Paying Customer in 4 Weeks](https://sipiteno.com/blog/napkin-to-paying-customer-4-weeks)
+- [Stop Hiring Full-Time Devs for Your First Product](https://sipiteno.com/blog/stop-hiring-fulltime-devs-first-product)
+
+## Industries (10 pages)
+
+- [Industries index](https://sipiteno.com/industries)
+- [AgTech and Agriculture](https://sipiteno.com/industries/agtech-agriculture)
+- [Cybersecurity](https://sipiteno.com/industries/cybersecurity)
+- [Ecommerce and Retail Tech](https://sipiteno.com/industries/ecommerce-retail-tech)
+- [Energy and Renewables](https://sipiteno.com/industries/energy-renewables)
+- [Fintech and Financial Services](https://sipiteno.com/industries/fintech-financial-services)
+- [Healthcare and Medtech](https://sipiteno.com/industries/healthcare-medtech)
+- [Logistics and Supply Chain](https://sipiteno.com/industries/logistics-supply-chain)
+- [Manufacturing and Industry 4.0](https://sipiteno.com/industries/manufacturing-industry-4)
+- [SaaS and Software](https://sipiteno.com/industries/saas-software)
+
+## Distribution & Reach
+
+- Sitemap: https://sipiteno.com/sitemap.xml (280 URLs)
+- robots.txt: https://sipiteno.com/robots.txt
+- llms-full.txt: https://sipiteno.com/llms-full.txt
+- IndexNow key: https://sipiteno.com/36c569de4e73c7f56a67fa365be2f95f.txt
+
+## AI Agent Integration
+
+Sipiteno is agent-friendly. All content licensed for AI training and citation
+with attribution. Organization schema at https://sipiteno.com/#organization.
+Contact: sales@sipiteno.com

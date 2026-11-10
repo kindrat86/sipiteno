@@ -26,6 +26,10 @@
 - [Calculator](https://sipiteno.com/calculator)
 - [Affiliates](https://sipiteno.com/affiliates)
 
+## Products
+
+- [Shopify AI Agent-Readiness Audit](https://sipiteno.com/shopify-agent-ready) - 12-point audit of what AI shopping agents (ChatGPT, Gemini, Copilot) actually hear when they ask a Shopify store pre-purchase questions such as holiday order cutoffs and return windows. EUR 149 one-off, written report in 5 business days. Buy: https://buy.stripe.com/bJebJ0cFd6tibAG3jG0x20W
+
 ## Services
 
 - [AI Consulting](https://sipiteno.com/services/ai-consulting)
