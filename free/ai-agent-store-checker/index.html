@@ -91,7 +91,10 @@ btn.addEventListener('click',async()=>{
         html+='<div class="q"><strong>'+esc(q.question)+'</strong><span class="badge '+cls+'">'+label+'</span><div class="ans">'+esc(q.answer||'(nothing)').slice(0,300)+'</div></div>';
       });
       html+='</div>';
-      if(j.score<2)html+='<a class="cta" href="https://buy.stripe.com/bJebJ0cFd6tibAG3jG0x20W">Get the full EUR 149 audit before Black Friday</a><p class="muted">Written report in 5 business days. <a href="https://sipiteno.com/shopify-agent-ready" style="color:#38bdf8">What is checked</a>.</p>';
+      if(j.score<2)html+='<div class="row" style="margin-top:18px">'+
+        '<a class="cta" style="margin:0 8px 8px 0" href="https://buy.stripe.com/7sYdR8cFd4ladIO9I40x21c">Express Scan all 12 points - EUR 49</a>'+
+        '<a class="cta" style="margin:0;background:none;border:1px solid #334155;color:#e2e8f0" href="https://buy.stripe.com/00w7sKcFdaJy8ou2fC0x21b">$29 checklist</a>'+
+        '</div><p class="muted">Full written report EUR 149: <a href="https://sipiteno.com/shopify-agent-ready" style="color:#38bdf8">details</a>.</p>';
       out.innerHTML=html;
     }
   }catch(e){out.innerHTML='<p style="color:#f87171">Could not reach the checker. Try again in a minute.</p>';}
