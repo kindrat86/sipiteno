@@ -3,6 +3,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/api/store-check",
+      "destination": "https://store-check.fly.dev/api/check"
+    },
+    {
       "source": "/google:hash([a-f0-9]+).html",
       "destination": "/google:hash.html"
     },

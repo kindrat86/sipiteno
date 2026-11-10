@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Agent Store Checker — Can ChatGPT Answer for Your Store? | Sipiteno</title>
+<link rel="stylesheet" href="/ux.css">
+<meta name="description" content="Free instant check: enter your Shopify store URL and see what AI shopping agents (ChatGPT, Gemini, Copilot) actually hear when shoppers ask about holiday order cutoffs and return windows. No signup.">
+<link rel="canonical" href="https://sipiteno.com/free/ai-agent-store-checker">
+<link rel="alternate" hreflang="en" href="https://sipiteno.com/free/ai-agent-store-checker">
+<link rel="alternate" hreflang="en-US" href="https://sipiteno.com/free/ai-agent-store-checker">
+<link rel="alternate" hreflang="x-default" href="https://sipiteno.com/free/ai-agent-store-checker">
+<meta property="og:title" content="AI Agent Store Checker | Sipiteno">
+<meta property="og:description" content="Enter your Shopify store URL. Instantly see what AI shopping agents hear when shoppers ask about holiday cutoffs and return windows.">
+<meta property="og:url" content="https://sipiteno.com/free/ai-agent-store-checker">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"AI Agent Store Checker","url":"https://sipiteno.com/free/ai-agent-store-checker","description":"Free instant check of what AI shopping agents hear when they ask your Shopify store pre-purchase questions.","isPartOf":{"@type":"WebSite","name":"Sipiteno","url":"https://sipiteno.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this checker really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. No signup, no credit card. It runs two live questions against your store's public agent endpoint, the same one ChatGPT, Gemini and Copilot query."}},{"@type":"Question","name":"What happens if my store is not ready?","acceptedAnswer":{"@type":"Answer","text":"You get the exact questions agents cannot answer. Most stores fix this in 20 minutes by publishing facts in Shopify's Knowledge Base (Sales channels > Agentic > Knowledge base). For the full 12-point picture, Sipiteno offers a written EUR 149 audit with a 5 business day report."}},{"@type":"Question","name":"Where do the answers come from?","acceptedAnswer":{"@type":"Answer","text":"Directly from your store's public Storefront MCP endpoint (store-domain/api/mcp) - the same source AI shopping assistants query. Nothing is invented; you see the raw answers."}}]}</script>
+<style>
+:root{color-scheme:dark}
+body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;background:#0a1220;color:#e2e8f0;line-height:1.6}
+main{max-width:760px;margin:0 auto;padding:48px 24px 96px}
+h1{font-size:2rem;line-height:1.2;margin:0 0 12px}
+h1 span{background:linear-gradient(135deg,#00d4aa,#2deec0);-webkit-background-clip:text;background-clip:text;color:transparent}
+p.lead{color:#94a3b8;font-size:1.08rem;margin:0 0 32px}
+.card{background:#101b2e;border:1px solid #1e293b;border-radius:16px;padding:28px;margin-bottom:24px}
+label{display:block;font-weight:600;margin-bottom:8px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+input[type=text]{flex:1;min-width:240px;background:#0a1220;border:1px solid #334155;border-radius:10px;color:#e2e8f0;padding:14px 16px;font-size:1rem}
+button{background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;border:0;border-radius:10px;padding:14px 28px;font-weight:700;font-size:1rem;cursor:pointer}
+button:disabled{opacity:.55;cursor:wait}
+#result{margin-top:24px}
+.q{border-top:1px solid #1e293b;padding:16px 0}
+.q:first-child{border-top:0}
+.badge{display:inline-block;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.b-missing,.b-generic{background:#7f1d1d;color:#fecaca}
+.b-present{background:#064e3b;color:#a7f3d0}
+.b-error{background:#78350f;color:#fde68a}
+.ans{color:#94a3b8;font-size:.92rem;white-space:pre-wrap;word-break:break-word;margin-top:6px}
+.verdict-big{font-size:1.3rem;font-weight:800;margin:0 0 4px}
+.v0{color:#f87171}.v1{color:#fbbf24}.v2{color:#34d399}
+.cta{display:inline-block;margin-top:18px;background:linear-gradient(135deg,#00d4aa,#2deec0);color:#04130e;padding:14px 30px;border-radius:12px;font-weight:700;text-decoration:none;font-size:1rem}
+.muted{color:#64748b;font-size:.85rem;margin-top:14px}
+details{margin-top:10px;color:#94a3b8}
+details summary{cursor:pointer;color:#38bdf8}
+.faq{color:#94a3b8;font-size:.92rem}
+.faq h2{color:#e2e8f0;font-size:1.15rem;margin:28px 0 8px}
+</style>
+</head>
+<body>
+<main>
+<h1>Can <span>AI shopping agents</span> answer for your store?</h1>
+<p class="lead">Enter your Shopify store domain. We ask your store's public agent endpoint the two questions every December shopper asks, and show you the raw answers, exactly as ChatGPT, Gemini or Copilot would hear them. Free, instant, no signup.</p>
+
+<div class="card">
+<label for="domain">Your store domain</label>
+<div class="row">
+<input type="text" id="domain" placeholder="yourstore.com" autocomplete="off" inputmode="url">
+<button id="go">Check my store</button>
+</div>
+<div id="result"></div>
+<p class="muted">Read-only. We query the public Storefront MCP endpoint (<code>store/api/mcp</code>) that Shopify exposes to AI assistants. We never modify your store.</p>
+</div>
+
+<div class="card faq">
+<h2>What if answers are missing?</h2>
+<p>The fix is free and takes about 20 minutes: in Shopify admin, open <strong>Sales channels → Agentic → Knowledge base</strong>, add your holiday order cutoff and return window as explicit facts, approve and publish. Rescan can take up to 48 hours per Shopify's docs, so do it before Black Friday week.</p>
+<p>For the full 12-point picture (pricing facts, gift services, shipping zones, agent-ready titles and more, with a written report in 5 business days), see the <a href="https://sipiteno.com/shopify-agent-ready" style="color:#38bdf8">Shopify AI Agent-Readiness Audit</a>.</p>
+</div>
+
+<p class="muted">By Sipiteno — <a href="https://sipiteno.com" style="color:#38bdf8">sipiteno.com</a>. Check endpoint: <a href="https://store-check.fly.dev/api/check?domain=example.com" style="color:#38bdf8">public API</a>, open for other tools.</p>
+</main>
+<script>
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const btn=document.getElementById('go'),inp=document.getElementById('domain'),out=document.getElementById('result');
+btn.addEventListener('click',async()=>{
+  let d=inp.value.trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\/.*$/,'').replace(/\/+$/,'');
+  if(!/^[a-z0-9][a-z0-9.-]{1,120}\.[a-z]{2,}$/.test(d)){out.innerHTML='<p style="color:#f87171">Enter a valid domain like yourstore.com</p>';return;}
+  btn.disabled=true;btn.textContent='Checking...';out.innerHTML='<p style="color:#94a3b8">Asking '+esc(d)+' the holiday questions...</p>';
+  try{
+    const r=await fetch('/api/store-check?domain='+encodeURIComponent(d));
+    const j=await r.json();
+    if(j.error){out.innerHTML='<p style="color:#f87171">'+esc(j.error)+'</p>';}
+    else{
+      const vc=j.score===2?'v2':(j.score===1?'v1':'v0');
+      let html='<div class="q"><p class="verdict-big '+vc+'">'+esc(j.verdict_label)+'</p>';
+      j.questions.forEach(q=>{
+        const cls=q.verdict==='present'?'b-present':(q.verdict==='error'?'b-error':'b-missing');
+        const label=q.verdict==='present'?'ANSWERED':(q.verdict==='error'?'ENDPOINT ERROR':(q.verdict==='missing'?'EMPTY':'GENERIC - NO SPECIFICS'));
+        html+='<div class="q"><strong>'+esc(q.question)+'</strong><span class="badge '+cls+'">'+label+'</span><div class="ans">'+esc(q.answer||'(nothing)').slice(0,300)+'</div></div>';
+      });
+      html+='</div>';
+      if(j.score<2)html+='<a class="cta" href="https://buy.stripe.com/bJebJ0cFd6tibAG3jG0x20W">Get the full EUR 149 audit before Black Friday</a><p class="muted">Written report in 5 business days. <a href="https://sipiteno.com/shopify-agent-ready" style="color:#38bdf8">What is checked</a>.</p>';
+      out.innerHTML=html;
+    }
+  }catch(e){out.innerHTML='<p style="color:#f87171">Could not reach the checker. Try again in a minute.</p>';}
+  btn.disabled=false;btn.textContent='Check my store';
+});
+inp.addEventListener('keydown',e=>{if(e.key==='Enter')btn.click();});
+</script>
+</body>
+</html>
