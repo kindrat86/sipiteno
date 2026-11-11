@@ -67,6 +67,10 @@
       "destination": "/api/nlweb"
     },
     {
+      "source": "/api/x402-store-check",
+      "destination": "/api/x402-store-check"
+    },
+    {
       "source": "/agent-hq",
       "destination": "/agent-hq.html"
     },

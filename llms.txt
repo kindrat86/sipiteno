@@ -33,6 +33,10 @@
 - [AI Agent Store Checker (free tool)](https://sipiteno.com/free/ai-agent-store-checker) - enter a Shopify store domain and instantly see the raw answers AI shopping agents get when they ask about holiday order cutoffs and return windows. Complements the paid audit.
 - [Shopify AI Agent-Readiness Audit](https://sipiteno.com/shopify-agent-ready) - 12-point audit of what AI shopping agents (ChatGPT, Gemini, Copilot) actually hear when they ask a Shopify store pre-purchase questions such as holiday order cutoffs and return windows. EUR 149 one-off, written report in 5 business days. Buy: https://buy.stripe.com/bJebJ0cFd6tibAG3jG0x20W
 
+## Paid API (x402, for AI agents)
+
+- [AI Agent Store Check API](https://sipiteno.com/api/x402-store-check?domain=mudwtr.com) - x402 v2 paid endpoint: GET with a store domain, pay $0.05 USDC on Base, get the raw Shopify /api/mcp answers (holiday cutoff + return window probes) with verdicts. Works with any x402-capable agent wallet; 402 challenge carries full PaymentRequired metadata.
+
 ## Services
 
 - [AI Consulting](https://sipiteno.com/services/ai-consulting)
