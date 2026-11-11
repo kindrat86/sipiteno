@@ -1,0 +1,1 @@
+{"version": 1, "resources": ["https://sipiteno.com/api/x402-store-check"], "instructions": "GET /api/x402-store-check?domain=<store-domain> for an AI-agent Shopify store check (holiday cutoff + return window probes). Pay $0.05 USDC on Base using x402 v2; the 402 challenge carries the PaymentRequired spec."}
