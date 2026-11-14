@@ -31,6 +31,7 @@
 - [Shopify AI Agent Express Scan (EUR 49, 24h)](https://buy.stripe.com/7sYdR8cFd4ladIO9I40x21c) - automated 12-point scan of your store run within 24 hours: raw agent answers for every check plus pass/fail per point.
 - [Shopify AI Agent-Readiness Checklist ($29 self-serve)](https://buy.stripe.com/00w7sKcFdaJy8ou2fC0x21b) - the exact 12-point checklist from the audit as an instant download for stores fixing it themselves.
 - [AI Agent Store Checker (free tool)](https://sipiteno.com/free/ai-agent-store-checker) - enter a Shopify store domain and instantly see the raw answers AI shopping agents get when they ask about holiday order cutoffs and return windows. Complements the paid audit.
+- [AI Agent Check Leaderboard](https://sipiteno.com/free/agent-check-leaderboard) - point-in-time results of asking 30 major Shopify stores what the last day to order before Christmas is; 29 of 30 return nothing. Checked 14 Nov 2026.
 - [Shopify AI Agent-Readiness Audit](https://sipiteno.com/shopify-agent-ready) - 12-point audit of what AI shopping agents (ChatGPT, Gemini, Copilot) actually hear when they ask a Shopify store pre-purchase questions such as holiday order cutoffs and return windows. EUR 149 one-off, written report in 5 business days. Buy: https://buy.stripe.com/bJebJ0cFd6tibAG3jG0x20W
 
 ## Paid API (x402, for AI agents)
