@@ -17,9 +17,7 @@ export default async function handler(req, res) {
   if (!PAY_TO) return res.status(503).json({ error: "not_configured" });
 
   const domain = (req.query.domain || "").trim().toLowerCase();
-  if (!domain || !/^[a-z0-9.-]+\.[a-z]{2,}$/.test(domain)) {
-    return res.status(400).json({ error: "invalid_domain", example: "/api/x402-store-check?domain=mudwtr.com" });
-  }
+  const domainValid = domain && /^[a-z0-9.-]+\.[a-z]{2,}$/.test(domain);
 
   const requirements = {
     scheme: "exact",
@@ -107,7 +105,10 @@ export default async function handler(req, res) {
     return res.status(402).json({ error: settled.errorReason || settled.transportError || "payment_settlement_failed" });
   }
 
-  // Paid. Run the actual check.
+  // Paid. Validate domain now (challenge is protocol-first).
+  if (!domainValid) {
+    return res.status(400).json({ error: "invalid_domain", example: "/api/x402-store-check?domain=mudwtr.com", note: "payment was settled; contact sales@sipiteno.com for refund" });
+  }
   const backend = await fetch(`https://store-check.fly.dev/api/check?domain=${encodeURIComponent(domain)}`, { signal: AbortSignal.timeout(30000) });
   const result = await backend.json().catch(() => ({}));
 
