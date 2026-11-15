@@ -89,16 +89,18 @@ const LeadMagnet = () => {
               <h3 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">{t("leadMagnet.formTitle")}</h3>
               <p className="text-muted-foreground text-xs md:text-sm">{t("leadMagnet.formBody")}</p>
             </div>
-            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+            <form method="post" onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
               <div>
                 <Label htmlFor="lm-name" className="text-foreground text-sm">{t("leadMagnet.firstName")} <span className="text-muted-foreground font-normal">{t("leadMagnet.optional")}</span></Label>
-                <Input id="lm-name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("leadMagnet.firstNamePlaceholder")} className="mt-1" />
+                <Input id="lm-name"
+                name="lm-name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t("leadMagnet.firstNamePlaceholder")} className="mt-1" />
               </div>
               <div>
                 <Label htmlFor="lm-email" className="text-foreground text-sm">{t("leadMagnet.emailAddress")} <span className="text-destructive">*</span></Label>
-                <Input id="lm-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("leadMagnet.emailPlaceholder")} className="mt-1" required autoComplete="email" />
+                <Input id="lm-email"
+                name="lm-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("leadMagnet.emailPlaceholder")} className="mt-1" required autoComplete="email" />
               </div>
-              <input type="text" name="honeypot" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+              <input type="text" name="honeypot" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} style={{ display: "none" }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
               <Button type="submit" size="lg" className="w-full font-bold text-base md:text-lg h-12 md:h-14 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 disabled:hover:translate-y-0" disabled={isSubmitting}>
                 {isSubmitting ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{t("leadMagnet.sending")}</> : t("leadMagnet.submitButton")}
               </Button>
