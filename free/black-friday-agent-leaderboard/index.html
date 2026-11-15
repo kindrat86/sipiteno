@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Black Friday Agent Check: 19 of 22 major Shopify stores cannot answer AI agents about Black Friday deals | Sipiteno</title>
+<meta name="description" content="We asked the public Shopify agent endpoint (/api/mcp) of 22 major D2C stores about Black Friday deals. 19 of 22 return nothing. Black Friday is 10 days away and ChatGPT cannot quote their discounts. See the raw results and check your own store free.">
+<link rel="canonical" href="https://sipiteno.com/free/black-friday-agent-leaderboard">
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:820px;margin:0 auto;padding:32px 20px;line-height:1.6;color:#1a1a1a}
+h1{font-size:1.6rem} .bad{color:#dc2626;font-weight:600} .warn{color:#d97706;font-weight:600} .ok{color:#16a34a;font-weight:600}
+table{border-collapse:collapse;width:100%;margin:18px 0}
+td,th{border:1px solid #e5e7eb;padding:7px 10px;text-align:left;font-size:.92rem}
+.cta{background:#2563eb;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;display:inline-block;font-weight:600;margin:10px 0}
+.note{color:#555;font-size:.9rem}
+</style>
+</head>
+<body>
+<h1>Black Friday Agent Check: what AI agents hear when shoppers ask about your Black Friday deals</h1>
+<p>We asked each store's public agent endpoint (<code>/api/mcp</code> - the FAQ tool Shopify exposes to ChatGPT, Gemini and Copilot) the question a November shopper's AI assistant will ask: <em>"What are your Black Friday deals and discounts?"</em></p>
+<p><strong>19 of 22 tested stores return NOTHING.</strong> Black Friday is in 10 days. When a customer asks ChatGPT or Gemini where to buy and what the deals are, these stores are invisible - the agent has no deal information to quote, so it recommends competitors. Checked 2026-11-15.</p>
+<table>
+<tr><th>Store</th><th>Black Friday deals answer</th></tr>
+<tr><td>casper.com</td><td class="bad">nothing</td></tr>
+<tr><td>gymshark.com</td><td class="bad">nothing</td></tr>
+<tr><td>brooklinen.com</td><td class="bad">nothing</td></tr>
+<tr><td>allbirds.com</td><td class="bad">nothing</td></tr>
+<tr><td>harrys.com</td><td class="bad">nothing</td></tr>
+<tr><td>deathwishcoffee.com</td><td class="bad">nothing</td></tr>
+<tr><td>rumpl.com</td><td class="bad">nothing</td></tr>
+<tr><td>saxx.com</td><td class="bad">nothing</td></tr>
+<tr><td>tuftandneedle.com</td><td class="bad">nothing</td></tr>
+<tr><td>flyby.co</td><td class="bad">nothing</td></tr>
+<tr><td>goruck.com</td><td class="bad">nothing</td></tr>
+<tr><td>tenthousand.cc</td><td class="bad">nothing</td></tr>
+<tr><td>materialkitchen.com</td><td class="bad">nothing</td></tr>
+<tr><td>knix.com</td><td class="bad">nothing</td></tr>
+<tr><td>cuyana.com</td><td class="bad">nothing</td></tr>
+<tr><td>sunski.com</td><td class="bad">nothing</td></tr>
+<tr><td>betabrand.com</td><td class="bad">nothing</td></tr>
+<tr><td>taylorstitch.com</td><td class="bad">nothing</td></tr>
+<tr><td>bonescoffee.com</td><td class="bad">nothing</td></tr>
+<tr><td>chubbies.com</td><td class="warn">generic - "check our site / sign up for email"</td></tr>
+<tr><td>mackweldon.com</td><td class="ok">present - describes active promotions</td></tr>
+<tr><td>mejuri.com</td><td class="note">blocked our check (403)</td></tr>
+</table>
+<p class="note">"nothing" = the endpoint returns an empty result set for the deals question. "generic" = no specifics, sends the shopper back to the website. Checks are point-in-time (2026-11-15); stores update their Knowledge base all the time. mejuri.com rate-limited our probe, so it is listed but not scored.</p>
+<p><a class="cta" href="/free/ai-agent-store-checker">Check your own store free - 10 seconds, no signup</a></p>
+<p>Own one of these stores? The fix is free and takes 10 minutes: Shopify admin → Sales channels → Agentic → Knowledge base, add a "Black Friday 2026" FAQ with your actual deal dates and discounts. Or <a href="/shopify-agent-ready">order the full audit</a> (EUR 149, 5 business days, scan price credited).</p>
+<p class="note">Also see the <a href="/free/agent-check-leaderboard">holiday-cutoff leaderboard</a>: 29 of 30 stores fail that question too.</p>
+</body>
+</html>
