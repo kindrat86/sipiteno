@@ -35,6 +35,21 @@ for page in builds calculator story market-entry-scorecard affiliates; do
   grep -q "\"source\": \"/$page\"" vercel.json || fail "vercel.json has no /$page rewrite — clean URL would 404"
 done
 
+# /shopify-agent-ready lives in public/ so Vite copies it to dist/. cleanUrls
+# serves the directory index; no extra rewrite. /ai-agent-store-checker is the
+# cold-email short URL and must 308 to the free checker. Vercel forwards the
+# query string on redirects unless the destination sets its own.
+test -f dist/shopify-agent-ready/index.html || fail "dist/shopify-agent-ready/index.html missing — offer landing not in public/ (Vite will not emit it)"
+node --input-type=module -e '
+import { readFileSync } from "node:fs";
+const v = JSON.parse(readFileSync("vercel.json", "utf8"));
+const r = (v.redirects || []).find((x) => x.source === "/ai-agent-store-checker");
+if (!r) { console.error("no /ai-agent-store-checker redirect"); process.exit(1); }
+if (r.destination !== "/free/ai-agent-store-checker") { console.error("redirect destination is " + r.destination); process.exit(1); }
+if (r.permanent !== true) { console.error("redirect is not permanent"); process.exit(1); }
+' || fail "vercel.json /ai-agent-store-checker redirect must be permanent to /free/ai-agent-store-checker"
+test -f dist/free/ai-agent-store-checker/index.html || fail "dist/free/ai-agent-store-checker/index.html missing"
+
 node scripts/check-growth-log.mjs || fail "growth experiment log failed content/source validation"
 test -f dist/research/organic-growth-experiment/index.html || fail "growth experiment page not copied"
 test -f dist/research/organic-growth-experiment/sources.json || fail "growth experiment source manifest not copied"

@@ -392,6 +392,11 @@
   ],
   "redirects": [
     {
+      "source": "/ai-agent-store-checker",
+      "destination": "/free/ai-agent-store-checker",
+      "permanent": true
+    },
+    {
       "source": "/dream100",
       "destination": "/research/organic-growth-experiment",
       "permanent": true
