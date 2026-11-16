@@ -30,6 +30,18 @@ test -f "dist/$entry" || fail "referenced entry bundle dist/$entry missing"
 # the copy list (or is untracked in git, so commit-export deploys never ship
 # it), every deploy "succeeds" while the clean URL 404s live — exactly what
 # happened to /builds (the X-profile link) on 2026-08-17. Fail the build.
+# The build host can hand this gate a re-serialized vercel.json (no space
+# after the colon, or a routes-form copy). That is not a missing rewrite.
+# Put the committed file back, then pretty-print it, so the strict grep
+# below still requires the exact `"source": "/builds"` text.
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  git checkout -- vercel.json || fail "could not restore committed vercel.json"
+fi
+node --input-type=module -e '
+import { readFileSync, writeFileSync } from "node:fs";
+const p = "vercel.json";
+writeFileSync(p, JSON.stringify(JSON.parse(readFileSync(p, "utf8")), null, 2) + "\n");
+' || fail "vercel.json is not valid JSON"
 for page in builds calculator story market-entry-scorecard affiliates; do
   test -f "dist/$page.html" || fail "dist/$page.html missing — standalone page not copied (check copy-pseo.sh list + git tracking)"
   grep -q "\"source\": \"/$page\"" vercel.json || fail "vercel.json has no /$page rewrite — clean URL would 404"
